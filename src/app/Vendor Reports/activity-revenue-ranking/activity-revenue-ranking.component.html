@@ -1,0 +1,271 @@
+<div class="mainOuter border">
+
+  <!-- UpperBody Starts..... -->
+
+  <div class="upperBody">
+    <form #vendorActivity="ngForm" (ngSubmit)="onSubmit(vendorActivity.value)">
+
+    <div class="outer container">
+      <div class="row">
+        <div class="col-xl-6 body1">
+          <div class="innerBody1Outer">
+            <div class="inner1">
+              <div class="row">
+                <div class="col-sm-3 col-6 extra-padding">
+                  <div class="radio-item">
+                    <input ngModel type="radio" id="dateRange1" name="dateRange" value="30">
+                    <label for="dateRange1">Last 30 days</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-6 extra-padding">
+                  <div class="radio-item">
+                    <input ngModel type="radio" id="dateRange2" name="dateRange" value="60">
+                    <label for="dateRange2">Last 60 days</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 dateRange radio-item">
+                  <input  type="radio" id="dateRange3" name="dateRange">
+                  <label for="dateRange3">
+                  </label>
+                  <!-- <input pInputText type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"
+                    placeholder="Date range" for="dateRange3" /> -->
+                  <input ngModel pInputText type="text" name="dateRange" class="form-control" bsDaterangepicker [bsConfig]="{ isAnimated: true }"
+                    placeholder="Date range" for="dateRange3">
+                  <i class="pi pi-calendar"></i>
+                </div>
+              </div>
+            </div>
+            <div class="inner4">
+              <div class="row">
+                <div class="col-sm-8 input1">
+                  <input type="text"  ngModel name="vendor_name" pInputText placeholder="All Vendors Name">
+                </div>
+                <div class="col-sm-4 input2">
+                  <input type="text"  ngModel name="vendor_code" pInputText placeholder="Vendor code">
+                </div>
+              </div>
+            </div>
+            <div class="inner2">
+              <div class="row">
+                <div class="col-sm-6 dropdown1">
+                  <p-dropdown [options]="cities2" name="country" ngModel placeholder="All Countries"
+                    optionLabel="name" [showClear]="false">
+                  </p-dropdown>
+                </div>
+                <div class="col-sm-6 dropdown2">
+                  <p-dropdown [options]="cities"name="cities" ngModel placeholder="All Cities" optionLabel="name"
+                    [showClear]="false">
+                  </p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="inner3 d-flex justify-content-center">
+              <div class="icon">
+                <i class="pi pi-youtube"></i>
+              </div>
+              <div class="button">
+                <!-- <button pButton pRipple type="button" label="Reset" class="p-button-outlined p-button-success"></button> -->
+                <button pButton label="Search" pRipple class="p-button-outlined p-button-success" type = "submit" value = "submit">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 body2">
+          <div class="innerBody2Outer">
+            <div class="search">
+              <i class="pi pi-search" [ngClass]="searchInput?'searchColor':'searchColor2'"></i>
+              <input type="text" (input)="onSearchChange($event)" pInputText ="searchInput">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
+
+  <!-- UpperBody Ends..... -->
+
+
+  <div class="tabs">
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="tabsInner">
+          <a routerLink="/vendors-revenue-ranking">Vendor</a>
+          <a routerLink="/activity-revenue-ranking" class="activeTab">Activity</a>
+          <a routerLink="/vendor-location-revenue-ranking">Vendor location</a>
+          <a routerLink="/city-revenue-ranking">City</a>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="downloadCSV">
+          <img src="../../../assets/categoryStatistics/Download_Icon.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Table Starts..... -->
+  <div class="tableOuter border-top table-responsive text-nowrap">
+    <table class="table table-borderless text-center">
+      <thead class="forBG">
+        <tr>
+          <th scope="col" class="noCol">
+            No.
+          </th>
+          <th scope="col" class="text-left">
+            Activity title
+            <br>
+            Activity code
+          </th>
+          <th scope="col" class="text-left">
+            Vendor name
+            <br>
+            Vendor code
+          </th>
+          <th scope="col">
+            Category
+            <br>
+            Sub-category
+          </th>
+          <th scope="col">
+            Revenue
+            <br>
+            (INR)
+          </th>
+          <th scope="col">
+            Number of
+            <br>
+            registrations
+          </th>
+          <th scope="col">
+            Revenue per
+            <br>
+            registrant
+          </th>
+          <th scope="col">
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody class="border-top">
+
+        <tr *ngFor='let vendor of vendorData' class="border-bottom">
+          <td scope="row" class="noCol">
+            <div class="title1">
+              <p>
+                1
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left">
+            <div class="title3">
+              <p>
+                {{vendor.activity_title}}
+              </p>
+            </div>
+            <div class="title2">
+              <p>
+                {{vendor.activity_code}}
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left">
+            <div class="title1">
+              <p>
+                {{vendor.vendor_name}}
+              </p>
+            </div>
+            <div class="title2">
+              <p>
+                {{vendor.vendor_code}}
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title1">
+              <p>
+                Language
+              </p>
+            </div>
+            <div class="title2">
+              <p>
+                English
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                2,356,712
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title2">
+              <p>
+                {{vendor.revenue_per_registration}}
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title1">
+              <p>
+                {{vendor.number_of_registration}}
+              </p>
+            </div>
+          </td>
+          <td>
+            <div class="ellipsisOuter">
+              <div class="statusOuter">
+                <div class="{{vendor.status == 1 ? 'status ActiveStatus':'status SuspendStatus'}}">
+                  <div class="circleDiv"></div>
+                  <div class="ActualStatus">
+                    <p> {{vendor.status == 1 ? 'Active':'Suspend'}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Table Ends...... -->
+
+  <!-- Pagination Starts...... -->
+  <div class="paginationOuter">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="rowsOuter">
+          <p>Rows per page:</p>
+          <div class="selectNoOfRow select">
+
+            <select class="form-control select__field" aria-label="Default select example">
+              <option selected value="1">10</option>
+              <option value="2">20</option>
+              <option value="3">30</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="pagesOuter">
+          <p>1 of 6</p>
+          <div class="iconPrevious">
+            <a href="#">
+              <img src="../../../assets/Pagination/Vector1.svg" alt="">
+            </a>
+          </div>
+          <div class="iconNext">
+            <a href="#">
+              <img src="../../../assets/Pagination/Vector2.svg" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Pagination Ends...... -->
+</div>

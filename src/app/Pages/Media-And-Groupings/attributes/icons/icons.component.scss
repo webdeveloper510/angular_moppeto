@@ -1,0 +1,74 @@
+@import "../../../../SCSS/Table/tableDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../SCSS/ngxDropZone/ngxDropZoneCustomDesign";
+
+$whiteColor: #fff;
+$redColor: #da6c70;
+$greenButtonColor: #4dc5af;
+$tdTitle1Color: #4e4e4e;
+$tdTitle2Color: #4f4f4f;
+$addIconColor: #6fcf97;
+$blueButtonColor: #396aff;
+
+:host ::ng-deep ngx-dropzone-remove-badge {
+    @media (max-width: 1199px) {
+        top: 3.5rem !important;
+    }
+}
+
+.tableOuter {
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    .table {
+        tbody {
+            tr {
+                td {
+                    padding-top: 2.2rem;
+                    padding-bottom: 2.2rem;
+                    .title1 {
+                        @include tableData(1.35rem, $tdTitle1Color, 600);
+                        p {
+                            line-height: 2;
+                            word-spacing: 0.7rem;
+                        }
+                    }
+                    .title2 {
+                        @include tableData(1.3rem, $tdTitle2Color, 700);
+                    }
+                }
+            }
+        }
+    }
+
+    .forNo {
+        width: 17rem;
+        padding-right: 5rem;
+    }
+
+    .forCategory {
+        width: 17rem;
+    }
+    .forIcon {
+        @media (max-width: 767px) {
+            width: 21rem;
+        }
+    }
+
+    .forIconTH {
+        width: 17rem;
+    }
+
+    @media (max-width: 767px) {
+        th,
+        td {
+            width: 19rem;
+        }
+    }
+    .imgOuter {
+        height: 15rem;
+        width: 17rem;
+        .custom-dropzone {
+            border-radius: 1.5rem;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+@import "../../SCSS/MainOuter/mainOuterDesign";
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$greyColor: #bdbdbd;
+$blackColor: #333333;
+
+.tabs {
+    margin: 2.5rem 0 0 0;
+    @include displayFlex(flex-start, center);
+    .tabLinks {
+        a {
+            text-align: center;
+            display: block;
+            @include forParaTag($greyColor, 1.5rem, 500);
+            text-decoration: none;
+        }
+        .activeRouter {
+            @include forParaTag($blackColor, 1.5rem, 600);
+            border-bottom: solid $blackColor 0.25rem;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<div class="mainOuter border">
+
+    <div class="addCuppon" *ngIf="isActionButtonVisible">
+        <button pButton pRipple type="button" label="New attribute group" class="p-button-success"
+            (click)="addNewAttribute()"></button>
+    </div>
+
+
+    <div class="tabs" [ngClass]="!isActionButtonVisible?'extraMargin':''">
+        <div class="tabLinks">
+            <a routerLink="attributes" routerLinkActive="activeRouter">Attributes</a>
+        </div>
+        <div class="tabLinks">
+            <a routerLink="icons" routerLinkActive="activeRouter">Icons</a>
+        </div>
+    </div>
+
+    <div class="mainContent">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

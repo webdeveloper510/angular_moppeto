@@ -1,0 +1,158 @@
+@import "../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$bodyBG: #f0f0f0;
+$blackColor: #333333;
+$whiteColor: #fff;
+$blueColor: #396aff;
+$tealColor: #05cfab;
+$disabledColor: #bdbdbd;
+$nevyBlueColor: #2c3581;
+$blackColor2: #484848;
+
+.mainBodyOuter {
+    background-color: $bodyBG;
+    margin: -1.5rem -1.5rem -3.5rem -1.5rem;
+    border-radius: 2.5rem;
+    padding: 2.75rem 3.5rem;
+    @media (max-width: 337px) {
+        padding: 2.75rem;
+    }
+}
+
+.upperDropdownAndEditButton {
+    @include displayFlex(space-between, center);
+    @media (max-width: 477px) {
+        display: block;
+    }
+    .upperLocDropdown {
+        width: 25rem;
+        @media (max-width: 477px) {
+            margin: 0 auto;
+        }
+    }
+    .topEditButton {
+        @include buttonDesign(1.4rem, 500, 00.35rem, 1rem, 0.2rem, 0.7rem);
+        .p-button-success {
+            @include classWisebuttonDesign($tealColor, $tealColor, $whiteColor, $tealColor);
+        }
+        @media (max-width: 477px) {
+            margin: 2rem auto 1rem auto;
+            width: max-content;
+        }
+    }
+}
+
+.nameEmailOuter {
+    margin: 2rem 0 5rem 0;
+    padding: 2.5rem 1.75rem;
+    background-color: $whiteColor;
+    box-shadow: 0 0.2rem 0.5rem $disabledColor;
+    border-radius: 1.25rem;
+    @include displayFlex(space-between, stretch);
+    @media (max-width: 665px) {
+        display: block;
+    }
+    .namePart {
+        width: 30rem;
+        padding-right: 1.25rem;
+        @media (max-width: 665px) {
+            width: 100%;
+        }
+    }
+    .emailPart {
+        width: calc(100% - 30rem);
+        @media (max-width: 665px) {
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+    }
+    .namePart,
+    .emailPart {
+        .labelText {
+            p {
+                @include forParaTag($disabledColor, 1.3rem, 500);
+            }
+        }
+        .dataText {
+            p {
+                @include forParaTag($nevyBlueColor, 1.45rem, 500);
+            }
+        }
+    }
+}
+
+.paymentMethodsOuter {
+    border: solid 0.75rem $blackColor2;
+    border-radius: 0.85rem;
+    padding: 2.25rem 5rem;
+    background-color: $whiteColor;
+    @media (max-width: 427px) {
+        padding: 2.25rem 2.5rem;
+    }
+    .paymentMethodsInner {
+        &:not(:last-child) {
+            padding-bottom: 2.25rem;
+            margin-bottom: 2.25rem;
+            border-bottom: solid $disabledColor 0.2rem;
+        }
+        .paymentTypeText {
+            margin-bottom: 0.75rem;
+            p {
+                @include forParaTag($blackColor, 1.7rem, 700);
+            }
+        }
+        .paymentMethods {
+            @include displayFlex(flex-start, center);
+            img {
+                width: 5rem;
+                max-height: 3.65rem;
+                &:not(:last-child) {
+                    margin-right: 2rem;
+                    @media (max-width: 427px) {
+                        margin-right: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bottomSection {
+    margin-top: 1.5rem;
+    @include displayFlex(space-between, center);
+    @media (max-width: 767px) {
+        display: block;
+    }
+    .leftText {
+        @include displayFlex(flex-start, center);
+        @media (max-width: 767px) {
+            width: max-content;
+            margin: 0 auto;
+        }
+        p {
+            @include forParaTag($blackColor, 1.5rem, 500);
+        }
+        img {
+            margin-left: 1rem;
+            width: 7rem;
+            @media (max-width: 377px) {
+                margin-left: 0.5rem;
+                width: 5rem;
+            }
+        }
+    }
+    .rightText {
+        @media (max-width: 767px) {
+            text-align: center;
+            margin: 0.5rem auto 0 auto;
+        }
+        p {
+            @include forParaTag($blackColor, 1.35rem, 500);
+        }
+        span {
+            text-decoration: underline;
+            color: $blueColor;
+        }
+    }
+}

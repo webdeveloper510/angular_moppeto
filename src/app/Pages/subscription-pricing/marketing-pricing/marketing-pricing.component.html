@@ -1,0 +1,106 @@
+<div class="mainOuter border" [ngClass]="isEdit?'overlayBodyTrue':''">
+    <div class="upperBodyOuter">
+        <div class="countryRadioOuter upOuter">
+            <div class="upperRadioDivOuter">
+                <p>Select country</p>
+                <div class="radioInner">
+                    <div class="row colOuter align-items-start">
+                        <div class="col-sm-6">
+                            <div class="leftRadio">
+                                <div class="forRadio"
+                                    *ngFor="let country of country | slice:0:country.length/2; index as i">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{country+i}}" name="country" value="{{country+i}}"  (click)="dataEntry(country, 'cou')">
+                                        <label for="{{country+i}}">{{country}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="rightRadio">
+                                <div class="forRadio"
+                                    *ngFor="let country of country | slice:(country.length/2):country.length; index as i">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{country+i}}" name="country" value="{{country+i}}" (click)="dataEntry(country, 'cou')">
+                                        <label for="{{country+i}}">{{country}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cityRadioOuter upOuter">
+            <div class="upperRadioDivOuter">
+                <p>Select city</p>
+                <div class="radioInner">
+                    <div class="row colOuter align-items-start">
+                        <div class="col-sm-6">
+                            <div class="leftRadio">
+                                <div class="forRadio" *ngFor="let city of city | slice:0:city.length/2; index as i">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{city+i}}" name="city" value="{{city+i}}" (click)="dataEntry(city, 'cit')">
+                                        <label for="{{city+i}}">{{city}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="rightRadio">
+                                <div class="forRadio"
+                                    *ngFor="let city of city | slice:(city.length/2):city.length; index as i">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{city+i}}" name="city" value="{{city+i}}"  (click)="dataEntry(city, 'cit')">
+                                        <label for="{{city+i}}">{{city}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pricingRadioOuter upOuter" *ngIf="!routerState.url.includes('/settings')">
+            <div class="upperRadioDivOuter">
+                <p>Subscription type</p>
+                <div class="radioInner">
+                    <div class="row colOuter">
+                        <div class="col">
+                            <div class="rightRadio">
+                                <div class="forRadio" *ngFor="let pricing of pricing; index as i">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{pricing+i}}" name="pricing" value="{{pricing+i}}"
+                                            (change)="vendorName.value='';vendorCode.value=''">
+                                        <label for="{{pricing+i}}">{{pricing}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <div class="tabLinks">
+            <a routerLink="settings" routerLinkActive="activeRouter">Settings</a>
+        </div>
+        <div class="tabLinks">
+            <a routerLink="banner-pricing" routerLinkActive="activeRouter">Banner pricing</a>
+        </div>
+        <div class="tabLinks">
+            <a routerLink="header-pricing" routerLinkActive="activeRouter">Header pricing</a>
+        </div>
+        <div class="tabLinks">
+            <a routerLink="trending-pricing" routerLinkActive="activeRouter">Trending pricing</a>
+        </div>
+        <div class="tabLinks">
+            <a routerLink="search-words" routerLinkActive="activeRouter">Search words</a>
+        </div>
+    </div>
+    <div class="mainInner">
+        <router-outlet></router-outlet>
+    </div>
+</div>

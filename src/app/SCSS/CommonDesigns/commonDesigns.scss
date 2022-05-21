@@ -1,0 +1,65 @@
+@mixin buttonDesign($fontSize, $fontWeight, $paddingTopBottom, $paddingLeftRight, $borderWidth, $borderRadius) {
+    button {
+        font-size: $fontSize;
+        font-weight: $fontWeight;
+        padding: $paddingTopBottom $paddingLeftRight;
+        border-width: $borderWidth;
+        border-radius: $borderRadius;
+        cursor: pointer;
+    }
+}
+
+@mixin classWisebuttonDesign($bgColor, $borderColor, $color, $outlineColor) {
+    background-color: $bgColor;
+    border-color: $borderColor;
+    color: $color;
+    &:focus {
+        outline: $outlineColor;
+        box-shadow: 0 0 0.27rem $bgColor;
+    }
+}
+
+@mixin displayFlex($justifyContent, $alignItems) {
+    display: flex;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}
+
+@mixin forParaTag($color, $fontSize, $fontWeight) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
+
+@mixin scrollBar(
+    $overflowX,
+    $overflowY,
+    $scrollbarHeight,
+    $scrollbarWidth,
+    $scrollbarTrackMarginTopBottom,
+    $scrollbarTrackMarginLeftRight,
+    $scrollbarTrackBorderRadius,
+    $scrollbarTracBG,
+    $scrollbarThumbColor,
+    $scrollbarThumbBorderRadius
+) {
+    overflow-x: $overflowX;
+    overflow-y: $overflowY;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        height: $scrollbarHeight;
+        width: $scrollbarWidth;
+    }
+
+    &::-webkit-scrollbar-track {
+        margin: $scrollbarTrackMarginTopBottom $scrollbarTrackMarginLeftRight;
+        border-radius: $scrollbarTrackBorderRadius;
+        background: $scrollbarTracBG;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $scrollbarThumbColor;
+        border-radius: $scrollbarThumbBorderRadius;
+    }
+}

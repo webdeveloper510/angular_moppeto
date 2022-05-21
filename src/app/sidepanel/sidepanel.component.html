@@ -1,0 +1,811 @@
+<div class="mainContainer container">
+
+    <!-- ***TopBody Starts -->
+    <div class="topOuter">
+
+
+        <div class="topHeader container">
+            <div class="outerMain d-flex">
+
+                <div class="mainOuter1">
+                    <div class="outer1 d-flex">
+                        <div class="logoBarAndName">
+                            <div class="logo">
+                                <img src="../../assets/demo/images/avatar/bernardodominic.png" alt="">
+                            </div>
+                            <div class="name collapse" id="sidebarCollapse">
+                                <p>First Name</p> <br>
+                                <p>Last Name</p>
+                            </div>
+                            <div class="toogleIcon">
+                                <a class="" data-toggle="collapse" href="#sidebarCollapse" role="button"
+                                    aria-expanded="false" aria-controls="sidebarCollapse" (click)="removeShowClass()">
+                                    <span>
+
+                                        <img src="../../assets/Sidepanel Icons/Collapse Expand (Grey).svg" alt="">
+
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="breadCrumpsLinks" [ngClass]="extraMarginSideBody? '' : 'breadCrumpsLinksDisplay'">
+                            <div class="text1">
+                                <p *ngIf="breadCrumb.parentName">{{breadCrumb.parentName}}</p>
+                            </div>
+                            <div class="nextIcon" *ngIf="breadCrumb.childName">
+                                <img src="../../assets/Sidepanel Icons/Arrow - top panel navigation (White).svg" alt="">
+                            </div>
+                            <div class="text1">
+                                <p *ngIf="breadCrumb.childName">{{breadCrumb.childName}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mainOuter2">
+                    <div class="outer2">
+                        <div class="commentOuter">
+                            <div class="comment">
+                                <div class="commentIcon">
+                                    <img src="../../assets/Sidepanel Icons/Message (White).svg" alt="">
+                                </div>
+                                <div class="noOfComment">
+                                    <p>10</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <!-- *** /TopBody Ends -->
+
+
+
+    <!-- ***SideBar Body Starts -->
+
+
+    <div class="sidebarBody">
+
+        <div class="panelBody">
+
+            <div class="vendorName collapse border-bottom" id="sidebarCollapse">
+                <p>Name of vendor shown to users</p>
+            </div>
+
+            <div class="actualSideLinks">
+
+                <div class="forScroll">
+
+
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Dash')"
+                            [ngClass]="activeClass.activeParentClass=='Dash'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Dashboard"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkDashboard" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/Dashboard-disabled.svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/Dashboard-White.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkDashboard" role="button" aria-expanded="false"
+                                aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Dashboard</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkDashboard">
+                            <div class="sublink1" (click)="switchActiveClass('Dash','Dash1')"
+                                [ngClass]="activeClass.activeChildClass=='Dash1'?'activeSubLinks':''">
+                                <a routerLink="/" (click)="changeBreadcrumb('Dashboard','Dashboard')">-
+                                    Dashboard</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Act')"
+                            [ngClass]="activeClass.activeParentClass=='Act'?'activeLink':''">
+
+                            <div class="icons" placement="right" ngbTooltip="Activity reports"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkActivity" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/Activity mgt (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/Activity mgt (White).svg" alt="">
+                                </div>
+
+                            </div>
+
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkActivity" role="button" aria-expanded="false"
+                                aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Activity reports</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkActivity">
+                            <div class="sublink1" (click)="switchActiveClass('Act','Act1')"
+                                [ngClass]="activeClass.activeChildClass=='Act1'?'activeSubLinks':''">
+                                <a routerLink="activity-management"
+                                    (click)="changeBreadcrumb('Activity reports','Activity management')">- Activity
+                                    management</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Act','Act2')"
+                                [ngClass]="activeClass.activeChildClass=='Act2'?'activeSubLinks':''">
+                                <a routerLink="activity-management/class-list"
+                                    (click)="changeBreadcrumb('Activity reports','Class list')">-
+                                    Class list</a>
+                            </div>
+                            <!-- <div class="sublink1" (click)="switchActiveClass('Act','Act3')"
+                                [ngClass]="activeClass.activeChildClass=='Act3'?'activeSubLinks':''">
+                                <a routerLink="#"
+                                    (click)="changeBreadcrumb('Activity reports','Past participants/Evaluation')">-
+                                    Past
+                                    participants/Evaluation</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Act','Act4')"
+                                [ngClass]="activeClass.activeChildClass=='Act4'?'activeSubLinks':''">
+                                <a routerLink="#" (click)="changeBreadcrumb('Activity reports','Term renewal')">- Term
+                                    renewal</a>
+                            </div> -->
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('VendorRepo')"
+                            [ngClass]="activeClass.activeParentClass=='VendorRepo'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Vendor reports"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkVendorReports" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/Reports (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/Reports (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkVendorReports" role="button" aria-expanded="false"
+                                aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Vendor reports</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkVendorReports">
+                            <div class="sublink1" (click)="switchActiveClass('VendorRepo','VendorRepo1')"
+                                [ngClass]="activeClass.activeChildClass=='VendorRepo1'?'activeSubLinks':''">
+                                <a routerLink="vendors-revenue-ranking"
+                                    (click)="changeBreadcrumb('Vendor Reports','Revenue')">- Revenue</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('VendorRepo','VendorRepo2')"
+                                [ngClass]="activeClass.activeChildClass=='VendorRepo2'?'activeSubLinks':''">
+                                <a routerLink="category-statistics"
+                                    (click)="changeBreadcrumb('Vendor Reports','Category statistics')">- Category
+                                    statistics</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Revenue')"
+                            [ngClass]="activeClass.activeParentClass=='Revenue'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Revenue"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkRevenue" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/Activity mgt (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/Activity mgt (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkRevenue" role="button" aria-expanded="false" aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Revenue</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkRevenue">
+                            <div class="sublink1" (click)="switchActiveClass('Revenue','Revenue1')"
+                                [ngClass]="activeClass.activeChildClass=='Revenue1'?'activeSubLinks':''">
+                                <a routerLink="subscription-revenue"
+                                    (click)="changeBreadcrumb('Revenue','Subscription revenue')">- Subscription
+                                    revenue</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Revenue','Revenue2')"
+                                [ngClass]="activeClass.activeChildClass=='Revenue2'?'activeSubLinks':''">
+                                <a routerLink="advertising-revenue/summary"
+                                    (click)="changeBreadcrumb('Revenue','Advertising revenue')">- Advertising
+                                    revenue</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('SubscriptionAndPricing')"
+                            [ngClass]="activeClass.activeParentClass=='SubscriptionAndPricing'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Subscription & pricing"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkSubscriptionAndPricing" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/Publicity _ promotions (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/Publicity _ promotions (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkSubscriptionAndPricing" role="button" aria-expanded="false"
+                                aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Subscription & pricing</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkSubscriptionAndPricing">
+                            <div class="sublink1"
+                                (click)="switchActiveClass('SubscriptionAndPricing','linkSubscriptionAndPricing1')"
+                                [ngClass]="activeClass.activeChildClass=='linkSubscriptionAndPricing1'?'activeSubLinks':''">
+                                <a routerLink="subscription-pricing"
+                                    (click)="changeBreadcrumb('Subscription & pricing','Subscription pricing')">-
+                                    Subscription pricing</a>
+                            </div>
+                            <div class="sublink1"
+                                (click)="switchActiveClass('SubscriptionAndPricing','linkSubscriptionAndPricing2')"
+                                [ngClass]="activeClass.activeChildClass=='linkSubscriptionAndPricing2'?'activeSubLinks':''">
+                                <a routerLink="subscription-pricing/marketing-pricing/settings"
+                                    (click)="changeBreadcrumb('Subscription & pricing','Marketing pricing')">-
+                                    Marketing pricing</a>
+                            </div>
+                            <div class="sublink1">
+                                <a routerLink="#"
+                                    (click)="changeBreadcrumb('Subscription & pricing','Custom subscription')">- Custom
+                                    subscription</a>
+                            </div>
+                            <div class="sublink1"
+                                (click)="switchActiveClass('SubscriptionAndPricing','linkSubscriptionAndPricing4')"
+                                [ngClass]="activeClass.activeChildClass=='linkSubscriptionAndPricing4'?'activeSubLinks':''">
+                                <a routerLink="subscription-pricing/vendor-subscription"
+                                    (click)="changeBreadcrumb('Subscription & pricing','Vendor subscription')">-
+                                    Vendor subscription</a>
+                            </div>
+                            <div class="sublink1"
+                                (click)="switchActiveClass('SubscriptionAndPricing','linkSubscriptionAndPricing5')"
+                                [ngClass]="activeClass.activeChildClass=='linkSubscriptionAndPricing5'?'activeSubLinks':''">
+                                <a routerLink="subscription-pricing/coupons"
+                                    (click)="changeBreadcrumb('Subscription & pricing','Coupons')">-
+                                    Coupons</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Media')"
+                            [ngClass]="activeClass.activeParentClass=='Media'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Media & groupings"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkMedia" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/Trial class (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/Trial class (Whte).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkMedia" role="button" aria-expanded="false" aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Media & groupings</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkMedia">
+                            <div class="sublink1" (click)="switchActiveClass('Media','linkMedia1')"
+                                [ngClass]="activeClass.activeChildClass=='linkMedia1'?'activeSubLinks':''">
+                                <a routerLink="banners-vendor"
+                                    (click)="changeBreadcrumb('Media & groupings','Banners')">-
+                                    Banners</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Media','linkMedia7')"
+                                [ngClass]="activeClass.activeChildClass=='linkMedia7'?'activeSubLinks':''">
+                                <a routerLink="homepage-headers/vendor"
+                                    (click)="changeBreadcrumb('Media & groupings','Homepage headers')">-
+                                    Homepage headers</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Media','linkMedia6')"
+                                [ngClass]="activeClass.activeChildClass=='linkMedia6'?'activeSubLinks':''">
+                                <a routerLink="category-icons-images/icons"
+                                    (click)="changeBreadcrumb('Media & groupings','Category images')">-
+                                    Category images</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Media','linkMedia2')"
+                                [ngClass]="activeClass.activeChildClass=='linkMedia2'?'activeSubLinks':''">
+                                <a routerLink="age-group" (click)="changeBreadcrumb('Media & groupings','Age group')">-
+                                    Age group</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Media','linkMedia3')"
+                                [ngClass]="activeClass.activeChildClass=='linkMedia3'?'activeSubLinks':''">
+                                <a routerLink="category-sub-category"
+                                    (click)="changeBreadcrumb('Media & groupings','Category / sub-category')">-
+                                    Category / sub-category</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Media','linkMedia4')"
+                                [ngClass]="activeClass.activeChildClass=='linkMedia4'?'activeSubLinks':''">
+                                <a routerLink="attributes"
+                                    (click)="changeBreadcrumb('Media & groupings','Attributes')">-
+                                    Attributes</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Media','linkMedia5')"
+                                [ngClass]="activeClass.activeChildClass=='linkMedia5'?'activeSubLinks':''">
+                                <a routerLink="/user-feedback"
+                                    (click)="changeBreadcrumb('Media & groupings','User feedback')">-
+                                    User feedback</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('UserEngagement')"
+                            [ngClass]="activeClass.activeParentClass=='UserEngagement'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Vendor / user management"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkUserEngagement" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/User engagement (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/User engagement (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkUserEngagement" role="button" aria-expanded="false"
+                                aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Vendor / user Mgmt</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkUserEngagement">
+                            <div class="sublink1" (click)="switchActiveClass('UserEngagement','UserEngagement1')"
+                                [ngClass]="activeClass.activeChildClass=='UserEngagement1'?'activeSubLinks':''">
+                                <a routerLink="vendors/main-info"
+                                    (click)="changeBreadcrumb('Vendor / user management','Vendors')">- Vendors</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('UserEngagement','UserEngagement2')"
+                                [ngClass]="activeClass.activeChildClass=='UserEngagement2'?'activeSubLinks':''">
+                                <a routerLink="users-list"
+                                    (click)="changeBreadcrumb('Vendor / user management','Users')">- Users</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('UserEngagement','UserEngagement3')"
+                                [ngClass]="activeClass.activeChildClass=='UserEngagement3'?'activeSubLinks':''">
+                                <a routerLink="reviews"
+                                    (click)="changeBreadcrumb('Vendor / user management','Reviews')">- Reviews</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('UserEngagement','UserEngagement4')"
+                                [ngClass]="activeClass.activeChildClass=='UserEngagement4'?'activeSubLinks':''">
+                                <a routerLink="avatars"
+                                    (click)="changeBreadcrumb('Vendor / user management','Avatars')">- Avatars</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Communications')"
+                            [ngClass]="activeClass.activeParentClass=='Communications'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Communications"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkCommunications" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/User engagement (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/User engagement (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkCommunications" role="button" aria-expanded="false"
+                                aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Communications</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkCommunications">
+                            <div class="sublink1"
+                                (click)="switchActiveClass('linkCommunications','linkCommunications2')"
+                                [ngClass]="activeClass.activeChildClass=='linkCommunications2'?'activeSubLinks':''">
+                                <a routerLink="communications" (click)="changeBreadcrumb('Communications','Chat')">-
+                                    Chat</a>
+                            </div>
+                            <div class="sublink1"
+                                (click)="switchActiveClass('linkCommunications','linkCommunications1')"
+                                [ngClass]="activeClass.activeChildClass=='linkCommunications1'?'activeSubLinks':''">
+                                <a routerLink="communications/broadcast/vendors"
+                                    (click)="changeBreadcrumb('Communications','Broadcast')">- Broadcast</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Emails')"
+                            [ngClass]="activeClass.activeParentClass=='Emails'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Emails"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkEmails" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/User engagement (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/User engagement (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkEmails" role="button" aria-expanded="false" aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Emails</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkEmails">
+                            <div class="sublink1" (click)="switchActiveClass('Emails','Emails1')"
+                                [ngClass]="activeClass.activeChildClass=='Emails1'?'activeSubLinks':''">
+                                <a routerLink="#" (click)="changeBreadcrumb('Emails','Vendors')">- Receipt layout</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Receipt')"
+                            [ngClass]="activeClass.activeParentClass=='Receipt'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Receipt"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkReceipt" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/Receipt (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/Receipt (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkReceipt" role="button" aria-expanded="false" aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Receipt</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkReceipt">
+                            <div class="sublink1" (click)="switchActiveClass('Receipt','Receipt1')"
+                                [ngClass]="activeClass.activeChildClass=='Receipt1'?'activeSubLinks':''">
+                                <a routerLink="receipt/all-tabs"
+                                    (click)="changeBreadcrumb('Receipt','Receipt listing')">- Receipt listing</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Receipt','Receipt2')"
+                                [ngClass]="activeClass.activeChildClass=='Receipt2'?'activeSubLinks':''">
+                                <a routerLink="receipt/format" (click)="changeBreadcrumb('Receipt','Receipt format')">-
+                                    Receipt format</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Static')"
+                            [ngClass]="activeClass.activeParentClass=='Static'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Static info"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkStatic" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/User engagement (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/User engagement (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkStatic" role="button" aria-expanded="false" aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Static info</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkStatic">
+                            <div class="sublink1" (click)="switchActiveClass('Static','Static1')"
+                                [ngClass]="activeClass.activeChildClass=='Static1'?'activeSubLinks':''">
+                                <a routerLink="static-info" (click)="changeBreadcrumb('Static Info','Logo')">-
+                                    Logo</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Static','Static2')"
+                                [ngClass]="activeClass.activeChildClass=='Static2'?'activeSubLinks':''">
+                                <a routerLink="other-info" (click)="changeBreadcrumb('Static Info','Other info')">-
+                                    Other info</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Payment')"
+                            [ngClass]="activeClass.activeParentClass=='Payment'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Payment gateway"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkPaymentGateway" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/Paymt gateway (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/Paymt gateway (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkPaymentGateway" role="button" aria-expanded="false"
+                                aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Payment gateway</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkPaymentGateway">
+                            <div class="sublink1" (click)="switchActiveClass('Payment','Payment0')"
+                                [ngClass]="activeClass.activeChildClass=='Payment0'?'activeSubLinks':''">
+                                <a routerLink="payment-gateway"
+                                    (click)="changeBreadcrumb('Payment gateway','Payment gateway')">-
+                                    Payment
+                                    gateway</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Payment','Payment1')"
+                                [ngClass]="activeClass.activeChildClass=='Payment1'?'activeSubLinks':''">
+                                <a routerLink="payment-gateway/receipts"
+                                    (click)="changeBreadcrumb('Payment gateway','Receipts')">-
+                                    Receipts</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Sub')"
+                            [ngClass]="activeClass.activeParentClass=='Sub'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Sub-admin"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkSubAdmin" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/Sub-admin (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/Sub-admin (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkSubAdmin" role="button" aria-expanded="false"
+                                aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Sub-admin</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkSubAdmin">
+                            <div class="sublink1" (click)="switchActiveClass('Sub','Sub0')"
+                                [ngClass]="activeClass.activeChildClass=='Sub0'?'activeSubLinks':''">
+                                <a routerLink="sub-admin" (click)="changeBreadcrumb('Sub-admin','List')">- List</a>
+                            </div>
+                            <div class="sublink1" (click)="switchActiveClass('Sub','Sub1')"
+                                [ngClass]="activeClass.activeChildClass=='Sub1'?'activeSubLinks':''">
+                                <a routerLink="permission-rights/global-list"
+                                    (click)="changeBreadcrumb('Sub-admin','Permission rights')">-
+                                    Permission
+                                    rights</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Pro')"
+                            [ngClass]="activeClass.activeParentClass=='Pro'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Countries / cities"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkProfile" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/Profile (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/Profile (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkProfile" role="button" aria-expanded="false" aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Countries / cities</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkProfile">
+                            <div class="sublink1" (click)="switchActiveClass('Pro','Pro0')"
+                                [ngClass]="activeClass.activeChildClass=='Pro0'?'activeSubLinks':''">
+                                <a routerLink="/country" (click)="changeBreadcrumb('Countries/cities','Listings')">-
+                                    Listings</a>
+                            </div>
+                            <!-- <div class="sublink1" (click)="switchActiveClass('Pro','Pro1')"
+                                [ngClass]="activeClass.activeChildClass=='Pro1'?'activeSubLinks':''">
+                                <a routerLink="#" (click)="changeBreadcrumb('Countries/cities','Profile details')">-
+                                    Profile
+                                    details</a>
+                            </div> -->
+                            <div class="sublink1" (click)="switchActiveClass('Pro','Pro2')"
+                                [ngClass]="activeClass.activeChildClass=='Pro2'?'activeSubLinks':''">
+                                <a routerLink='packages' (click)="changeBreadcrumb('Countries/cities','Subscription')">-
+                                    Subscription</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="navLinkOuter">
+
+                        <div class="links" (click)="switchActiveClass('Profile')"
+                            [ngClass]="activeClass.activeParentClass=='Profile'?'activeLink':''">
+                            <div class="icons" placement="right" ngbTooltip="Profile"
+                                [tooltipClass]="tooltip? 'active' : 'my-custom-class'" data-toggle="collapse"
+                                href="#sidebarCollapse, #linkProfileDetails" aria-controls="sidebarCollapse"
+                                (click)="removeShowClass()" [ngClass]="pointerEvent? 'active' : 'pointerEvent'">
+                                <div class="normalIcon">
+                                    <img src="../../assets/Sidepanel Icons/Profile (Grey).svg" alt="">
+                                </div>
+                                <div class="hoverAndClickIcon">
+                                    <img src="../../assets/Sidepanel Icons/Profile (White).svg" alt="">
+                                </div>
+                            </div>
+                            <div class="innerLink collapse" id="sidebarCollapse" data-toggle="collapse"
+                                href="#linkProfileDetails" role="button" aria-expanded="false"
+                                aria-controls="sidebarCollapse">
+                                <a href="javascript:;">Profile</a>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                        </div>
+
+                        <div class="subLinks collapse" id="linkProfileDetails">
+                            <div class="sublink1" (click)="switchActiveClass('Profile','Profile0')"
+                                [ngClass]="activeClass.activeChildClass=='Profile0'?'activeSubLinks':''">
+                                <a routerLink="users/personal-details"
+                                    (click)="changeBreadcrumb('Profile','Profile details')">-
+                                    Profile details</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="footerImg border-top collapse" id="sidebarCollapse">
+                <img src="../../assets/Sidepanel Icons/Logo_with_tagline.svg" alt="">
+            </div>
+        </div>
+
+
+
+        <!-- ***SideBody / Other Components*** -->
+
+        <div class="sideBody" id="SideApp" [ngClass]="extraMarginSideBody? 'active' : 'extraMargin'">
+            <div class="mainBody">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+
+        <!-- ///***SideBody / Other Components*** -->
+
+    </div>
+</div>

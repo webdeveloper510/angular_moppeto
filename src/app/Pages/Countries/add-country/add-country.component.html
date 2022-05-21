@@ -1,0 +1,60 @@
+<div class="actualOuter">
+  <div class="upperTitle">
+    <div class="titleBox">
+      <p class="text-center" mat-dialog-title>Add new country</p>
+    </div>
+    <div class="close">
+      <p (click)="onDismiss()" class="close text-center">X</p>
+    </div>
+  </div>
+  <div class="bodySection">
+    <form [formGroup]="countryForm">
+      <div class="inputDropdownOuter">
+        <div class="input2">
+          <div class="inputSection">
+            <p>Country</p>
+            <input type="text" appOnlyAlpha pInputText minlength="3" maxlength="30" #addNewInput1 formControlName="name" />
+          </div>
+          <div class="totalChar">
+            <p class="text-right"
+              [ngClass]="[addNewInput1.value.length == 3 ? 'maxlengthColor' : '' || countryForm.value.name ? 'maxlengthTypingColor':'']">
+              {{addNewInput1.value.length}} / 30</p>
+          </div>
+        </div>
+
+        <div class="input2">
+          <div class="inputSection">
+            <p>Currency name</p>
+            <input type="text" uppercase appOnlyAlpha pInputText maxlength="3" #addNewInput2 formControlName="currencyName" />
+          </div>
+          <div class="totalChar">
+            <p class="text-right"
+              [ngClass]="[addNewInput2.value.length == 3 ? 'maxlengthColor' : '' || countryForm.value.currencyName ? 'maxlengthTypingColor':'']">
+              {{addNewInput2.value.length}} / 3</p>
+          </div>
+
+        </div>
+
+
+        <div class="input2">
+          <div class="inputSection">
+            <p>Currency symbol</p>
+            <input type="text" pInputText maxlength="3" #addNewInput3 formControlName="currencySymb" />
+          </div>
+
+          <div class="totalChar">
+            <p class="text-right"
+              [ngClass]="[addNewInput3.value.length == 3 ? 'maxlengthColor' : '' || countryForm.value.currencySymb ? 'maxlengthTypingColor':'']">
+              {{addNewInput3.value.length}} / 3</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="buttonSection">
+        <button pButton pRipple type="button" (click)="onSubmit()" label="Add"
+          [ngClass]="!countryForm.valid ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+          [disabled]="!countryForm.valid"></button>
+      </div>
+    </form>
+  </div>
+</div>

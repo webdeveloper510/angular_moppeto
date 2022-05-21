@@ -1,0 +1,17 @@
+@import "../MainOuter/mainOuterDesign";
+@import "../CommonDesigns/commonDesigns.scss";
+
+.mainContainer {
+    border-radius: 1.5rem;
+    max-width: 38rem;
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.upperHeadAndButtons {
+    margin: 0 1.5rem;
+}
+
+:host ::ng-deep .apexcharts-legend-series {
+    padding-top: 1.5rem !important;
+}

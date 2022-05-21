@@ -1,0 +1,252 @@
+<label class="country-label">Select Country</label>
+<div class="col-xl-6 body2">
+  <div class="innerBody2Outer">
+    <div class="radioOuter2 radioBtnOuter">
+      <div class="row">
+        <ng-container *ngFor="let country of countries">
+          <div class="col-sm-6">
+            <div class="radio-item">
+              <input type="radio" [id]="country.id" name="radio" [value]="country.name" [(ngModel)]="selectedCountry"
+                (change)="onChangeCountry()">
+              <label [for]="country.id">{{country.name}}</label>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+<app-toasts *ngIf="!selectedCountry" aria-live="polite" aria-atomic="true"></app-toasts>
+<div class="total-display">
+  <ng-container *ngIf="userData?.resultsCount">
+    <span>Total Users:</span> <span>{{userData?.resultsCount}}</span>
+  </ng-container>
+  <ng-container *ngIf="userData?.UsersCount">
+    <span>Total Results:</span> <span>{{userData?.UsersCount}}</span>
+  </ng-container>
+</div>
+<div class="mainOuter border">
+  <!-- Top Header Starts..... -->
+  <div class="topHeader">
+    <div class="outer">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 tabs">
+          <div class="inner">
+            <div class="row">
+              <ng-container *ngFor="let status of userStatusList">
+                <div class="col-sm-4" [ngClass]="{'actTab': selectedStatus === status.value,
+                'col-3 all': selectedStatus === userStatusEnum.All,
+                'col-4 active': selectedStatus === userStatusEnum.Active,
+                'col-5 suspend': selectedStatus === userStatusEnum.Suspended}">
+                  <a (click)="onChangeStatus(status.value)">{{status.text}}</a>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-4 col-sm-6 col-12 searchOuter">
+          <div class="search">
+            <i class="pi pi-search" [ngClass]="searchText?'searchColor':'searchColor2'"></i>
+            <input type="text" pInputText [(ngModel)]="searchText" #userSearchInput>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 dropdown">
+          <img src="../../../assets/categoryStatistics/Download_Icon.svg" alt="" class="float-right"
+            (click)="downloadTable()">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top Header Ends..... -->
+
+  <!-- Table Starts..... -->
+  <div class="tableOuter border-top">
+    <div class="table-responsive">
+      <table class="table table-borderless text-center">
+        <thead class="forBG">
+          <tr class="upperThead">
+            <th scope="col" class="col-1-2 text-left">
+
+            </th>
+            <th scope="col" class="col-1-2 text-left">
+
+            </th>
+            <th scope="col" colspan="4" class="childMainCol border-left border-right border-bottom">
+              Child
+            </th>
+            <th scope="col" class="countryDate">
+
+            </th>
+            <th scope="col" class="statusCol">
+
+            </th>
+          </tr>
+          <tr class="bottomThead">
+            <th scope="col" class="col-1-2 text-left">
+              Super user
+              <br>
+              Name / Email / User ID
+            </th>
+            <th scope="col" class="col-1-2 text-left">
+              Admin
+              <br>
+              Name / Email / User ID
+            </th>
+            <th scope="col" class="childName border-left">
+              Child Name
+            </th>
+            <th scope="col" class="UserIDCOL">
+              &nbsp;
+              <br>
+              Child ID
+            </th>
+            <th scope="col" class="DobCol">
+              &nbsp;
+              <br>
+              DOB
+            </th>
+            <th scope="col" class="AgeCol border-right">
+              &nbsp;
+              <br>
+              Age
+            </th>
+            <th scope="col" class="countryDate">
+              City/date
+              <br>
+              1st registered
+            </th>
+            <th scope="col" class="statusCol">
+              &nbsp;
+              <br>
+              Status
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngIf="userList?.length > 0 else noDataView">
+          <tr class="border-bottom" *ngFor="let userData of userList; trackBy: trackByService.trackByFn; let i = index">
+            <td scope="row" class="col-1-2 text-left">
+              <div class="title1">
+                <p>
+                  {{userData?.superUserName | blankValue}}
+                </p>
+              </div>
+              <div class="title2">
+                <p>
+                  {{userData?.superadmin.email | blankValue}}
+                </p>
+              </div>
+              <div class="title3">
+                <p>
+                  {{userData?.superadmin?.code | blankValue}}
+                </p>
+              </div>
+            </td>
+            <td scope="row" class="col-1-2 text-left">
+              <div class="title1">
+                <p>
+                  {{userData?.adminUserName | blankValue}}
+                </p>
+              </div>
+              <div class="title2">
+                <p>
+                  {{userData?.admin.email | blankValue}}
+                </p>
+              </div>
+              <div class="title3">
+                <p>
+                  {{userData?.admin?.code | blankValue}}
+                </p>
+              </div>
+            </td>
+            <td scope="row" class="childName border-left">
+              <ng-container *ngFor="let kid of userData?.kids; trackBy: trackByService.trackByFn; let i = index">
+                <div class="title1">
+                  <p>
+                    {{kid?.username | blankValue}}
+                  </p>
+                </div>
+              </ng-container>
+            </td>
+            <td scope="row" class="UserIDCOL">
+              <ng-container *ngFor="let kid of userData?.kids; trackBy: trackByService.trackByFn; let i = index">
+                <div class="title3">
+                  <p>
+                    {{kid?.code | blankValue}}
+                  </p>
+                </div>
+              </ng-container>
+            </td>
+            <td scope="row" class="DobCol">
+              <ng-container *ngFor="let kid of userData?.kids; trackBy: trackByService.trackByFn; let i = index">
+                <div class="title1">
+                  <p>
+                    {{kid?.DOB | date:'dd/MM/yy'}}
+                  </p>
+                </div>
+              </ng-container>
+            </td>
+            <td scope="row" class="AgeCol border-right">
+              <ng-container *ngFor="let kid of userData?.kids; trackBy: trackByService.trackByFn; let i = index">
+                <div class="title1">
+                  <p>
+                    {{kid?.age | blankValue}}{{kid?.gender | blankValue}}
+                  </p>
+                </div>
+              </ng-container>
+            </td>
+            <td scope="row" class="countryDate">
+              <div class="title1">
+                <p>
+                  {{userData?.location | blankValue}}
+                </p>
+              </div>
+              <div class="title3">
+                <p>
+                  {{userData?.registrationDate | date: 'dd/MM/yy'}}
+                </p>
+              </div>
+            </td>
+            <td scope="row" class="statusCol">
+              <div class="ellipsisOuter">
+                <div class="statusOuter">
+                  <div class="status" [ngClass]="[userData?.status== userStatusEnum.Active ? 'ActiveStatus' : '', 
+                  userData?.status == userStatusEnum.Suspended ? 'SuspendStatus' : '']">
+                    <div class=" circleDiv"></div>
+                    <div class="ActualStatus">
+                      <p>{{userData?.status | titlecase}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="dropleft">
+                  <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <span><i class="pi pi-ellipsis-v"></i></span>
+                  </button>
+
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a *ngIf="userData?.status == userStatusEnum.Active" class="dropdown-item"
+                      (click)="userChangeStatus(userData?.id, userStatusEnum.Suspended)">Suspend</a>
+                    <a *ngIf="userData?.status == userStatusEnum.Suspended" class="dropdown-item"
+                      (click)="userChangeStatus(userData?.id, userStatusEnum.Active)">Re-Instate</a>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        <ng-template #noDataView>
+          <app-no-table-data-view></app-no-table-data-view>
+        </ng-template>
+      </table>
+    </div>
+  </div>
+  <!-- Table Ends...... -->
+
+
+  <!-- Pagination Starts...... -->
+  <div *ngIf="userList?.length > 0">
+    <app-pagination (onPagechanged)="pageChangeEvent()" [paginationService]="paginationService">
+    </app-pagination>
+  </div>
+  <!-- Pagination Ends...... -->
+</div>

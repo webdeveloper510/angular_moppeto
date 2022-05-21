@@ -1,0 +1,140 @@
+<div [ngClass]="isEdit?'overlayBodyTrue':''">
+    <!-- Table Starts..... -->
+    <div class="tableOuter border-top table-responsive text-nowrap">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr class="headRow2">
+                    <th scope="col" class="set_noCol text-left">
+                        No
+                    </th>
+                    <th scope="col" class="set_categoryCol text-left">
+                        Category
+                    </th>
+                    <th scope="col" class="set_smallCol">
+                        App
+                        <br>
+                        <span>(maximum allowed)</span>
+                    </th>
+                    <th scope="col" class="set_smallCol">
+                        Web
+                        <br>
+                        <span>(maximum allowed)</span>
+                    </th>
+                    <th scope="col" class="set_editCol">
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="border-top">
+                <tr class="border-bottom" [ngClass]="!demoTable[i].editMode?'overlayBodyFalse':''"
+                    *ngFor="let data of demoTable; let i = index">
+                    <td scope="row" class="set_noCol text-left">
+                        <div class="title1">
+                            <p>
+                                {{i+1}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="set_categoryCol text-left">
+                        <div class="title1">
+                            <p>
+                                {{data.category? data.category : "-"}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="set_smallCol">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title1">
+                                <p>
+                                    {{data.APP.max_count ? data.APP.max_count : "0"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [value]="data.APP.max_count ? data.APP.max_count : 0" (change)="data.category=='Banner'?dataSet['BANNER']['APP']['max_count'] = $event.target.value : dataSet['HEADER']['APP']['max_count'] = $event.target.value">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="set_smallCol">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title1">
+                                <p>
+                                    {{data.WEB.max_count ? data.WEB.max_count : "0"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [value]="data.WEB.max_count ? data.WEB.max_count : 0" (change)="data.category=='Banner'?dataSet['BANNER']['WEB']['max_count'] = $event.target.value : dataSet['HEADER']['WEB']['max_count'] = $event.target.value">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="set_editCol">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="ellipsisOuter2">
+                                <div class="dropleft">
+                                    <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span><i class="pi pi-ellipsis-v"></i></span>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" [ngClass]="data.inrButton.delete?'':'dropdown_menu_one_item'">
+                                        <a class="dropdown-item" [ngClass]="data.inrButton.delete?'item1':''"
+                                            href="javascript:;" (click)="editPricing(i)"
+                                            *ngIf="data.inrButton.edit">Edit</a>
+                                        <a class="dropdown-item item4" [ngClass]="data.inrButton.delete?'item4':''"
+                                            href="javascript:;" *ngIf="data.inrButton.delete">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="nextCancelButtonOuter">
+                                <button (click)="ok(i)" pButton type="button" label="Ok" class="p-button-success"></button>
+                                <button pButton type="button" label="Cancel" class="p-button-danger"
+                                    (click)="cancelEditPricing(i)"></button>
+                            </div>
+                        </ng-container>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Ends...... -->
+
+    <!-- Pagination Starts...... -->
+
+    <div class="paginationOuter">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="rowsOuter">
+                    <p>Rows per page:</p>
+                    <div class="selectNoOfRow select">
+
+                        <select class="form-control select__field" aria-label="Default select example">
+                            <option selected value="1">10</option>
+                            <option value="2">20</option>
+                            <option value="3">30</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="pagesOuter">
+                    <p>1 of 6</p>
+                    <div class="iconPrevious">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector1.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="iconNext">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector2.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pagination Ends...... -->
+</div>

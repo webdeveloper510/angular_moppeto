@@ -1,0 +1,48 @@
+@import "../../SCSS/ngxCalendar/ngxCalendarDesign";
+
+.upperBody {
+    .container {
+        padding: 0 1.5rem;
+        @media screen and (min-width: 1177px) {
+            min-width: 93%;
+        }
+        @media (max-width: 991px) {
+            min-width: 70%;
+            padding-right: 0;
+        }
+    }
+    .outer {
+        margin-top: 1.5rem;
+        .body1 {
+            @media (max-width: 1199px) {
+                margin-top: auto;
+            }
+        }
+        .body2 {
+            padding-bottom: 1.5rem;
+        }
+        .innerBody1Outer {
+            margin-right: 1.5rem;
+            .inner2 {
+                margin-top: 1.5rem;
+                @media (max-width: 575px) {
+                    .dropdown1 {
+                        margin-top: 1.2rem;
+                        margin-bottom: 2.5rem;
+                    }
+                }
+            }
+            .inner3 {
+                margin-top: 1.5rem;
+                margin-bottom: 1.2rem;
+            }
+            @media (max-width: 1199px) {
+                margin-left: 1.5rem;
+                margin-right: 1.5rem;
+            }
+            @media (max-width: 991px) {
+                margin-right: 3rem;
+            }
+        }
+    }
+}

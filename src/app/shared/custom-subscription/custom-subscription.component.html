@@ -1,0 +1,161 @@
+<!-- Start of Main Outer Div - container-fluid -->
+<div class="container_outer" *ngIf="beforeThankYou">
+  <header>
+    <p class="m-0 text-center">Custom subscription</p>
+  </header>
+
+  <!-- Start of Sub Header Div - subheader -->
+
+  <div class="codeAndamountOuter">
+    <div class="leftPart">
+      <div class="titleText">
+        <p class="m-0"><u>Vendor/Vendor code</u></p>
+      </div>
+      <div class="detailsText">
+        <p class="m-0">{{data.vendorName}}</p>
+      </div>
+      <div class="detailsText">
+        <p class="m-0">{{data.vendorID}}</p>
+      </div>
+    </div>
+
+    <div class="rightPart">
+      <div class="titleText">
+        <p class="m-0"><u>New subscription per month / Amount payable</u></p>
+      </div>
+      <div class="detailsText">
+        <p class="m-0">S$ {{data.vendorINR}}</p>
+      </div>
+      <div class="detailsText">
+        <p class="m-0">S$ {{data.vendorINR2}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- End of Sub Header Div - subheader -->
+
+
+
+  <div class="messageTitleOuter">
+    <p class="m-0">Message title</p>
+    <input pInputText type="text" [value]="data.m_title ? data.m_title : 'Custom Subscription'" (change)="setMessageTitle($event)">
+  </div>
+
+
+  <!-- Start of Main Body Div - messagecontentouter -->
+
+  <div class="messagecontentouter">
+    <div class="titleOuter">
+      <p class="m-0">Content</p>
+    </div>
+    <!-- <div class="htmlFunctionsText" *ngIf="data.paymentTextOuter1">
+      <p class="m-0 text-center">HTML functions</p>
+    </div> -->
+
+
+    <!-- <div class="paymentTextOuter1" [ngClass]="data.paymentTextOuter1?'paymentTextOuter1WithBorderTop':''"
+      *ngIf="data.paymentTextOuter1">
+
+
+      <textarea
+        pInputTextarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus viverra accumsan, sagittis risus, at. Sit integer viverra amet amet, turpis tellus. Erat sed porttitor luctus ipsum lobortis nunc. Vitae accumsan nullam non auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus viverra accumsan, sagittis risus, at. Sit integer viverra amet amet, turpis tellus. Erat sed porttitor luctus ipsum lobortis nunc. You can make payment through</textarea>
+
+
+      <div class="paymentLinkOuter">
+        <div class="leftArea">
+          <p class="m-0">Payment link (valid for 48 hours):</p>
+          <input type="text" pInputText value="https://hitpay.com/ssdiw832klfs,sdf83209masdf/payment/asdddf">
+        </div>
+        <div class="rightArea">
+          <p class="m-0">Text to display:</p>
+          <input type="text" pInputText value="here">
+        </div>
+      </div>
+
+      <textarea
+        pInputTextarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus viverra accumsan, sagittis risus, at. Sit integer viverra amet amet, turpis tellus. Erat sed porttitor luctus ipsum lobortis nunc. Vitae accumsan nullam non auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus viverra accumsan, sagittis risus, at. Sit integer viverra amet amet, turpis tellus. Erat sed porttitor luctus ipsum lobortis nunc. You can make payment through</textarea>
+
+    </div> -->
+
+
+    <div class="editSection" *ngIf="data.paymentTextOuter1">
+      <quill-editor [(ngModel)]="data.body ? data.body : body" [modules]="tools" [format]="'object'" (onEditorChanged)="changedEditor($event)"
+        placeholder={{quillPlaceholder}}
+        >
+      </quill-editor>
+    </div>
+
+
+
+    
+
+    <div class="paymentTextOuter1" *ngIf="data.paymentTextOuter2">
+      <quill-view [content]="data.body" [format]="'object'" theme="snow" *ngIf="data.paymentTextOuter2"></quill-view>
+      <!-- <div class="textTextSectionOuter">
+        <div class="sections">
+          <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus viverra accumsan, sagittis risus, at. Sit
+            integer viverra amet amet, turpis tellus. Erat sed porttitor luctus ipsum lobortis nunc. Vitae accumsan
+            nullam
+            non auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus viverra accumsan, ssdcv
+            sdcagittis
+            risus, at. Sit integer viverra amet amet, turpis tellus. Erat sed porttitor luctus ipsum lobortis nunc. You
+            can make payment through <span>here</span>.</p>
+        </div>
+        <div class="sections">
+          <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus viverra accumsan, sagittis risus, at. Sit
+            integer viverra amet amet, turpis tellus. Erat sed porttitor luctus ipsum lobortis nunc. Vitae accumsan
+            nullam
+            non auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus viverra accumsan, sagittis
+            risus, at. Sit integer viverra amet amet, turpis tellus. Erat sed porttitor luctus ipsum lobortis nunc.
+            Vitae
+            accumsan nullam non auctor.</p>
+        </div>
+      </div> -->
+    </div>
+
+
+
+  </div>
+
+  <!-- End of Main Body Div - emailcontentouter -->
+
+
+  <!-- Start of Button's Div -->
+
+  <div class="bottomButtonOuter">
+    <button pButton type="button" label="Cancel" class="p-button-danger" (click)="onDismiss()"></button>
+
+    <button pButton type="button" label="Next" class="p-button-success" (click)="callCustomSubscription()"
+      *ngIf="data.paymentTextOuter1"></button>
+
+    <button pButton type="button" label="Back" class="p-button-warning" *ngIf="data.paymentTextOuter2"
+      (click)="backToModal1()"></button>
+
+    <button pButton type="button" label="Confirm & send" class="p-button-success" *ngIf="data.paymentTextOuter2"
+      (click)="onConfirm()"></button>
+  </div>
+
+  <!-- End of Button's Div -->
+
+
+
+</div>
+<!-- End of Main Outer Div - container-fluid -->
+
+
+
+
+
+
+
+<div class="thankYouModal" *ngIf="thankYouModal">
+  <div class="block1">
+    <p class="m-0 text-center">Thank You!</p>
+  </div>
+  <div class="block2">
+    <p class="m-0 text-center">Custom subscrription has been sent successfully.</p>
+  </div>
+  <button pButton type="button" label="Ok" class="p-button-success" (click)="onClose()"></button>
+</div>

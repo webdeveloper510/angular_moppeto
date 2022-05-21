@@ -1,0 +1,509 @@
+@import "../../SCSS/MainOuter/mainOuterDesign";
+@import "../../SCSS/Revenue/revenueUpperBody";
+@import "../../SCSS/PrimeNG/primeNGDesign";
+
+$chatMainBG: #f1fff7;
+$whiteColor: #fff;
+$blackColor: #333333;
+$paragraphColor: #4f4f4f;
+$greyColor: #bdbdbd;
+$redColor: rgb(250, 57, 57);
+$senderMessageBGColor: #6fcf97;
+$receiverMessageBGColor: #faa559;
+
+@mixin paraTag($color, $fontSize, $fontWeight) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
+
+@mixin scrollBar {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    /* width */
+    &::-webkit-scrollbar {
+        width: 0.7rem;
+        @media (max-width: 991px) {
+            width: 0.4rem;
+        }
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        border-radius: 1rem;
+        background: $whiteColor;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: lighten($greyColor, 15%);
+        border-radius: 0.7rem;
+    }
+}
+
+.upperBody {
+    padding-left: 1.5rem;
+    @media (max-width: 1199px) {
+        padding-left: 0;
+    }
+    .innerBody1Outer {
+        @media (min-width: 768px) {
+            width: 60.5rem;
+            .dropdown2 {
+                padding-left: 0.8rem;
+            }
+        }
+        @media (max-width: 767px) {
+            .dropdown2,
+            .dropdown1 {
+                padding-right: 0.5rem;
+            }
+        }
+    }
+}
+.mainOuter {
+    margin-top: 1rem;
+
+    .upperSearch {
+        display: flex;
+        align-items: center;
+        padding: 1rem 0;
+        border-width: 0.2rem !important;
+        @media (max-width: 767px) {
+            display: block;
+        }
+        .inboxTextAndNewMessage {
+            padding: 0 1rem;
+            width: 30rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            @media (max-width: 767px) {
+                width: 100%;
+                padding-right: 0.7rem;
+            }
+
+            p {
+                margin: 0;
+                @include paraTag($blackColor, 1.7rem, 700);
+            }
+            img {
+                cursor: pointer;
+            }
+        }
+
+        .searchOuter {
+            width: calc(70% - 30rem);
+            @media (max-width: 1407px) {
+                width: calc(87% - 30rem);
+            }
+            @media (max-width: 767px) {
+                margin-top: 1rem;
+                width: 100%;
+            }
+            padding: 0 1rem;
+
+            .search {
+                i {
+                    position: absolute;
+                    margin-top: 1rem;
+                    margin-left: 1.7rem;
+                    @include paraTag($greyColor, 1.5rem, 500);
+                }
+                .searchColor {
+                    color: $blackColor !important;
+                }
+                input {
+                    width: 100%;
+                    border-radius: 0.8rem;
+                    padding-left: 4rem;
+                    color: $blackColor;
+                }
+            }
+        }
+    }
+
+    .mainBody {
+        height: 77rem;
+        @media (max-height: 1080px) {
+            height: 70vh;
+        }
+        display: flex;
+        .contactSectionOuter {
+            width: 30rem;
+            @media (max-width: 767px) {
+                width: 100%;
+                border: none !important;
+            }
+            padding-right: 0.3rem;
+            .upperdiv {
+                display: flex;
+                padding: 0.5rem 1rem 0.3rem 1rem;
+                .roundDiv {
+                    height: 0.7rem;
+                    width: 0.7rem;
+                    background-color: $greyColor;
+                    border-radius: 50%;
+                    margin-right: 0.5rem;
+                }
+            }
+
+            .contactInner {
+                height: calc(100% - 1.7rem);
+                padding-top: 0.2rem;
+                @include scrollBar();
+                .mainMessageOuter {
+                    margin: 0rem 0.7rem 0.7rem 0.7rem;
+                    padding: 0.7rem 0.8rem 0.7rem 1rem;
+                    @media (max-width: 767px) and (min-width: 576px) {
+                        padding: 1.5rem 0.8rem 1.5rem 1rem;
+                    }
+                    cursor: pointer;
+                    transition: box-shadow 0.37s ease;
+                    &:hover {
+                        box-shadow: 0 0 0.7rem darken($chatMainBG, 17%);
+                    }
+                    .profileOuter {
+                        display: flex;
+                        align-items: center;
+                        .forImg {
+                            width: 8.7rem;
+                            // border: solid red 1px;
+                            
+                            img {
+                                margin-top: 0.5rem;
+                                border-radius: 100%;
+                                width: 5.1rem;
+                                // height: 5.1rem;
+                                // border: solid red 1px;
+                            }
+                        }
+                        .noOfMessageAndTime {
+                            width: 7rem;
+                            position: relative;
+                            .noOfMessage {
+                                right: 0;
+                                top: -0.6rem;
+                                position: absolute;
+                                background-color: darken($senderMessageBGColor, 5%);
+                                padding: 0;
+                                display: inline-block;
+                                line-height: 0;
+                                border-radius: 50%;
+                                span {
+                                    @include paraTag($whiteColor, 1.2rem, 600);
+                                    display: inline-block;
+                                    padding-top: 50%;
+                                    padding-bottom: 50%;
+                                    margin-left: 0.5rem;
+                                    margin-right: 0.5rem;
+                                }
+
+                                p {
+                                    padding: 0;
+                                    @media (min-width: 1921px) {
+                                        padding-top: 0.087rem;
+                                    }
+                                    @media (max-width: 1400px) {
+                                        padding-top: 0.2rem;
+                                    }
+                                    @media (max-width: 1199px) {
+                                        padding-top: 0.3rem;
+                                    }
+                                    margin: 0rem 0.45rem;
+                                    text-align: center;
+                                    @include paraTag($whiteColor, 1.2rem, 600);
+                                    @media (max-width: 767px) and (min-width: 576px) {
+                                        font-size: 1.35rem;
+                                    }
+                                }
+                            }
+                            .time {
+                                margin-top: 3rem;
+                                p {
+                                    @include paraTag(darken($greyColor, 12%), 1.2rem, 500);
+                                    text-align: right;
+                                    @media (max-width: 767px) and (min-width: 576px) {
+                                        font-size: 1.35rem;
+                                    }
+                                }
+                            }
+                        }
+
+                        .profileDetails {
+                            margin-top: 1rem;
+                            width: calc(100% - 8.7rem + 7rem);
+                            @media (min-width: 400px) {
+                                padding-left: 0.5rem;
+                            }
+
+                            .name {
+                                p {
+                                    @include paraTag($paragraphColor, 1.4rem, 700);
+                                    margin: 0;
+                                    @media (max-width: 767px) and (min-width: 576px) {
+                                        font-size: 2rem;
+                                    }
+                                }
+                            }
+
+                            .idAndLocation {
+                                P {
+                                    display: inline;
+                                    @include paraTag($greyColor, 1.2rem, 500);
+                                    margin: 0rem 0.5rem 0 0;
+                                    @media (max-width: 767px) and (min-width: 576px) {
+                                        font-size: 1.35rem;
+                                    }
+                                }
+                                a {
+                                    text-decoration: none;
+                                    @include paraTag(darken($greyColor, 25%), 1.2rem, 500);
+                                    @media (max-width: 767px) and (min-width: 576px) {
+                                        font-size: 1.35rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .messagingOuter {
+                        margin-top: 1.3rem;
+                        .message {
+                            max-height: 4rem;
+                            overflow: hidden;
+                            @media (max-width: 767px) and (min-width: 576px) {
+                                max-height: 4.7rem;
+                                p {
+                                    font-size: 1.7rem !important;
+                                }
+                            }
+                            p {
+                                display: inline;
+                                @include paraTag($paragraphColor, 1.3rem, 500);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .messageSectionOuter {
+            width: calc(100% - 30rem);
+            @media (max-width: 767px) {
+                width: 100%;
+            }
+
+            .chatProfileOuter {
+                padding: 0rem 2.5rem;
+                height: 7rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: $chatMainBG;
+
+                p {
+                    line-height: 1.34rem;
+                }
+
+                .profileNameAndID {
+                    display: flex;
+                    align-items: center;
+
+                    .backIcon {
+                        @media (min-width: 768px) {
+                            display: none;
+                        }
+                        i {
+                            @include paraTag($paragraphColor, 1.7rem, 700);
+                            cursor: pointer;
+                        }
+                        width: 5rem;
+                    }
+                    .text {
+                        .proName {
+                            @include paraTag($paragraphColor, 1.6rem, 700);
+                        }
+                        .proID {
+                            @include paraTag(darken($greyColor, 15%), 1.5rem, 500);
+                        }
+                    }
+                }
+                .cityName {
+                    .city {
+                        @include paraTag($paragraphColor, 1.6rem, 500);
+                        margin-top: 0.55rem;
+                    }
+                }
+            }
+
+            .mainChatOuter {
+                height: calc(100% - 12.7rem);
+                margin: 0.35rem 0;
+                @include scrollBar();
+
+                .chatInner {
+                    padding: 0 2.3rem;
+                    .chatStart {
+                        .date {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin: 1.5rem 0;
+                            position: relative;
+                            p {
+                                margin-bottom: 0.1rem;
+                                padding: 0.2rem 2rem;
+                                position: absolute;
+                                background-color: $whiteColor;
+                                @include paraTag($paragraphColor, 1.25rem, 500);
+                            }
+                            hr {
+                                width: 100%;
+                                border-width: 0.2rem;
+                            }
+                        }
+
+                        .receiverOuter,
+                        .senderOuter {
+                            display: flex;
+                            align-items: flex-end;
+                            max-width: 45rem;
+                            margin-bottom: 1.5rem;
+                            @media (max-width: 991px) {
+                                max-width: 100%;
+                            }
+                            @media (max-width: 767px) and (min-width: 477px) {
+                                max-width: 80%;
+                            }
+                            .imgAndTime {
+                                width: 8rem;
+                                padding-left: 1.5rem;
+                                white-space: nowrap;
+                                @media (max-width: 991px) {
+                                    width: 9rem;
+                                    padding: 0;
+                                    img {
+                                        margin: 0 auto;
+                                        display: block;
+                                    }
+                                    p {
+                                        margin-left: 0;
+                                        text-align: center;
+                                        padding: 0;
+                                    }
+                                }
+                                @media (max-width: 417px) {
+                                    padding: 0 0.7rem !important;
+                                }
+                                img {
+                                    border: solid $greyColor 0.1rem;
+                                    width: 3rem;
+                                    padding: 0.5rem 0.6rem 0.5rem 0.7rem;
+                                    border-radius: 50%;
+                                }
+                                p {
+                                    @include paraTag(lighten($paragraphColor, 25%), 1rem, 400);
+                                    margin-top: 0.17rem;
+                                    margin-left: 0.3rem;
+                                }
+                            }
+                            .message {
+                                max-width: calc(100% - 8rem);
+                                @media (max-width: 991px) {
+                                    max-width: calc(100% - 9rem);
+                                }
+                                border-radius: 1.5rem;
+                                padding: 1.3rem 1.3rem;
+                                p {
+                                    @include paraTag($whiteColor, 1.4rem, 600);
+                                    line-height: 1.7;
+                                    word-wrap: break-word;
+                                }
+                            }
+                        }
+                        .senderMainOuter {
+                            display: flex;
+                            justify-content: flex-end;
+                            .imgAndTime {
+                                margin: 0;
+                                padding: 0;
+                                p {
+                                    text-align: center;
+                                    @media (max-width: 417px) {
+                                        text-align: left;
+                                    }
+                                }
+                            }
+                        }
+                        .receiverMessage {
+                            background-color: $receiverMessageBGColor;
+                        }
+                        .senderMessage {
+                            background-color: $senderMessageBGColor;
+                        }
+                    }
+                }
+            }
+
+            .inputOuter {
+                height: 5rem;
+                padding: 0rem 0rem 0rem 2rem;
+                display: flex;
+                align-items: center;
+                background-color: darken($chatMainBG, 4%);
+                border-bottom-right-radius: 1.5rem;
+                @media (max-width: 767px) {
+                    border-bottom-left-radius: 1.5rem;
+                }
+                .sendButton {
+                    width: 8rem;
+                    img {
+                        width: 3.3rem;
+                        cursor: pointer;
+                        margin: 0 auto;
+                        display: block;
+                    }
+                    .sendButtonDisbled {
+                        pointer-events: none !important;
+                        cursor: default !important;
+                        opacity: 0.7;
+                    }
+                }
+                .charLength {
+                    width: 7rem;
+                    height: 3.5rem;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    p {
+                        white-space: nowrap;
+                        @include paraTag($greyColor, 1.2rem, 500);
+                    }
+                    .maxlengthColor {
+                        @include paraTag(darken($senderMessageBGColor, 25%), 1.2rem, 600);
+                    }
+                    .maxlengthTypingColor {
+                        color: $blackColor;
+                    }
+                }
+                .forInput {
+                    position: relative;
+                    width: calc(100% - 8rem);
+                    input {
+                        height: 3.5rem;
+                        border-radius: 0.7rem;
+                        padding-right: 7.7rem;
+                        &::placeholder {
+                            text-align: left !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

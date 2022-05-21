@@ -1,0 +1,74 @@
+$normalTextColor: #333333;
+$borderColor: #bdbdbd;
+
+::ng-deep .custom-dialog-class {
+    mat-dialog-container {
+        border-radius: 5.5rem;
+        padding: 5rem 7.8rem;
+        @media screen and (max-width: 575px) {
+            padding: 4rem 5.8rem;
+        }
+
+        @media screen and (max-width: 387px) {
+            padding: 4rem 3.8rem;
+        }
+
+        @media screen and (min-height: 1081px) {
+            position: absolute;
+            left: calc(50% - 25rem);
+            top: 40rem;
+            width: 50rem;
+            height: 30rem;
+            overflow: hidden;
+        }
+    }
+}
+
+.downloadTable {
+    .close {
+        cursor: pointer;
+        text-align: right;
+        font-weight: 700;
+        font-size: 2.4rem;
+        margin-top: -1.7rem;
+    }
+
+    a {
+        margin: 1rem;
+        text-decoration: none;
+    }
+
+    .headTitle,
+    .message {
+        border: solid $borderColor 0.1rem;
+        border-radius: 1rem;
+        padding: 0.5rem 5rem;
+        margin: 2rem 0 0 0;
+        p {
+            color: $normalTextColor;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 0;
+            padding: 0.3rem;
+        }
+    }
+    .message {
+        padding: 0.5rem 7.8rem;
+        cursor: pointer;
+        @media screen and (max-width: 387px) {
+            padding: 0.5rem 5.8rem;
+        }
+        @media screen and (max-width: 387px) {
+            padding: 0.5rem 3.8rem;
+        }
+    }
+    .headTitle {
+        margin-top: 0;
+        border: none;
+        cursor: default;
+        p {
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    }
+}

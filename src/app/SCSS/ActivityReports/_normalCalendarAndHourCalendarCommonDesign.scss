@@ -1,0 +1,111 @@
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$whiteColor: #fff;
+$greenColor: #6fcf97;
+$blackColor: #000;
+$disabledColor: #bdbdbd;
+$scrollThumbColor: #e7e7e7;
+
+.textAndSelectOuter {
+    margin-bottom: 2rem;
+
+    // @include displayFlex(flex-start, center);
+    // @media (max-width: 1300px) and (min-width: 1200px) {
+    display: block;
+    .textSection {
+        width: 100% !important;
+        margin-bottom: 2rem;
+        p {
+            text-align: center;
+        }
+    }
+    .selectSection {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+    // }
+    @media (max-width: 767px) {
+        display: block;
+        .textSection {
+            width: 100% !important;
+            margin-bottom: 2rem;
+            p {
+                text-align: center;
+            }
+        }
+        .selectSection {
+            width: 100% !important;
+            justify-content: center !important;
+        }
+    }
+    .textSection {
+        width: calc(100% - 25rem);
+    }
+    .selectSection {
+        width: 25rem;
+        @include displayFlex(flex-end, center);
+
+        div:not(:first-child) {
+            margin-left: 1.5rem;
+        }
+
+        .select__field {
+            outline: none;
+            -webkit-appearance: none;
+            /* for webkit browsers */
+            -moz-appearance: none;
+            /* for firefox */
+            appearance: none;
+            /* for modern browsers */
+            text-align-last: center;
+            text-align: center;
+            -ms-text-align-last: center;
+            -moz-text-align-last: center;
+            font-size: 1.5rem !important;
+            font-weight: 600;
+            cursor: pointer !important;
+            &:focus {
+                box-shadow: none !important;
+                border-color: $disabledColor !important;
+            }
+        }
+        .previousNextIcon {
+            i {
+                @include forParaTag($greenColor, 3.5rem !important, 500);
+                cursor: pointer;
+                &:last-child {
+                    margin-left: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+.mainCalendarSectionOuter {
+    width: 75rem;
+    margin: 0 auto;
+    .calendarWeekName {
+        @include displayFlex(flex-start, center);
+        margin: 1rem 0 1.7rem 0;
+    }
+
+    .mainCalendarOuter {
+        margin: 0 -0.27rem !important;
+        display: flex;
+        flex-wrap: wrap;
+        .mainCalendarInner {
+            width: calc(14.278% - 0.54rem);
+            position: relative;
+            .calendarDates {
+                position: absolute;
+                padding: 2px 0 0 7px;
+                @include forParaTag($blackColor, 1.4rem, 600);
+            }
+        }
+    }
+}
+
+.calendarOuterForScroll {
+    @include scrollBar(auto, hidden, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.5rem);
+}
+

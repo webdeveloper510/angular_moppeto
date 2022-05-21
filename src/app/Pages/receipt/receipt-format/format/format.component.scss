@@ -1,0 +1,528 @@
+@import "../../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../SCSS/MediaAndGroupings/radioButtonSectionDesign";
+@import "../../../../SCSS/ngxDropZone/ngxDropZoneCustomDesign";
+
+$whiteColor: #fff;
+$scrollbarBG: #e7e7e7;
+$greenColor: #6fcf97;
+$orangeColor: #faa559;
+$blackColor: #333333;
+$billingMainTextColor: #939393;
+$billingMainBodyBG: #fafafa;
+$vendorNameColor: #646464;
+$thanksTextColor: #6b9bfb;
+$beforeCheckedBG: #eaedff;
+$beforeCheckedBorder: #c5ceff;
+$redColor: #e95656;
+
+@mixin tableInner {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    background-color: $whiteColor;
+}
+
+.radio-item {
+    label {
+        &:before {
+            margin: 0 15px 0 0;
+        }
+    }
+}
+
+:host ::ng-deep p-checkbox {
+    position: relative;
+    .p-checkbox-box {
+        right: 0;
+        position: absolute !important;
+    }
+    .p-checkbox .p-checkbox-box {
+        border: 2px solid $greenColor;
+        background: $whiteColor;
+        height: 17px;
+        width: 17px;
+        &:hover {
+            border: 2px solid $greenColor !important;
+            background-color: $whiteColor;
+        }
+    }
+    .p-checkbox .p-checkbox-box.p-highlight {
+        border-color: $greenColor;
+        background: $whiteColor;
+        &::before {
+            content: "";
+            height: 7px;
+            width: 7px;
+            background-color: $greenColor;
+            @include displayFlex(center, center);
+        }
+        &:hover {
+            border: 2px solid $greenColor !important;
+            background-color: $whiteColor;
+        }
+    }
+    .pi-check:before {
+        content: none;
+    }
+}
+
+.mainOuter {
+    .upperBody {
+        width: 210mm;
+        margin: 0 auto;
+        @include displayFlex(space-between, stretch);
+        @media (max-width: 991px) {
+            width: 100%;
+        }
+        @media (max-width: 767px) {
+            display: block;
+        }
+        .radioOuter3 {
+            width: 35rem;
+            @media (max-width: 767px) {
+                margin: 0 auto;
+            }
+            @media (max-width: 575px) {
+                width: 100%;
+            }
+        }
+
+        .buttonSection {
+            margin-top: 3.2rem;
+            @include buttonDesign(1.4rem, 400, 0.5rem, 0, 0.2rem, 0.7rem);
+            @media (max-width: 767px) {
+                margin: 3.2rem auto;
+                width: 28rem;
+                @include displayFlex(space-between, center);
+            }
+            button {
+                width: 11rem;
+                &:last-child {
+                    margin-left: 2.7rem;
+                }
+                @media (max-width: 767px) {
+                    &:last-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+            .p-button-success {
+                @include classWisebuttonDesign($greenColor, $greenColor, $whiteColor, $greenColor);
+            }
+            .p-button-warning {
+                @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+            }
+        }
+
+        .smallButton {
+            button {
+                width: 8rem;
+            }
+        }
+    }
+
+    .billingBodyOuter {
+        margin-top: 2rem;
+        @media (min-height: 1081px) {
+            height: 77rem !important;
+        }
+        padding: 2rem 0;
+        @include scrollBar(auto, auto, 0.7rem, 0.7rem, 0.8rem, 0, 5rem, transparent, $scrollbarBG, 1rem);
+        @media (max-width: 991px) {
+            padding: 0;
+            margin-top: 4rem;
+        }
+        .billingBody {
+            @media (min-width: 992px) {
+                box-shadow: 0 0 0.3rem $blackColor;
+            }
+            @media (max-width: 991px) {
+                margin: 0 auto;
+            }
+            margin: 2rem auto;
+            height: 297mm;
+            width: 210mm;
+            position: relative;
+            .headerContent {
+                height: 7rem;
+                position: relative;
+                background-color: $whiteColor;
+                .normalView {
+                    img {
+                        height: 70%;
+                        position: absolute;
+                        right: 3rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+            .footerContent {
+                position: absolute;
+                bottom: 0;
+                height: 7rem;
+                width: 100%;
+                @include displayFlex(flex-start, center);
+                background-color: $whiteColor;
+                .innerContent {
+                    width: 100%;
+                    padding: 0 5rem;
+                    @include displayFlex(space-between, center);
+                    p {
+                        @include forParaTag($billingMainTextColor, 1rem, 400);
+                    }
+                    .companyName,
+                    .regNo {
+                        margin-bottom: 0.7rem;
+                    }
+                }
+            }
+            .mainBodyContent {
+                background-color: $billingMainBodyBG;
+                height: calc(100% - 14rem);
+                .receipienttDetails {
+                    @include displayFlex(space-between, stretch);
+                    padding: 3rem 4rem;
+                    p:not(.name p) {
+                        @include forParaTag($billingMainTextColor, 1.3rem, 400);
+                        word-wrap: break-word;
+                    }
+                    .vendorDetails {
+                        width: 25rem;
+                        .name {
+                            p {
+                                @include forParaTag($vendorNameColor, 1.3rem, 600);
+                            }
+                        }
+                        .countryPostalCode {
+                            p {
+                                display: inline;
+                                &:last-child {
+                                    padding-left: 0.8rem;
+                                }
+                            }
+                        }
+                    }
+                    .receiptDetails {
+                        width: 25rem;
+                        .info {
+                            @include displayFlex(space-between, center);
+                            &:not(:last-child) {
+                                margin-bottom: 0.6rem;
+                            }
+                            .leftSide {
+                                width: 60%;
+                            }
+                            .rightSide {
+                                width: 40%;
+                            }
+                        }
+                    }
+                }
+
+                .priceTable {
+                    padding: 1rem 3rem;
+                    .priceTableInner {
+                        @include tableInner();
+                        margin-bottom: 5rem;
+                        td {
+                            @include forParaTag($billingMainTextColor, 1.35rem, 400);
+                        }
+                        .titleCol {
+                            width: 15rem;
+                        }
+                        .toCol {
+                            width: 5rem;
+                        }
+                    }
+
+                    .grandTotalInner {
+                        @include tableInner();
+                        width: 50%;
+                        margin-left: auto;
+                        td {
+                            @include forParaTag($billingMainTextColor, 1.4rem, 400);
+                        }
+                        .titleCol {
+                            width: 17rem;
+                            color: $vendorNameColor;
+                        }
+                        .priceCol {
+                            @include forParaTag($blackColor, 1.4rem, 700);
+                        }
+                    }
+                }
+
+                .thanksText {
+                    margin-top: 12rem;
+                    p {
+                        @include forParaTag($thanksTextColor, 1.8rem, 500);
+                    }
+                }
+            }
+        }
+
+        .editSectionOuter {
+            margin: 2rem auto;
+            width: 210mm;
+            background-color: $billingMainBodyBG;
+            padding: 2rem 4rem;
+            @media (max-width: 991px) {
+                margin: 0 auto;
+                width: 100%;
+            }
+            @media (max-width: 767px) {
+                width: 170mm;
+            }
+            .receiptDetailsSection {
+                .headText {
+                    margin-bottom: 1.5rem;
+                    p {
+                        @include forParaTag($greenColor, 1.7rem, 700);
+                    }
+                }
+            }
+            .buttonSection {
+                @include buttonDesign(1.4rem, 400, 0.5rem, 0, 0.2rem, 0.7rem);
+                margin: 3.2rem auto 1.5rem auto;
+                width: 22rem;
+                @include displayFlex(space-between, center);
+                button {
+                    width: 8rem;
+                }
+                .p-button-success {
+                    @include classWisebuttonDesign($greenColor, $greenColor, $whiteColor, $greenColor);
+                }
+                .p-button-warning {
+                    @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+                }
+            }
+            .detailsSection {
+                padding: 2rem 4rem;
+                background-color: $whiteColor;
+                @include displayFlex(flex-start, center);
+                .info:not(:last-child) {
+                    margin-bottom: 1.5rem;
+                }
+                .labels {
+                    width: 18rem;
+                    .info {
+                        p {
+                            @include forParaTag($billingMainTextColor, 1.3rem, 500);
+                        }
+                    }
+                }
+                .options {
+                    width: calc(100% - 18rem);
+                    .info {
+                        p {
+                            @include forParaTag($blackColor, 1.3rem, 700);
+                        }
+
+                        .radioSection {
+                            display: flex;
+                            .radio-item {
+                                width: 10rem;
+                                label {
+                                    @include forParaTag($blackColor, 1.3rem, 700);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.addBoxShadow {
+    @media (max-width: 991px) {
+        box-shadow: 0 0 0.3rem $blackColor;
+    }
+}
+
+.removeBoxShadox {
+    box-shadow: none;
+}
+
+.detailsSection2 {
+    padding: 2rem 4rem;
+    background-color: $whiteColor;
+    .row {
+        &:not(.forAlignItem) {
+            align-items: center;
+        }
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+        p {
+            @include forParaTag($billingMainTextColor, 1.3rem, 500);
+        }
+        input,
+        textarea {
+            border-radius: 0.25rem;
+        }
+        textarea {
+            height: 7rem;
+            resize: none;
+            @include scrollBar(hidden, auto, 0.5rem, 0.5rem, 0.8rem, 0, 5rem, $whiteColor, $scrollbarThumbColor, 1rem);
+        }
+        .bottomText {
+            margin-top: 0.25rem;
+            @include forParaTag(lighten($billingMainTextColor, 17%), 0.9rem, 500);
+            white-space: nowrap;
+        }
+    }
+    .leftSection1 {
+        p {
+            margin-top: 2.75rem !important;
+        }
+    }
+    .rightSection {
+        .radioSection {
+            @include displayFlex(flex-end, center);
+            .radio-item {
+                label {
+                    @include forParaTag($billingMainTextColor, 1.3rem, 500);
+                }
+            }
+        }
+    }
+
+    .vatInner {
+        margin: 3rem auto;
+        width: 70%;
+        padding: 1rem 3rem 2rem 3rem;
+        .upperText {
+            margin-bottom: 3rem;
+            p {
+                @include forParaTag($billingMainTextColor, 1.3rem, 500);
+                span {
+                    color: $greenColor;
+                }
+            }
+        }
+        .radioInner {
+            .smallText {
+                padding-left: 3.5rem;
+                margin-top: -0.5rem;
+                p {
+                    @include forParaTag($billingMainTextColor, 0.9rem, 500);
+                }
+            }
+        }
+    }
+
+    .forCheckBox {
+        label {
+            @include forParaTag($billingMainTextColor, 1.3rem, 500);
+            margin: 0 2rem 0.15rem 0 !important;
+        }
+    }
+    .forPercentage {
+        @include displayFlex(space-between, center);
+        p {
+            padding-left: 0.5rem;
+        }
+    }
+    .forCheckBox2 {
+        align-items: stretch !important;
+        .leftSection {
+            margin-top: 2.7rem;
+            p {
+                padding-right: 3rem;
+                @include forParaTag($billingMainTextColor, 0.9rem, 500);
+            }
+        }
+        .forDatePicker {
+            position: relative;
+            input {
+                cursor: pointer;
+                padding-right: 2.2rem;
+            }
+            i {
+                cursor: pointer;
+                position: absolute;
+                right: 0.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+                @include forParaTag($billingMainTextColor, 1.4rem, 500);
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+.dottedBorder {
+    border: dashed $redColor 0.2rem;
+}
+
+:host ::ng-deep ngx-dropzone-image-preview {
+    img {
+        width: auto;
+        height: 6rem;
+        transition: none;
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+:host ::ng-deep ngx-dropzone-remove-badge {
+    position: static !important;
+    margin-top: -4rem;
+    margin-left: -1rem;
+}
+
+.editLogoOuter {
+    height: 100%;
+    .custom-dropzone {
+        background-color: $billingMainBodyBG;
+        .label {
+            p {
+                @include forParaTag($billingMainTextColor, 1.5rem, 600);
+            }
+        }
+    }
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+    border: 1px solid #ddd;
+}
+.container {
+    position: relative;
+    background-color: gray;
+}
+
+.full {
+    width: 100%;
+    background: yellow;
+}
+
+.dragHandle {
+    position: absolute;
+    background-color: red;
+}
+
+.dragHandle.corner {
+    width: 15px;
+    height: 15px;
+    cursor: nwse-resize;
+}
+
+.dragHandle.right {
+    width: 2px;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+.dragHandle.bottom {
+    height: 2px;
+    width: 100%;
+    cursor: ns-resize;
+}

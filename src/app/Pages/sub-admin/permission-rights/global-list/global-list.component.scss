@@ -1,0 +1,77 @@
+@import "../../../../SCSS/SubAdmin/permissionRights/commonTableForPermissionRights";
+
+.mainBodyOuter {
+    padding: 0 2.3rem 0 0;
+    @media (max-width: 768px) {
+        padding: 0 2.3rem 0 2.4rem;
+    }
+}
+
+.mainBodyOuterExtraPadding {
+    padding: 0 2.3rem 0 2.4rem;
+}
+
+.radioTD {
+    padding-top: 4rem;
+    @media (min-width: 768px) {
+        left: -0.02rem;
+    }
+    padding-left: 1.7rem;
+    width: 4rem;
+}
+
+.categoryTD {
+    padding-left: 0 !important;
+    width: 27rem;
+    @media (min-width: 768px) {
+        left: 5.4rem;
+    }
+}
+
+.beforeEditOpenTable {
+    .categoryBody {
+        margin-left: -1rem !important;
+    }
+    .categoryDataInner {
+        padding-left: 1rem;
+    }
+}
+
+.mainTableOuter {
+    @media (min-width: 768px) {
+        &::-webkit-scrollbar-track {
+            margin-left: 34rem !important;
+        }
+    }
+}
+
+.fixedColumn {
+    @media (min-width: 768px) {
+        position: sticky;
+    }
+    background-color: $BGcolor;
+}
+
+.categoryDataOuter {
+    .categoryDataInner {
+        @media (max-width: 991px) {
+            min-width: 70rem;
+        }
+    }
+}
+
+table {
+    tr:not(:last-child) {
+        td:not(:first-child) {
+            border-bottom: solid $scrollThumbColor 0.1rem;
+        }
+    }
+}
+
+.afterEditOpenTable {
+    @media (min-width: 768px) {
+        &::-webkit-scrollbar-track {
+            margin-left: 29rem !important;
+        }
+    }
+}

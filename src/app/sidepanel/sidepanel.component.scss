@@ -1,0 +1,438 @@
+@import "../SCSS/Sidepanel/sidebarVariables";
+
+@mixin navLinksImg {
+    img {
+        height: 2rem;
+        margin: 0.5rem auto;
+        display: block;
+    }
+}
+
+@mixin toogleAndFootImg($height, $width) {
+    display: block;
+    height: $height;
+    width: $width;
+}
+
+@mixin paraTag($color, $fontSize, $fontWeight) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
+
+@mixin mainlinkActiveAndHover {
+    background-color: $activeLink-bgColor;
+    a {
+        color: $white-color !important;
+        font-weight: 500 !important;
+    }
+    i {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    .normalIcon {
+        display: none !important;
+    }
+    .hoverAndClickIcon {
+        display: block !important;
+    }
+}
+
+@mixin sublinkActiveAndHover {
+    cursor: pointer !important;
+    background-color: $activeLink-bgColor !important;
+    a {
+        color: $white-color !important;
+        font-weight: 500 !important;
+    }
+}
+
+.topOuter {
+    width: 100% !important;
+    position: fixed;
+    z-index: 1700;
+    margin: 0 !important;
+    padding: 0 !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-family: $mainFontFamily;
+
+    .topHeader {
+        background-color: $mainSidepanel-color;
+        padding: 1rem 0 0.5rem 1rem;
+        .logoBarAndName {
+            max-width: 24.5rem;
+            display: flex;
+            .logo {
+                img {
+                    border-radius: 50%;
+                    float: left;
+                    @include toogleAndFootImg(5.3rem, 5.6rem);
+                }
+            }
+
+            .name {
+                margin: 1.3rem 3rem 0 1rem;
+                p {
+                    padding: 0;
+                    margin: 0;
+                    line-height: 1.6rem;
+                    @include paraTag($normalText-color, 1.3rem, 400);
+                    float: left;
+                }
+            }
+
+            .toogleIcon {
+                margin-left: 3.5rem;
+                @media (max-width: 575px) {
+                    margin-left: 1rem;
+                }
+                margin-top: 0.5rem;
+                width: 4.5rem;
+                height: 4.5rem;
+                padding: 1rem 1rem;
+                transition: background-color 0.5s linear, border-radius 0.7s linear;
+
+                &:hover {
+                    background-color: $toogleIconHover-color;
+                    border-radius: 5rem;
+                }
+                img {
+                    @include toogleAndFootImg(2.5rem, 2.5rem);
+                }
+            }
+        }
+    }
+
+    .breadCrumpsLinks {
+        display: flex;
+        padding: 0;
+        width: calc(100% - 24.5rem);
+        padding-left: 4.5rem;
+        opacity: 1;
+        transition: opacity 1s ease !important;
+        @media screen and (max-width: 767px) {
+            padding-left: 1.5rem;
+            align-items: center;
+            .text1,
+            .text2 {
+                margin-top: 0.7rem !important;
+            }
+            .nextIcon {
+                margin: 0.8rem 1.8rem 0 1.8rem !important;
+            }
+        }
+
+        .text1,
+        .text2 {
+            margin-top: 1.5rem;
+            @media (max-width: 457px) {
+                p {
+                    font-size: 1.4rem !important;
+                }
+            }
+            p {
+                margin: 0;
+                padding: 0;
+                @include paraTag($white-color, 1.5rem, 500);
+            }
+        }
+        .nextIcon {
+            margin: 1.9rem 2.5rem 0 2.5rem;
+            @media (max-width: 457px) {
+                img {
+                    height: 1.2rem !important;
+                }
+            }
+            img {
+                height: 1.5rem;
+            }
+        }
+    }
+
+    .commentOuter {
+        .comment {
+            display: flex;
+
+            .commentIcon {
+                margin-top: 1.5rem;
+                img {
+                    height: 2.2rem;
+                }
+            }
+
+            .noOfComment {
+                margin-top: 0.1rem;
+                margin-left: -0.7rem;
+                background-color: $noOfCommentColor;
+                width: 2.3rem;
+                height: 2.3rem;
+                border-radius: 0.5rem;
+                padding: 0.1rem;
+                p {
+                    margin: 0;
+                    padding: 0;
+                    padding-top: 0.4rem;
+                    text-align: center;
+                    @include paraTag($white-color, 1.1rem, 500);
+                }
+            }
+        }
+    }
+
+    .mainOuter1 {
+        width: calc(100% - 9rem);
+    }
+    .mainOuter2 {
+        width: 9rem;
+    }
+}
+
+.sidebarBody {
+    display: flex;
+    margin-top: 6.5rem;
+    @media (min-height: 1081px) {
+        background-color: $white-color;
+        height: 110rem;
+    }
+    // height: 112rem;
+
+    .panelBody {
+        background-color: $mainSidepanel-color;
+        height: 100vh;
+        @media screen and (min-height: 1200px) {
+            height: 110rem;
+        }
+        color: $white-color;
+        margin-top: 0;
+        position: fixed;
+        z-index: 1799;
+        p,
+        a {
+            font-family: "Nunito", sans-serif !important;
+        }
+    }
+
+    .vendorName {
+        border-color: $normalText-color !important;
+        padding-top: 0.3rem;
+        padding-bottom: 1rem;
+        background-color: $mainSidepanel-color;
+        transition: width 0.1s ease;
+
+        p {
+            display: none;
+            @include paraTag($normalText-color, 1.4rem, 400);
+            margin: 0;
+            text-align: left;
+            margin-left: 1.2rem;
+            margin-top: -0.5rem;
+        }
+    }
+
+    .footerImg {
+        width: 24.5rem;
+        position: fixed;
+        z-index: 1700;
+        background-color: $mainSidepanel-color;
+        bottom: 0;
+        @media screen and (min-height: 1200px) {
+            bottom: auto;
+            margin-bottom: -2rem;
+        }
+        border-color: $normalText-color !important;
+        img {
+            margin: 1rem auto;
+            margin-top: 1.3rem;
+            @include toogleAndFootImg(4.5rem, auto);
+            @media (max-width: 1199px) {
+                height: 4.7em;
+            }
+            @media (max-width: 991px) {
+                height: 4.7em;
+            }
+        }
+    }
+
+    .actualSideLinks {
+        background-color: $mainSidepanel-color;
+        margin-top: 1.3rem;
+
+        .forScroll {
+            background-color: $mainSidepanel-color;
+            overflow: auto;
+            scrollbar-width: thin;
+            margin-right: 0.3rem;
+            @media screen and (min-height: 1108px) {
+                height: 100rem;
+            }
+            @media screen and (max-height: 1107px) {
+                height: 80rem;
+            }
+            @media screen and (max-height: 1007px) {
+                height: 67rem;
+            }
+            @media screen and (max-height: 907px) {
+                height: 55rem;
+            }
+            @media screen and (max-height: 807px) {
+                height: 47rem;
+            }
+            @media screen and (max-height: 670px) {
+                height: 37rem;
+            }
+            @media screen and (max-height: 550px) {
+                height: 30rem;
+            }
+            /* width */
+            &::-webkit-scrollbar {
+                width: 0.7rem;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                border-radius: 1rem;
+                background: $mainSidepanel-color;
+                margin: 0.7rem;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: $scrollBarThumb-Background;
+                border-radius: 1rem;
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background: $scrollBarThumb-BackgroundHover;
+            }
+        }
+
+        .navLinkOuter {
+            margin-bottom: 0.8rem;
+
+            .activeLink {
+                @include mainlinkActiveAndHover();
+            }
+
+            .links {
+                display: flex;
+                transition: background-color 0.4s ease-in-out;
+                &:hover {
+                    @include mainlinkActiveAndHover();
+                }
+            }
+            .icons {
+                width: 4.5rem;
+                padding: 0.2rem 0 0.2rem 0;
+                cursor: pointer;
+                .normalIcon {
+                    @include navLinksImg();
+                }
+                .hoverAndClickIcon {
+                    display: none;
+                    @include navLinksImg();
+                }
+            }
+            .innerLink {
+                width: 20rem;
+                padding-left: 0.5rem;
+                padding-top: 0.5rem;
+
+                a {
+                    text-decoration: none;
+                    @include paraTag($normalText-color, 1.5rem, 500);
+                    transition: color 0.3s linear;
+                }
+
+                i {
+                    visibility: hidden;
+                    opacity: 0;
+                    @include paraTag($white-color, 1.3rem, 500);
+                    margin-right: 1rem;
+                    margin-top: 0.5rem;
+                    float: right;
+                    transition: visibility 0.5s ease, opacity 0.5s ease-in-out;
+                }
+            }
+
+            .subLinks {
+                .activeSubLinks {
+                    @include sublinkActiveAndHover();
+                }
+                .sublink1 {
+                    margin: 0.2rem 0;
+                    transition: background-color 0.4s linear;
+                    &:hover {
+                        @include sublinkActiveAndHover();
+                    }
+
+                    a {
+                        text-decoration: none;
+                        @include paraTag($normalText-color, 1.3rem, 400);
+                        transition: color 0.4s ease-in, font-weight 0.5s ease-in-out;
+                        padding: 0.4rem 0 0.4rem 5rem;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sideBody {
+    width: calc(100% - 8.5rem);
+    margin: 2.5rem 1.5rem 2.5rem 7rem;
+    transition: margin-left 0.4s ease;
+    height: 100%;
+    .mainBody {
+        background-color: $white-color;
+        border-radius: 2.5rem;
+        padding: 1.5rem 1.5rem 3.5rem 1.5rem;
+        margin: 0 0.5rem;
+        @media (max-width: 477px) {
+            margin-top: 0.5rem;
+        }
+        -webkit-box-shadow: 0 0 1.5rem $mainOuterShadow-color;
+        box-shadow: 0 0 1.5rem $mainOuterShadow-color;
+    }
+}
+
+.extraMargin {
+    @media screen and (min-width: 1200px) {
+        margin-left: 27rem;
+        width: calc(100% - 28.5rem);
+        transition: margin-left 0.5s ease;
+    }
+}
+
+.collapsing {
+    transition: height 0.5s ease;
+}
+
+.mainContainer {
+    background-color: $mainBackgroundColor;
+}
+
+.container {
+    @media screen and (min-width: 1921px) {
+        max-width: 150rem;
+        padding: 0;
+    }
+    @media screen and (max-width: 1920px) {
+        min-width: 100%;
+        padding: 0;
+    }
+}
+
+.pointerEvent {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.breadCrumpsLinksDisplay {
+    @media (max-width: 575px) {
+        opacity: 0 !important;
+    }
+}

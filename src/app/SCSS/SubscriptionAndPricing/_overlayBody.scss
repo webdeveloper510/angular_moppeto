@@ -1,0 +1,59 @@
+$overlayColor: #efefef;
+$disabledColor: #bdbdbd;
+
+.overlayBodyTrue {
+    pointer-events: none;
+    background-color: $overlayColor !important;
+    .upperBodyOuter {
+        p {
+            color: $disabledColor;
+        }
+        input {
+            background-color: $overlayColor !important;
+        }
+        .inner3 {
+            .icon {
+                i {
+                    color: $disabledColor;
+                }
+            }
+            .button {
+                button {
+                    background-color: $disabledColor;
+                    color: $overlayColor !important;
+                    border-color: $overlayColor !important;
+                }
+            }
+        }
+    }
+    .tableOuter {
+        pointer-events: all;
+        tbody {
+            tr:not(.overlayBodyFalse) {
+                pointer-events: none;
+                background-color: $overlayColor !important;
+                .editPenButton,
+                .cancelSubscriptionButton {
+                    background-color: $disabledColor;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+    .paginationOuter {
+        p {
+            color: $disabledColor;
+        }
+        .pagesOuter {
+            p {
+                color: $disabledColor;
+            }
+        }
+    }
+    .select:after {
+        color: $disabledColor;
+    }
+    .form-control {
+        color: $disabledColor;
+    }
+}

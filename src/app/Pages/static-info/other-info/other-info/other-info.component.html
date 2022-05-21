@@ -1,0 +1,287 @@
+<div class="mainOuter">
+    <div class="radioOuter3">
+        <div class="upperRadioDivOuter">
+            <p>Select country</p>
+            <div class="radioInner">
+                <div class="row colOuter">
+                    <ng-container *ngFor="let item of countryList; trackBy: trackByService.trackByFn; let i = index">
+                        <div class="col-sm-6">
+                            <div class="leftRadio">
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" [id]="item.id" [(ngModel)]="selectedCountry" name="country"
+                                            [value]="item?.name" (change)="changeCountry()">
+                                        <label for="{{item.id}}"> {{item?.name}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="selectedCountry" class="tableOuter border table-responsive text-nowrap">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr>
+                    <th scope="col" class="noCol">
+                        No.
+                    </th>
+                    <th scope="col" class="text-left countrySectionOuter countrySectionOuter">
+                        Country
+                    </th>
+                    <th scope="col" class="termsSectionOuter">
+                    </th>
+                    <th scope="col" class="languagebuttonOter">
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="border-top">
+
+                <tr class="border-bottom">
+                    <td scope="row" class="noCol">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="countrySectionOuter">
+                        <div class="title1 text-left  text-wrap">
+                            <p>
+                                Contact us email
+                                <br>
+                                (At Vendor subscription page)
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="termsSectionOuter">
+
+                        <div class="termsSectionInner">
+                            <div class="title1 mailText">
+                                <p>
+                                    {{contactEmailDetail?.content}}
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a *ngIf="contactEmailDetail?.content" class="dropdown-item forEdit"
+                                        (click)=openEditContactMailModal()>Edit</a>
+                                    <a [hidden]="contactEmailDetail?.content" class="dropdown-item forEdit"
+                                        (click)=openEditContactMailModal(true)>Add New</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="languagebuttonOter">
+                    </td>
+                </tr>
+
+                <tr class="border-bottom">
+                    <td scope="row" class="noCol">
+                        <div class="title1">
+                            <p>
+                                2
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="countrySectionOuter">
+                        <div class="title1 text-left text-wrap">
+                            <p>
+                                Terms of use
+                                <br>
+                                (for Users - Country specific)
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="termsSectionOuter border-right">
+                        <div class="termsSectionInner" *ngIf="termsOfUseList?.length > 0">
+                            <div class="textBody text-wrap">
+                                <quill-view-html [content]="selectedTermsOfUse?.content" theme="snow"></quill-view-html>
+                            </div>
+
+                        </div>
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a *ngIf="termsOfUseList?.length > 0" class="dropdown-item forEdit"
+                                        routerLink="/edit-other-info"
+                                        [queryParams]="{ type: staticInfoTypeEnum.tou, id: selectedTermsOfUse?.id, country: selectedCountry, lang: selectedTermsOfUse?.language }">Edit</a>
+                                    <a *ngIf="termsOfUseList?.length == 0" class="dropdown-item forEdit"
+                                        routerLink="/edit-other-info"
+                                        [queryParams]="{ type: staticInfoTypeEnum.tou, country: selectedCountry}">Add
+                                        New</a>
+                                    <a *ngIf="termsOfUseList?.length > 0" class="dropdown-item forDelete"
+                                        routerLink="/view-other-info"
+                                        [queryParams]="{ type: staticInfoTypeEnum.tou, id: selectedTermsOfUse?.id , country: selectedCountry }">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="languagebuttonOter">
+                        <div class="languagebuttonInner" *ngIf="termsOfUseList?.length > 0">
+                            <ng-container *ngFor="let item of termsOfUseList">
+                                <button pButton pRipple type="button" label="{{item?.language}}"
+                                    [ngClass]="item?.id === selectedTermsOfUse?.id ? 'p-button-success' : 'p-button-primary'"
+                                    (click)="selectedTermsOfUse = item"></button>
+                            </ng-container>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="border-bottom">
+                    <td scope="row" class="noCol">
+                        <div class="title1">
+                            <p>
+                                3
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="countrySectionOuter">
+                        <div class="title1 text-left text-wrap">
+                            <p>
+                                Terms of Service
+                                <br>
+                                (for Vendors - not country specific)
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="termsSectionOuter border-right">
+                        <div class="termsSectionInner" *ngIf="termsOfServiceList?.length > 0">
+                            <div class="textBody text-wrap">
+                                <quill-view-html [content]="selectedTermsOfService?.content" theme="snow">
+                                </quill-view-html>
+                            </div>
+
+                        </div>
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a *ngIf="termsOfServiceList?.length > 0" class="dropdown-item forEdit"
+                                        routerLink="/edit-other-info"
+                                        [queryParams]="{ type: staticInfoTypeEnum.tos, id: selectedTermsOfService?.id, country: selectedCountry }">Edit</a>
+                                    <a *ngIf="termsOfServiceList?.length == 0" class="dropdown-item forEdit"
+                                        routerLink="/edit-other-info"
+                                        [queryParams]="{ type: staticInfoTypeEnum.tos, country: selectedCountry}">Add
+                                        New</a>
+                                    <a *ngIf="termsOfServiceList?.length > 0" class="dropdown-item forDelete"
+                                        routerLink="/view-other-info"
+                                        [queryParams]="{ type: staticInfoTypeEnum.tos, id: selectedTermsOfService?.id , country: selectedCountry }">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="languagebuttonOter">
+                        <div class="languagebuttonInner" *ngIf="termsOfServiceList?.length > 0">
+                            <ng-container *ngFor="let item of termsOfServiceList">
+                                <button pButton pRipple type="button" label="{{item?.language}}"
+                                    [ngClass]="item?.id === selectedTermsOfService?.id ? 'p-button-success' : 'p-button-primary'"
+                                    (click)="selectedTermsOfService = item"></button>
+                            </ng-container>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="border-bottom">
+                    <td scope="row" class="noCol">
+                        <div class="title1">
+                            <p>
+                                4
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="countrySectionOuter">
+                        <div class="title1 text-left text-wrap">
+                            <p>
+                                Privacy policy
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="termsSectionOuter border-right">
+                        <div class="termsSectionInner">
+                            <div class="textBody text-wrap" *ngIf="privacyPolicyList?.length > 0">
+                                <quill-view-html [content]="selectedPrivacyPolicy?.content" theme="snow">
+                                </quill-view-html>
+
+                            </div>
+
+                        </div>
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a *ngIf="privacyPolicyList?.length > 0" class="dropdown-item forEdit"
+                                        routerLink="/edit-other-info"
+                                        [queryParams]="{ type: staticInfoTypeEnum.pp, id: selectedPrivacyPolicy?.id, country: selectedCountry }">Edit</a>
+                                    <a *ngIf="privacyPolicyList?.length == 0" class="dropdown-item forEdit"
+                                        routerLink="/edit-other-info"
+                                        [queryParams]="{ type: staticInfoTypeEnum.pp, country: selectedCountry}">Add
+                                        New</a>
+                                    <a *ngIf="privacyPolicyList?.length > 0" class="dropdown-item forDelete"
+                                        routerLink="/view-other-info"
+                                        [queryParams]="{ type: staticInfoTypeEnum.pp, id: selectedPrivacyPolicy?.id , country: selectedCountry }">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="languagebuttonOter">
+                        <div class="languagebuttonInner" *ngIf="privacyPolicyList?.length > 0">
+                            <ng-container *ngFor="let item of privacyPolicyList">
+                                <button pButton pRipple type="button" label="{{item?.language}}"
+                                    [ngClass]="item?.id === selectedPrivacyPolicy?.id ? 'p-button-success' : 'p-button-primary'"
+                                    (click)="selectedPrivacyPolicy = item"></button>
+                            </ng-container>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="!selectedCountry" class="tableOuter border table-responsive text-nowrap">
+        Please select Country.
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

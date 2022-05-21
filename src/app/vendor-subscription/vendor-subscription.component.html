@@ -1,0 +1,645 @@
+<div class="container">
+
+  <!-- Start of Main Outer Div - firstdiv Div  -->
+  <div class="firstdiv">
+
+    <!-- Start of Main Div - Maindiv Div -->
+    <div class="maindiv col-sm-12">
+
+
+      <!-- This Div is for Top Texts -->
+      <div class="row">
+        <div class="col-md-6">
+          <p class="font-weight-bold pl-1 pt-2 pb-2 text-left vendorleft">Vendor subscription</p>
+        </div>
+        <div class="col-md-6">
+          <p class="font-weight-light pt-2 pb-2 icon text-right vendorright">Subscription and pricing > Vendor
+            subscription</p>
+        </div>
+      </div>
+      <!-- End of Top Texts Div -->
+
+
+      <!-- Start of Main Inner Div - Primarydiv Div -->
+      <div class="primarydiv border">
+
+
+
+
+
+        <!-- Start of All The 5 Select Option's Div - countryouter Div -->
+
+        <div class="row mt-4 ml-3 countryouter">
+          <div class="col-lg-11 palign">
+            <div class="row">
+
+              <div class="col-lg-6">
+                <div class="row countrymargin">
+
+                  <!-- Start of Country Select Option's Div -->
+
+                  <div class="col-md-7 palign">
+                    <p class="h6 countrytext">Country</p>
+                    <div class="row countrybar countrymargin border">
+                      <div class="col-md-6" *ngIf="leftCountries && leftCountries.length > 0">
+
+                        <div class="form-check" *ngFor="let country of leftCountries; index as i;">
+                          <input class="form-check-input" type="radio" name="country" [id]="'country'+i"
+                            [(ngModel)]="filter.country_name" [value]="country.name"
+                            (click)="selectFilter(country.name, 'country_name'); setCurrency(i, 'leftCountries')"
+                            checked="false">
+                          <label class="form-check-label" for="country1">
+                            {{country.name ? (country.name | titleCase) : ""}}
+                          </label>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-6" *ngIf="rightCountries && rightCountries.length > 0">
+
+                        <div class="form-check" *ngFor="let country of rightCountries; index as i;">
+                          <input class="form-check-input" type="radio" name="country" [id]="'country'+(i-100)"
+                            [(ngModel)]="filter.country_name" [value]="country.name"
+                            (click)="selectFilter(country.name, 'country_name'); setCurrency(i, 'rightCountries')"
+                            checked="false">
+                          <label class="form-check-label" [for]="'country'+(i-100)">
+                            {{country.name ? (country.name | titleCase) : ""}}
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- End of Country Select Option's Div -->
+
+                  <!-- Start of Subscription Type Select Option's Div -->
+
+                  <div class="col-md-5">
+                    <p class="h6 countrytext">Subscription type</p>
+                    <div class="row stype border" *ngIf="subcriptionTypes && subcriptionTypes.length > 0">
+                      <div class="col-md-12">
+
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="stype" id="stype1"
+                            [(ngModel)]="filter.subscription_type" value="ALL"
+                            (click)="selectFilter('ALL', 'subscription_type')">
+                          <label class="form-check-label" for="stype1">
+                            All
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-12" *ngFor="let subcription_type of subcriptionTypes; index as i;">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="stype" [id]="'stype'+i"
+                            [value]="subcription_type" [(ngModel)]="filter.subscription_type"
+                            (click)="selectFilter(subcription_type, 'subscription_type')">
+                          <label class="form-check-label" [for]="'stype'+i">
+                            {{ subcription_type }}
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- End of Subscription Type Select Option's Div -->
+
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="row">
+
+
+                  <!-- Start of Activity Type Select Option's Div -->
+
+                  <div class="col-sm-4">
+                    <p class="h6 countrytext">Activity type</p>
+                    <div class="row countrybar countrymargin border" *ngIf="activityTypes && activityTypes.length > 0">
+                      <div class="col-md-12" *ngFor="let a_type of activityTypes; index as i;">
+
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="atype" [id]="'atype'+i" [value]="a_type"
+                            [(ngModel)]="filter.activity_type" (click)="selectFilter(a_type, 'activity_type')">
+                          <label class="form-check-label" [for]="'atype'+i">
+                            {{a_type | titleCase}}
+                          </label>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- End of Activity Type Select Option's Div -->
+
+                  <!-- Start of Status Select Option's Div -->
+
+                  <div class="col-sm-3">
+                    <p class="h6 countrytext">Status</p>
+                    <div class="row countrybar countrymargin border" *ngIf="statusTypes && statusTypes.length > 0">
+                      <div class="col-md-12" *ngFor="let status of statusTypes; index as i;">
+
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="status" [id]="'status'+i" [value]="status"
+                            [(ngModel)]="filter.status" (click)="selectFilter(status, 'status')">
+                          <label class="form-check-label" [for]="'status'+i">
+                            {{status | titleCase}}
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- End of Status Select Option's Div -->
+
+
+                  <!-- Start of View Select Option's Div -->
+
+                  <div class="col-sm-5">
+                    <p class="h6 countrytext">View</p>
+                    <div class="row countrybar border">
+                      <div class="col-md-12 viewpadding">
+
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="view" id="view1" checked>
+                          <label class="form-check-label" for="view1">
+                            All
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="view" id="view2"
+                            (click)="selectFilter(viewCheckArr, 'view')">
+                          <label class="form-check-label" for="view2">
+                            Selected
+                          </label>
+                          <div class="form-check view" *ngFor="let view of viewTypes; index as i;">
+                            <input class="form-check-input" type="checkbox" name="view" [value]="view" [id]="'view'+i"
+                              (click)="selectFilter(view, 'view', 'checkbox')">
+                            <label class="form-check-label" [for]="'view'+i">
+                              {{view | titleCase}}
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- End of View Select Option's Div -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- End of All The 5 Select Option's Div - countryouter Div -->
+
+
+        <!-- Start of Main Subscription Pannel Outer Div - Subscription Div -->
+        <div class="subscription" *ngIf="filter.country_name">
+
+          <!-- Start of Subscription Header Like Download Option,  Country Name Div - Subscription-Header Div -->
+          <div class="subscription-header row m-0">
+
+            <div class="col-md-5 pt-3">
+
+              <div class="row">
+
+                <div class="col-sm-6 pb-3">
+                  <i class="pi pi-download icon1 icon download"></i>
+                </div>
+                <div class="col-sm-6 pr-5">
+                  <p class="text-right countrytext icon"><u>
+                      {{filter.country_name.toLocaleUpperCase()}}
+                    </u></p>
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+          <!-- End of Subscription Header Like Download Option,  Country Name Div - Subscription-Header Div -->
+
+
+          <!-- Start of Main Subscription Pannel (After Header) Outer Div - Subscriptionpannel Div -->
+          <div class="d-flex subscriptionpannel">
+
+            <!-- Start of Left Side Subscription Table - subscription-left Div -->
+
+            <div class="left subscription-left">
+              <div class="d-flex">
+
+                <!-- Start of Left Side Subscription Side Table - sidetable Div -->
+
+                <div class="sidetable tt">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                      </tr>
+                      <tr>
+
+                        <th colspan="3" class="vendorname">
+                          <p class="h6">Vendor</p>
+                          <p class="h6">name</p>
+                        </th>
+                        <th colspan="1">
+
+                        </th>
+                      </tr>
+                      <tr *ngFor="let v_sub of VendorSubscriptions; index as i;"
+                        [ngClass]="openCustomInput==='customSub'+i ? 'custombackground' : ''">
+                        <td colspan="4" class="longname1">
+                          <div class="name1">
+                            <p class="h6">Vendor long name</p>
+                            <p class="h6">testing testing 1</p>
+                          </div>
+                        </td>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+
+                <!-- End of Left Side Subscription Side Table - sidetable Div -->
+
+
+
+                <!-- Start of Left Side Subscription Main Table - table1 Div -->
+
+                <div class="table1 tab">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th colspan="7" class="activities">
+                          <p class="h6">Subscription parameters</p>
+                        </th>
+                        <th colspan="2" class="activities">
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>
+                          <p class="h6">Vendor</p>
+                          <p class="h6">ID</p>
+                        </th>
+                        <th class="colvumn1">
+                          <p class="h6">Subscription</p>
+                          <p class="h6">type</p>
+                        </th>
+                        <th>
+                          <p class="h6">Total</p>
+                          <p class="h6">locations</p>
+                        </th>
+                        <th>
+                          <p class="h6">Total</p>
+                          <p class="h6">sub&#8722;admins</p>
+                        </th>
+                        <th>
+                          <p class="h6">Traial</p>
+                          <p class="h6">class</p>
+                        </th>
+                        <th class="thpromotion">
+                          <p class="h6">Promotions</p>
+                          <p class="h6">module</p>
+                        </th>
+                        <th>
+                          <p class="h6">Reports</p>
+                          <p class="h6">module</p>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="VendorSubscriptions && VendorSubscriptions.length > 0">
+                      <tr *ngFor="let v_sub of VendorSubscriptions; index as i;">
+                        <td *ngIf="!openCustomInputcheck('customSub'+i)" class="td1">
+                          <p class="h6">{{ v_sub.vendor_id ? v_sub.vendor_id : "" }}</p>
+                        </td>
+                        <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)" class="td1">
+                          <p class="h6">8IU</p>
+                        </td>
+
+                        <td *ngIf="!openCustomInputcheck('customSub'+i)" class="td2">
+                          <p class="h6">{{ v_sub.subscription_type ? v_sub.subscription_type : "" }}</p>
+                        </td>
+                        <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"><input
+                            class="form-control leftinput custombackground" type="text" value="Custom" disabled></td>
+
+                        <td *ngIf="!openCustomInputcheck('customSub'+i)" class="td2">
+                          <p class="h6">{{ v_sub.total_locations ? v_sub.total_locations : "" }}</p>
+                        </td>
+                        <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"><input
+                            class="form-control leftinput" type="number" min="1"
+                            (click)="setBackup($event.target.value, 'total_locations')" [value]="v_sub.total_locations"
+                            oninput="validity.valid||(value='');" [(ngModel)]="dataSet.total_locations"></td>
+
+                        <td *ngIf="!openCustomInputcheck('customSub'+i)" class="td2">
+                          <p class="h6">{{ v_sub.total_sub_admins ? v_sub.total_sub_admins : "&#45;" }}</p>
+                        </td>
+                        <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"><input
+                            class="form-control leftinput" type="number" min="1"
+                            (click)="setBackup($event.target.value, 'total_sub_admins')"
+                            [value]="v_sub.total_sub_admins" oninput="validity.valid||(value='');"
+                            [(ngModel)]="dataSet.total_sub_admins"></td>
+
+                        <td *ngIf="!openCustomInputcheck('customSub'+i)" class="td2">
+                          <p class="h6">{{ v_sub.trial_class ? v_sub.trial_class : "&#45;" }}</p>
+                        </td>
+                        <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)">
+                          <div class="select">
+                            <select [(ngModel)]="dataSet.trial_class" class="form-control select__field">
+                              <option [selected]="v_sub.trial_class == true" value=true>&#xf00c;</option>
+                              <option [selected]="v_sub.trial_class == false" value=false>&#xf00d;</option>
+                            </select>
+                          </div>
+                        </td>
+
+                        <td *ngIf="!openCustomInputcheck('customSub'+i)" class="td2">
+                          <p class="h6">{{ v_sub.promotions_module ? v_sub.promotions_module : "&#45;" }}</p>
+                        </td>
+                        <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)">
+                          <div class="select">
+                            <select [(ngModel)]="dataSet.promotions_module" class="form-control select__field">
+                              <option [selected]="v_sub.promotions_module == true" value=true>&#xf00c;</option>
+                              <option [selected]="v_sub.promotions_module == false" value=false>&#xf00d;</option>
+                            </select>
+                          </div>
+                        </td>
+
+                        <td *ngIf="!openCustomInputcheck('customSub'+i)" class="td2">
+                          <p class="h6">{{ v_sub.reports_module ? v_sub.reports_module : "&#45;" }}</p>
+                        </td>
+                        <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)">
+                          <div class="select">
+                            <select [(ngModel)]="dataSet.reports_module" class="form-control select__field">
+                              <option [selected]="v_sub.reports_module == true" value=true>&#xf00c;</option>
+
+                              <option [selected]="v_sub.reports_module == false" value=false>&#xf00d;</option>
+                            </select>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- End of Left Side Subscription Main Table - table1 Div -->
+
+              </div>
+            </div>
+            <!-- End of Left Side Subscription Table - subscription-left Div -->
+
+
+            <!-- Start of Right Side Subscription Table - subscription-right Div -->
+
+            <div class="right subscription-right">
+              <div class="table2">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th colspan="4" class="activities border-right">
+                        <p class="h6">Activity type & no. of activities</p>
+                      </th>
+                      <th colspan="4" class="activities border-right">
+                        <p class="h6">Slots</p>
+                      </th>
+                      <th colspan="2" class="activities">
+                        <p class="h6">Subscription period</p>
+                      </th>
+                      <th class="activities">
+                        <p class="h6">Subscription per month</p>
+                      </th>
+                      <th class="activities">
+                        <p class="h6">Total subscription remaining</p>
+                      </th>
+                      <th class="activities">
+                        <p class="h6">Total subscription payable</p>
+                      </th>
+                      <th colspan="4" class="activities"></th>
+                    </tr>
+                    <tr>
+                      <th>
+                        <p class="h6 th1">Day</p>
+                        <p class="h6">Access</p>
+                      </th>
+                      <th>
+                        <p class="h6">Fixed</p>
+                        <p class="h6">Timing</p>
+                      </th>
+                      <th>
+                        <p class="h6">Term</p>
+                      </th>
+                      <th class="border-right">
+                        <p class="h6">Open</p>
+                      </th>
+                      <th>
+                        <p class="h6 th1">Day</p>
+                        <p class="h6">Access</p>
+                      </th>
+                      <th>
+                        <p class="h6">Fixed</p>
+                        <p class="h6">Timing</p>
+                      </th>
+                      <th>
+                        <p class="h6">Term</p>
+                      </th>
+                      <th class="border-right">
+                        <p class="h6">Open</p>
+                      </th>
+                      <th>
+                        <p class="h6">From</p>
+                      </th>
+                      <th>
+                        <p class="h6">To <fa-icon [icon]="faSort"></fa-icon>
+                        </p>
+                      </th>
+                      <th>
+                        <p class="h6">{{currencyDisplay ? currencyDisplay : ''}} <fa-icon [icon]="faSort"></fa-icon>
+                        </p>
+                      </th>
+                      <th>
+                        <p class="h6">{{currencyDisplay ? currencyDisplay : ''}} <fa-icon [icon]="faSort"></fa-icon>
+                        </p>
+                      </th>
+                      <th>
+                        <p class="h6">{{currencyDisplay ? currencyDisplay : ''}} <fa-icon [icon]="faSort"></fa-icon>
+                        </p>
+                      </th>
+                      <th id="status">
+                        <p class="h6">Status</p>
+                      </th>
+                      <th></th>
+                      <th colspan="3" class="button chngsubscription">
+                        <!-- <button pButton type="button" class="p-button-secondary button" *ngIf="activeEdit"
+                        (click)="toggleVisibility()" label="Change Subscription"></button>
+                      <button pButton type="button" class="p-button-info twobutton1" *ngIf="activeSaveAndCancel"
+                        label="Next" (click)="nextSaveMode()"></button>
+                      <button pButton type="button" class="p-button-danger twobutton1" *ngIf="activeSaveAndCancel"
+                        (click)="cancelSaveMode()" label="Cancel"></button> -->
+
+                        <button pButton type="button" class="p-button-secondary button"
+                          label="Change Subscription" *ngIf="activeEdit" (click)="toggleVisibility()"></button>
+                        <button pButton type="button" class="p-button-danger deleteButton button"
+                          label="Delete" *ngIf="activeEdit"></button>
+                        <!-- <button pButton type="button" class="p-button-info twobutton1" label="Next"></button>
+                        <button pButton type="button" class="p-button-danger twobutton1" label="Cancel"></button> -->
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf="VendorSubscriptions && VendorSubscriptions.length > 0">
+                    <tr *ngFor="let v_sub of VendorSubscriptions; index as i;">
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)">
+                        <p class="h6">{{ v_sub.no_of_activities.day_access ? v_sub.no_of_activities.day_access : 0 }}
+                        </p>
+                      </td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)" class="tdback1"><input
+                          class="form-control rightinput" type="number" [value]="v_sub.no_of_activities.day_access"
+                          oninput="validity.valid||(value='');" [(ngModel)]="dataSet.no_of_activities.day_access"
+                          (click)="setBackup($event.target.value, 'day_access')"></td>
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)">{{ v_sub.no_of_activities.fixed_timing ?
+                        v_sub.no_of_activities.fixed_timing : 0 }}</td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)" class="tdback1"><input
+                          class="form-control rightinput" type="number" [value]="v_sub.no_of_activities.fixed_timing"
+                          oninput="validity.valid||(value='');" [(ngModel)]="dataSet.no_of_activities.fixed_timing"
+                          (click)="setBackup($event.target.value, 'fixed_timing')"></td>
+
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)">{{ v_sub.no_of_activities.term ?
+                        v_sub.no_of_activities.term : 0 }}</td>
+                      <td class="tdback1" *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"><input
+                          class="form-control rightinput" type="number" [value]="v_sub.no_of_activities.term"
+                          oninput="validity.valid||(value='');" [(ngModel)]="dataSet.no_of_activities.term"
+                          (click)="setBackup($event.target.value, 'term')"></td>
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)">{{ v_sub.no_of_activities.open ?
+                        v_sub.no_of_activities.open : 0 }}</td>
+                      <td class="tdback2" *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"><input
+                          class="form-control rightinput" type="number" [value]="v_sub.no_of_activities.open"
+                          oninput="validity.valid||(value='');" [(ngModel)]="dataSet.no_of_activities.open"
+                          (click)="setBackup($event.target.value, 'open')"></td>
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)">{{ v_sub.max_slots_dayaccess ?
+                        v_sub.max_slots_dayaccess : 0 }}</td>
+                      <td class="tdback inputback" *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"><input
+                          class="form-control rightinput" type="number" oninput="validity.valid||(value='');"
+                          [value]="v_sub.max_slots_dayaccess" [(ngModel)]="dataSet.max_slots_dayaccess"></td>
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)">{{ v_sub.max_slots_fixedtiming ?
+                        v_sub.max_slots_fixedtiming : 0 }}</td>
+                      <td class="tdback inputback" *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"><input
+                          class="form-control rightinput" type="number" oninput="validity.valid||(value='');"
+                          [value]="v_sub.max_slots_fixedtiming" [(ngModel)]="dataSet.max_slots_fixedtiming"></td>
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)">{{ v_sub.max_slots_term ? v_sub.max_slots_term :
+                        0 }}</td>
+                      <td class="tdback inputback" *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"><input
+                          class="form-control rightinput" type="number" oninput="validity.valid||(value='');"
+                          [value]="v_sub.max_slots_term" [(ngModel)]="dataSet.max_slots_term"></td>
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)">{{ v_sub.max_slots_open ? v_sub.max_slots_open :
+                        0 }}</td>
+                      <td class="tdback inputback" *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"><input
+                          class="form-control rightinput" type="number" oninput="validity.valid||(value='');"
+                          [value]="v_sub.max_slots_open" [(ngModel)]="dataSet.max_slots_open"></td>
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)"><input class="form-control rightinput"
+                          type="text" [value]="v_sub.subscription_period.from ? v_sub.subscription_period.from : '-'"
+                          disabled></td>
+                      <td class="tdback" *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"><input
+                          class="form-control rightinput" type="text"
+                          [value]="v_sub.subscription_period.from ? v_sub.subscription_period.from : '-'" disabled></td>
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)"><input class="form-control rightinput"
+                          type="text" [value]="v_sub.subscription_period.to ? v_sub.subscription_period.to : '-'"
+                          disabled></td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)" class="tdback"><input
+                          class="form-control rightinput" type="text"
+                          [value]="v_sub.subscription_period.to ? v_sub.subscription_period.to : '-'" disabled></td>
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)"><input class="form-control rightinput"
+                          type="number" [value]="v_sub.price_per_month ? v_sub.price_per_month : ''"
+                          oninput="validity.valid||(value='');"></td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)" class="tdback inputback"><input
+                          class="form-control rightinput" type="number" [value]="v_sub.price_per_month"
+                          oninput="validity.valid||(value='');" placeholder="Insert"
+                          [(ngModel)]="dataSet.price_per_month"
+                          (click)="setBackup($event.target.value, 'price_per_month')"></td>
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)"><input class="form-control rightinput"
+                          type="number"
+                          [value]="v_sub.total_subscription_remaining ? v_sub.total_subscription_remaining : ''"
+                          oninput="validity.valid||(value='');"></td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)" class="tdback"><input
+                          class="form-control rightinput" type="text" [value]="v_sub.total_subscription_remaining"
+                          [(ngModel)]="dataSet.total_subscription_remaining"
+                          (click)="setBackup($event.target.value, 'total_subscription_remaining')"></td>
+
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)">{{ v_sub.total_subscription_payable ?
+                        v_sub.total_subscription_payable : 0 }}</td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)" class="tdback"><input
+                          class="form-control rightinput" type="text" [value]="v_sub.total_subscription_payable"
+                          [(ngModel)]="dataSet.total_subscription_payable"
+                          (click)="setBackup($event.target.value, 'total_subscription_payable')"></td>
+
+                      <td [ngClass]="getClassNameForStatus(v_sub.status)" *ngIf="!openCustomInputcheck('customSub'+i)"
+                        class="status currentstatus">
+                        <p class="h6">{{ v_sub.status ? (v_sub.status | titleCase) : "" }}</p>
+                        <small *ngIf="v_sub.status==='SENT' && v_sub.email_sent_at != null"
+                          class="h6">{{v_sub.email_sent_at ? v_sub.email_sent_at : ''}}</small>
+                      </td>
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)"></td>
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)"></td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)" class="tdback inputback2">
+                        <input class="form-control rightinput" type="number" value="" disabled
+                          oninput="validity.valid||(value='');">
+                      </td>
+
+
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)" class="savecancel"><button
+                          (click)=" nextForSave(i)" pButton type="button" class="p-button-success twobutton"
+                          label="Next"></button></td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)" class="savecancel"><button
+                          (click)="cancelSaveMode()" pButton type="button" class="p-button-warning twobutton"
+                          label="Cancel"></button></td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"></td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"></td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"></td>
+                      <td *ngIf="!openCustomInputcheck('customSub'+i)">
+                        <div class="form-check radio" *ngIf="openRadio && v_sub.status!='expired'">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            [id]="'flexRadioDefault'+i" (click)="customSubcription(i);">
+                        </div>
+                      </td>
+                      <td></td>
+                      <td *ngIf="openCustomInput && openCustomInputcheck('customSub'+i)"></td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- End of Right Side Subscription Table - subscription-right Div -->
+
+          </div>
+          <!-- End of Main Subscription Pannel (After Header) Outer Div - Subscriptionpannel Div -->
+
+
+        </div>
+        <!-- End of Main Subscription Pannel Outer Div - Subscription Div -->
+
+
+
+      </div>
+      <!-- End of Main Inner Div - Primarydiv Div -->
+
+
+    </div>
+    <!-- End of Main Div - Maindiv Div -->
+
+
+  </div>
+  <!-- End of Main Outer Div - firstdiv Div  -->
+
+  <!-- <app-sample-modals></app-sample-modals> -->
+
+</div>

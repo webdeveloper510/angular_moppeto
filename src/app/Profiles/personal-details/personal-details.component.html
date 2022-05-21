@@ -1,0 +1,40 @@
+<div class="mainOuter border">
+    <div class="mainBodyOuter">
+        <div class="mainBodyInner">
+            <div class="head">
+                <p class="m-0">Personal details</p>
+            </div>
+            <div class="actualBody">
+                <div class="formDiv">
+                    <div class="forLabel">
+                        <p class="m-0">First name</p>
+                    </div>
+                    <div class="forInput">
+                        <input type="text" [(ngModel)]="userFirstName" pInputText />
+                    </div>
+                </div>
+                <div class="formDiv">
+                    <div class="forLabel">
+                        <p class="m-0">Last name</p>
+                    </div>
+                    <div class="forInput">
+                        <input type="text" [(ngModel)]="userLastName" pInputText />
+                    </div>
+                </div>
+                <div class="formDiv">
+                    <div class="forLabel">
+                        <p class="m-0">Email</p>
+                    </div>
+                    <div class="forInput">
+                        <input type="text" value="abc@mail.com" pInputText disabled class="disabledInput" />
+                    </div>
+                </div>
+                <div class="updateButton">
+                    <button [ngClass]="userLastName && userLastName?'p-button-success':'p-button-secondary'" class="btn"
+                        [disabled]="!userFirstName && userLastName" pButton pRipple type="button"
+                        label="Update"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+$whiteColor: #fff;
+$suspendCircleAndText: #bdbdbd;
+$dropleftButtonHoverColor: #e0e0e0;
+$dropdownMenuNormalTextColor: #333333;
+
+@mixin customEllipse() {
+    .customRightsAlignDropdown {
+        .btn {
+            background-color: $whiteColor;
+            border: none;
+            border-radius: 1rem;
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            padding: 0;
+            transition: background-color 0.5s linear;
+            &:hover {
+                background-color: $dropleftButtonHoverColor;
+                border-color: $dropleftButtonHoverColor;
+            }
+            @include forParaTag($suspendCircleAndText, 2rem, 600);
+        }
+
+        .dropdown-menu {
+            padding: 0.1rem;
+            border-radius: 0.7rem;
+            padding-right: 0.3rem;
+            border: solid 0.2rem $dropleftButtonHoverColor;
+            min-width: 8rem;
+            .dropdown-item {
+                padding: 0.2rem;
+                padding-bottom: 0.1rem;
+                background-color: $whiteColor;
+                margin: 0.1rem;
+                border-radius: 0.5rem;
+                transition: background-color 0.3s linear;
+                min-width: 12rem;
+                &:hover {
+                    background-color: $dropleftButtonHoverColor;
+                    color: $dropdownMenuNormalTextColor;
+                }
+            }
+            a {
+                color: $dropdownMenuNormalTextColor;
+                font-weight: 600;
+                font-size: 1.4rem;
+                padding-left: 1rem;
+                padding-right: 1.5rem;
+            }
+            .item1 {
+                &:hover {
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+            .item4 {
+                &:hover {
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+            .forEdit {
+                background-color: $termsTextBG;
+                &:hover {
+                    background-color: darken($termsTextBG, 10%);
+                }
+            }
+        }
+    }
+}

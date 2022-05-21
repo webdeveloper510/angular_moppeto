@@ -1,0 +1,54 @@
+$activeTabBackgroundColor: white;
+$activeTabBorderColor: #e4e4e4;
+$activeTabTextColor: #4dc5af;
+$normalTabBorderColor: #f3f5f7;
+$normalTabBorderBottomColor: #dbdbdb;
+$normalTabTextColor: #afbcd2;
+
+.userTabNav {
+    .fornav {
+        a {
+            text-decoration: none;
+        }
+
+        .active {
+            p {
+                color: $activeTabTextColor;
+                font-weight: 600;
+            }
+            div {
+                background-color: $activeTabBackgroundColor;
+                border-color: $activeTabBorderColor;
+                border-bottom: none;
+            }
+        }
+    }
+
+    .nav-item {
+        background-color: $normalTabBorderColor;
+        width: 14.7rem;
+        @media (max-width: 457px) {
+            width: 10rem;
+        }
+        height: 5rem;
+        padding: 0.2rem;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        border: solid 0.1rem $normalTabBorderColor;
+        border-bottom-color: $normalTabBorderBottomColor;
+
+        p {
+            text-align: center;
+            color: $normalTabTextColor;
+            line-height: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .formargin {
+            margin-top: 1.7rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+}

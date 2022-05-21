@@ -1,0 +1,33 @@
+<div class="actualOuter">
+    <div class="upperTitle">
+      <div class="titleBox">
+        <p class="text-center" mat-dialog-title>Add attribute group</p>
+      </div>
+      <div class="close">
+        <p (click)="onDismiss()" class="close text-center">X</p>
+      </div>
+    </div>
+    <div class="bodySection">
+      <form [formGroup]="attributeForm">
+        <div class="inputDropdownOuter">
+          <div class="input2">
+            <div class="inputSection">
+              <p>Attribute group</p>
+              <input type="text" pInputText maxlength="20" #addNewInput1 formControlName="name" />
+            </div>
+            <div class="totalChar">
+              <p class="text-right"
+                [ngClass]="[addNewInput1.value.length == 3 ? 'maxlengthColor' : '' || attributeForm.value.name ? 'maxlengthTypingColor':'']">
+                {{addNewInput1.value.length}} / 20</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="buttonSection">
+          <button pButton pRipple type="button" (click)="onSubmit()" label="Add"
+            [ngClass]="!attributeForm.valid ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+            [disabled]="!attributeForm.valid"></button>
+        </div>
+      </form>
+    </div>
+  </div>

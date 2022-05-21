@@ -1,0 +1,26 @@
+@import "../../../../SCSS/MediaAndGroupings/categoryIconsAndImagesDesign";
+
+.colsOuter {
+    .col {
+        height: 22rem !important;
+        .upperSection {
+            height: 40% !important;
+        }
+        .bottomSection {
+            height: 60% !important;
+        }
+    }
+}
+
+:host ::ng-deep ngx-dropzone-remove-badge {
+    top: 1rem !important;
+    @media (max-width: 1199px) {
+        top: 2rem !important;
+    }
+    @media (max-width: 767px) {
+        top: 3rem !important;
+    }
+    @media (max-width: 575px) {
+        top: 4rem !important;
+    }
+}

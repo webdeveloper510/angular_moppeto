@@ -1,0 +1,107 @@
+<div class="mainOuter border">
+    <!-- Upper Radio Section Starts -->
+    <div class="upperRadioDivOuter">
+        <p>Select Country</p>
+        <div class="radioInner">
+            <div class="row colOuter">
+                <ng-container *ngFor="let item of countries; trackBy: trackByService.trackByFn; let i = index">
+                    <div class="col-sm-6">
+                        <div class="leftRadio">
+                            <div class="forRadio">
+                                <div class="radio-item">
+                                    <input type="radio" [id]="item.id" [(ngModel)]="selectedCountry" name="country"
+                                        [value]="item" (change)="onChangeCountry()">
+                                    <label for="{{item.id}}"> {{item?.name}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <!-- Upper Radio Section Ends -->
+
+
+    <!-- !-- Add age group starts..... -->
+
+    <div class="addCouponOuter" [hidden]="!selectedCountry || (ageGroupList?.length > 0 && ageGroupList[ageGroupList?.length -1].maxAge === 'Max')">
+        <div class="addCuppon">
+            <button pButton pRipple type="button" label="New age group" class="p-button-success"
+                (click)="addNewAgeGroup()"></button>
+        </div>
+    </div>
+
+    <!-- !-- Add age group ends..... -->
+
+
+    <!-- Table Starts..... -->
+    <div class="tableOuter mt-3 table-responsive border-top" *ngIf="isAPIReponseCome">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr>
+                    <th scope="col" class="forNo">
+                        <br>
+                        No.
+                    </th>
+                    <th scope="col" class="">
+                        Age group name
+                    </th>
+                    <th scope="col">
+                        Minimum age
+                    </th>
+                    <th scope="col">
+                        Maximum age
+                    </th>
+                    <th scope="col" class="ellipsisTH">
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngIf="ageGroupList?.length > 0 else noDataView" #tableView>
+                <tr class="border-bottom"
+                    *ngFor="let ageGroup of ageGroupList; trackBy: trackByService.trackByFn; let i = index">
+                    <td scope="row" class="forNo">
+                        <div class="title1">
+                            <p>
+                                {{i+1}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>{{ageGroup?.name}}</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>{{ageGroup?.min_age}}</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>{{ageGroup?.max_age}}</p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a [hidden]="ageGroupList?.length > 0 && ageGroupList[ageGroupList?.length -1].maxAge === 'Max'" class="dropdown-item item1" (click)="addNewAgeGroup(true, ageGroup)">Edit</a>
+                                    <a class="dropdown-item item4" (click)="confirmDelete(ageGroup?.id)">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <ng-template #noDataView>
+                <app-no-table-data-view></app-no-table-data-view>
+            </ng-template>
+        </table>
+    </div>
+    <!-- Table Ends...... -->
+</div>

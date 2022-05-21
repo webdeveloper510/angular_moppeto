@@ -1,0 +1,45 @@
+@import "../../../../SCSS/MediaAndGroupings/tabNavDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../SCSS/MediaAndGroupings/radioButtonSectionDesign";
+
+.tabs {
+    padding: 0 0 0 7rem;
+    @media (max-width: 575px) {
+        padding: 0 0 0 2rem;
+        .tabLinks {
+            margin-right: 2rem;
+        }
+    }
+    .tabLinks {
+        width: 10rem;
+        margin-right: 3rem;
+    }
+}
+
+.mainRadioInner {
+    @include displayFlex(space-between, center);
+    margin: 2rem 18rem 2rem 18rem;
+    @media (max-width: 1400px) {
+        margin: 2rem 2.5rem;
+    }
+    @media (max-width: 667px) {
+        display: block;
+        .radioOuter1 {
+            margin: 0 auto 2rem auto;
+            padding-right: 0;
+        }
+        .radioOuter2 {
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+}
+
+.radioOuter2 {
+    padding-left: 1.5rem;
+    @media (max-width: 1400px) {
+        padding-left: 0.7rem;
+    }
+
+    width: calc(100% - 17rem);
+}

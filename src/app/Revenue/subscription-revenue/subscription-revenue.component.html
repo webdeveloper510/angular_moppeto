@@ -1,0 +1,346 @@
+<div class="mainOuter border">
+
+  <!-- UpperBody Starts..... -->
+
+  <div class="upperBody">
+    <div class="outer container">
+      <div class="row">
+        <div class="col-xl-6 body1">
+          <div class="innerBody1Outer">
+            <div class="inner1">
+              <div class="row">
+                <div class="col-sm-3 col-6 extra-padding">
+                  <div class="radio-item">
+                    <input type="radio" id="dateRange1" name="dateRange" value="dateRange1">
+                    <label for="dateRange1">Last 30 days</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-6 extra-padding">
+                  <div class="radio-item">
+                    <input type="radio" id="dateRange2" name="dateRange" value="dateRange2">
+                    <label for="dateRange2">Last 60 days</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 dateRange radio-item">
+                  <input type="radio" id="dateRange3" name="dateRange" value="dateRange3">
+                  <label for="dateRange3">
+                  </label>
+                  <!-- <input pInputText type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"
+                    placeholder="Date range" for="dateRange3" /> -->
+                  <input pInputText type="text" class="form-control" bsDaterangepicker [bsConfig]="{ isAnimated: true }"
+                    placeholder="Date range" for="dateRange3">
+                  <i class="pi pi-calendar"></i>
+                </div>
+              </div>
+            </div>
+            <div class="inner2">
+              <div class="row">
+                <div class="col-sm-6 dropdown1">
+                  <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" placeholder="All Countries"
+                    optionLabel="name" [showClear]="false">
+                  </p-dropdown>
+                </div>
+                <div class="col-sm-6 dropdown2">
+                  <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="All Cities" optionLabel="name"
+                    [showClear]="false">
+                  </p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="inner3 d-flex justify-content-center">
+              <div class="icon">
+                <i class="pi pi-youtube"></i>
+              </div>
+              <div class="button">
+                <button pButton pRipple type="button" label="Reset" class="p-button-outlined p-button-success"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 body2">
+          <div class="innerBody2Outer">
+            <div class="radioOuter2">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="radio-item">
+                    <input type="radio" id="revenueRange1" name="revenueRange" value="revenueRange1">
+                    <label for="revenueRange1">Time-based revenue</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="radio-item">
+                    <input type="radio" id="revenueRange2" name="revenueRange" value="revenueRange2">
+                    <label for="revenueRange2">Accounting revenue</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UpperBody Ends..... -->
+
+
+  <div class="tabs mb-4">
+    <div class="row">
+      <div class="col-10">
+      </div>
+      <div class="col-2">
+        <div class="downloadCSV">
+          <img src="../../../assets/categoryStatistics/Download_Icon.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table Starts..... -->
+  <div class="tableOuter border-top table-responsive text-nowrap">
+    <table class="table table-borderless text-center">
+      <thead class="forBG">
+        <tr>
+          <th scope="col" class="noCol">
+            No.
+          </th>
+          <th scope="col" class="text-left">
+            Subscription <br> type
+          </th>
+          <th scope="col">
+            Net revenue <br> (INR)
+          </th>
+          <th scope="col">
+            VAT/GST
+            <br>
+            (INR)
+          </th>
+          <th scope="col">
+            Gross revenue
+            <br>
+            (INR)
+          </th>
+          <th scope="col">
+            Number <br> subscribed
+          </th>
+          <th scope="col">
+            Average <br> subscription (INR)
+          </th>
+        </tr>
+      </thead>
+      <tbody class="border-top">
+        <tr class="border-bottom">
+          <td scope="row" class="noCol">
+            <div class="title1">
+              <p>
+                1
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left">
+            <div class="title1">
+              <p>
+                Premium
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                2,300,000
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title2">
+              <p>
+                100,000
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title2">
+              <p>
+                2,400,000
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                1,347
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                35
+              </p>
+            </div>
+          </td>
+        </tr>
+        <tr class="border-bottom">
+          <td scope="row" class="noCol">
+            <div class="title1">
+              <p>
+                2
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left">
+            <div class="title1">
+              <p>
+                Enterprise
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                4,100,000
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title2">
+              <p>
+                100,000
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title2">
+              <p>
+                4,200,000
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                2,436
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                45
+              </p>
+            </div>
+          </td>
+        </tr>
+        <tr class="border-bottom">
+          <td scope="row" class="noCol">
+            <div class="title1">
+              <p>
+                3
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left">
+            <div class="title1">
+              <p>
+                Classroom
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                1,234,524
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title2">
+              <p>
+                100,000
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title2">
+              <p>
+                1,334,524
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                346
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                55.1
+              </p>
+            </div>
+          </td>
+        </tr>
+        <tr class="border-bottom">
+          <td scope="row" class="noCol">
+            <div class="title1">
+              <p>
+                4
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left">
+            <div class="title1">
+              <p>
+                Custom
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                789,567
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title2">
+              <p>
+                20,000
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title2">
+              <p>
+                809,567
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                147
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                44.7
+              </p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Table Ends...... -->
+
+  <!-- Pagination Starts...... -->
+  <div class="paginationOuter">
+    <div class="blankDiv"></div>
+  </div>
+  <!-- Pagination Ends...... -->
+</div>

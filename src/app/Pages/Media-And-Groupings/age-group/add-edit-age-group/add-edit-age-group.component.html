@@ -1,0 +1,58 @@
+<div class="actualOuter">
+    <div class="upperTitle">
+        <div class="titleBox">
+            <p class="text-center" mat-dialog-title>{{data.isEdit ? 'Edit' : 'Add' }} age group
+            </p>
+        </div>
+        <div class="close">
+            <p (click)="onDismiss()" class="close text-center">X</p>
+        </div>
+    </div>
+    <div class="bodySection">
+        <form [formGroup]="ageGroupForm">
+            <div class="inputDropdownOuter">
+                <div class="input1">
+                    <div class="inputSection">
+                        <p>Age group name</p>
+                        <input type="text" class="input-readOnly"  readonly pInputText maxlength="20" formControlName="name" #addNewInput>
+                    </div>
+
+                    <div class="totalChar">
+                        <p class="text-right"
+                            [ngClass]="[addNewInput.value.length == 20 ? 'maxlengthColor' : '' || ageGroupForm.value.names ? 'maxlengthTypingColor':'']">
+                            {{addNewInput.value.length}} / 20</p>
+                    </div>
+                </div>
+
+                <div class="input2">
+                    <div class="inputSection">
+                        <p>Minimum age
+                        </p>
+                        <p-dropdown placeholder="Minimum Age"  [options]="minAgeList"
+                            formControlName="min_age" (onChange)="minAgeChange()">
+                        </p-dropdown>
+                    </div>
+                </div>
+
+                <div class="input2">
+                    <div class="inputSection">
+                        <p>Maximum age
+                        </p>
+                        <p-dropdown placeholder="Maxmum Age" [options]="maxAgeList"
+                            formControlName="max_age" (onChange)="maxAgeChange()">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttonSection">
+                <button pButton pRipple type="button" label="Add" class="p-button-success"
+                    [ngClass]="!ageGroupForm.valid ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+                    [disabled]="!ageGroupForm.valid" (click)="onConfirm()" *ngIf="!data.isEdit"></button>
+                <button pButton pRipple type="button" label="Save" class="p-button-warning" (click)="onConfirm()"
+                    *ngIf="data.isEdit" [ngClass]="!ageGroupForm.valid || disableBtn() ? 'p-button-text p-button-plain change-cursor' : ''"
+                    [disabled]="!ageGroupForm.valid || disableBtn()"></button>
+            </div>
+        </form>
+    </div>
+</div>

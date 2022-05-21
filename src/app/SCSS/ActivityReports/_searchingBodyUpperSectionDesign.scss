@@ -1,0 +1,31 @@
+@import "../CommonDesigns/commonDesigns.scss";
+
+$orangeColor: #faa559;
+$blackColor: #333333;
+$whiteColor: #fff;
+
+.mainBodyOuter {
+    padding: 1rem 2rem;
+}
+
+.innerBody {
+    @media (min-width: 768px) {
+        min-height: 67rem;
+    }
+    @media (max-width: 767px) {
+        min-height: 70vh;
+    }
+}
+
+.upperBackBody {
+    padding-bottom: 1rem;
+    @include displayFlex(flex-start, center);
+    @include buttonDesign(1.3rem, 400, 00.25rem, 2rem, 0.2rem, 0.7rem);
+    .p-button-warning {
+        @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+    }
+    p {
+        margin-left: 2.2rem;
+        @include forParaTag($blackColor, 1.4rem, 700);
+    }
+}

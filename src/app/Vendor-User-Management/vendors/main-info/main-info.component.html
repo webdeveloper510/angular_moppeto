@@ -1,0 +1,176 @@
+<div class="mainOuter border">
+  <!-- Top Header Starts..... -->
+  <div class="topHeader">
+    <div class="outer">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 tabs">
+          <div class="inner">
+            <div class="row">
+              <div class="col-sm-4 col-3 all" [ngClass]="{actTab: status=='all'}">
+                <a (click)="changeStatus('all')">All</a>
+              </div>
+              <div class="col-sm-4 col-4  active" [ngClass]="{actTab: status=='active'}">
+                <a (click)="changeStatus('active')">Active</a>
+              </div>
+              <div class="col-sm-4 col-5 suspend" [ngClass]="{actTab: status=='suspended'}">
+                <a (click)="changeStatus('suspended')">Suspend</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-4 col-sm-6 col-12 searchOuter">
+          <div class="search">
+            <i class="pi pi-search" [ngClass]="searchInput?'searchColor':'searchColor2'"></i>
+            <input type="text" pInputText [(ngModel)]="searchInput">
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 dropdown">
+          <img src="../../../assets/categoryStatistics/Download_Icon.svg" alt="" class="float-right"
+            (click)="downloadTable()">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top Header Ends..... -->
+
+  <!-- Table Starts..... -->
+  <div class="tableOuter border-top table-responsive text-nowrap">
+    <table class="table table-borderless text-center" #mainInfoTable>
+      <thead class="forBG">
+        <tr>
+          <th scope="col" class="text-left"
+            (click)="sortBy('name'); aceAndDec = !aceAndDec; toggleSorting('vendorName')">
+            <div class="forSort">
+              <div class="forText">
+                Vendor name
+                <br>
+                Vendor code
+              </div>
+              <i [ngClass]="vendorNameAscSort?'fa fa-sort-up':'fa fa-sort-down'"></i>
+            </div>
+          </th>
+          <th scope="col" class="text-left">
+            Contact person
+            <br>
+            Email
+          </th>
+          <th scope="col">
+            &nbsp;
+            <br>
+            Country registered
+          </th>
+          <th scope="col">
+            Entity registration
+            <br>
+            number
+          </th>
+          <th scope="col" class="dateJoined"
+            (click)="sortBy('date'); aceAndDec = !aceAndDec; toggleSorting('dateJoined')">
+            <div class="forSort justify-content-center">
+              <div class="forText text-center pl-2">
+                Date
+                <br>
+                joined
+              </div>
+              <i [ngClass]="dateAscSort?'fa fa-sort-down':'fa fa-sort-up'"></i>
+            </div>
+          </th>
+          <th scope="col">
+            &nbsp;
+            <br>
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngIf="vendors && vendors.length > 0">
+        <tr class="border-bottom" *ngFor="let item of vendors;trackBy: trackByService.trackByFn; index as i;">
+          <td scope="row" class="text-left">
+            <div class="title1">
+              <p>
+                {{item?.name | blankValue}}
+              </p>
+            </div>
+            <div class="title3">
+              <p>
+                {{item?.vendor?.code | blankValue}}
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left">
+            <div class="title4">
+              <p>
+                {{item?.preferred_name | blankValue}}
+              </p>
+            </div>
+            <div class="title2">
+              <p>
+                {{item?.vendor?.email | blankValue}}
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title1">
+              <p>
+                {{item?.vendor?.country | blankValue}}
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                {{item?.reg_number | blankValue}}
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="dateJoined">
+            <div class="title4">
+              <p>
+                {{ item?.vendor?.date_joined | date: 'dd/MM/YY' }}
+              </p>
+            </div>
+          </td>
+          <td>
+            <div class="ellipsisOuter">
+              <div class="statusOuter">
+                <div class="status"
+                  [ngClass]="{ActiveStatus: checkStatus(item.vendor_status), SuspendStatus: !checkStatus(item.vendor_status)}">
+                  <div class="circleDiv"></div>
+                  <div class="ActualStatus">
+                    <p>{{item?.vendor_status | titleCase}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="dropleft">
+                <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <span><i class="pi pi-ellipsis-v"></i></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="javaScript:void(0)"
+                    (click)="changeVendorStatus(item.vendor_status, item.id, i)">{{ item.vendor_status == "ACTIVE"
+                    ? "Suspend" : "Re-Instate" }}</a>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tr>
+        <td *ngIf="vendors && vendors.length == 0">
+          <!-- {{selectedCountry ? "No data available" : "Please select country to get details"}} -->
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- Table Ends...... -->
+
+
+<!-- Pagination Starts...... -->
+<div *ngIf="vendors?.length > 0">
+  <app-pagination (onPagechanged)="pageChangeEvent()" [paginationService]="paginationService">
+  </app-pagination>
+</div>
+<!-- Pagination Ends...... -->
+  <!-- This Code is for Toast -->
+  <app-toasts *ngIf="!selectedCountry" aria-live="polite" aria-atomic="true"></app-toasts>
+</div>

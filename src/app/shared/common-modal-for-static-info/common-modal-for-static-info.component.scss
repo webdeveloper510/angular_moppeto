@@ -1,0 +1,79 @@
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../SCSS/PrimeNG/primeNGDesign";
+
+$blackColor: #666b68;
+$whiteColor: #fff;
+$greenButtonColor: #4dc5af;
+$upperHeadBGcolor: #deffec;
+
+@mixin customDialogClass($height) {
+    mat-dialog-container {
+        padding: 0;
+        margin: 0;
+        border-radius: 0.5rem;
+        @media screen and (min-height: 1081px) {
+            position: absolute;
+            left: calc(50% - 18.5rem);
+            top: 40rem;
+            width: 35rem;
+            height: $height;
+            overflow: hidden;
+        }
+    }
+}
+
+.actualOuter {
+    width: 35rem;
+    padding-bottom: 1rem;
+    .upperTitle {
+        height: 4.7rem;
+        @include displayFlex(center, center);
+        .titleBox {
+            padding-left: 2.25rem;
+            width: calc(100% - 5rem);
+            p {
+                @include forParaTag($blackColor, 1.5rem, 600);
+            }
+        }
+        .close {
+            width: 5rem;
+            p {
+                cursor: pointer;
+                @include forParaTag($blackColor, 2rem, 700);
+            }
+        }
+    }
+
+    .bodySection {
+        padding: 3.5rem 4rem 2.5rem 4rem;
+
+        .textSection {
+            margin-bottom: 1.5rem;
+            p {
+                @include forParaTag($blackColor, 1.4rem, 500);
+            }
+            input {
+                border-radius: 0.8rem;
+            }
+        }
+
+        .buttonSection {
+            @include displayFlex(center, flex-start);
+            padding: 2.5rem 0 0 0;
+            button {
+                width: 8.7rem;
+            }
+            @include buttonDesign(1.4rem, 500, 0.5rem, 0rem, 0.2rem, 0.5rem);
+            .p-button-success {
+                @include classWisebuttonDesign($greenButtonColor, $greenButtonColor, $whiteColor, $greenButtonColor);
+            }
+        }
+    }
+}
+
+::ng-deep .editMailModal {
+    @include customDialogClass(22rem);
+    .upperTitle {
+        background-color: $upperHeadBGcolor;
+    }
+}

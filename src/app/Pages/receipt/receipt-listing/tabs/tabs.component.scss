@@ -1,0 +1,59 @@
+@import "../../../../SCSS/MainOuter/mainOuterDesign2";
+@import "../../../../SCSS/TabNavBar/tabNavDesign";
+@import "../../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$normalTabTextColor: #bdbdbd;
+$activeTabTextColor: #333333;
+
+.allTabs {
+    .nav-item {
+        @media (max-width: 340px) {
+            width: 7rem;
+        }
+    }
+}
+
+.mainOuterUpper {
+    margin: 3rem 1.5rem 0 1.5rem;
+}
+
+.topHeader {
+    padding: 1rem 3rem;
+
+    .drropdown2 {
+        @media (max-width: 767px) {
+            margin-top: 2rem;
+        }
+    }
+
+    .seacrchAndImg {
+        @include displayFlex(space-around, center);
+        @media (max-width: 991px) {
+            margin: 2rem 0 0 0;
+        }
+        .searchOuter {
+            width: calc(100% - 5rem);
+            .search {
+                i {
+                    position: absolute;
+                    margin-top: 1rem;
+                    margin-left: 1.7rem;
+                    @include forParaTag($normalTabTextColor, 1.5rem, 500);
+                }
+                .searchColor {
+                    color: $activeTabTextColor !important;
+                }
+                input {
+                    border-radius: 0.5rem;
+                    padding-left: 4rem;
+                    color: $activeTabTextColor;
+                }
+            }
+        }
+        img {
+            height: 2.7rem;
+            cursor: pointer;
+        }
+    }
+}

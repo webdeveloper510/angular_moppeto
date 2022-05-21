@@ -1,0 +1,64 @@
+@import "../MainOuter/mainOuterDesign";
+@import "../MediaAndGroupings/radioButtonSectionDesign";
+@import "../CommonDesigns/commonDesigns.scss";
+@import "../PrimeNG/primeNGDesign";
+@import "../PlayAndResetButtons/playAndResetButtons";
+@import "../Table/tableDesign";
+@import "../Pagination/paginationDesign";
+@import "./overlayBody";
+
+$bodyBG: #f0f0f0;
+$blackColor: #333333;
+$whiteColor: #fff;
+$blueColor: #396aff;
+$tealColor: #05cfab;
+$disabledColor: #bdbdbd;
+$nevyBlueColor: #2c3581;
+$blackColor2: #484848;
+$orangeColor: #faa559;
+$tdTitle1Color: #333;
+$tdTitle2Color: #4f4f4f;
+$redColor: #e95656;
+$greenColor: #6fcf97;
+$greyBG: #e0e0e0;
+$overlayColor: #efefef;
+
+:host ::ng-deep p-checkbox {
+    .p-checkbox .p-checkbox-box {
+        border: 2px solid $disabledColor;
+        background: $whiteColor;
+        height: 17px;
+        width: 17px;
+        &:hover {
+            border: 2px solid $greenColor !important;
+            background-color: $whiteColor;
+        }
+    }
+    .p-checkbox .p-checkbox-box.p-highlight {
+        border-color: $greenColor;
+        background: $whiteColor;
+        &::before {
+            content: "";
+            height: 7px;
+            width: 7px;
+            background-color: $greenColor;
+            @include displayFlex(center, center);
+        }
+        &:hover {
+            border: 2px solid $greenColor !important;
+            background-color: $whiteColor;
+        }
+    }
+    .pi-check:before {
+        content: none;
+    }
+}
+
+.upperBodyOuter {
+    .radio-item label:before {
+        border-color: $disabledColor;
+    }
+    .radio-item input[type="radio"]:checked ~ label::before {
+        border-color: $greenColor;
+    }
+}

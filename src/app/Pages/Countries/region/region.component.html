@@ -1,0 +1,273 @@
+<div class="mainOuter border">
+
+    <div class="mainRadioInner">
+        <div class="radioOuter3">
+            <div class="upperRadioDivOuter">
+                <p>Select country</p>
+                <div class="radioInner">
+                    <div class="row colOuter">
+                        <div class="col-sm-6">
+                            <div class="leftRadio">
+                                <ng-container
+                                    *ngFor="let country of countryList;trackBy: trackByService.trackByFn; let i = index">
+                                    <div class="forRadio">
+                                        <div class="radio-item">
+                                            <input type="radio" [id]="country.id" name="country" [value]="country"
+                                                [(ngModel)]="selectedCountry" (change)="onChangeCountry()">
+                                            <label for="{{country.id}}">{{country.name}}</label>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="radioOuter2" *ngIf="selectedCountry && selectedCountry?.cities?.length > 0">
+            <div class="upperRadioDivOuter">
+                <p>Select city</p>
+                <div class="radioInner">
+                    <div class="row colOuter">
+                        <div class="col-sm-4">
+                            <div class="leftRadio">
+                                <ng-container
+                                    *ngFor="let city of selectedCountry?.cities;trackBy: trackByService.trackByFn; let i = index">
+                                    <div class="forRadio">
+                                        <div class="radio-item">
+                                            <input type="radio" id="city_{{city.id}}" name="city1" [value]="city.name"
+                                                (change)="onChangeCity(city)">
+                                            <label for="city_{{city.id}}">{{city.name}}</label>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Section Starts -->
+    <div class="tabs border-bottom">
+        <div class="tabLinks">
+            <a routerLink="/country" routerLinkActive="activeRouter"
+                [routerLinkActiveOptions]="{exact:true}">Country/Cities </a>
+        </div>
+        <div class="tabLinks">
+            <a routerLink="/country/region" routerLinkActive="activeRouter"
+                [routerLinkActiveOptions]="{exact:true}">Regions/Areas</a>
+        </div>
+    </div>
+    <!-- Menu Section Ends -->
+    <form [formGroup]="countryForm">
+        <div class="tableSectionStarts d-flex" *ngIf="selectedCountry && selectedCity">
+            <!-- Table Starts..... -->
+            <div class="tableOuterInner firstTableSection d-flex">
+                <div class="tableOuter mt-3 table-responsive">
+                    <table class="table table-borderless text-center">
+                        <thead class="forBG">
+                            <tr>
+                                <th scope="col" class="regionTD text-left">
+                                    <p class="m-0 regionText">
+                                        Region
+                                    </p>
+                                </th>
+                                <th *ngIf="isDelete" class="closeIconTD"></th>
+
+                                <th scope="col" class="areaTD text-left">
+                                    No. of
+                                    <br>
+                                    areas
+                                </th>
+                            </tr>
+                        </thead>
+                        <ng-container formArrayName="regions">
+                            <tbody *ngIf="regionsFormList.controls?.length > 0 else noRegionData">
+                                <tr *ngFor="let region of regionsFormList.controls; let regionIndex=index"
+                                    [formGroupName]="regionIndex"
+                                    [ngClass]="region?.value?.areas?.length > 0 && isDelete ? 'disabledRow' : ''">
+                                    <td scope="row" class="regionTD">
+                                        <div class="forRadio" *ngIf="!forEdit">
+                                            <div class="radio-item">
+                                                <input type="radio" id="region_{{region.value.id}}" name="region"
+                                                    [value]="region.value.id" (change)="onChangeRegion(region.value)"
+                                                    [checked]="region?.value?.id == selectedRegion?.id">
+                                                <label
+                                                    [ngClass]="region?.value?.areas?.length > 0 && isDelete ? 'disableLabel change-cursor' : ''"
+                                                    for="region_{{region?.value?.id}}">{{region.value?.name}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="forRadioEdit" *ngIf="forEdit">
+                                            <div class="radio-item">
+                                                <input type="radio" id="regionedit_{{region.value.id}}" name="region2"
+                                                    [checked]="region?.value?.id == selectedRegion?.id"
+                                                    (change)="onChangeRegion(region.value)">
+                                                <label for="regionedit_{{region?.value?.id}}"><input type="text"
+                                                        (keyup)="changeValue(region)" pInputText
+                                                        formControlName="name"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td scope="row" class="closeIconTD" *ngIf="isDelete">
+                                        <div class="closeIcon"
+                                            (click)="region?.value?.areas?.length > 0 ? '' : deleteRegion(regionIndex, region?.value?.id)">
+                                            <i class="pi pi-times"></i>
+                                        </div>
+                                    </td>
+                                    <td scope="row" class="areaTD">
+                                        <div class="title2 text-left">
+                                            <p class="m-0">{{region?.value?.no_of_areas}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+                        <ng-template #noRegionData>
+                            <tbody>
+                                <div class="no-region">
+                                    <div class="addCuppon">
+                                        <button pButton pRipple type="button" label="Add Region"
+                                            class="p-button-success" (click)="addNewRegionOrArea(true)"></button>
+                                    </div>
+                                </div>
+                            </tbody>
+                        </ng-template>
+                    </table>
+                </div>
+                <!-- Table Ends...... -->
+
+                <div class="ellipTDOuter" [hidden]="regionsFormList.controls?.length == 0">
+                    <div class="likeTable"></div>
+                    <div class="ellipsisOuter2" *ngIf="!forEdit && !isDelete">
+                        <div class="dropleft">
+                            <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span><i class="pi pi-ellipsis-v"></i></span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item item1" href="javascript:;" (click)="openEditOption()">Edit
+                                    name</a>
+                                <a class="dropdown-item" href="javascript:;" (click)="addNewRegionOrArea(true)">Add
+                                    region</a>
+                                <a class="dropdown-item item4" href="javascript:;" (click)="openDeleteOption()">Delete
+                                    region</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forButtonOuter">
+                        <div class="forButton" *ngIf="forEdit || isDelete">
+                            <div class="okButton">
+                                <button pButton pRipple type="button" label="Ok" [ngClass]="(forEdit && isUpdatedName()) || (isDelete && deleteRegionsList.length === 0) && 
+                                     regionsFormList.controls?.length > 1 ? 'disableLabel change-cursor' : ''"
+                                    [disabled]="(forEdit && isUpdatedName()) || (isDelete && deleteRegionsList.length === 0) && regionsFormList.controls?.length > 1"
+                                    class="normalButton p-button-success"
+                                    (click)="forEdit ? updateRegionAPI() : confirmAreaRegionAPI(true)"></button>
+                            </div>
+                            <div class="cancelButton">
+                                <button pButton pRipple type="button" label="Cancel"
+                                    class="whiteButton p-button-danger p-button-text" (click)="cancelMode()"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Starts..... -->
+            <div class="tableOuterInner secondTableSection d-flex" *ngIf="selectedRegion">
+                <div class="tableOuter mt-3 table-responsive">
+                    <table class="table table-borderless text-center">
+                        <thead class="forBG">
+                            <tr>
+                                <th scope="col" class="forNoTDTH">
+                                </th>
+                                <th scope="col" class="regionTD regionTH text-left">
+                                    <p class="m-0">
+                                        <br>
+                                        Areas
+                                    </p>
+                                </th>
+                                <th *ngIf="isDeleteArea" class="closeIconTD"></th>
+                            </tr>
+                        </thead>
+                        <ng-container formArrayName="areas">
+                            <tbody *ngIf="areaFormList.controls?.length > 0 else noAreaData">
+                                <tr *ngFor="let area of areaFormList.controls; let areaIndex=index"
+                                    [formGroupName]="areaIndex">
+                                    <td scope="row" class="forNoTDTH">
+                                        <div class="title2 text-center">
+                                            <p class="m-0">{{areaIndex+1}}</p>
+                                        </div>
+                                    </td>
+                                    <td scope="row" class="regionTD">
+                                        <div class="title2 text-left" [hidden]="isEditArea">
+                                            <p class="m-0">{{area?.value?.name}}</p>
+                                        </div>
+                                        <div class="title2 text-left" *ngIf="isEditArea">
+                                            <input type="text" formControlName="name" pInputText
+                                                (keyup)="changeAreaValue(area)">
+                                        </div>
+                                    </td>
+                                    <td scope="row" class="closeIconTD" *ngIf="isDeleteArea">
+                                        <div class="closeIcon" (click)="deleteArea(areaIndex,area.value.id )">
+                                            <i class="pi pi-times"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+                        <ng-template #noAreaData>
+                            <tbody>
+                                <div class="no-region">
+                                    <div class="addCuppon">
+                                        <button pButton pRipple type="button" label="Add Area" class="p-button-success"
+                                            (click)="addNewRegionOrArea(false)"></button>
+                                    </div>
+                                </div>
+                            </tbody>
+                        </ng-template>
+                    </table>
+
+                </div>
+                <div class="ellipTDOuter" *ngIf="areaFormList.controls?.length > 0">
+                    <div class="likeTable"></div>
+                    <div class="ellipsisOuter2" [hidden]="isEditArea || isDeleteArea">
+                        <div class="dropleft">
+                            <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span><i class="pi pi-ellipsis-v"></i></span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item item1" (click)="openEditOptionArea()">Edit
+                                    name</a>
+                                <a class="dropdown-item" (click)="addNewRegionOrArea()">Add
+                                    areas</a>
+                                <a class="dropdown-item item4" (click)="openDeleteOptionArea()">Delete
+                                    areas</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forButtonOuter">
+                        <div class="forButton" *ngIf="isEditArea || isDeleteArea">
+                            <div class="okButton">
+                                <button pButton pRipple type="button" label="Ok" class="normalButton p-button-success"
+                                    [ngClass]="(isEditArea && isUpdatedAreaName()) || (isDeleteArea && deleteAreasList.length === 0)  && 
+                                    areaFormList.controls?.length > 1 ? 'disableLabel change-cursor' : ''"
+                                    [disabled]="(isEditArea && isUpdatedAreaName()) || (isDeleteArea && deleteAreasList.length === 0) && areaFormList.controls?.length > 1 "
+                                    (click)="isEditArea ? updateAreaAPI() : confirmAreaRegionAPI(false)"></button>
+                            </div>
+                            <div class="cancelButton">
+                                <button pButton pRipple type="button" label="Cancel"
+                                    class="whiteButton p-button-danger p-button-text"
+                                    (click)="cancelModeArea()"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Table Ends...... -->
+        </div>
+    </form>
+
+</div>

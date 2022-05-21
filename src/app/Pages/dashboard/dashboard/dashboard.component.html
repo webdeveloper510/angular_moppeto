@@ -1,0 +1,84 @@
+<div class="mainOuter">
+    <div class="topHeader">
+        <div class="titleText">
+            <p class="m-0 text-uppercase">dashboard</p>
+        </div>
+        <div class="allCitiesSection">
+            <div class="allCitiesInner">
+                <div class="allCities">
+                    <ng-container *ngFor="let country of countries">
+                        <button (click)="selectedCountry = country" class="btn text-capitalize text-nowrap shadow-none"
+                            [ngClass]="country===selectedCountry?'btn-dark activatedCity':'btn-light'"
+                            (click)="changeCity()">{{country}}</button>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="innerContentsMainOuter poppinsFont">
+
+
+
+        <div class="innerContents"
+            [ngClass]="!chartClassSwitch.row1.col1 || !chartClassSwitch.row1.col2?'justify-content-center':''">
+            <div class="leftCharts" *ngIf="chartClassSwitch.row1.col1">
+                <app-line-chart [lineChartData]="lineChartData[0]"></app-line-chart>
+            </div>
+            <div class="rightData" *ngIf="chartClassSwitch.row1.col2">
+                <app-horizontal-bar-chart [horizontalBarChartData]="horizontalBarChartData[0]">
+                </app-horizontal-bar-chart>
+            </div>
+        </div>
+
+
+
+
+        <div class="innerContents"
+            [ngClass]="!chartClassSwitch.row2.col1 || !chartClassSwitch.row2.col2?'justify-content-center':''">
+            <div class="leftCharts" *ngIf="chartClassSwitch.row2.col1">
+                <app-line-chart [lineChartData]="lineChartData[1]"></app-line-chart>
+            </div>
+            <div class="rightData" *ngIf="chartClassSwitch.row2.col2">
+                <app-horizontal-bar-chart [horizontalBarChartData]="horizontalBarChartData[1]">
+                </app-horizontal-bar-chart>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="innerContents"
+            [ngClass]="!chartClassSwitch.row3.col1 || !chartClassSwitch.row3.col2?'justify-content-center':''">
+            <div class="leftCharts" *ngIf="chartClassSwitch.row3.col1">
+                <app-line-chart [lineChartData]="lineChartData[2]"></app-line-chart>
+            </div>
+            <div class="rightData" *ngIf="chartClassSwitch.row3.col2">
+                <app-pie-chart></app-pie-chart>
+            </div>
+        </div>
+
+
+
+
+        <div class="innerContents"
+            [ngClass]="!chartClassSwitch.row4.col1 || !chartClassSwitch.row4.col2?'justify-content-center':''">
+            <div class="leftCharts" *ngIf="chartClassSwitch.row4.col1">
+                <app-line-chart [lineChartData]="lineChartData[3]" *ngIf="showSection"></app-line-chart>
+                <app-line-chart [lineChartData]="lineChartData[4]" *ngIf="hideSection"></app-line-chart>
+            </div>
+            <div class="rightData" *ngIf="chartClassSwitch.row4.col2">
+                <app-bar-chart></app-bar-chart>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</div>

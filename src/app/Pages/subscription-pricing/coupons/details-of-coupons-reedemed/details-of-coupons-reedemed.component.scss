@@ -1,0 +1,165 @@
+@import "../../../../SCSS/Pagination/paginationDesign";
+@import "../../../../SCSS/Table/tableDesign";
+@import "../../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../../SCSS/UserManagement/userManagementTopHeaderTabDesign";
+@import "../../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../../SCSS/PlayAndResetButtons/playAndResetButtons";
+
+$whiteColor: #fff;
+$discountColor: #396aff;
+$redeemedColor: #6fcf97;
+$tdTitle1Color: #4e4e4e;
+$tdTitle2Color: #828282;
+$tdTitle3Color: #4f4f4f;
+$backButtonBG: #faa559;
+$titleColor: #4dc5af;
+
+@mixin tableData($fontSize, $color, $fontWeight) {
+    margin: 0;
+    font-size: $fontSize;
+    color: $color;
+    font-weight: $fontWeight;
+}
+
+.OuterMain {
+    margin-left: 1.5rem;
+    padding-top: 1.5rem;
+    @media (max-width: 387px) {
+        button {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+        p {
+            margin-left: 1rem !important;
+            font-size: 1.7rem !important;
+        }
+    }
+    .button {
+        display: flex;
+        align-items: center;
+        button {
+            background-color: $backButtonBG;
+            border-color: $backButtonBG;
+            color: $whiteColor;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            font-size: 1.4rem;
+        }
+        p {
+            margin-left: 2.2rem;
+            color: $titleColor;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    }
+}
+
+.mainOuter {
+    .upperContent {
+        .innerUpper {
+            width: 57rem;
+            margin: 5rem auto;
+            @media (min-width: 768px) {
+                width: 57rem;
+            }
+            @media (max-width: 767px) {
+                width: 37rem;
+            }
+            @media (max-width: 447px) {
+                width: 30rem;
+            }
+            @media (max-width: 357px) {
+                width: 25rem;
+            }
+            p {
+                text-align: center;
+                margin: 0;
+                @include tableData(1.5rem, lighten($tdTitle3Color, 3%), 700);
+            }
+            input {
+                background-color: darken($tdTitle3Color, 7%);
+                text-align: center;
+                border-radius: 0.5rem;
+                @include tableData(1.4rem, $whiteColor, 500);
+            }
+            .forAlign {
+                p {
+                    text-align: left;
+                }
+                input {
+                    text-align: left;
+                    padding-left: 1rem;
+                }
+            }
+            .forPadding {
+                @media (min-width: 768px) {
+                    padding: 0;
+                }
+                @media (max-width: 767px) {
+                    margin: 1.5rem 0;
+                }
+            }
+        }
+    }
+
+    .tableOuter {
+        .table {
+            thead {
+                tr {
+                    border-width: 0.2rem !important;
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        .title0 {
+                            p {
+                                @include tableData(1.35rem, $tdTitle1Color, 600);
+                            }
+                        }
+                        .title1 {
+                            p {
+                                @include tableData(1.35rem, $tdTitle1Color, 700);
+                            }
+                        }
+                        .title2 {
+                            p {
+                                @include tableData(1.3rem, $tdTitle2Color, 500);
+                            }
+                        }
+                        .title3 {
+                            p {
+                                @include tableData(1.25rem, $tdTitle2Color, 600);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .forNo {
+            width: 10rem;
+            padding-left: 2rem;
+        }
+
+        th,
+        td {
+            @media (max-width: 1317px) {
+                width: 20rem;
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    border-top: none !important;
+                    border-bottom: none !important;
+                    padding-top: 1.3rem;
+                    padding-bottom: 1.3rem;
+                }
+            }
+        }
+
+        //   Table Ends........
+    }
+}

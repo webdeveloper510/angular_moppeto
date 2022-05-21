@@ -1,0 +1,108 @@
+$dropdownAndInputTextLightColor: #bdbdbd;
+$dropdownAndInputTextSelectedColor: #333333;
+$radioButtonNormalColor: #6fcf97;
+$radioButtonSelectedColor: green;
+$pInputHoverColor: #ced4da;
+$whiteColor: white;
+
+:host ::ng-deep .p-dropdown {
+    border-radius: 0.5rem;
+    width: 100%;
+    padding-right: 0.5rem !important;
+    padding-left: 0rem !important;
+    .ng-star-inserted {
+        color: darken($dropdownAndInputTextLightColor, 17%) !important;
+        font-size: 1.4rem !important;
+    }
+    .p-dropdown-item{
+        padding-left: 1.5rem !important;
+    }
+    .p-dropdown-label {
+        color: $dropdownAndInputTextSelectedColor !important;
+        font-size: 1.4rem !important;
+
+    }
+
+    .p-placeholder {
+        color: $dropdownAndInputTextLightColor !important;
+    }
+
+    .p-dropdown-trigger {
+        color: $dropdownAndInputTextLightColor !important;
+    }
+}
+
+:host ::ng-deep .p-inputtext {
+    width: 100%;
+    font-size: 1.4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    &::placeholder {
+        text-align: center !important;
+        color: $dropdownAndInputTextLightColor !important;
+    }
+}
+
+// :host ::ng-deep p-radiobutton {
+//     .p-radiobutton-box .p-highlight .p-radiobutton-icon {
+//         background: $radioButtonSelectedColor !important;
+//         transform: none !important;
+//         visibility: visible;
+//     }
+
+//     .p-radiobutton-box {
+//         border: 0.2rem solid $radioButtonNormalColor !important;
+//     }
+
+//     .p-radiobutton-box {
+//         background: $whiteColor !important;
+//     }
+
+//     .p-radiobutton-checked {
+//         .p-radiobutton-box {
+//             background: $radioButtonSelectedColor !important;
+//         }
+//     }
+
+//     .p-focus {
+//         outline: none !important;
+//         box-shadow: none !important;
+//     }
+// }
+
+:host ::ng-deep .p-button-icon {
+    font-size: 2rem !important;
+    margin-left: 2.5rem !important;
+}
+
+// :host ::ng-deep p-calendar {
+//     .p-calendar-w-btn {
+//         width: 100% !important;
+//         .p-inputtext {
+//             max-width: 100% !important;
+//             border-right: none !important;
+//             font-size: 1.3rem !important;
+
+//             &:hover {
+//                 border-color: $pInputHoverColor !important;
+//             }
+//             &:focus {
+//                 outline: none !important;
+//                 box-shadow: none !important;
+//                 border-color: $pInputHoverColor !important;
+//             }
+//         }
+
+//         .p-button {
+//             width: 7rem !important;
+//             background-color: $whiteColor !important;
+//             color: $dropdownAndInputTextSelectedColor !important;
+//             border-left: none !important;
+//             border-color: $pInputHoverColor !important;
+//             &:focus {
+//                 outline: none !important;
+//                 box-shadow: none !important;
+//             }
+//         }
+//     }
+// }

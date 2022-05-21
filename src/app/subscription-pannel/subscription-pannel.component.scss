@@ -1,0 +1,488 @@
+select {
+    font-family: 'FontAwesome', 'Second Font name'
+  }
+
+.container {
+    font-family:'Lato',sans-serif;
+    @media screen and (min-width: 1921px) {
+        max-width: 1500px;
+        // padding: 0;
+    }
+    @media screen and (max-width: 1920px) {
+        min-width: 100%;
+        // padding: 0;
+    }
+
+    .top-text2{
+        padding-right: 30px !important;
+    }
+}
+ 
+.primarydiv{
+    padding: 0!important;
+    margin-left: 0px !important;
+    // margin-right: -30px !important;
+    border-color: rgba(153, 150, 150, 0.986) !important;
+    background: rgb(223, 223, 223);
+
+    @media(max-width: 575px)
+        {
+            margin-right: -57px !important;
+            
+        }
+
+}
+
+.countrytext{
+    font-size: 16px;
+    @media(max-width: 1504px){
+        font-size: 14px !important;
+    }
+    font-weight: 600;
+    color: black;
+
+}  
+
+.countrybar{
+    height: 107px;
+    overflow: auto;
+    border-color: rgba(153, 150, 150, 0.986) !important;
+    background-color: white;
+
+    font-size: 16px;
+    @media(max-width: 1504px){
+        font-size: 14px !important;
+        height: 103px !important;
+    }
+
+
+    &::-webkit-scrollbar {
+        width: 7px;
+        padding-top: -5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #bebaba;
+        border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+        margin-top: 3px;
+    }
+
+    @media(max-width: 767px)
+        {
+                width: 70%;
+        }
+
+}
+
+.icon1{
+    padding-left: 9px;
+}
+
+
+.subright{
+    padding-right: 0 !important;
+
+    margin-right: -10px !important;
+
+    @media(max-width: 906px) and (min-width: 896px){
+        text-align: left !important;
+        padding: 0!important;
+        font-size: 13px;
+        padding-top: 7px !important;
+    }
+    @media(max-width: 767px){
+        text-align: center !important;
+    margin-right: 0px !important;
+
+    }
+
+}
+
+.subleft{
+    @media(max-width: 767px){
+        text-align: center !important;
+    }
+}
+
+
+.icon{
+    @media(max-width: 578px)
+        {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+        }
+
+}
+
+.download{
+    @media(max-width: 578px)
+        {
+            margin-left: -8%;
+        }
+    @media(max-width: 467px)
+        {
+            margin-left: -10%;
+        }
+}
+
+.subscription{
+    background: rgb(246, 246, 246);
+    margin: 5px 17px 14px 12px !important;
+}
+
+.subscriptionpannel{
+    padding: 0 8px 12px 8px !important;
+}
+
+
+
+
+// Start of Left Side Subscription Pannel
+.subscription-left{
+    text-align: center;
+
+
+    .table1{
+    overflow-x: scroll;
+    overflow-y: auto;
+    border: rgb(119, 118, 118) solid 1px;
+    border-right: white 0 solid;
+    background-color: white;
+
+    .removecolor{
+        border-top: 2px transparent solid!important;
+    }
+
+    // padding-bottom: 10px !important;
+    
+    @media(max-width: 1873px)
+    {
+        // padding-bottom: 10px !important;
+        // padding-bottom: calc(20vh - 310px) !important;
+
+
+    }
+
+    @media(max-width: 1623px)
+    {
+        // padding-bottom: 0px !important;
+
+
+    }
+
+    @media(max-width: 767px)
+    {
+        border-right: solid 1px rgb(119, 118, 118);
+
+    }
+
+    p{
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 5px;
+        @media(max-width: 1504px){
+            font-size: 10px !important;
+        }
+    }
+
+    th{
+        padding-top: 26px;
+        padding-left: 3px;
+        padding-right: 2px !important;
+        border-bottom: 1px solid rgb(119, 118, 118);
+        min-width: 75px!important;
+    }
+
+    .thpromotion{
+        padding-left: 1px;
+    }
+
+    .homepg{
+        padding-right: 6px !important;
+    }
+
+
+    .column1{
+    text-align: left;
+    padding-left: 16px !important;
+    padding-right: 2px!important;
+    }
+
+
+    .td1{
+        text-align: left;
+        padding-left: 16px;
+        padding-top: 22px !important;
+        padding-bottom: 22px !important;       
+    }
+
+    .td2{
+        padding-top: 22px !important;
+        padding-bottom: 22px !important;       
+    }
+
+    .td3{
+        font-size: 17px;
+        padding-top: 12px !important;
+    }
+
+    td{
+        input{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+
+    .leftinput{
+        font-size: 11px;
+        text-align: center;
+        min-width: 55px;
+        padding: 1px;
+    }
+
+    .form-control{
+        background-color:white;
+        border-color: rgb(133, 133, 133);
+        color: rgb(14, 13, 13);
+    }
+
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+
+    input[type=number] {
+        -moz-appearance: textfield;
+      }
+
+      .select {
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .select:after {
+        content: "▼";
+        font-size: 9px;
+        position: absolute;
+        left: 29px;
+        right: 2px;
+        top: 8px;
+        z-index: 1;
+        text-align: center;
+        pointer-events: none;
+      }
+      
+      .select__field {
+        outline: none;
+        -webkit-appearance: none;
+        /* for webkit browsers */
+        -moz-appearance: none;
+        /* for firefox */
+        appearance: none;
+        /* for modern browsers */
+      }
+      
+      /* remove default caret for ie */
+      
+      .select__field::-ms-expand {
+        display: none;
+      }
+
+      .select{
+        .form-control{
+            font-size: 17px;
+            color: black;
+            padding-left: 10%;
+            padding-top: 2%;
+            min-width: 55px;
+            height: 29px;
+        }
+    }
+
+    @media(max-width: 578px)
+        {
+            width: 100%;
+        }
+
+
+        &::-webkit-scrollbar {
+            height: 10px;
+            padding-left: -5px;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background: #bebaba;
+            border-radius: 2px;
+        }
+    
+        &::-webkit-scrollbar-track {
+            margin-left: 4px;
+            margin-right: 3px;
+        }
+
+    }
+
+
+}
+// End of Left Side Subscription Pannel
+
+
+
+// Start of Rigth Side Subscription Pannel
+.subscription-right{
+
+
+        table{
+
+            th{
+                border-top: 1px solid transparent;
+                border-bottom: 1px solid rgb(119, 118, 118);
+                min-width: 77px !important;
+
+            }
+    }
+
+    text-align: center;
+    margin-left: -15px !important;
+
+    .table2{
+        margin-left: -15px !important;
+        margin-right: -18px !important;
+        border: rgb(119, 118, 118) solid 1px;
+        background-color: white;
+        padding-right: 10px;
+        overflow-x: scroll;
+        overflow-y: auto;
+
+        @media(max-width: 767px)
+        {
+            margin-left: 15px !important;
+            margin-right: -15px !important;
+            margin-top: 15px !important;
+        }
+        
+
+        
+        &::-webkit-scrollbar {
+            height: 10px;
+            padding-left: -5px;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background: #bebaba;
+            border-radius: 2px;
+        }
+    
+        &::-webkit-scrollbar-track {
+            margin-left: 4px;
+            margin-right: 3px;
+        }
+
+    }
+
+    p{
+        font-weight: 600;
+        font-size: 11px;
+        @media(max-width: 1504px){
+            font-size: 10px !important;
+        }
+        line-height: 5px;
+    }
+
+
+
+    table{
+
+
+
+            .activities{
+                padding-top: 25px;
+                border-bottom: 80%;
+                
+                p{
+                    font-size: 13px;
+                    font-weight: bold;
+
+                    @media(max-width: 1504px){
+                        font-size: 12px !important;
+                    }
+                }
+
+            }
+
+        .button{
+            padding: 0!important;
+            margin: 1px !important;
+            margin-right: 3px !important;
+            margin-left: 3px !important;
+            margin-bottom: 5px !important;
+        }
+
+        button{
+            font-size: 11px;
+            padding: 2px !important;
+            height: 23px;
+            width: 47px;
+        }
+
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+    
+    
+        input[type=number] {
+            -moz-appearance: textfield;
+          }
+
+
+        td{
+            padding-top: 11px;
+            padding-bottom: 11px;
+            // padding-left: 27px !important;
+            // padding-right: 27px !important;
+            min-width: 77px !important;
+
+            .radio{
+                padding-top: 3px;
+            }
+
+
+            .rightinput{
+                font-size: 11px;
+                text-align: center;
+                padding: 1px;
+            }
+    
+            .form-control{
+                // width: 47px;
+                min-width: 60px !important;
+                height: 27px;
+                background-color: rgb(233, 233, 233);
+                border-color: rgb(133, 133, 133);
+                color: rgb(14, 13, 13);
+            }
+
+            .inputcolor{
+                background-color: white;
+            }
+        }
+
+
+    }
+
+
+}
+// End of Rigth Side Subscription Pannel

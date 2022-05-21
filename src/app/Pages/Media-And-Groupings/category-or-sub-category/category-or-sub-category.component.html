@@ -1,0 +1,183 @@
+<div class="mainOuter border">
+
+
+    <!-- !-- Add Cuppon Starts..... -->
+
+    <div class="addCuppon" [hidden]="isWeightageEdit">
+        <button pButton pRipple type="button" label="New category" class="p-button-success"
+            (click)="addNewCategory()"></button>
+    </div>
+
+    <div class="addCuppon weightage-btn" *ngIf="isWeightageEdit">
+        <button pButton pRipple type="button" [ngClass]="disabledSaveWeightage() ? 'p-button-text p-button-plain change-cursor' : ''"
+         [disabled]="disabledSaveWeightage()" label="Save" class="p-button-success" (click)="updateCategoryweightage()"></button>
+        <button pButton pRipple type="button" label="Cancel" class="p-button-success" (click)="cancelMode()"></button>
+    </div>
+
+    <!-- !-- Add Cuppon Ends..... -->
+
+    <!-- Table Starts..... -->
+    <div class="tableOuter mt-3 table-responsive" *ngIf="isAPIReponseCome">
+        <form [formGroup]="categoryForm">
+            <table class="table table-borderless text-center">
+                <thead class="forBG">
+                    <tr>
+                        <th scope="col" class="forNo">
+                            <br>
+                            No.
+                        </th>
+                        <th scope="col" class="text-left category">
+                            Category
+                        </th>
+                        <th scope="col" class="subCategory">
+                            Sub-category
+                        </th>
+                        <th scope="col" class="ellipsisTH">
+                        </th>
+                        <th class="forEdit">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="categoryList?.length > 0 else noDataView">
+                    <tr class="border-bottom forNoTR"
+                        *ngFor="let item of categoryList; trackBy: trackByService.trackByFn; let i = index">
+                        <td scope="row" class="forNo">
+                            <div class="title1" [hidden]="isWeightageEdit">
+                                <p>
+                                    {{item?.weightage}}
+                                </p>
+                            </div>
+                            <div class="inputCheckOuter" *ngIf="isWeightageEdit">
+                                <div class="inputBox">
+                                    <input type="number" (keyup)="changeWeightage($event, item.id)" pInputText value="{{item?.weightage}}">
+                                </div>
+                            </div>
+                        </td>
+                        <td scope="row" class="category">
+                            <div class="title2 text-left"
+                                [hidden]="(isEditFrom || isDelete) && selectedCategory?.id == item?.id">
+                                <p>{{item?.name | blankValue}}</p>
+                            </div>
+                            <div class="forEditTD" *ngIf="(isEditFrom || isDelete) && selectedCategory?.id == item?.id">
+                                <div class="inputCheckOuter">
+                                    <div class="inputBox">
+                                        <input type="text" maxlength="20" formControlName="name" pInputText
+                                            [readOnly]="isDelete">
+                                    </div>
+                                    <div class="check" *ngIf="isDelete">
+                                        <div class="pretty p-default p-bigger p-fill change-cursor"
+                                            *ngIf="selectedCategory?.subCategory?.length > 0 else formCheckBox">
+                                            <input type="checkbox" class="change-cursor" checked disabled>
+                                            <div class="state p-success-o">
+                                                <label></label>
+                                            </div>
+                                        </div>
+                                        <ng-template #formCheckBox>
+                                            <div class="pretty p-default p-bigger p-thick">
+                                                <input type="checkbox" formControlName="categoryNameCheckbox">
+                                                <div class="state p-success-o">
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td scope="row" class="subCategory">
+                            <div class="title1"
+                                [hidden]="(isEditFrom || isDelete || isAdd) && selectedCategory?.id == item?.id">
+                                <ng-container
+                                    *ngFor="let subatrr of item?.subCategory; trackBy: trackByService.trackByFn">
+                                    <p>{{subatrr?.name}}</p>
+                                </ng-container>
+                            </div>
+                            <div class="forEditTD" formArrayName="subCategory">
+                                <ng-container
+                                    *ngIf="(isEditFrom || isDelete || isAdd) && selectedCategory?.id == item?.id">
+                                    <div class="inputCheckOuter"
+                                        *ngFor="let subCatFrm of subCategoryFormList.controls; let subCategoryIndex=index"
+                                        [formGroupName]="subCategoryIndex" [ngClass]="isAdd?'decreaseInputWidth':''">
+                                        <div class="inputBox">
+                                            <input type="text" formControlName="name" pInputText
+                                                [ngClass]="subCatFrm?.value?.id && isAdd ? 'disable-input':''"
+                                                [disabled]="subCatFrm?.value?.id && isAdd"
+                                                (keyup)="changeValue(subCatFrm)"
+                                                [readOnly]="isDelete || (isAdd && subCatFrm?.value?.id)" maxlength="20">
+                                        </div>
+                                        <div class="check" *ngIf="isDelete">
+                                            <div class="pretty p-default p-bigger p-thick">
+                                                <input type="checkbox" formControlName="nameCheckbox">
+                                                <div class="state p-success-o">
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div [hidden]="categoryForm.controls.subCategory?.value?.length == 1 || (categoryForm.controls?.subCategory?.value?.length == selectedCategory?.subCategory.length+1)"
+                                            class="closeIcon" *ngIf="isAdd && !subCatFrm?.value?.id"
+                                            (click)="removeSubCategoryControl(subCategoryIndex)">
+                                            <i class="pi pi-times"></i>
+                                        </div>
+                                    </div>
+                                    <button class="addIcon-button" (click)="addSubCategoryControl()"
+                                        [ngClass]="categoryForm.controls.subCategory.status === formStatus.Invalid ? 'p-button-text p-button-plain change-cursor' : 'addIcon'"
+                                        [disabled]="categoryForm.controls.subCategory.status === formStatus.Invalid"
+                                        *ngIf="isAdd && selectedCategory?.id == item?.id">
+                                        <i class="pi pi-plus"></i>
+                                    </button>
+
+                                </ng-container>
+                            </div>
+                        </td>
+                        <td class="ellipsisTD">
+                            <div class="ellipsisOuter2" [hidden]="isEditFrom || isAdd || isDelete || isWeightageEdit">
+                                <div class="dropleft">
+                                    <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span><i class="pi pi-ellipsis-v"></i></span>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item item1" (click)="openEditOption(item)">Edit
+                                            name</a>
+                                        <a class="dropdown-item" (click)="openAddOption(item)">Add
+                                            Category</a>
+                                        <a class="dropdown-item item4" (click)="openDeleteOption(item)">Delete</a>
+                                        <a class="dropdown-item" (click)="openEditWeightageOption()">Edit weightage</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="forEdit">
+                            <div class="forButton" *ngIf="(isEditFrom || isAdd || isDelete) && !isWeightageEdit">
+                                <button pButton pRipple type="button" label="Update"
+                                    [ngClass]="!categoryForm.valid || disableBtn() ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+                                    [disabled]="!categoryForm.valid || disableBtn()" class="normalButton"
+                                    (click)="update()" *ngIf="isEditFrom && selectedCategory?.id == item?.id"></button>
+                                <button pButton pRipple type="button" label="Add" class="p-button-help"
+                                    [ngClass]="categoryForm.controls.subCategory.status === formStatus.Invalid ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+                                    [disabled]="categoryForm.controls.subCategory.status === formStatus.Invalid"
+                                    (click)="addSubCategoryAPI()"
+                                    *ngIf="isAdd && selectedCategory?.id == item?.id"></button>
+                                <button pButton pRipple type="button" label="Delete"
+                                    [ngClass]="{'p-button-plain change-cursor': disableDelete()}"
+                                    [disabled]="disableDelete()" class="whiteButton p-button-danger p-button-text"
+                                    *ngIf="isDelete && selectedCategory?.id == item?.id"
+                                    (click)="confirmDelete()"></button>
+                                <button pButton pRipple type="button" label="Cancel"
+                                    [ngClass]="isDelete?'whiteButtonDelete p-button-warning  p-button-text':'whiteButton p-button-danger p-button-text'"
+                                    *ngIf="(isEditFrom || isAdd || isDelete) && selectedCategory?.id == item?.id"
+                                    (click)="cancelMode()"></button>
+
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <ng-template #noDataView>
+                    <app-no-table-data-view></app-no-table-data-view>
+                </ng-template>
+            </table>
+        </form>
+    </div>
+    <!-- Table Ends...... -->
+</div>

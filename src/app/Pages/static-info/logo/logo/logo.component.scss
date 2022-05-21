@@ -1,0 +1,42 @@
+@import "../../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../../SCSS/ngxDropZone/ngxDropZoneCustomDesign";
+
+.colsOuter {
+    padding: 3rem;
+    min-height: 60rem;
+    @include displayFlex(center, center);
+    .row {
+        justify-content: center;
+        .col {
+            height: 33rem;
+            min-width: 25rem;
+            max-width: 25rem;
+            margin-bottom: 2rem;
+            .upperSection {
+                height: 13rem;
+                padding: 0 2rem;
+                p {
+                    @include forParaTag($blackColor, 1.6rem, 500);
+                }
+            }
+            .bottomSection {
+                height: calc(100% - 13rem);
+                .custom-dropzone {
+                    border-radius: 1rem;
+                    .label {
+                        i {
+                            font-size: 2.5rem;
+                        }
+                        .fatText {
+                            margin: 2rem 0 1.5rem 0;
+                            @include forParaTag($blackColor, 1.3rem, 700);
+                        }
+                        .thinText {
+                            @include forParaTag($blackColor, 1.3rem, 500);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

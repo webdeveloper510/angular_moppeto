@@ -1,0 +1,266 @@
+@import "../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../SCSS/CustomRadioButton/customRadioButtonDesign";
+@import "../../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$blackColor: #333333;
+$BGcolor: #f7f7f7;
+$whiteColor: #fff;
+$buttonAllColor: #4dc5af;
+$orangeColor: #faa559;
+$disabledColor: #bdbdbd;
+$greenColor: #6fcf97;
+$scrollThumbColor: #e7e7e7;
+$redColor: #e95656;
+
+@mixin RoundedData(
+    $dataFontColor,
+    $dataFontSize,
+    $dataPaddingTopBottom,
+    $dataPaddingLeftRight,
+    $dataBGcolor,
+    $dataBorderRadius,
+    $dataMarginRight,
+    $dataMarginBottom
+) {
+    display: flex;
+    flex-wrap: wrap;
+    p {
+        @include forParaTag($dataFontColor, $dataFontSize, 600);
+        padding: $dataPaddingTopBottom $dataPaddingLeftRight;
+        background-color: $dataBGcolor;
+        border-radius: $dataBorderRadius;
+        width: fit-content;
+        height: fit-content;
+        margin: 0 $dataMarginRight $dataMarginBottom 0;
+        span {
+            color: $redColor;
+            display: block;
+            margin: 0 auto;
+            
+        }
+    }
+}
+
+.mainTableOuter {
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+
+.editContentsOuter {
+    margin: 3rem 1.5rem 3rem 1.5rem;
+    .upperHead {
+        border-bottom: solid 0.1rem $blackColor;
+        p {
+            @include forParaTag(lighten($blackColor, 10%), 1.5rem, 600);
+        }
+    }
+}
+
+.mainOuter {
+    background-color: $BGcolor;
+    margin-top: 1rem;
+    min-height: 70rem;
+}
+
+.upperContent {
+    @include displayFlex(space-between, center);
+    @media (max-width: 991px) {
+        display: block;
+        padding-bottom: 1.5rem;
+    }
+    margin: 0.5rem 2.5rem 1rem 2.5rem;
+    padding: 0.7rem 0;
+    border-bottom: solid lighten($blackColor, 27%) 1px;
+    .leftContent {
+        @include displayFlex(flex-start, center);
+        @media (max-width: 991px) {
+            width: fit-content;
+            margin: 0 auto 1.5rem auto;
+        }
+        .headerText {
+            p {
+                @include forParaTag($blackColor, 1.5rem, 600);
+            }
+        }
+        img {
+            margin-left: 2rem;
+            height: 2.2rem;
+            cursor: pointer;
+        }
+    }
+    .middleContent {
+        @media (max-width: 991px) {
+            width: fit-content;
+            margin: -0.5rem auto 1.5rem auto;
+        }
+        p {
+            @include forParaTag($blackColor, 1.5rem, 600);
+        }
+    }
+    .rightSideButton {
+        @include buttonDesign(1.3rem, 400, 00.25rem, 0, 0.2rem, 0.7rem);
+        @media (max-width: 991px) {
+            margin: 0 auto;
+            width: fit-content;
+        }
+        button {
+            width: 8.7rem;
+        }
+        .p-button-success {
+            @include classWisebuttonDesign($buttonAllColor, $buttonAllColor, $whiteColor, $buttonAllColor);
+        }
+        .p-button-secondary {
+            @include classWisebuttonDesign($disabledColor, $disabledColor, $whiteColor, $disabledColor);
+        }
+        .saveCancelButtons {
+            button {
+                width: 9rem;
+            }
+            .p-button-success {
+                @include classWisebuttonDesign($greenColor, $greenColor, $whiteColor, $greenColor);
+            }
+            .p-button-danger {
+                @include classWisebuttonDesign($redColor, $redColor, $whiteColor, $redColor);
+            }
+        }
+    }
+}
+
+.radio-item label:before {
+    margin: 0;
+}
+
+.radio-item label:before {
+    border-color: $disabledColor;
+}
+
+.radio-item input[type="radio"]:checked ~ label::before {
+    border-color: $greenColor;
+}
+
+.categoryTD {
+    padding-left: 0;
+    .categoryBody {
+        padding: 1rem;
+        width: 27rem;
+        background-color: $whiteColor;
+        .upperHead {
+            p {
+                @include forParaTag($blackColor, 1.5rem, 600);
+            }
+        }
+        .mainBodyData {
+            padding-top: 1rem;
+            margin: 0 0 -1rem 0;
+            @include RoundedData($blackColor, 1rem, 0.2rem, 0.7rem, darken($BGcolor, 7%), 0.6rem, 1rem, 1rem);
+        }
+    }
+}
+
+.mainTableOuter {
+    max-height: 64rem;
+    @include scrollBar(auto, auto, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 0.7rem);
+}
+
+.categoryDataOuter {
+    margin: 0 0 -1.5rem 0;
+    .categoryDataInner {
+        @include RoundedData($whiteColor, 1.2rem, 0.6rem, 1rem, $orangeColor, 0.8rem, 1.5rem, 1.5rem);
+    }
+}
+
+table {
+    td {
+        div {
+            margin: 0 auto;
+        }
+    }
+    th {
+        position: sticky;
+        top: 0 !important;
+        background-color: $BGcolor;
+        &:first-child {
+            z-index: 7 !important;
+        }
+    }
+}
+
+.afterEditOpenTable {
+    table {
+        border-collapse: separate;
+        border-spacing: 0 1.5rem;
+        td {
+            padding: 0 !important;
+        }
+    }
+    .categoryTD {
+        width: 28.5rem;
+        @media (min-width: 768px) {
+            left: 0;
+            z-index: 7;
+        }
+    }
+    .categoryDataOuter {
+        background-color: white;
+    }
+    .categoryDataInner {
+        padding: 1rem;
+        width: auto !important;
+        @media (max-width: 991px) {
+            width: 70rem !important;
+        }
+    }
+
+    .forDragTextPosition {
+        position: relative;
+        .indicatingText {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            p {
+                @include forParaTag($disabledColor, 1.7rem, 600);
+                background-color: transparent;
+            }
+        }
+    }
+
+    .drop {
+        min-height: 7rem !important;
+        p {
+            height: fit-content;
+            margin: 0 !important;
+        }
+        .dropInner {
+            position: relative;
+            margin: 0.5rem 1.5rem 1.5rem 0 !important;
+            .closeIcon {
+                top: -0.5rem;
+                right: -0.5rem;
+                position: absolute;
+                background-color: $redColor;
+                font-size: 1.2rem;
+                border-radius: 100%;
+                height: 1.4rem;
+                width: 1.4rem;
+                @include displayFlex(center, center);
+                @include forParaTag($whiteColor, 0.8rem, 600);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.draggabledata {
+    margin-top: 1.7rem;
+    .categoryDataInner {
+        width: auto !important;
+        p {
+            cursor: pointer;
+        }
+    }
+}
+.disabledAdminList {
+    background-color: #e0e0e0 !important;
+    cursor: default !important;
+}

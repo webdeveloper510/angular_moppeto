@@ -1,0 +1,178 @@
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../SCSS/Table/tableDesign";
+
+$blackColor: #666666;
+$tableHeadTextColor: #4f4f4f;
+$whiteColor: #fff;
+$suspendCircleAndText: #bdbdbd;
+$dropleftButtonHoverColor: #e0e0e0;
+$dropdownMenuNormalTextColor: #333333;
+$redColor: #e95656;
+$colBGColor: #f2f2f2;
+$scrollbarThumbColor: #c4c4c4;
+
+.tableOuter {
+    background-color: transparent;
+    border-bottom-left-radius: 1.7rem;
+    border-bottom-right-radius: 1.7rem;
+    @include overflowAndScrollbar(hidden, auto, 0.5rem, 0rem);
+    &::-webkit-scrollbar-track {
+        margin: 1.3rem;
+    }
+    .table {
+        .forBG {
+            background-color: transparent;
+        }
+        thead {
+            width: 100%;
+        }
+        tbody {
+            @include overflowAndScrollbar(auto, hidden, 0rem, 0rem);
+        }
+        .dateHeadTH,
+        .mainDataTD {
+            width: 21rem;
+        }
+        .iconTH,
+        .iconTD {
+            @media (max-width: 1617px) {
+                width: 7rem !important;
+            }
+        }
+        th {
+            padding: 0;
+            vertical-align: middle !important;
+        }
+        td {
+            padding: 0;
+            vertical-align: top !important;
+        }
+        .dateHeadTH {
+            border: solid $blackColor 0.1rem;
+            .dateHead {
+                p {
+                    @include forParaTag($blackColor, 1.4rem, 600);
+                }
+            }
+        }
+        .iconTH {
+            .leftHead,
+            .rightHead {
+                img {
+                    height: 3rem;
+                    cursor: pointer;
+                }
+            }
+            .leftHead {
+                @include displayFlex(flex-end, center);
+                img {
+                    transform: rotate(180deg);
+                    margin-right: -0.03rem;
+                }
+            }
+            .rightHead {
+                @include displayFlex(flex-start, center);
+            }
+        }
+
+        .mainDataTD {
+            border: solid $blackColor 0.01rem;
+            border-top: none;
+            background-color: $colBGColor;
+            .mainData {
+                .forEllipse {
+                    padding-top: 0.3rem;
+                    @include displayFlex(space-between, center);
+
+                    .status {
+                        margin-left: 0.75rem;
+                        padding: 0.1rem 0.9rem;
+                        background-color: $redColor;
+                        border-radius: 7.7rem;
+                        p {
+                            @include forParaTag($whiteColor, 1.1rem, 500);
+                        }
+                    }
+                    .dropdown {
+                        margin-right: 1rem;
+                        @include displayFlex(flex-end, stretch);
+                        button {
+                            background-color: transparent;
+                            border-radius: 1rem;
+                            border: none;
+                            padding: 0;
+                            transform: rotate(90deg);
+                            &:focus {
+                                outline: none;
+                                box-shadow: none;
+                            }
+                            i {
+                                color: $suspendCircleAndText;
+                                font-size: 2rem;
+                                font-weight: 700;
+                            }
+                        }
+
+                        .dropdown-menu {
+                            margin: -0.5rem -0.7rem 0 0;
+                            padding: 0.1rem 0.3rem 0.1rem 0.1rem;
+                            border-radius: 0.7rem;
+                            border: solid 0.2rem $dropleftButtonHoverColor;
+                            min-width: 9rem !important;
+                            .dropdown-item {
+                                padding: 0.2rem;
+                                padding-bottom: 0.1rem;
+                                background-color: $colBGColor;
+                                margin: 0.1rem;
+                                border-radius: 0.5rem;
+                            }
+                            a {
+                                @include forParaTag($dropdownMenuNormalTextColor, 1.4rem, 600);
+                                padding: 0 1.5rem 0 1rem !important;
+                            }
+                        }
+                    }
+                }
+                .colBody {
+                    padding: 0.2rem 0.75rem 0rem 0.75rem;
+                    height: 15.2rem;
+                    @include scrollBar(
+                        hidden,
+                        auto,
+                        0.3rem,
+                        0.3rem,
+                        0.8rem,
+                        0,
+                        5rem,
+                        $colBGColor,
+                        $scrollbarThumbColor,
+                        1rem
+                    );
+                    p {
+                        @include forParaTag($blackColor, 1.35rem, 500);
+                        text-align: justify;
+                        margin: 0;
+                        line-height: 1.7rem;
+                        white-space: pre-wrap;
+                        word-wrap: break-word;
+                    }
+                }
+                .colFooter {
+                    margin: 0.4rem 0.75rem 0.4rem 0.75rem;
+                    padding-top: 0.4rem;
+                    border-top: solid $blackColor 0.05rem;
+
+                    p {
+                        @include forParaTag($redColor, 1rem, 500);
+                        margin: 0;
+                        text-align: left;
+                    }
+                    .vendorCodeID {
+                        padding-top: 0.2rem;
+                        @include displayFlex(space-between, center);
+                    }
+                }
+            }
+        }
+    }
+}

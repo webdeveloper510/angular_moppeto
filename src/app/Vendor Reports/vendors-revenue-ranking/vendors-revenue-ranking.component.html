@@ -1,0 +1,232 @@
+<div class="mainOuter border">
+
+  <!-- UpperBody Starts..... -->
+
+  <div class="upperBody">
+    <div class="outer container">
+      <div class="row">
+        <div class="col-xl-6 body1">
+          <div class="innerBody1Outer">
+            <div class="inner1">
+              <div class="row">
+                <div class="col-sm-3 col-6 extra-padding">
+                  <div class="radio-item">
+                    <input type="radio" id="dateRange1" name="dateRange" value="dateRange1">
+                    <label for="dateRange1">Last 30 days</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-6 extra-padding">
+                  <div class="radio-item">
+                    <input type="radio" id="dateRange2" name="dateRange" value="dateRange2">
+                    <label for="dateRange2">Last 60 days</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 dateRange radio-item">
+                  <input type="radio" id="dateRange3" name="dateRange" value="dateRange3">
+                  <label for="dateRange3">
+                  </label>
+                  <!-- <input pInputText type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"
+                    placeholder="Date range" for="dateRange3" /> -->
+                    <!-- <input type="text" class="form-control" bsDatepicker> -->
+                  <input pInputText type="text" class="form-control" bsDaterangepicker [bsConfig]="{ isAnimated: true }" placeholder="Date range" for="dateRange3">
+                  <i class="pi pi-calendar"></i>
+                </div>
+              </div>
+            </div>
+            <div class="inner2">
+              <div class="row">
+                <div class="col-sm-6 dropdown1">
+                  <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" placeholder="All Countries"
+                    optionLabel="name" [showClear]="false">
+                  </p-dropdown>
+                </div>
+                <div class="col-sm-6 dropdown2">
+                  <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="All Cities" optionLabel="name"
+                    [showClear]="false">
+                  </p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="inner3 d-flex justify-content-center">
+              <div class="icon">
+                <i class="pi pi-youtube"></i>
+              </div>
+              <div class="button">
+                <button pButton pRipple type="button" label="Reset" class="p-button-outlined p-button-success"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 body2">
+          <div class="innerBody2Outer">
+            <div class="search">
+              <i class="pi pi-search" [ngClass]="searchInput?'searchColor':'searchColor2'"></i>
+              <input type="text" pInputText [(ngModel)]="searchInput">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UpperBody Ends..... -->
+
+
+  <div class="tabs">
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="tabsInner">
+          <a routerLink="/vendors-revenue-ranking" class="activeTab">Vendor</a>
+          <a routerLink="/activity-revenue-ranking">Activity</a>
+          <a routerLink="/vendor-location-revenue-ranking">Vendor location</a>
+          <a routerLink="/city-revenue-ranking">City</a>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="downloadCSV">
+          <img src="../../../assets/categoryStatistics/Download_Icon.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Table Starts..... -->
+  <div class="tableOuter border-top table-responsive text-nowrap">
+    <table class="table table-borderless text-center">
+      <thead class="forBG">
+        <tr>
+          <th scope="col" class="noCol">
+            No.
+          </th>
+          <th scope="col" class="text-left">
+            Vendor name
+            <br>
+            Vendor code
+          </th>
+          <th scope="col">
+            City
+          </th>
+          <th scope="col">
+            Revenue
+            <br>
+            (INR)
+          </th>
+          <th scope="col">
+            Number of
+            <br>
+            registrations
+          </th>
+          <th scope="col">
+            Revenue per
+            <br>
+            registrant
+          </th>
+          <th scope="col">
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody class="border-top">
+        <tr class="border-bottom">
+          <td scope="row" class="noCol">
+            <div class="title1">
+              <p>
+                1
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left">
+            <div class="title1">
+              <p>
+                Berries world of learning
+              </p>
+            </div>
+            <div class="title2">
+              <p>
+                SG-A7C
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title2">
+              <p>
+                Pune
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title3">
+              <p>
+                2,356,712
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title2">
+              <p>
+                711,342
+              </p>
+            </div>
+          </td>
+          <td scope="row">
+            <div class="title1">
+              <p>
+                INR 4,561
+              </p>
+            </div>
+          </td>
+          <td>
+            <div class="ellipsisOuter">
+              <div class="statusOuter">
+                <div class="status ActiveStatus">
+                  <div class="circleDiv"></div>
+                  <div class="ActualStatus">
+                    <p>Active</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Table Ends...... -->
+
+
+  <!-- Pagination Starts...... -->
+  <div class="paginationOuter">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="rowsOuter">
+          <p>Rows per page:</p>
+          <div class="selectNoOfRow select">
+
+            <select class="form-control select__field" aria-label="Default select example">
+              <option selected value="1">10</option>
+              <option value="2">20</option>
+              <option value="3">30</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="pagesOuter">
+          <p>1 of 6</p>
+          <div class="iconPrevious">
+            <a href="#">
+              <img src="../../../assets/Pagination/Vector1.svg" alt="">
+            </a>
+          </div>
+          <div class="iconNext">
+            <a href="#">
+              <img src="../../../assets/Pagination/Vector2.svg" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Pagination Ends...... -->
+</div>

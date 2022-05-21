@@ -1,0 +1,237 @@
+<div class="upperLocDropdown">
+    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="All countries" optionLabel="name"
+        [showClear]="false">
+    </p-dropdown>
+</div>
+
+<div class="mainOuter border">
+
+    <div class="upperBodyOuter">
+
+        <div class="radioWithInputOuter">
+            <div class="radioPart">
+                <div class="radio-item">
+                    <input type="radio" id="radioType1" name="radioType" value="radioType1" [checked]="bookingRef.value"
+                        (change)="transactionID.value=''; dateRange.value=''; selectedCity2=''">
+                    <label for="radioType1">
+                    </label>
+                </div>
+            </div>
+            <div class="rightInputPart">
+                <input type="text" pInputText placeholder="Booking reference" #bookingRef
+                    (keyup)="transactionID.value=''; dateRange.value=''; selectedCity2='';">
+            </div>
+        </div>
+        <div class="radioWithInputOuter">
+            <div class="radioPart">
+                <div class="radio-item">
+                    <input type="radio" id="radioType2" name="radioType" value="radioType2"
+                        [checked]="transactionID.value"
+                        (change)="bookingRef.value=''; dateRange.value=''; selectedCity2=''">
+                    <label for="radioType2">
+                    </label>
+                </div>
+            </div>
+            <div class="rightInputPart">
+                <input type="text" pInputText placeholder="Transaction ID" #transactionID
+                    (keyup)="bookingRef.value=''; dateRange.value=''; selectedCity2=''">
+            </div>
+        </div>
+        <div class="radioWithInputOuter">
+            <div class="radioPart">
+                <div class="radio-item">
+                    <input type="radio" id="radioType3" name="radioType" value="radioType3"
+                        [checked]="selectedCity2 && dateRange.value"
+                        (change)="bookingRef.value=''; transactionID.value=''">
+                    <label for="radioType3">
+                    </label>
+                </div>
+            </div>
+            <div class="rightInputPart">
+                <div class="forDropdown">
+                    <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" #revenue placeholder="Revenue type"
+                        [autoDisplayFirst]="false" optionLabel="name" [showClear]="false"
+                        (onChange)="bookingRef.value=''; transactionID.value=''">
+                    </p-dropdown>
+                </div>
+                <div class="forDateRange dateRangeNormal">
+                    <input pInputText type="text" class="form-control" bsDaterangepicker #dateRange
+                        [bsConfig]="{ isAnimated: true }" placeholder="Date range" for="dateRange3"
+                        (click)="bookingRef.value=''; transactionID.value=''">
+                    <i class="pi pi-calendar"></i>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="inner3 d-flex justify-content-center">
+        <div class="icon">
+            <i class="pi pi-youtube"></i>
+        </div>
+        <div class="button">
+            <button pButton pRipple type="button" label="Reset" class="p-button-outlined p-button-success"></button>
+        </div>
+    </div>
+
+
+    <div class="downloadCSV">
+        <img src="assets/categoryStatistics/Download_Icon.svg" alt="">
+    </div>
+
+    <!-- Table Starts..... -->
+    <div class="tableOuter border-top table-responsive text-nowrap">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr>
+                    <th scope="col" class="descCol text-left">
+                        Description
+                    </th>
+                    <th scope="col">
+                        Category
+                    </th>
+                    <th scope="col">
+                        Payment
+                        <br>
+                        reference
+                    </th>
+                    <th scope="col">
+                        Charge
+                        <br>
+                        ID
+                    </th>
+                    <th scope="col">
+                        Receipt
+                        <br>
+                        number
+                    </th>
+                    <th scope="col">
+                        Amount
+                        <br>
+                        (INR)
+                    </th>
+                    <th scope="col" class="text-left">
+                        Status
+                    </th>
+                    <th scope="col" class="dateTimeCol">
+                        Date/time of
+                        <br>
+                        payment
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="border-top">
+                <tr class="border-bottom" *ngFor="let data of demoTable">
+                    <td scope="row" class="descCol text-left">
+                        <div class="title1">
+                            <p>
+                                Subscription
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Renewal
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                Premium
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                12345YHTD
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                1234567890143
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                SG-1234
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                2,305
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status"
+                                    [ngClass]="{'SuccessStatus':data.status=='success', 'TransactionFailedStatus': data.status=='failed'}">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>{{data.status==='success'?'Success':(data.status==='failed'?'Transaction&nbsp;fail':'')}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="dateTimeCol">
+                        <div class="title1">
+                            <p>
+                                20 Apr 2021, 14:32hrs UTC
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Ends...... -->
+
+    <!-- Pagination Starts...... -->
+
+    <div class="paginationOuter">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="rowsOuter">
+                    <p>Rows per page:</p>
+                    <div class="selectNoOfRow select">
+
+                        <select class="form-control select__field" aria-label="Default select example">
+                            <option selected value="1">10</option>
+                            <option value="2">20</option>
+                            <option value="3">30</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="pagesOuter">
+                    <p>1 of 6</p>
+                    <div class="iconPrevious">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector1.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="iconNext">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector2.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pagination Ends...... -->
+
+</div>

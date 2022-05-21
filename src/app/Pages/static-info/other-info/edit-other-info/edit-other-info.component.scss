@@ -1,0 +1,209 @@
+@import "../../../../SCSS/StaticInfo/viewAndEditInfoupperDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../../SCSS/CustomRadioButton/_customRadioButtonDesign";
+
+$blackColor: #333333;
+$whiteColor: #fff;
+$termsTextBG: #e7e7e7;
+$languageButtonColor: #396aff;
+$greenButtonColor: #6fcf97;
+$borderColor: #898989;
+$borderColor2: #c1c1c1;
+$scrollbarThumbColor2: #cdcdcd;
+$orangeColor: #faa559;
+$redColor: #e95656;
+$disabledColor: #bdbdbd;
+
+
+@mixin forInput($inputBorderColor, $inputHeight) {
+    input {
+        border-color: $inputBorderColor;
+        border-radius: 0.8rem;
+        height: $inputHeight;
+        &:focus {
+            box-shadow: 0 0 0.5rem $inputBorderColor;
+        }
+    }
+}
+
+@mixin customCheckBox() {
+    border-color: $languageButtonColor !important;
+    background: $whiteColor !important;
+    color: $languageButtonColor;
+}
+
+:host ::ng-deep p-checkbox {
+    label {
+        margin: 0 !important;
+    }
+    .p-checkbox-label {
+        margin-left: 1.5rem !important;
+        @include forParaTag($languageButtonColor, 1.6rem, 600);
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .p-checkbox .p-checkbox-box {
+        @include customCheckBox();
+        &:hover {
+            border-color: $languageButtonColor;
+        }
+    }
+    .p-checkbox .p-checkbox-box.p-highlight {
+        @include customCheckBox();
+    }
+    .p-checkbox .p-checkbox-box.p-focus {
+        @include customCheckBox();
+    }
+    .pi-check {
+        color: $languageButtonColor !important;
+        font-weight: 700 !important;
+    }
+}
+
+:host ::ng-deep quill-editor {
+    .ql-toolbar {
+        background-color: $termsTextBG;
+        border: $borderColor solid 0.2rem;
+        padding: 1.5rem;
+    }
+    .ql-container {
+        border: $borderColor2 solid 0.2rem;
+        border-top: none;
+        min-height: 17rem;
+        max-height: 50rem;
+        @include scrollBar(auto, auto, 0.7rem, 0.7rem, 0.8rem, 0, 5rem, transparent, $scrollbarThumbColor2, 1rem);
+    }
+    .ql-editor.ql-blank::before {
+        opacity: 0;
+    }
+    .ql-tooltip {
+        left: 50% !important;
+        transform: translateX(-50%);
+    }
+}
+
+.rightSection {
+    width: 35rem;
+    @media (max-width: 1597px) {
+        width: 30rem;
+    }
+    .languageSection {
+        .col-6 {
+            padding-bottom: 2rem;
+            position: relative;
+        }
+        button {
+            margin: 0 !important;
+        }
+        .copyLinktext {
+            position: absolute;
+            top: 2.5em;
+            left: 50%;
+            cursor: pointer;
+            transform: translateX(-50%);
+            p {
+                @include forParaTag($redColor, 1rem, 600);
+            }
+        }
+        @include forInput($languageButtonColor, 2.5rem);
+    }
+}
+
+.addVersionTitle {
+    width: 13rem;
+    margin-top: -2rem;
+    @media (max-width: 1597px) {
+        margin: 1rem 0;
+    }
+    p {
+        @include forParaTag($blackColor, 1.3rem, 700);
+    }
+    @include forInput($orangeColor, 2.7rem);
+}
+
+.editSection {
+    margin: 4rem 0 0 0;
+    @media (max-width: 1597px) {
+        margin: 7rem 0 0 0;
+    }
+}
+
+.bottomButtons {
+    margin: 2rem auto 0 auto;
+    width: fit-content;
+    @include displayFlex(space-between, center);
+    @include buttonDesign(1.4rem, 400, 0.25rem, 0, 0.2rem, 0.7rem);
+    button {
+        width: 9rem;
+        margin: 0 1.5rem;
+        white-space: nowrap;
+        @media (max-width: 387px) {
+            width: fit-content;
+            margin: 0 1rem;
+            padding: 0.25rem 0.9rem;
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .p-button-warning {
+        @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+    }
+    .p-button-success {
+        @include classWisebuttonDesign($greenButtonColor, $greenButtonColor, $whiteColor, $greenButtonColor);
+    }
+    .p-button-danger {
+        @include classWisebuttonDesign($redColor, $redColor, $whiteColor, $redColor);
+    }
+    .cancelButton {
+        @include classWisebuttonDesign(transparent, $redColor, $redColor, $redColor);
+        border-width: 0.2rem !important;
+    }
+    .confirmEdit {
+        width: 11rem;
+        @media (max-width: 387px) {
+            width: fit-content;
+        }
+    }
+}
+
+.disabled-div {
+    pointer-events: none;
+    background-color: #efefef !important;
+}
+
+.radio-item label:before {
+    border: solid 1px $disabledColor;
+    margin-right: 10px;
+    @media (max-width: 377px) {
+        margin-right: 5px;
+    }
+}
+
+.disabledRadio {
+    input[type="radio"] + label:before {
+        background-color: lighten($disabledColor, 10%);
+    }
+    input[type="radio"]:checked + label:before {
+        border-color: $disabledColor;
+    }
+    input[type="radio"]:checked + label:after {
+        background: darken($disabledColor, 10%);
+    }
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+
+.back {
+    background: #faa559 !important;
+}
+

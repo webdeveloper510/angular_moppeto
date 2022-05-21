@@ -1,0 +1,98 @@
+<div class="maindiv">
+
+  <div class="download-name row mb-2">
+
+    <div class="col-6 pb-3">
+      <i class="pi pi-download icon1 icon download"></i>
+    </div>
+    <div class="col-6">
+      <p class="text-right countrytext icon"><u>Chennai</u></p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <div class="row name-button">
+    <div class="col-8">
+      <p>Maximum banner numbers allowed for each day</p>
+    </div>
+    <div class="col-4 forbutton">
+      <button pButton type="button" class="p-button-secondary button button1" *ngIf="activeEdit"
+        (click)="toggleVisibility()" label="Edit"></button>
+        <button pButton type="button" class="p-button-danger buttons" *ngIf="activeSaveAndCancel"
+          (click)="cancelSaveMode()" label="Cancel"></button>
+      <button pButton type="button" class="p-button-success buttons" *ngIf="activeSaveAndCancel" label="Save"></button>
+    </div>
+  </div>
+
+
+  <div class="fortable mt-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="forno"><div class="d-flex">
+            <div class="fortitle">No.</div>
+            <div class="foricon">
+              <div class="icon1"><i class="pi pi-caret-up"></i></div>
+              <div class="icon2"><i class="pi pi-caret-down"></i></div>
+            </div>
+          </div></th>
+          <th class="forcategory"><div class="d-flex">
+            <div class="fortitle fortitle2">Category</div>
+            <div class="foricon foricon2">
+              <div class="icon1"><i class="pi pi-caret-up"></i></div>
+              <div class="icon2"><i class="pi pi-caret-down"></i></div>
+            </div>
+          </div></th>
+          <th class="forapp"><div class="d-flex">
+            <div class="fortitle">App</div>
+            <div class="foricon">
+              <div class="icon1"><i class="pi pi-caret-up"></i></div>
+              <div class="icon2"><i class="pi pi-caret-down"></i></div>
+            </div>
+          </div></th>
+          <th class="forweb"><div class="d-flex">
+            <div class="fortitle">Web</div>
+            <div class="foricon">
+              <div class="icon1"><i class="pi pi-caret-up"></i></div>
+              <div class="icon2"><i class="pi pi-caret-down"></i></div>
+            </div>
+          </div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Banner</td>
+          <td *ngIf="activeEdit" class="forbg">7</td>
+          <td *ngIf="activeSaveAndCancel" class="forinput"><input class="form-control rightinput" type="number" min="1" value="7" oninput="validity.valid||(value='');"></td>
+          <td *ngIf="activeEdit" class="forbg">5</td>
+          <td *ngIf="activeSaveAndCancel" class="forinput"><input class="form-control rightinput" type="number" min="1" value="5" oninput="validity.valid||(value='');"></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Homepage header</td>
+          <td *ngIf="activeEdit" class="forbg">7</td>
+          <td *ngIf="activeSaveAndCancel" class="forinput"><input class="form-control rightinput" type="number" min="1" value="7" oninput="validity.valid||(value='');"></td>
+          <td *ngIf="activeEdit" class="forbg">5</td>
+          <td *ngIf="activeSaveAndCancel" class="forinput"><input class="form-control rightinput" type="number" min="1" value="5" oninput="validity.valid||(value='');"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+</div>

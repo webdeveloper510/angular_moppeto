@@ -1,0 +1,70 @@
+<div class="mainOuter border">
+
+    <div class="titleHead forEdit">
+        <p class="m-0 text-center">Edit Sub-admin</p>
+    </div>
+
+    <div class="mainBody">
+
+        <div class="forStatus">
+
+
+            <div class="statusOuter">
+                <div class="status ActiveStatus">
+                    <div class="circleDiv"></div>
+                    <div class="ActualStatus">
+                        <p>Active</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="innerForm">
+
+            <div class="row formContentOuter">
+
+                <div class="col-sm-6">
+                    <div class="formContent">
+                        <p class="m-0">Name</p>
+                        <input type="text" class="disabledInput" value="First name Last name" disabled pInputText />
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="formContent">
+                        <p class="m-0">Email</p>
+                        <input type="text" class="disabledInput" value="abc@mail.com" disabled pInputText />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="formContent">
+                <p class="m-0">Notes</p>
+                <textarea pInputTextarea maxlength="100" #notesInput [(ngModel)]="notesInputTyping"
+                    class="customTextArea"></textarea>
+                <div class="letterCounting">
+                    <p class="m-0 text-right"
+                        [ngClass]="[notesInput.value.length == 100? 'maxlengthColor' : '' || notesInputTyping?'notesInputTyping':'']">
+                        {{notesInput.value.length}} / 100</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="innerButton">
+            <button pButton pRipple type="button" label="Edit" class="p-button-warning"></button>
+            <button pButton pRipple type="button" label="Cancel" class="p-button-danger"
+                routerLink="/sub-admin"></button>
+        </div>
+
+    </div>
+
+
+
+    <div class="forBottomBG"></div>
+
+
+</div>

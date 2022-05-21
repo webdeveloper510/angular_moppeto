@@ -1,0 +1,153 @@
+<div class="mainOuter border">
+  <!-- Top Header Starts..... -->
+  <div class="topHeader">
+    <div class="outer">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 tabs">
+          <div class="inner">
+            <div class="row">
+              <div class="col-sm-4 col-3 all" [ngClass]="{actTab: status=='all'}">
+                <a (click)="changeStatus('all')">All</a>
+              </div>
+              <div class="col-sm-4 col-4  active" [ngClass]="{actTab: status=='active'}">
+                <a (click)="changeStatus('active')">Active</a>
+              </div>
+              <div class="col-sm-4 col-5 suspend" [ngClass]="{actTab: status=='suspended'}">
+                <a (click)="changeStatus('suspended')">Suspend</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-4 col-sm-6 col-12 searchOuter">
+          <div class="search">
+            <i class="pi pi-search" [ngClass]="searchInput?'searchColor':'searchColor2'"></i>
+            <input type="text" pInputText [(ngModel)]="searchInput">
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 dropdown">
+          <img src="../../../assets/categoryStatistics/Download_Icon.svg" alt="download icon" class="float-right"
+            (click)="downloadTable()">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top Header Ends..... -->
+
+  <!-- Table Starts..... -->
+  <div class="tableOuter border-top table-responsive text-nowrap">
+    <table class="table table-borderless text-center">
+      <thead class="forBG">
+        <tr>
+          <th scope="col" class="text-left">
+            Vendor name
+            <br>
+            Vendor code
+          </th>
+          <th scope="col" class="text-left">
+            &nbsp;
+            <br>
+            Registered address
+          </th>
+          <th scope="col" class="text-left">
+            Mailing address
+          </th>
+          <th scope="col" class="mailingAddress">
+            &nbsp;
+            <br>
+            Country registered
+          </th>
+          <th scope="col">
+            &nbsp;
+            <br>
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngIf="vendors?.length > 0 else noDataView">
+        <tr class="border-bottom" *ngFor="let item of vendors; index as i;trackBy: trackByService.trackByFn;">
+          <td scope="row" class="text-left">
+            <div class="title1">
+              <p>
+                {{item?.name | blankValue}}
+              </p>
+            </div>
+            <div class="title3">
+              <p>
+                {{item?.vendor?.code}}
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left">
+            <div class="title4">
+              <p>
+                {{item?.reg_address }}
+              </p>
+            </div>
+            <div class="title4">
+              <p>
+                {{item?.reg_city}} -
+                {{item?.reg_zip_code}}
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left">
+            <div class="title4">
+              <p>
+                {{item?.mailing_address}}
+              </p>
+            </div>
+            <div class="title4">
+              <p>
+                {{item?.reg_city}} -
+                {{item?.mailing_zip_code}}
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="mailingAddress">
+            <div class="title1">
+              <p>
+                {{item?.vendor?.country}}
+              </p>
+            </div>
+          </td>
+          <td>
+            <div class="ellipsisOuter">
+              <div class="statusOuter">
+                <div class="status"
+                  [ngClass]="{ActiveStatus: checkStatus(item.vendor_status), SuspendStatus: !checkStatus(item.vendor_status)}">
+                  <div class="circleDiv"></div>
+                  <div class="ActualStatus">
+                    <p>{{item.vendor_status ? (item.vendor_status | titleCase) : ""}}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dropleft">
+                <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <span><i class="pi pi-ellipsis-v"></i></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="javaScript:void(0)"
+                    (click)="changeVendorStatus(item.vendor_status, item.id, i)">{{ item.vendor_status == "ACTIVE"
+                    ? "Suspend" : "Re-Instate" }}</a>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <ng-template #noDataView>
+        <app-no-table-data-view></app-no-table-data-view>
+      </ng-template>
+    </table>
+  </div>
+  <!-- Table Ends...... -->
+
+<!-- Pagination Starts...... -->
+<div *ngIf="vendors?.length > 0">
+  <app-pagination (onPagechanged)="pageChangeEvent()" [paginationService]="paginationService">
+  </app-pagination>
+</div>
+<!-- Pagination Ends...... -->
+</div>

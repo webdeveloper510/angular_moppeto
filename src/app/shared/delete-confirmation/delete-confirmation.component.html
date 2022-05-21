@@ -1,0 +1,16 @@
+<div class="deleteConfirmation">
+  <p (click)="onDismiss()" class="close">X</p>
+  <div class="headTitle">
+    <p class="h6 text-center" mat-dialog-title>{{data.title}}</p>
+  </div>
+
+  <div class="inner">
+
+
+    <button class="btn btn-primary continueBtn" (click)="onConfirm()">Continue</button>
+
+    <button class="btn btn-danger cancelBtn" (click)="onDismiss()">Cancel</button>
+
+
+  </div>
+</div>

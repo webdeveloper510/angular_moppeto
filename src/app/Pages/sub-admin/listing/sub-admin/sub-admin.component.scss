@@ -1,0 +1,135 @@
+@import "../../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../../SCSS/Pagination/paginationDesign";
+@import "../../../../SCSS/Table/tableDesign";
+@import "../../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../../SCSS/CustomRadioButton/customRadioButtonDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$tdTitle1Color: #414141;
+$tdTitle2Color: #828282;
+$tdTitle3Color: #333333;
+$radioButtonBeforeColor: #bdbdbd;
+$radioButtonAfterColor: #6fcf97;
+$whiteColor: #fff;
+$buttonAllColor: #4dc5af;
+$orangeColor: #faa559;
+$redColor: #e95656;
+$yellowColor: #facd44;
+
+.downloadSection {
+    img {
+        cursor: pointer;
+    }
+}
+
+.mainOuter {
+    .tableOuter {
+        .table {
+            th {
+                padding-top: 3.5rem !important;
+            }
+            tbody {
+                td {
+                    padding-top: 2.2rem !important;
+                    padding-bottom: 2.2rem !important;
+                }
+
+                .title1 {
+                    @include tableData(1.3rem, $tdTitle1Color, 500);
+                }
+
+                .title2 {
+                    @include tableData(1.3rem, $tdTitle2Color, 500);
+                }
+                .title3 {
+                    @include tableData(1.35rem, $tdTitle3Color, 500);
+                }
+            }
+            .noCol {
+                width: 7rem;
+            }
+
+            .forRadio {
+                width: 5rem;
+            }
+
+            @media (max-width: 1257px) {
+                th,
+                td {
+                    width: 13.7rem;
+                }
+            }
+        }
+    }
+}
+
+.radio-item label:before {
+    border-color: $radioButtonBeforeColor;
+}
+
+.radio-item input[type="radio"]:checked ~ label::before {
+    border-color: $radioButtonAfterColor;
+}
+
+.upperButtonsAndDownload {
+    padding: 2rem;
+    @include displayFlex(space-between, center);
+    @media (max-width: 575px) {
+        display: block;
+        padding: 2rem 0;
+    }
+    .downloadSection {
+        img {
+            width: 2rem;
+            @media (max-width: 575px) {
+                margin: 0 auto 2rem auto;
+                display: block;
+            }
+        }
+    }
+
+    .buttonSection {
+        @include displayFlex(flex-end, center);
+        @media (max-width: 575px) {
+            @include displayFlex(center, center);
+        }
+
+        @include buttonDesign(1.6rem, 400, 00.6rem, 0, 0.2rem, 0.7rem);
+        button {
+            width: 10rem;
+            &:not(:first-child) {
+                margin-left: 1.5rem;
+            }
+            @media (max-width: 575px) {
+                width: 8rem;
+            }
+            @media (max-width: 397px) {
+                width: min-content;
+                padding: 0.6rem 0.8rem;
+                font-size: 1.3rem;
+                white-space: nowrap;
+            }
+        }
+        .addNew {
+            width: 17rem;
+            @include classWisebuttonDesign($buttonAllColor, $buttonAllColor, $whiteColor, $buttonAllColor);
+        }
+        .edit {
+            @include classWisebuttonDesign($yellowColor, $yellowColor, $whiteColor, $yellowColor);
+        }
+        .suspend {
+            @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+        }
+        .reInstate {
+            @include classWisebuttonDesign(
+                $radioButtonAfterColor,
+                $radioButtonAfterColor,
+                $whiteColor,
+                $radioButtonAfterColor
+            );
+        }
+        .remove {
+            @include classWisebuttonDesign($redColor, $redColor, $whiteColor, $redColor);
+        }
+    }
+}

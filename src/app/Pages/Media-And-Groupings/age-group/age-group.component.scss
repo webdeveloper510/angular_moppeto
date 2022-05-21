@@ -1,0 +1,100 @@
+@import "../../../SCSS/Pagination/paginationDesign";
+@import "../../../SCSS/Table/tableDesign";
+@import "../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../SCSS/MediaAndGroupings/radioButtonSectionDesign";
+@import "../../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$whiteColor: #fff;
+$buttonAllColor: #4dc5af;
+$tdTitle1Color: #4e4e4e;
+$tdTitle2Color: #4f4f4f;
+$radioButtonColor: #6fcf97;
+$scrollbarThumbColor: #e7e7e7;
+
+.mainOuter {
+    .upperRadioDivOuter {
+        @media (min-width: 768px) {
+            width: 50rem;
+            margin: 2rem 0 2rem 5rem;
+        }
+        margin: 2rem 1rem;
+    }
+
+    .addCouponOuter {
+        @include displayFlex(flex-end, center);
+        margin-bottom: 2rem;
+        @media (max-width: 767px) {
+            justify-content: center;
+        }
+    }
+
+    .addCuppon {
+        width: 25%;
+        @include displayFlex(center, center);
+        @media (max-width: 1199px) {
+            @include displayFlex(flex-end, center);
+            margin: 0 3rem 0rem 0;
+            width: 100%;
+        }
+        @media (max-width: 700px) {
+            margin: 0;
+            button {
+                margin: 0 auto;
+                display: block;
+            }
+        }
+        @include buttonDesign(1.4rem, 500, 00.5rem, 1.7rem, 0.2rem, 0.7rem);
+        .p-button-success {
+            @include classWisebuttonDesign($buttonAllColor, $buttonAllColor, $whiteColor, $buttonAllColor);
+        }
+    }
+
+    .tableOuter {
+        .table {
+            tbody {
+                tr {
+                    td {
+                        .title1 {
+                            @include tableData(1.35rem, $tdTitle1Color, 600);
+                        }
+                        .title2 {
+                            @include tableData(1.3rem, $tdTitle2Color, 700);
+                        }
+                    }
+                }
+            }
+        }
+
+        .forNo {
+            width: 17rem;
+            padding-right: 7rem !important;
+        }
+        .ellipsisTH,
+        .ellipsisTD {
+            @media (min-width: 1200px) {
+                width: 25%;
+            }
+            .dropdown-menu {
+                margin-top: -0.5rem !important;
+            }
+        }
+
+        th,
+        td {
+            @media (max-width: 1199px) {
+                width: 15rem;
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    padding-top: 1.35rem;
+                    padding-bottom: 1.35rem;
+                }
+            }
+        }
+
+        //   Table Ends........
+    }
+}

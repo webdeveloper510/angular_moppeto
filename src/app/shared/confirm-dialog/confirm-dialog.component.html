@@ -1,0 +1,23 @@
+<div class="actualOuter">
+  <div class="upperTitle">
+    <div class="titleBox">
+      <p class="text-center" mat-dialog-title> {{data.title}}</p>
+    </div>
+    <div class="close">
+      <p (click)="onDismiss()" class="close text-center">X</p>
+    </div>
+  </div>
+  <div class="bodySection">
+    <div class="inputDropdownOuter">
+      <div class="input2">
+        <div class="inputSection">
+          <p mat-dialog-content class="text-center">{{data.message}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttonSection">
+      <button pButton pRipple type="button" class="normalButton p-button-success" (click)="onConfirm()" label="Yes"></button>
+    </div>
+  </div>
+</div>

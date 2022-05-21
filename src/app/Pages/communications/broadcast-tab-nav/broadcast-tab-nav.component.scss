@@ -1,0 +1,17 @@
+@import "../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../SCSS/TabNavBar/tabNavDesign";
+
+.mainOuter {
+    margin-bottom: 0;
+}
+
+.nav-item {
+    background-color: $normalTabBorderColor;
+    width: 14.7rem;
+    // @media (max-width: 457px) {
+    //     width: 10rem;
+    // }
+    // @media (max-width: 347px) {
+    //     width: 8rem !important;
+    // }
+}

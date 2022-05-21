@@ -1,0 +1,1255 @@
+<div class="mainOuter border">
+    <!-- Top Header Starts..... -->
+    <div class="topHeader border-bottom">
+        <div class="outer">
+            <div class="row">
+                <div class="col-lg-7 tabs">
+                    <div class="inner">
+                        <div class="colsOuter">
+                            <div class="cols actTab all">
+                                <a href="#">All</a>
+                            </div>
+                            <div class="cols scheduled">
+                                <a href="#">Scheduled</a>
+                            </div>
+                            <div class="cols live">
+                                <a href="#">Live</a>
+                            </div>
+                            <div class="cols suspend">
+                                <a href="#">Suspended</a>
+                            </div>
+                            <div class="cols expired">
+                                <a href="#">Expired</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 searchOuter">
+                    <div class="search">
+                        <i class="pi pi-search" [ngClass]="searchInput?'searchColor':'searchColor2'"></i>
+                        <input type="text" pInputText [(ngModel)]="searchInput">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Top Header Ends..... -->
+
+
+
+    <!-- !-- Upper Body Starts..... -->
+
+    <div class="upperBody">
+        <div class="outer container">
+            <div class="row">
+                <div class="col-xl-6 body1">
+                    <div class="innerBody1Outer">
+                        <div class="inner2">
+                            <div class="row">
+                                <div class="col-sm-6 dropdown1">
+                                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity"
+                                        placeholder="All Countries" optionLabel="name" [showClear]="false">
+                                    </p-dropdown>
+                                </div>
+                                <div class="col-sm-6 dropdown2">
+                                    <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2"
+                                        placeholder="Discount type" optionLabel="name" [showClear]="false">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inner3 d-flex justify-content-center">
+                            <div class="icon">
+                                <i class="pi pi-youtube"></i>
+                            </div>
+                            <div class="button">
+                                <button pButton pRipple type="button" label="Reset"
+                                    class="p-button-outlined p-button-warning"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- !-- Upper Body Ends..... -->
+
+
+    <!-- !-- Add Cuppon Starts..... -->
+
+    <div class="addCuppon">
+        <div class="button">
+            <button pButton pRipple type="button" label="Add coupon" class="p-button-success"
+                routerLink="/add-coupon"></button>
+        </div>
+    </div>
+
+    <!-- !-- Add Cuppon Ends..... -->
+
+
+    <!-- Table Starts..... -->
+    <div class="tableOuter mt-3 table-responsive border-top">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr class="border-bottom">
+                    <th scope="col" class="text-left forNo">
+                        No.
+                    </th>
+                    <th scope="col" class="text-left" (click)="togleSorting('type')">
+                        <div class="forSort icoMargin">
+                            <div class="forText">
+                                <br>
+                                Discount apply type
+                            </div>
+                            <i [ngClass]="discountTypeAscSort?'fa fa-sort-up':'fa fa-sort-down'"></i>
+                        </div>
+                    </th>
+                    <th scope="col">
+                        Coupon
+                        <br>
+                        code
+                    </th>
+                    <th scope="col" (click)="togleSorting('discount')">
+                        <div class="forSort icoMargin justify-content-center">
+                            <div class="forText">
+                                <br>
+                                Discount
+                            </div>
+                            <i [ngClass]="discountAscSort?'fa fa-sort-up':'fa fa-sort-down'"></i>
+                        </div>
+                    </th>
+                    <th scope="col" (click)="togleSorting('redeem')">
+                        <div class="forSort justify-content-center">
+                            <div class="forText">
+                                Redeemed/
+                                <br>
+                                available
+                            </div>
+                            <i [ngClass]="redeemAscSort?'fa fa-sort-up':'fa fa-sort-down'"></i>
+                        </div>
+                    </th>
+                    <th scope="col">
+                        City
+                    </th>
+                    <th scope="col" class="text-left">
+                        Promotion period
+                    </th>
+                    <th scope="col">
+                        Created
+                    </th>
+                    <th scope="col" class="ellipsisTH">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row" routerLink="/details-of-coupons-redeemed" class="cursorPointer">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ScheduledStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Scheduled</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" routerLink="/edit-coupon">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" href="#">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" href="#">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status expiredStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Expired</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" href="#">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ScheduledStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Scheduled</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" href="#">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" href="#">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" href="#">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status expiredStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Expired</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" href="#">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ScheduledStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Scheduled</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" href="#">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" href="#">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" href="#">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left">
+                        <div class="title2">
+                            <p>
+                                Advanced
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                Enterprise
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                GREAT2021
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 discount">
+                            <p>$5</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1 redeemed">
+                            <p>- / 30</p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left statusCol">
+                        <div class="title2">
+                            <p>
+                                27/03/21 - 11/04/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status expiredStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Expired</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" href="#">Edit</a>
+                                    <a class="dropdown-item" href="#">Reinstate</a>
+                                    <a class="dropdown-item item4" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Ends...... -->
+
+
+    <!-- Pagination Starts...... -->
+
+    <div class="paginationOuter">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="rowsOuter">
+                    <p>Rows per page:</p>
+                    <div class="selectNoOfRow select">
+
+                        <select class="form-control select__field" aria-label="Default select example">
+                            <option selected value="1">10</option>
+                            <option value="2">20</option>
+                            <option value="3">30</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="pagesOuter">
+                    <p>1 of 6</p>
+                    <div class="iconPrevious">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector1.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="iconNext">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector2.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pagination Ends...... -->
+</div>

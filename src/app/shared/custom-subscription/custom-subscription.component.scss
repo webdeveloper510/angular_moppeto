@@ -1,0 +1,258 @@
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../SCSS/PrimeNG/primeNGDesign";
+
+$blackColor: #333333;
+$blackColor2: #4f4f4f;
+$whiteColor: #fff;
+$disabledColor: #bdbdbd;
+$greenColor: #6fcf97;
+$blueColor: #396aff;
+$orangeColor: #faa559;
+$redColor: #e95656;
+$scrollbarThumbColor: #e7e7e7;
+
+::ng-deep .customDialogClassCustomSubscription {
+    mat-dialog-container {
+        padding: 0 !important;
+        margin: 0;
+        border-radius: 0;
+        border: solid $blackColor 0.1rem;
+        box-shadow: 0 0 0.75rem $blackColor2;
+        @media screen and (min-height: 1081px) {
+            position: absolute !important;
+            left: calc(50% - 45rem);
+            top: 10rem;
+            top: 4rem !important;
+            width: 90rem !important;
+            height: max-content !important;
+            overflow: hidden !important;
+        }
+    }
+}
+
+.container_outer {
+    padding: 1.5rem 4rem;
+    width: 90rem;
+    @media (max-width: 1107px) {
+        width: 80rem;
+    }
+    @media (max-width: 907px) {
+        width: 70rem;
+    }
+    @media (max-width: 747px) {
+        width: auto;
+    }
+}
+
+header {
+    margin-bottom: 1.5rem;
+    p {
+        @include forParaTag($blackColor, 1.7rem, 700);
+    }
+}
+
+.codeAndamountOuter {
+    @include displayFlex(space-between, stretch);
+    @media (max-width: 1107px) {
+        display: block;
+    }
+    .titleText {
+        p {
+            @include forParaTag($blackColor2, 1.4rem, 400);
+        }
+    }
+    .detailsText {
+        &:not(:last-child) {
+            margin-top: 0.15rem;
+        }
+        p {
+            @include forParaTag($blackColor, 1.4rem, 500);
+        }
+    }
+    .rightPart {
+        p {
+            text-align: right;
+        }
+        @media (max-width: 1107px) {
+            margin-top: 2rem;
+
+            p {
+                text-align: left;
+            }
+        }
+    }
+}
+
+.messageTitleOuter {
+    margin: 3rem 0 2rem 0;
+    p {
+        @include forParaTag($disabledColor, 1.4rem, 400);
+    }
+    input {
+        border-color: $blackColor2;
+        border-radius: 0;
+        box-shadow: none;
+        margin-top: 0.15rem;
+    }
+}
+
+.messagecontentouter {
+    .titleOuter {
+        p {
+            @include forParaTag($disabledColor, 1.4rem, 400);
+        }
+    }
+    .htmlFunctionsText {
+        border: $redColor solid 0.1rem;
+        padding: 0.65rem 1rem 0.5rem 1rem;
+        p {
+            @include forParaTag($redColor, 1.4rem, 400);
+        }
+    }
+}
+
+.paymentTextOuter1 {
+    padding: 1.75rem;
+    border: solid $blackColor2 0.1rem;
+    textarea {
+        height: 8rem;
+        @include scrollBar(auto, auto, 0.5rem, 0.5rem, 0.8rem, 0, 5rem, $whiteColor, $scrollbarThumbColor, 1rem);
+        @include forParaTag($blackColor, 1.4rem, 500);
+        resize: none;
+    }
+    .paymentLinkOuter {
+        margin: 1.25rem 0;
+        @include displayFlex(space-between, center);
+        @media (max-width: 1107px) {
+            display: block;
+        }
+        .rightArea {
+            @include displayFlex(flex-start, center);
+            width: 28rem;
+            @media (max-width: 1107px) {
+                width: 100%;
+            }
+            @media (max-width: 575px) {
+                display: block;
+            }
+            p {
+                @include forParaTag($blackColor2, 1.4rem, 500);
+            }
+            input {
+                color: $orangeColor;
+            }
+        }
+        .leftArea {
+            @include displayFlex(flex-start, center);
+            width: calc(100% - 30rem);
+            @media (max-width: 1107px) {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+            @media (max-width: 575px) {
+                display: block;
+            }
+            p {
+                @include forParaTag($blackColor, 1.4rem, 500);
+            }
+            input {
+                color: $blueColor;
+            }
+        }
+        p {
+            white-space: nowrap;
+            @media (max-width: 575px) {
+                white-space: normal;
+            }
+        }
+        input {
+            margin-left: 1.5rem;
+            @media (max-width: 575px) {
+                margin: 1rem 0 0 0;
+            }
+        }
+    }
+    .textTextSectionOuter {
+        max-height: 17rem;
+        @include scrollBar(auto, auto, 0.5rem, 0.5rem, 0.8rem, 0, 5rem, $whiteColor, $scrollbarThumbColor, 1rem);
+        padding: 1rem 2.25rem;
+        .sections {
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+            p {
+                @include forParaTag($blackColor, 1.4rem, 500);
+            }
+            span {
+                color: $orangeColor;
+            }
+        }
+    }
+}
+
+.paymentTextOuter1WithBorderTop {
+    border-top: none;
+}
+
+.bottomButtonOuter {
+    margin-top: 2.25rem;
+    @include displayFlex(center, center);
+    @include buttonDesign(1.4rem, 500, 00.375rem, 1.5rem, 0.2rem, 0.75rem);
+    button {
+        &:not(:last-child) {
+            margin-right: 2.25rem;
+        }
+    }
+    .p-button-success {
+        @include classWisebuttonDesign($greenColor, $greenColor, $whiteColor, $greenColor);
+    }
+    .p-button-danger {
+        @include classWisebuttonDesign($redColor, $redColor, $whiteColor, $redColor);
+    }
+    .p-button-warning {
+        @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+    }
+}
+
+.thankYouModal {
+    padding: 2.5rem;
+    .block1 {
+        p {
+            @include forParaTag($greenColor, 2.2rem, 600);
+        }
+    }
+    .block2 {
+        margin: 2.5rem 0;
+        p {
+            @include forParaTag($blackColor2, 1.5rem, 500);
+        }
+    }
+    @include buttonDesign(1.6rem, 500, 00.4rem, 2rem, 0.2rem, 0.75rem);
+    .p-button-success {
+        @include classWisebuttonDesign($greenColor, $greenColor, $whiteColor, $greenColor);
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+:host ::ng-deep quill-editor {
+    .ql-toolbar {
+        background-color: $whiteColor;
+        border: $orangeColor solid 0.1rem;
+        padding: 1.5rem;
+    }
+    .ql-container {
+        border: $blackColor2 solid 0.1rem;
+        border-top: none;
+        min-height: 17rem;
+        max-height: 50rem;
+        @include scrollBar(auto, auto, 0.7rem, 0.7rem, 0.8rem, 0, 5rem, transparent, $scrollbarThumbColor, 1rem);
+    }
+    .ql-editor.ql-blank::before {
+        // opacity: 0;
+    }
+    .ql-tooltip {
+        left: 50% !important;
+        transform: translateX(-50%);
+    }
+}

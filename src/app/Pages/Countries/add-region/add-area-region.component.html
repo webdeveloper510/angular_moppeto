@@ -1,0 +1,33 @@
+  <div class="actualOuter">
+  <div class="upperTitle">
+    <div class="titleBox">
+      <p class="text-center" mat-dialog-title>Add {{data.isRegion ? 'Region' : 'Area'}}</p>
+    </div>
+    <div class="close">
+      <p (click)="onDismiss()" class="close text-center">X</p>
+    </div>
+  </div>
+  <div class="bodySection">
+    <form [formGroup]="regionForm">
+      <div class="inputDropdownOuter">
+        <div class="input2">
+          <div class="inputSection">
+            <p>Name of {{data.isRegion ? 'Region' : 'Area'}}</p>
+            <input type="text" pInputText maxlength="20" #addNewInput1 formControlName="name" />
+          </div>
+          <div class="totalChar">
+            <p class="text-right"
+              [ngClass]="[addNewInput1.value.length == 30 ? 'maxlengthColor' : '' || regionForm.value.name ? 'maxlengthTypingColor':'']">
+              {{addNewInput1.value.length}} / 30</p>
+          </div>                                                                                                                                                                                                                                                                                                                                                                                     
+        </div>
+      </div>
+
+      <div class="buttonSection">
+        <button pButton pRipple type="button" (click)="onSubmit()" label="Add"
+          [ngClass]="!regionForm.valid ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+          [disabled]="!regionForm.valid"></button>
+      </div>
+    </form>
+  </div>
+</div>                                

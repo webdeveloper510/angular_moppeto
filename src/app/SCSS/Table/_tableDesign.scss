@@ -1,0 +1,326 @@
+//Colors
+$tableHeaderMainColor: #f1fff7;
+$tableHeadTextColor: #4f4f4f;
+$whiteColor: #fff;
+$suspendStatusBGcolorAndScrollbarThumb: #e7e7e7;
+$activeStatusBG: #deffec;
+$activeCircleAndText: #4dc5af;
+$suspendCircleAndText: #bdbdbd;
+$dropleftButtonHoverColor: #e0e0e0;
+$dropdownMenuNormalTextColor: #333333;
+$scheduledStatusBG: #d8f1ff;
+$scheduledCircleAndText: #396aff;
+$expiredStatusBG: #ffd2cf;
+$expiredCircleAndText: #e95656;
+$sentStatusBG: #faa559;
+$invitedStatusBG: #FFE6D0;;
+
+@mixin fixedTable {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+@mixin tableData($fontSize, $color, $fontWeight) {
+    p {
+        margin: 0;
+        font-size: $fontSize;
+        color: $color;
+        font-weight: $fontWeight;
+    }
+}
+
+@mixin overflowAndScrollbar($overflowY, $overflowX, $scrollbarHeight, $scrollbarWidth) {
+    overflow-y: $overflowY;
+    overflow-x: $overflowX;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        height: $scrollbarHeight;
+        width: $scrollbarWidth;
+    }
+
+    &::-webkit-scrollbar-track {
+        margin: 0.2rem 0.5rem;
+        border-radius: 5rem;
+        background: $whiteColor;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $suspendStatusBGcolorAndScrollbarThumb;
+        border-radius: 1rem;
+    }
+}
+
+@mixin mainStatus($bgColor, $bgColorCircle, $color, $minWidth) {
+    background-color: $bgColor;
+    .circleDiv {
+        background-color: $bgColorCircle;
+    }
+    .ActualStatus {
+        p {
+            color: $color;
+            min-width: $minWidth;
+        }
+    }
+}
+
+@mixin ellipseTDandTH {
+    padding-left: 0;
+    padding-right: 0;
+    width: 3.3rem;
+}
+
+@mixin ellipseOuter($dropdownMenuMarginTop, $dropdownItemBGColor) {
+    .dropleft {
+        .btn {
+            background-color: $whiteColor !important;
+            border: none !important;
+            border-radius: 1rem;
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+        button {
+            padding: 0;
+            transition: background-color 0.5s linear;
+            &:hover {
+                background-color: $dropleftButtonHoverColor !important;
+                border-color: $dropleftButtonHoverColor !important;
+            }
+
+            i {
+                color: $suspendCircleAndText;
+                font-size: 2rem;
+                font-weight: 800;
+                padding: 0.6rem 0;
+            }
+        }
+
+        .dropdown-menu {
+            margin-top: $dropdownMenuMarginTop;
+            margin-right: 0.5rem;
+            padding: 0.1rem;
+            border-radius: 0.7rem;
+            padding-right: 0.3rem;
+            border: solid 0.2rem $dropleftButtonHoverColor;
+            min-width: 10rem !important;
+            .dropdown-item {
+                padding: 0.2rem;
+                padding-bottom: 0.1rem;
+                background-color: $dropdownItemBGColor;
+                margin: 0.1rem;
+                border-radius: 0.5rem;
+            }
+            a {
+                color: $dropdownMenuNormalTextColor;
+                font-weight: 600;
+                font-size: 1.4rem;
+                padding-left: 1rem !important;
+                padding-right: 1.5rem !important;
+            }
+        }
+    }
+}
+
+// Table
+.table-responsive {
+    margin: 0;
+    padding: 0;
+    @include overflowAndScrollbar(hidden, auto, 0.7rem, 0.7rem);
+}
+
+.tableOuter {
+    border-width: 0.2rem !important;
+    background-color: $tableHeaderMainColor;
+
+    .table {
+        margin-bottom: 0;
+        .forBG {
+            background-color: $tableHeaderMainColor;
+        }
+        .ellipsisTH {
+            @include ellipseTDandTH();
+        }
+        .ellipsisTD {
+            @include ellipseTDandTH();
+            vertical-align: middle !important;
+        }
+        th {
+            padding-top: 0;
+            font-size: 1.5rem;
+            @media screen and (max-width: 1677px) {
+                font-size: 1.4rem;
+            }
+            font-weight: 600;
+            color: $tableHeadTextColor;
+            padding-top: 1rem;
+            vertical-align: bottom !important;
+            padding-bottom: 1rem;
+        }
+        tbody {
+            background-color: $whiteColor;
+            tr {
+                border-width: 0.2rem !important;
+                td {
+                    margin: 0;
+                    vertical-align: middle;
+
+                    .ellipsisOuter {
+                        .ActiveStatus {
+                            @include mainStatus($activeStatusBG, $activeCircleAndText, $activeCircleAndText, 4.5rem);
+                        }
+                        .InvitedStatus {
+                            @include mainStatus($invitedStatusBG, $sentStatusBG, $sentStatusBG, 4.5rem);
+                        }
+                        .SuspendStatus {
+                            @include mainStatus(
+                                $suspendStatusBGcolorAndScrollbarThumb,
+                                $suspendCircleAndText,
+                                $suspendCircleAndText,
+                                7.3rem
+                            );
+                        }
+                        .ScheduledStatus {
+                            @include mainStatus(
+                                $scheduledStatusBG,
+                                $scheduledCircleAndText,
+                                $scheduledCircleAndText,
+                                6.9rem
+                            );
+                        }
+                        .expiredStatus {
+                            @include mainStatus($expiredStatusBG, $expiredCircleAndText, $expiredCircleAndText, 5.3rem);
+                        }
+                        .SentStatus {
+                            @include mainStatus($sentStatusBG, $whiteColor, $whiteColor, 3.4rem);
+                            p {
+                                margin-bottom: -0.2rem !important;
+                            }
+                        }
+                        .SuccessStatus {
+                            @include mainStatus(
+                                $scheduledStatusBG,
+                                $scheduledCircleAndText,
+                                $scheduledCircleAndText,
+                                5.5rem
+                            );
+                        }
+                        .TransactionFailedStatus {
+                            @include mainStatus($expiredStatusBG, $expiredCircleAndText, $expiredCircleAndText, 9.8rem);
+                        }
+                        .SentStatusBlue {
+                            @include mainStatus(
+                                $scheduledStatusBG,
+                                $scheduledCircleAndText,
+                                $scheduledCircleAndText,
+                                3.4rem
+                            );
+                            p {
+                                margin-bottom: -0.2rem !important;
+                            }
+                        }
+                        .statusOuter {
+                            margin: 0 auto;
+                            width: fit-content;
+                        }
+                        .status {
+                            display: flex;
+                            margin-top: 0.4rem;
+                            padding: 0 1.2rem 0 1rem;
+                            border-radius: 4rem;
+                            align-items: center;
+                            height: 2.7rem;
+
+                            .circleDiv {
+                                height: 0.8rem;
+                                width: 0.8rem;
+                                border-radius: 50%;
+                                margin-right: 0;
+                            }
+                            .ActualStatus {
+                                p {
+                                    margin: 0;
+                                    margin-left: -0.1rem;
+                                    font-size: 1.3rem;
+                                    text-align: right !important;
+                                }
+                            }
+                        }
+                        @include ellipseOuter(-0.1rem, $dropleftButtonHoverColor);
+                    }
+                }
+            }
+        }
+    }
+
+    // For Scroling Table Body...
+
+    tbody {
+        border-width: 0.2rem !important;
+        display: block;
+        width: 100%;
+
+        @include overflowAndScrollbar(auto, hidden, 0.8rem, 0.8rem);
+
+        @media screen and (min-height: 1081px) {
+            height: 50rem;
+        }
+        @media screen and (max-height: 1080px) {
+            height: 47rem;
+        }
+        @media screen and (max-height: 1007px) {
+            height: 45rem;
+        }
+        @media screen and (max-height: 907px) {
+            height: 44rem;
+        }
+        @media screen and (max-height: 807px) {
+            height: 43rem;
+        }
+    }
+
+    thead tr {
+        @include fixedTable();
+    }
+
+    thead,
+    tbody tr {
+        @include fixedTable();
+    }
+
+    thead {
+        width: calc(100% - 0.8rem);
+    }
+
+    //   Table Ends........
+}
+
+.ellipsisOuter2 {
+    @include ellipseOuter(-1.5rem, $whiteColor);
+    .dropleft {
+        .dropdown-menu {
+            .dropdown-item {
+                transition: background-color 0.3s linear;
+                min-width: 12rem;
+                &:hover {
+                    background-color: $dropleftButtonHoverColor;
+                    color: #333333;
+                }
+            }
+            .item1 {
+                &:hover {
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+            .item4 {
+                &:hover {
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+        }
+    }
+}

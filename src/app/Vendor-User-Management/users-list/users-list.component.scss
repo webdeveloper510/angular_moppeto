@@ -1,0 +1,96 @@
+@import "../../SCSS/Pagination/paginationDesign";
+@import "../../SCSS/Table/tableDesign";
+@import "../../SCSS/PrimeNG/primeNGDesign";
+@import "../../SCSS/UserManagement/userManagementTopHeaderTabDesign";
+@import "../../SCSS/MainOuter/mainOuterDesign";
+@import "../../SCSS/CustomRadioButton/customRadioButtonDesign";
+@import "../../SCSS/Revenue/_revenueRightSideBody";
+
+$tdTitle1Color: #4f4f4f;
+$tdTitle3Color: #828282;
+.radioBtnOuter {
+    padding-left: 16px;
+}
+.mainOuter {
+    .tableOuter {
+        .table {
+            tbody {
+                tr {
+                    td {
+                        .title1 {
+                            @include tableData(1.3rem, $tdTitle1Color, 600);
+                        }
+                        .title2 {
+                            @include tableData(1.3rem, $tdTitle3Color, 500);
+                        }
+                        .title3 {
+                            @include tableData(1.35rem, $tdTitle3Color, 500);
+                        }
+
+                        .ellipsisOuter {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+
+        // For Scroling Table Body...
+
+        .upperThead {
+            th {
+                padding-bottom: 0.5rem !important;
+                padding-top: 0.5rem !important;
+                height: 1.5rem;
+            }
+        }
+
+        .bottomThead {
+            border-top: none !important;
+            margin-top: -0.6rem;
+            th {
+                padding-top: 0 !important;
+            }
+        }
+
+        th,
+        td {
+            @media (max-width: 1897px) {
+                width: 17.8rem;
+            }
+            @media (min-width: 1921px) {
+                width: 17.8rem;
+            }
+        }
+
+        .childMainCol {
+            @media (max-width: 1897px) {
+                width: 70.9rem;
+            }
+            @media (max-width: 991px) {
+                width: 71.2rem;
+            }
+            @media (max-width: 767px) {
+                width: 71rem;
+            }
+            @media (min-width: 1921px) {
+                width: 71rem;
+            }
+        }
+        //   Table Ends........
+    }
+}
+
+.country-label {
+    margin-left: 16px;
+    color: black;
+}
+
+.total-display {
+    float: right;
+    margin-right: 22px;
+    span {
+        color: red;
+        margin: 0 15px 0 15px;
+    }
+}

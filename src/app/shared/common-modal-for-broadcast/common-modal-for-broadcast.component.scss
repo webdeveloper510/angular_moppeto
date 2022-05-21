@@ -1,0 +1,96 @@
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../SCSS/PrimeNG/primeNGDesign";
+
+$blackColor: #666b68;
+$whiteColor: #fff;
+$greenButtonColor: #4dc5af;
+$upperHeadBGcolor: #deffec;
+$scrollThumbColor: #e7e7e7;
+
+@mixin customDialogClass($height) {
+    mat-dialog-container {
+        padding: 0;
+        margin: 0;
+        border-radius: 0.5rem;
+        @media screen and (min-height: 1081px) {
+            position: absolute;
+            left: calc(50% - 30rem);
+            top: 40rem;
+            width: 60rem;
+            height: $height;
+            overflow: hidden;
+        }
+    }
+}
+
+.actualOuter {
+    width: 60rem;
+    @media (max-width: 767px) {
+        width: auto;
+    }
+    .upperTitle {
+        height: 4.7rem;
+        @include displayFlex(center, center);
+        background-color: $upperHeadBGcolor;
+        .titleBox {
+            // padding-left: 2.25rem;
+            // width: calc(100% - 5rem);
+            p {
+                @include forParaTag($blackColor, 1.5rem, 600);
+            }
+        }
+        // .close {
+        //     width: 5rem;
+        //     p {
+        //         cursor: pointer;
+        //         @include forParaTag($blackColor, 2rem, 700);
+        //     }
+        // }
+    }
+
+    .bodySection {
+        padding: 3.5rem;
+        .upperText {
+            @include displayFlex(center, center);
+            margin-bottom: 2.5rem;
+            .forText {
+                width: 8rem;
+                p {
+                    @include forParaTag(lighten($blackColor, 17%), 1.4rem, 500);
+                }
+            }
+            .forSubject {
+                padding-left: 2rem;
+                width: calc(100% - 8rem);
+                p {
+                    @include forParaTag($blackColor, 1.4rem, 500);
+                }
+            }
+        }
+        .scrollingBoduOuter {
+            border-radius: 1.5rem;
+            padding: 1.5rem 0;
+            .scrollingBody {
+                max-height: 30rem;
+                padding: 0 2.2rem;
+                @include scrollBar(hidden, auto, 0.7rem, 0.7rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.7rem);
+                .sections {
+                    &:not(:last-child) {
+                        margin-bottom: 2rem;
+                    }
+                    p {
+                        @include forParaTag($blackColor, 1.3rem, 500);
+                        text-align: justify;
+                    }
+                }
+            }
+        }
+    }
+}
+
+::ng-deep .emailMessage {
+    @include customDialogClass(50rem);
+}
+::ng-deep .appWebMessage {
+    @include customDialogClass(48rem);
+}

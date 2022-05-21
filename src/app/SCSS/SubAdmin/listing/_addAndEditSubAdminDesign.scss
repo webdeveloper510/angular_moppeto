@@ -1,0 +1,108 @@
+@import "../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../SCSS/PrimeNG/primeNGDesign";
+
+.mainOuter {
+    position: relative;
+    padding-bottom: 10rem;
+}
+
+$tdTitle1Color: #414141;
+$greenColor: #6fcf97;
+$whiteColor: #fff;
+$orangeColor: #faa559;
+$redColor: #e95656;
+$blackColor: #333333;
+$dataTextColor: #4f4f4f;
+$scrollThumbColor: #e7e7e7;
+$bottomDivBG: #deffec;
+
+.titleHead {
+    margin: 5rem 0;
+}
+
+.forAdd {
+    p {
+        @include forParaTag($greenColor, 2rem, 600);
+    }
+}
+
+.forEdit {
+    p {
+        @include forParaTag($orangeColor, 2rem, 600);
+    }
+}
+
+.mainBody {
+    width: 50rem;
+    margin: 7rem auto;
+    @media (max-width: 575px) {
+        width: 100%;
+        padding: 0 1.7rem;
+    }
+    .innerForm {
+        .formContentOuter {
+            margin-bottom: 5rem;
+        }
+        .formContent {
+            p {
+                @include forParaTag($tdTitle1Color, 1.4rem, 600);
+            }
+        }
+
+        input,
+        .customTextArea {
+            border-radius: 0.7rem;
+        }
+        .customTextArea {
+            resize: none;
+            height: 10rem;
+            padding: 1rem;
+            @include forParaTag($dataTextColor, 1.4rem, 400);
+            @include scrollBar(hidden, auto, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 0);
+        }
+        .letterCounting {
+            padding-bottom: 1rem;
+            p {
+                @include forParaTag(lighten($dataTextColor, 17%), 1.3rem, 500);
+            }
+            .notesInputTyping {
+                color: darken($blackColor, 50%);
+            }
+            .maxlengthColor {
+                color: $greenColor;
+            }
+        }
+    }
+    .innerButton {
+        width: 50%;
+        @media (max-width: 575px) {
+            width: 23rem;
+        }
+        margin: 7rem auto 0 auto;
+        @include displayFlex(space-between, center);
+        @include buttonDesign(1.4rem, 400, 0.5rem, 0, 0.2rem, 0.7rem);
+        button {
+            width: 10rem;
+        }
+        .p-button-success {
+            @include classWisebuttonDesign($greenColor, $greenColor, $whiteColor, $greenColor);
+        }
+        .p-button-warning {
+            @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+        }
+        .p-button-danger {
+            @include classWisebuttonDesign($redColor, $redColor, $whiteColor, $redColor);
+        }
+    }
+}
+
+.forBottomBG {
+    position: absolute;
+    width: 100%;
+    height: 6.5rem;
+    bottom: 0;
+    background-color: $bottomDivBG;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}

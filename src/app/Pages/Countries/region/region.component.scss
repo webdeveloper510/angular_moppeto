@@ -1,0 +1,286 @@
+@import "../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../SCSS/MediaAndGroupings/attributesAndCategoryOrSubCategoryDesign.scss";
+@import "../../../SCSS/MediaAndGroupings/radioButtonSectionDesign";
+@import "../../../SCSS/MediaAndGroupings/tabNavDesign";
+
+$tableHeaderMainColor: #f1fff7;
+$borderBottomColor: #f1f1f19c;
+$labelColor: #333333;
+$disabledLabel: #bdbdbd;
+
+:host ::ng-deep .p-inputtext {
+    width: calc(100% - 2rem) !important;
+}
+
+@mixin tdPadding($padding) {
+    td {
+        padding-top: $padding !important;
+        padding-bottom: $padding !important;
+    }
+}
+
+.mainRadioInner {
+    @include displayFlex(center, center);
+    flex-wrap: wrap;
+    margin: 2rem 10rem;
+    @media (max-width: 991px) {
+        margin: 2rem 3rem;
+    }
+    @media (max-width: 767px) {
+        display: block;
+        .radioOuter3 {
+            padding-left: 0;
+            margin: 2rem auto;
+            width: 90%;
+        }
+        .radioOuter2 {
+            margin: 0 auto;
+            width: 90%;
+        }
+    }
+    @media (max-width: 1497px) {
+        .upperRadioDivOuter {
+            p {
+                text-align: center;
+            }
+        }
+        .radioOuter3 {
+            padding-right: 0;
+        }
+        .radioOuter2 {
+            flex-basis: 70rem;
+            margin-top: 2rem;
+        }
+    }
+}
+
+.radioOuter2 {
+    width: calc(100% - 40rem);
+}
+
+.radioOuter3 {
+    width: 40rem;
+    padding: 0 2rem;
+}
+
+.tabs {
+    margin-top: 5rem;
+    padding: 0 0 0 7rem;
+    @media (max-width: 575px) {
+        padding: 0 0 0 2rem;
+        .tabLinks {
+            margin-right: 2rem;
+        }
+    }
+    .tabLinks {
+        width: 10rem;
+        margin-right: 5rem;
+    }
+}
+
+.tableSectionStarts {
+    tbody {
+        tr {
+            border-bottom: solid $borderBottomColor 0.1rem;
+            &:first-child {
+                margin-top: 1.5rem !important;
+            }
+        }
+    }
+    .tableOuterInner {
+        width: 50%;
+        position: relative;
+        .tableOuter {
+            &:first-child {
+                border-bottom-right-radius: 0 !important;
+            }
+        }
+        &:last-child {
+            tbody {
+                border-left: 0.1rem lighten($tdTitle2Color, 37%) solid;
+            }
+            .tableOuter {
+                border-bottom-left-radius: 0 !important;
+            }
+        }
+        .ellipTDOuter {
+            @media (min-width: 1414px) {
+                right: 0;
+                position: absolute;
+            }
+            width: 13rem;
+            .likeTable {
+                background-color: $tableHeaderMainColor;
+                height: 6.8rem;
+                margin-bottom: 1rem;
+            }
+            .ellipsisOuter2 {
+                @include displayFlex(flex-end, center);
+                margin-right: 2rem;
+                button {
+                    transform: rotate(90deg);
+                }
+            }
+            .forButtonOuter {
+                @include displayFlex(center, center);
+            }
+            .forButton {
+                button {
+                    width: 8.7rem;
+                }
+                @include buttonDesign(1.4rem, 500, 0.5rem, 0rem, 0.2rem, 0.5rem);
+                .p-button-success {
+                    @include classWisebuttonDesign(
+                        $greenButtonColor,
+                        $greenButtonColor,
+                        $whiteColor,
+                        $greenButtonColor
+                    );
+                }
+                .whiteButton {
+                    margin-top: 1.5rem;
+                    @include classWisebuttonDesign($whiteColor, $redColor, $redColor, $redColor);
+                }
+            }
+        }
+    }
+
+    .tableOuter {
+        margin-top: 0 !important;
+    }
+    .forRadio,
+    .forRadioEdit {
+        @include displayFlex(flex-start, center);
+        .radio-item label:before {
+            @media (min-width: 1637px) {
+                margin-right: 7rem;
+            }
+            margin-right: 3rem;
+        }
+        label {
+            color: $labelColor;
+        }
+    }
+
+    .forRadioEdit {
+        .radio-item input[type="radio"]:checked + label:after {
+            top: 12px;
+            @media (max-width: 1199px) {
+                top: 10px;
+            }
+        }
+    }
+
+    .regionText {
+        @media (min-width: 1637px) {
+            padding-left: 8.5rem !important;
+        }
+        padding-left: 4.5rem !important;
+    }
+
+    .closeIcon {
+        @include displayFlex(center, center);
+        height: 1.5rem;
+        width: 1.5rem;
+        padding: 0.1rem;
+        border-radius: 100%;
+        background-color: $redColor;
+        cursor: pointer;
+        i {
+            padding: 0;
+            margin: 0;
+            border-radius: 100%;
+            @include forParaTag($whiteColor, 1rem, 500);
+        }
+    }
+
+    .regionTD {
+        width: 100% !important;
+        @media (max-width: 1400px) {
+            width: 30rem !important;
+        }
+    }
+
+    .disabledRow {
+        .closeIcon {
+            background-color: $tdTitle1Color !important;
+            opacity: 0.5;
+            cursor: not-allowed !important;
+        }
+        .disableLabel {
+            color: $disabledLabel !important;
+        }
+    }
+
+    .firstTableSection {
+        @include tdPadding(1.5rem);
+
+        .closeIconTD {
+            width: 3rem !important;
+        }
+
+        .areaTD {
+            width: 22rem !important;
+            .title2 {
+                padding-left: 0.9rem !important;
+            }
+            @media (max-width: 1413px) {
+                width: 9rem !important;
+            }
+        }
+    }
+    .secondTableSection {
+        @include tdPadding(2rem);
+        .table {
+            th,
+            td {
+                &:last-child {
+                    @media (min-width: 1414px) {
+                        padding-right: 15rem !important;
+                    }
+                }
+            }
+            .regionTD {
+                @media (min-width: 1637px) {
+                    padding-left: 5rem;
+                }
+            }
+            .regionTH {
+                @media (min-width: 1637px) {
+                    padding-left: 5.2rem;
+                }
+            }
+            .forNoTDTH {
+                width: 3.5rem !important;
+            }
+            .closeIconTD {
+                width: 100% !important;
+                @media (max-width: 1413px) {
+                    width: 7rem !important;
+                }
+            }
+        }
+    }
+
+    .tableOuter {
+        @media (max-width: 1413px) {
+            .table {
+                thead {
+                    width: 100%;
+                }
+                tbody {
+                    &::-webkit-scrollbar {
+                        width: 0rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.no-region {
+    background-color: white;
+    button {
+        margin: 20%;
+    }
+}

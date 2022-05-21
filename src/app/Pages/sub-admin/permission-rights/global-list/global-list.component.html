@@ -1,0 +1,127 @@
+<div class="editContentsOuter" *ngIf="afterEditOpen">
+    <div class="upperHead">
+        <p class="m-0">Edit sub-admin</p>
+    </div>
+    <div class="draggabledata">
+        <div class="categoryDataOuter">
+            <div class="categoryDataInner">
+                <p *ngFor="let admin of adminList" class="categoriesData"
+                    [ngClass]="this.selectedAdminNames.includes(admin)?'disabledAdminList':''" pDraggable="admin"
+                    (onDragStart)="dragStart($event,admin)"
+                    [pDraggableDisabled]="this.selectedAdminNames.includes(admin)" (onDragEnd)="dragEnd($event)">
+                    {{admin.name}}<span class="text-center" *ngIf="admin.status">{{admin.status}}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="mainOuter border">
+
+
+    <div class="upperContent">
+        <div class="leftContent">
+            <div class="headerText">
+                <p class="m-0">Global permission rights</p>
+            </div>
+            <img src="../../../../../assets/categoryStatistics/Download_Icon.svg" alt="" *ngIf="beforeEdit">
+        </div>
+        <div class="middleContent" *ngIf="afterEditOpen">
+            <p class="m-0"><u>Singapore</u></p>
+        </div>
+        <div class="rightSideButton">
+            <button pButton pRipple type="button" [disabled]="!selectedPermissionType" label="Add/Edit"
+                [ngClass]="!selectedPermissionType?'p-button-secondary':'p-button-success'" *ngIf="beforeEdit"
+                (click)="showEdit()"></button>
+            <div class="saveCancelButtons" *ngIf="afterEditOpen">
+                <button pButton pRipple type="button" label="Save" class="p-button-success"></button>
+                <button pButton pRipple type="button" label="Cancel" class="ml-2 p-button-danger"
+                    (click)="cancelEdit()"></button>
+            </div>
+        </div>
+    </div>
+
+
+    <div [ngClass]="beforeEdit?'mainBodyOuter':'mainBodyOuterExtraPadding'">
+
+        <div class="mainTableOuter table-responsive text-nowrap beforeEditOpenTable" *ngIf="beforeEdit">
+            <table class="table table-borderless">
+                <tbody>
+
+                    <tr *ngFor="let dept of globalBasedInfo">
+                        <td class="radioTD fixedColumn">
+                            <div class="radioOuter">
+                                <div class="radio-item">
+                                    <input type="radio" (change)="onGlobalPermissionRightChange(dept)" [(ngModel)]="selectedPermissionType" id="{{dept.radioInput}}"
+                                        name="permission" value="{{dept.radioInput}}">
+                                    <label for="{{dept.radioInput}}"></label>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="categoryTD fixedColumn">
+                            <div class="categoryBody border">
+                                <div class="upperHead border-bottom">
+                                    <p class="m-0">{{dept.deptName}}</p>
+                                </div>
+                                <div class="mainBodyData">
+                                    <p class="categories" *ngFor="let tag of dept.tags">{{tag.tagName}}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="categoryDataOuter">
+                            <div class="categoryDataInner">
+                                <p class="categoriesData" *ngFor="let person of dept.persons">{{person.name}}</p>
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="mainTableOuter table-responsive text-nowrap afterEditOpenTable" *ngIf="afterEditOpen">
+            <table class="table table-borderless">
+                <tbody>
+
+                    <tr>
+                        <td class="categoryTD fixedColumn">
+                            <div class="categoryBody border">
+                                <div class="upperHead border-bottom">
+                                    <p class="m-0">{{editPermissionRightsInfo.deptName}}</p>
+                                </div>
+                                <div class="mainBodyData">
+                                    <p class="categories" *ngFor="let tag of editPermissionRightsInfo.tags">{{tag.tagName}}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="categoryDataOuter forDragTextPosition border">
+                            <div class="categoryDataInner drop" pDroppable="admin" (onDrop)="drop($event)">
+                                <ng-container *ngIf="selectedAdminNames?.length===0">
+                                    <div class="indicatingText">
+                                        <p class="m-0-text-center">Drag & drop here</p>
+                                    </div>
+                                </ng-container>
+                                <div *ngFor="let admin of selectedAdminNames" class="dropInner">
+                                    <p class="categoriesData">{{admin.name}}<span
+                                            *ngIf="admin?.status">{{admin.status}}</span></p>
+                                    <div class="closeIcon" (click)="removeItem(admin)">X</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+
+
+</div>

@@ -1,0 +1,790 @@
+<div class="maindiv">
+
+  <div class="download-name row mt-3">
+
+    <div class="col-6 pb-3">
+      <i class="pi pi-download icon1 icon download"></i>
+    </div>
+    <div class="col-6 pr-4">
+      <p class="text-right countrytext icon"><u>Pune</u></p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <div class="outermaintable mt-3">
+    <div class="d-flex">
+
+      <div class="normaltitle">
+
+
+
+        <div class="forINR">INR</div>
+        <div class="fortable mt-2">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="forno removebgborder">
+                  <!-- <div class="d-flex">
+                      <div class="fortitle"></div>
+                      <div class="foricon">
+                        <div class="icon1"><i class="pi pi-caret-up"></i></div>
+                        <div class="icon2"><i class="pi pi-caret-down"></i></div>
+                      </div>
+                    </div> -->
+                </th>
+                <th class="forcategory">
+                  <div class="fortitle fortitle2">Number of search words</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="m-0 p-0 removebgborder">
+                  <div class="d-flex forbuttons">
+                    <div class="forrowedit" *ngIf = "leftShowButton[0]">
+                      <button class="btn btn-success customcolor"><i class="pi pi-pencil"></i></button>
+                    </div>
+                    <div class="forrowdlt" *ngIf = "leftShowButton[0]">
+                      <i class="pi pi-trash"></i>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <input type="radio" name="row" id="row1" (click)="changeLeftShowButton(0)">
+                  <p>2</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="m-0 p-0 removebgborder">
+                  <div class="d-flex forbuttons">
+                    <div class="forrowedit" *ngIf = "leftShowButton[1]">
+                      <button class="btn btn-success customcolor"><i class="pi pi-pencil"></i></button>
+                    </div>
+                    <div class="forrowdlt" *ngIf = "leftShowButton[1]">
+                      <i class="pi pi-trash"></i>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <input type="radio" name="row" id="row2" (click)="changeLeftShowButton(1)">
+                  <p>4</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="m-0 p-0 removebgborder">
+                  <div class="d-flex forbuttons">
+                    <div class="forrowedit" *ngIf = "leftShowButton[2]">
+                      <button class="btn btn-success customcolor"><i class="pi pi-pencil"></i></button>
+                    </div>
+                    <div class="forrowdlt" *ngIf = "leftShowButton[2]">
+                      <i class="pi pi-trash"></i>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <input type="radio" name="row" id="row3" (click)="changeLeftShowButton(2)">
+                  <p>6</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="m-0 p-0 removebgborder">
+                  <div class="d-flex forbuttons">
+                    <div class="forrowedit" *ngIf = "leftShowButton[3]">
+                      <button class="btn btn-success customcolor"><i class="pi pi-pencil"></i></button>
+                    </div>
+                    <div class="forrowdlt" *ngIf = "leftShowButton[3]">
+                      <i class="pi pi-trash"></i>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <input type="radio" name="row" id="row4" (click)="changeLeftShowButton(3)">
+                  <p>8</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="maininner row ">
+
+
+        <div class="app col-4 ">
+
+          <div class="forApp ">
+
+
+            <div class="forButtons d-flex ">
+              <div class="forEdit">
+                <button class="btn btn-success customcolor" *ngIf = "showButton || showButton2"><i class="pi pi-pencil"></i></button>
+              </div>
+              <div class="forDlt">
+                <i class="pi pi-trash" *ngIf = "showButton"></i>
+              </div>
+              <div class="forAdd  pr-2">
+                <button pButton type="button" class="p-button-info" (click)="addColumn()" label="Add"></button>
+              </div>
+            </div>
+
+
+
+            <div class="title">
+              <p class="h6">App</p>
+            </div>
+
+
+
+            <div class="blank">
+            </div>
+
+
+
+
+
+
+            <div class="apptable d-flex">
+
+
+
+
+
+              <div class="numbertable">
+                <table mdbTable>
+                  <thead>
+                  </thead>
+                  <tbody>
+                    <tr mdbTableCol #tablerow1>
+                      <td class="removeborder">
+                        <div class="">
+                          <input class="" type="radio" name="App" id="App1" (click)="changeShowButtonEdit()">
+                        </div>
+                      </td>
+
+                      <td class="removeborder">
+                        <div class="">
+                          <input class="" type="radio" name="App" id="App2" (click)="changeShowButtonEdit()">
+                        </div>
+                      </td>
+
+                    </tr>
+
+
+
+
+
+                    <tr mdbTableCol #tablerow2>
+                      <td>
+                        <div class="d-flex">
+
+                          <div class="fortitle">1</div>
+                          <div class="foricon">
+                            <div class="icon1"><i class="pi pi-caret-up"></i></div>
+                            <div class="icon2"><i class="pi pi-caret-down"></i></div>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="d-flex">
+                          <div class="fortitle">2</div>
+                          <div class="foricon">
+                            <div class="icon1"><i class="pi pi-caret-up"></i></div>
+                            <div class="icon2"><i class="pi pi-caret-down"></i></div>
+                          </div>
+                        </div>
+                      </td>
+
+                    </tr>
+
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+
+
+
+
+
+
+
+
+              <div class="forsubsequent">
+                <table>
+                  <thead>
+
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="removeborder">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="App" id="App7" (click)="changeShowButtonEdit()">
+                        </div>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex">
+                          <div class="fortitle">Subsequent days</div>
+                          <div class="foricon">
+                            <div class="icon1"><i class="pi pi-caret-up"></i></div>
+                            <div class="icon2"><i class="pi pi-caret-down"></i></div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="web col-4 ">
+
+          <div class="forApp ">
+
+
+            <div class="forButtons d-flex ">
+              <div class="forEdit ">
+                <button class="btn btn-success customcolor" *ngIf = "showButtonWeb || showButtonWeb2"><i class="pi pi-pencil"></i></button>
+              </div>
+              <div class="forDlt ">
+                <i class="pi pi-trash" *ngIf = "showButtonWeb"></i>
+              </div>
+              <div class="forAdd  pr-2">
+                <button pButton type="button" class="p-button-info" (click)="addColumnWeb()" label="Add"></button>
+              </div>
+            </div>
+
+
+
+            <div class="title">
+              <p class="h6">Web</p>
+            </div>
+
+
+
+            <div class="blank">
+              <p class="h6 text-center">Price per number of days</p>
+            </div>
+
+
+
+
+
+
+            <div class="apptable d-flex">
+
+
+
+
+
+              <div class="numbertable">
+                <table mdbTable>
+                  <thead>
+                  </thead>
+                  <tbody>
+                    <tr mdbTableCol #tablerow3>
+                      <td class="removeborder">
+                        <div class="">
+                          <input class="" type="radio" name="Web" id="Web1" (click)="changeShowButton2Edit()">
+                        </div>
+                      </td>
+
+                      <td class="removeborder">
+                        <div class="">
+                          <input class="" type="radio" name="Web" id="Web2" (click)="changeShowButton2Edit()">
+                        </div>
+                      </td>
+
+                    </tr>
+
+
+
+
+
+                    <tr mdbTableCol #tablerow4>
+                      <td>
+                        <div class="d-flex">
+
+                          <div class="fortitle">1</div>
+                          <div class="foricon">
+                            <div class="icon1"><i class="pi pi-caret-up"></i></div>
+                            <div class="icon2"><i class="pi pi-caret-down"></i></div>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="d-flex">
+                          <div class="fortitle">2</div>
+                          <div class="foricon">
+                            <div class="icon1"><i class="pi pi-caret-up"></i></div>
+                            <div class="icon2"><i class="pi pi-caret-down"></i></div>
+                          </div>
+                        </div>
+                      </td>
+
+                    </tr>
+
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+
+
+
+
+
+
+
+
+              <div class="forsubsequent">
+                <table>
+                  <thead>
+
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="removeborder">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="Web" id="Web7" (click)="changeShowButton2Edit()">
+                        </div>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex">
+                          <div class="fortitle">Subsequent days</div>
+                          <div class="foricon">
+                            <div class="icon1"><i class="pi pi-caret-up"></i></div>
+                            <div class="icon2"><i class="pi pi-caret-down"></i></div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="appAndWeb col-4 ">
+
+          <div class="forApp ">
+
+
+            <div class="forButtons d-flex ">
+              <div class="forEdit ">
+                <button class="btn btn-success customcolor" *ngIf = "showButtonAppAndWeb || showButtonAppAndWeb2"><i class="pi pi-pencil"></i></button>
+              </div>
+              <div class="forDlt ">
+                <i class="pi pi-trash" *ngIf = "showButtonAppAndWeb"></i>
+              </div>
+              <div class="forAdd  pr-2">
+                <button pButton type="button" class="p-button-info" (click)="addColumnAppAndWeb()" label="Add"></button>
+              </div>
+            </div>
+
+
+
+            <div class="title">
+              <p class="h6">App & Web</p>
+            </div>
+
+
+
+            <div class="blank">
+            </div>
+
+
+
+
+
+
+            <div class="apptable d-flex">
+
+
+
+
+
+              <div class="numbertable">
+                <table mdbTable>
+                  <thead>
+                  </thead>
+                  <tbody>
+                    <tr mdbTableCol #tablerow5>
+                      <td class="removeborder">
+                        <div class="">
+                          <input class="" type="radio" name="AppAndWeb" id="AppAndWeb1" (click)="changeShowButton3Edit()">
+                        </div>
+                      </td>
+
+                      <td class="removeborder">
+                        <div class="">
+                          <input class="" type="radio" name="AppAndWeb" id="AppAndWeb2" (click)="changeShowButton3Edit()">
+                        </div>
+                      </td>
+
+                    </tr>
+
+
+
+
+
+                    <tr mdbTableCol #tablerow6>
+                      <td>
+                        <div class="d-flex">
+
+                          <div class="fortitle">1</div>
+                          <div class="foricon">
+                            <div class="icon1"><i class="pi pi-caret-up"></i></div>
+                            <div class="icon2"><i class="pi pi-caret-down"></i></div>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="d-flex">
+                          <div class="fortitle">2</div>
+                          <div class="foricon">
+                            <div class="icon1"><i class="pi pi-caret-up"></i></div>
+                            <div class="icon2"><i class="pi pi-caret-down"></i></div>
+                          </div>
+                        </div>
+                      </td>
+
+                    </tr>
+
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                      <td class="forbg">13</td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+
+
+
+
+
+
+
+
+              <div class="forsubsequent">
+                <table>
+                  <thead>
+
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="removeborder">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="AppAndWeb" id="AppAndWeb7" (click)="changeShowButton3Edit()">
+                        </div>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex">
+                          <div class="fortitle">Subsequent days</div>
+                          <div class="foricon">
+                            <div class="icon1"><i class="pi pi-caret-up"></i></div>
+                            <div class="icon2"><i class="pi pi-caret-down"></i></div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+                    <tr>
+                      <td class="forbg">7</td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

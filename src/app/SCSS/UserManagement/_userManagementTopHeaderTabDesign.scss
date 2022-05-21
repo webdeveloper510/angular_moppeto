@@ -1,0 +1,115 @@
+$normalTabTextColor: #bdbdbd;
+$normalTabBorderBottomColor: white;
+$activeTabTextColor: #333333;
+
+@mixin paraTag($color, $fontSize, $fontWeight) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    cursor: pointer;
+}
+
+.topHeader {
+    .outer {
+        margin: 1rem 1rem 0 1rem;
+        .tabs {
+            margin-top: 1.5rem;
+            @media (max-width: 767px) {
+                margin-bottom: 1.5rem;
+            }
+            .inner {
+                .all,
+                .active,
+                .suspend,
+                .scheduled,
+                .live,
+                .suspended,
+                .expired {
+                    a {
+                        @include paraTag($normalTabTextColor, 1.7rem, 400);
+                        text-decoration: none;
+                        padding: 0.2rem 0.8rem;
+                        margin-left: 1.7rem;
+                        border-bottom: solid 0.1rem $normalTabBorderBottomColor;
+                        @media (max-width: 367px) {
+                            margin-left: 1rem;
+                        }
+                    }
+                }
+                .actTab {
+                    a {
+                        color: $activeTabTextColor;
+                        border-color: $activeTabTextColor;
+                    }
+                }
+            }
+        }
+        .searchOuter {
+            margin-bottom: 1rem;
+            @media (max-width: 1037px) {
+                padding-left: 2.5rem;
+                padding-right: 0;
+            }
+            @media (max-width: 947px) {
+                padding-left: 4rem;
+            }
+            @media (max-width: 820px) {
+                padding-left: 5rem;
+            }
+            @media (max-width: 767px) {
+                padding-left: 2.5rem;
+            }
+            @media (max-width: 575px) {
+                padding-right: 1.5rem;
+            }
+
+            .search {
+                @media (max-width: 575px) {
+                    margin-right: auto;
+                }
+                i {
+                    position: absolute;
+                    margin-top: 1rem;
+                    margin-left: 1.7rem;
+                    @include paraTag($normalTabTextColor, 1.5rem, 500);
+                }
+                .searchColor {
+                    color: $activeTabTextColor !important;
+                }
+                input {
+                    width: 100%;
+                    @media (max-width: 575px) {
+                        width: calc(100% - 1.5rem);
+                    }
+                    border-radius: 0.5rem;
+                    padding-left: 4rem;
+                    color: $activeTabTextColor;
+                }
+            }
+        }
+        .dropdown {
+            margin-bottom: 1rem;
+            padding-left: 0;
+            @media (max-width: 1037px) {
+                padding-left: 1.5rem;
+            }
+            @media (max-width: 767px) {
+                padding-right: 2rem;
+            }
+            @media (max-width: 575px) {
+                margin: 1rem 0;
+                padding-left: 2.5rem;
+            }
+
+            p-dropdown {
+                width: calc(100% - 3.9rem);
+            }
+
+            img {
+                cursor: pointer;
+                width: 1.9rem;
+                margin: 0.5rem 0.5rem 0 0.7rem;
+            }
+        }
+    }
+}

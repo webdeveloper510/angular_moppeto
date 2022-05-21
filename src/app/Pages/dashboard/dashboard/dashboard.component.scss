@@ -1,0 +1,112 @@
+@import "../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$yellowBorderColor: #f5c79f;
+$blackColor: #333333;
+$whiteColor: #fff;
+$scrollThumbColor: #e7e7e7;
+
+.topHeader {
+    padding: 0 1.5rem 2rem 1.5rem;
+    border-bottom: solid 0.1rem $yellowBorderColor;
+    @include displayFlex(flex-start, center);
+    @media (max-width: 575px) {
+        display: block;
+    }
+    .titleText {
+        width: 22rem;
+        p {
+            @include forParaTag($blackColor, 2.2rem, 700);
+        }
+        @media (max-width: 575px) {
+            width: 100%;
+            margin-bottom: 1.7rem;
+            p {
+                text-align: center;
+            }
+        }
+    }
+    .allCitiesSection {
+        width: calc(100% - 22rem);
+        @media (max-width: 575px) {
+            width: 100%;
+        }
+        padding: 0 0.7rem;
+        .allCitiesInner {
+            @include scrollBar(auto, hidden, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.5rem);
+            .allCities {
+                padding-bottom: 0.5rem;
+                @include displayFlex(flex-start, center);
+            }
+            button {
+                padding: 0.7rem 1rem;
+                border-radius: 0.5rem;
+                &:not(:last-child) {
+                    margin-right: 2rem;
+                }
+                @include forParaTag($blackColor, 1.4rem, 500);
+            }
+            .activatedCity {
+                @include forParaTag($whiteColor, 1.4rem, 600);
+            }
+        }
+    }
+}
+
+.innerContentsMainOuter {
+    @media (min-width: 1921px) {
+        max-height: 77rem;
+    }
+    max-height: calc(100vh - 22rem);
+    margin-top: 3rem;
+    padding-bottom: 3rem;
+    @include scrollBar(hidden, auto, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.5rem);
+    @media (max-width: 1199px) {
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+}
+
+.innerContents {
+    @include displayFlex(space-between, stretch);
+    &:not(:first-child) {
+        margin-top: 3rem;
+    }
+    @media (max-width: 1357px) and (min-width: 1200px) {
+        display: block;
+    }
+    @media (max-width: 991px) {
+        display: block;
+    }
+    .leftCharts {
+        width: calc(100% - 46rem);
+        @media (max-width: 1417px) {
+            width: calc(100% - 38rem);
+        }
+        @media (max-width: 1357px) and (min-width: 1200px) {
+            width: 100%;
+        }
+        @media (max-width: 991px) {
+            width: 100%;
+        }
+    }
+    .rightData {
+        width: 45rem;
+        @media (max-width: 1417px) {
+            width: 37rem;
+        }
+        @media (max-width: 1357px) and (min-width: 1200px) {
+            margin-top: 3rem;
+            width: 100%;
+        }
+        @media (max-width: 991px) {
+            margin-top: 3rem;
+            width: 100%;
+        }
+    }
+}
+
+.graphUpDownData {
+    margin-top: 3rem;
+}

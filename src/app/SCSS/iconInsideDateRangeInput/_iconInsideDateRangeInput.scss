@@ -1,0 +1,23 @@
+$dropdownAndInputTextSelectedColor: #333333;
+$dropdownAndInputTextLightColor: #bdbdbd;
+$radioButtonNormalColor: #6fcf97;
+
+.dateRangeNormal {
+    position: relative;
+    i {
+        right: 0;
+        position: absolute;
+        top: 0.5rem;
+        margin-right: 2.7rem;
+        font-size: 2rem;
+        color: $dropdownAndInputTextLightColor;
+        font-weight: 500;
+        pointer-events: none;
+    }
+    .form-control {
+        cursor: pointer;
+        border-radius: 0.5rem;
+        color: $dropdownAndInputTextSelectedColor;
+        padding-right: 4rem;
+    }
+}

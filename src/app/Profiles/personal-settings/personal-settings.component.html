@@ -1,0 +1,52 @@
+<div class="mainOuter border">
+    <div class="mainBodyOuter">
+        <div class="mainBodyInner">
+            <div class="head">
+                <p class="m-0">Change Password</p>
+            </div>
+            <div class="actualBody">
+                <div class="formDiv">
+                    <div class="forFlex">
+                        <div class="forLabel">
+                            <p class="m-0">Current Password</p>
+                        </div>
+                        <div class="showPassword">
+                            <p class="m-0">Show Password</p>
+                            <div class="pretty p-switch p-fill" (click)="showPassword()">
+                                <input type="checkbox" />
+                                <div class="state p-customTeal">
+                                    <label></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forInput forError">
+                        <input [type]="password" [feedback]="true" pPassword />
+                        <div class="error">
+                            <p>Incorrect password</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="formDiv">
+                    <div class="forLabel">
+                        <p class="m-0">New Password</p>
+                    </div>
+                    <div class="forInput">
+                        <input [type]="password" [feedback]="false" pPassword />
+                    </div>
+                </div>
+                <div class="formDiv">
+                    <div class="forLabel">
+                        <p class="m-0">Confirm New Password</p>
+                    </div>
+                    <div class="forInput">
+                        <input [type]="password" [feedback]="false" pPassword />
+                    </div>
+                </div>
+                <div class="updateButton">
+                    <button pButton pRipple type="button" label="Confirm" class="btn p-button-success" (click)="passwordChanged()"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

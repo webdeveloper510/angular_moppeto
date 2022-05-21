@@ -1,0 +1,31 @@
+<div class="mainOuter border-top">
+
+
+
+
+    <div class="radioMainOuter">
+        <div class="headText">
+            <p class="m-0 text-center">Select search type</p>
+        </div>
+        <div class="mainSection border-top">
+            <div class="row">
+                <div class="col-sm-4" *ngFor="let searches of searchTypeList">
+                    <div class="radioOuter">
+                        <div class="radio-item">
+                            <input type="radio" id="{{'search'+searches.searchTypeID}}"
+                                name="{{'search'+searches.searchTypeID}}" [value]="searches"
+                                [routerLink]="searches.searchRouterLink">
+                            <label for="{{'search'+searches.searchTypeID}}">{{searches.searchTypeName}}</label>
+                        </div>
+                    </div>
+                    <div class="searchInfo">
+                        <p class="m-0 text-center">{{searches.searchTypeInfo}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

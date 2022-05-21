@@ -1,0 +1,14 @@
+@import "../../../../SCSS/MediaAndGroupings/categoryIconsAndImagesDesign";
+
+:host ::ng-deep ngx-dropzone-remove-badge {
+    top: 2rem !important;
+    @media (max-width: 1199px) {
+        top: 3.5rem !important;
+    }
+    @media (max-width: 767px) {
+        top: 4.5rem !important;
+    }
+    @media (max-width: 575px) {
+        top: 5rem !important;
+    }
+}

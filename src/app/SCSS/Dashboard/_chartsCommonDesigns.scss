@@ -1,0 +1,90 @@
+@import "../MainOuter/mainOuterDesign";
+@import "../CommonDesigns/commonDesigns.scss";
+
+$blackColor: #333333;
+$whiteColor: #fff;
+$scrollThumbColor: #e7e7e7;
+$blueColor: #6497fb;
+$greenColor: #6fcf97;
+$orangeColor: #faa559;
+$yellowColor: #facd44;
+$greyColor: #c2c2c2;
+$mainContainerBGcolor: #fffdf8;
+$brownColor: #906b33;
+$tealColor: #05cfab;
+$violetColor: #cb89ff;
+
+@mixin activeButton($bgColor) {
+    border: none !important;
+    background-color: $bgColor;
+    @include forParaTag($whiteColor, 1.2rem, 600);
+}
+
+.mainContainer {
+    border-radius: 1.3rem;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    background-color: $mainContainerBGcolor;
+}
+
+.upperHeadAndButtons {
+    .headings {
+        @media (max-width: 575px) {
+            p {
+                text-align: center;
+            }
+        }
+        .mainHead {
+            font-size: 1.9rem;
+            font-weight: 700;
+        }
+        .text-blue {
+            color: $blueColor;
+        }
+        .text-orange {
+            color: $orangeColor;
+        }
+        .text-brown {
+            color: $brownColor;
+        }
+        .text-green {
+            color: $greenColor;
+        }
+        .text-teal {
+            color: $tealColor;
+        }
+        .text-violet {
+            color: $violetColor;
+        }
+        .mainHeadGreen {
+            color: $greenColor;
+        }
+        .subHead {
+            @include forParaTag($blackColor, 1.5rem, 700);
+        }
+    }
+}
+
+:host ::ng-deep .apexcharts-legend {
+    justify-content: space-around !important;
+}
+
+:host ::ng-deep .apexcharts-toolbar {
+    top: -2.2rem !important;
+    img {
+        height: 3rem;
+    }
+    .apexcharts-zoom-icon {
+        display: none !important;
+    }
+
+    .apexcharts-zoom-icon,
+    .apexcharts-zoomin-icon,
+    .apexcharts-zoomout-icon,
+    .apexcharts-reset-icon,
+    .apexcharts-pan-icon,
+    .apexcharts-selection-icon,
+    .apexcharts-menu-icon,
+    .apexcharts-toolbar-custom-icon {
+        margin-left: 2rem;
+    }
+}

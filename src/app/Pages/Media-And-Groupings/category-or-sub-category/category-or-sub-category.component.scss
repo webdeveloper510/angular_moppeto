@@ -1,0 +1,21 @@
+@import "../../../SCSS/MediaAndGroupings/attributesAndCategoryOrSubCategoryDesign.scss";
+
+.addIcon-button {
+    border: 0;
+    background-color: white;
+    margin-right: 3%;
+}
+
+.weightage-btn {
+    display: flex;
+    justify-content: center;
+    button {
+        margin-right: 17px;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

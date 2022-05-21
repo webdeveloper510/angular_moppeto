@@ -1,0 +1,92 @@
+<div class="mainOuter">
+    <div>
+        <button pButton pRipple type="button" (click)="back()" label="Back" class="p-button-danger back"></button>
+    </div>
+    <div class="headerText">
+        <p class="text-center text-uppercase"><u>{{title}}</u></p>
+    </div>
+
+
+    <div class="upperSection">
+        <div class="upperSectionInner">
+            <div class="radioOuter3" >
+                <div class="upperRadioDivOuter">
+                    <p>Select country</p>
+
+                    <div class="radioInner disabled-div disabledRadio">
+                        <div class="row colOuter">
+                            <ng-container
+                                *ngFor="let item of countryList; trackBy: trackByService.trackByFn; let i = index">
+                                <div class="col-sm-6">
+                                    <div class="leftRadio">
+                                        <div class="forRadio">
+                                            <div class="radio-item">
+                                                <input type="radio" [id]="item.id" [(ngModel)]="selectedCountry"
+                                                    name="country"  [value]="item?.name" [attr.disabled]="true">
+                                                <label for="{{item.id}}"> {{item?.name}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rightSection">
+                <div class="languageSection">
+                    <div class="upperText">
+                        <p class="m-0">Other languages (if any)</p>
+                    </div>
+                    <div class="languageInner">
+                        <div class="languages row">
+                            <ng-container *ngFor="let item of contents">
+                                <div class="col-6">
+                                    <button pButton pRipple type="button" label="{{item?.language}}"
+                                        [ngClass]="item?.id === staticInfoDetail?.id ? 'p-button-success' : 'p-button-primary'"
+                                        (click)="staticInfoDetail = item"></button>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="ellipSection">
+                    <div class="customRightsAlignDropdown">
+                        <button type="button" class="btn pi pi-ellipsis-h" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item forEdit" routerLink="/edit-other-info"
+                                [queryParams]="{ type: selectedType, id: staticInfoDetail?.id, country: selectedCountry }">Edit</a>
+                            <a class="dropdown-item forEdit" routerLink="/edit-other-info"
+                                [queryParams]="{ type: selectedType, country: selectedCountry}">Add New</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="viewSectionOuter">
+        <div class="viewHead">
+            <p class="text-center m-0 text-uppercase">
+                {{staticInfoDetail?.language}}
+            </p>
+        </div>
+        <div class="termsViewOuter">
+            <div class="termsInner">
+                <div class="textBody text-wrap">
+                    <quill-view-html [content]="staticInfoDetail?.content" theme="snow"></quill-view-html>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

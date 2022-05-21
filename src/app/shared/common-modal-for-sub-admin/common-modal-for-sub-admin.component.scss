@@ -1,0 +1,103 @@
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../SCSS/PrimeNG/primeNGDesign";
+
+$blackColor: #333333;
+$orangeColor: #faa559;
+$whiteColor: #fff;
+$redColor: #e95656;
+$greenColor: #6fcf97;
+
+@mixin customDialogClass($height) {
+    mat-dialog-container {
+        padding: 0;
+        margin: 0;
+        border-radius: 0.5rem;
+        @media screen and (min-height: 1081px) {
+            position: absolute;
+            left: calc(50% - 18.5rem);
+            top: 40rem;
+            width: 35rem;
+            height: $height;
+            overflow: hidden;
+        }
+    }
+}
+
+.actualOuter {
+    width: 35rem;
+    padding-bottom: 1rem;
+    .upperTitle {
+        height: 4.7rem;
+        @include displayFlex(center, center);
+        .titleBox {
+            padding-left: 2.25rem;
+            width: calc(100% - 5rem);
+            p {
+                @include forParaTag($whiteColor, 1.5rem, 500);
+            }
+        }
+        .close {
+            width: 5rem;
+            opacity: 1;
+            p {
+                cursor: pointer;
+                @include forParaTag($whiteColor, 2rem, 700);
+            }
+        }
+    }
+
+    .bodySection {
+        padding: 3.5rem 4rem 2.5rem 4rem;
+
+        .textSection {
+            margin-bottom: 1.5rem;
+            p {
+                @include forParaTag($blackColor, 1.4rem, 500);
+            }
+        }
+
+        .buttonSection {
+            @include displayFlex(center, flex-start);
+            padding: 2.5rem 0 0 0;
+            button {
+                width: 8.7rem;
+            }
+            @include buttonDesign(1.4rem, 500, 0.5rem, 0rem, 0.2rem, 0.5rem);
+            .p-button-warning {
+                @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+            }
+            .p-button-danger {
+                @include classWisebuttonDesign($redColor, $redColor, $whiteColor, $redColor);
+            }
+        }
+    }
+}
+
+::ng-deep .suspendModal {
+    @include customDialogClass(22rem);
+    .upperTitle {
+        background-color: $orangeColor;
+    }
+}
+
+::ng-deep .deleteModal {
+    @include customDialogClass(23.5rem);
+    .upperTitle {
+        background-color: $redColor;
+    }
+}
+
+::ng-deep .reInstateModal {
+    @include customDialogClass(23.5rem);
+    .upperTitle {
+        background-color: $greenColor;
+    }
+    .reInstate {
+        @include classWisebuttonDesign(
+            $greenColor,
+            $greenColor,
+            $whiteColor,
+            $greenColor
+        );
+    }
+}

@@ -1,0 +1,72 @@
+@import "../../../../SCSS/StaticInfo/viewAndEditInfoupperDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../SCSS/CustomRadioButton/_customRadioButtonDesign";
+
+
+$blackColor: #333333;
+$borderColor: #bdbdbd;
+$scrollbarThumbColor2: #cdcdcd;
+$disabledColor: #bdbdbd;
+
+.back {
+    background: #faa559 !important;
+}
+
+.viewSectionOuter {
+    margin: 2rem 0 0 0;
+    @media (max-width: 1597px) {
+        margin: 5rem 0 0 0;
+    }
+    background-color: $termsTextBG;
+    border: solid $borderColor 0.2rem;
+    .viewHead {
+        @include forParaTag($blackColor, 2.2rem, 600);
+        padding: 0.8rem 0;
+        border-bottom: solid $borderColor 0.2rem;
+    }
+    .termsViewOuter {
+        padding: 1.5rem 0;
+        .termsInner {
+            max-height: 50rem;
+            @include scrollBar(hidden, auto, 0.7rem, 0.7rem, 0.8rem, 0, 5rem, transparent, $scrollbarThumbColor2, 1rem);
+            p {
+                padding: 0 1.5rem;
+                @include forParaTag($blackColor, 1.3rem, 500);
+            }
+        }
+    }
+}
+
+.appliedText {
+    @include displayFlex(center, center);
+    p,
+    i {
+        @include forParaTag($languageButtonColor, 1.6rem, 600);
+    }
+}
+
+.disabled-div {
+    pointer-events: none;
+    background-color: #efefef !important;
+}
+
+.disabledRadio {
+    input[type="radio"] + label:before {
+        background-color: lighten($disabledColor, 10%);
+    }
+    input[type="radio"]:checked + label:before {
+        border-color: $disabledColor;
+    }
+    input[type="radio"]:checked + label:after {
+        background: darken($disabledColor, 10%);
+    }
+}
+
+.radio-item label:before {
+    border: solid 1px $disabledColor;
+    margin-right: 10px;
+    @media (max-width: 377px) {
+        margin-right: 5px;
+    }
+}
+

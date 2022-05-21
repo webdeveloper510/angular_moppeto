@@ -1,0 +1,147 @@
+@import "../../../../SCSS/Pagination/paginationDesign";
+@import "../../../../SCSS/Table/tableDesign";
+@import "../../../../SCSS/VendorReports/vendorReportsRightSideSearchDesign";
+@import "../../../../SCSS/VendorReports/vendorReportsUpperBody";
+@import "../../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../../SCSS/PlayAndResetButtons/playAndResetButtons";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../SCSS/iconInsideDateRangeInput/iconInsideDateRangeInput";
+
+$tdTitle1Color: #4f4f4f;
+$tdTitle3Color: #828282;
+$disabledColor: #bdbdbd;
+$blackColor: #333333;
+
+
+:host ::ng-deep .p-dropdown {
+    padding-left: 0rem;
+    padding-right: 1.2rem;
+}
+
+ul.ng-star-inserted {
+  padding: 0 !important;
+  padding: 20px 0 !important;
+  box-shadow: 0px 0px 15px 0px grey;
+  border-radius: 3px 3px 5px 5px;
+}
+li.test.ng-star-inserted {
+  list-style: none;
+  font-size: 14px;
+  padding: 3px 0px 3px 15px;
+  cursor: pointer;
+}
+//     .anc{color: #333333;
+//     font-size: 1.7rem;
+//     font-weight: 700;
+
+// }
+.sortingTab {
+    margin: 2rem 0 0.1rem 1.5rem;
+    display: flex;
+    .links {
+        padding: 0 2rem;
+        width: min-content;
+        @include forParaTag($disabledColor, 1.7rem, 500);
+        cursor: pointer;
+        &:not(:last-child){
+            @media (min-width: 576px) {
+                margin-right: 3rem;
+            }
+        }
+    }
+    .activeTab {
+        border-bottom: solid 0.1rem $blackColor;
+        p {
+            @include forParaTag($blackColor, 1.7rem, 700);
+        }
+    }
+}
+
+.upperBody {
+    .inner4 {
+        margin: 0 !important;
+        @media (min-width: 576px) {
+            margin: 0.7rem 0 !important;
+        }
+    }
+    .inner2 {
+        margin: 0 !important;
+    }
+    .input1 {
+        input::placeholder {
+            text-align: left !important;
+        }
+    }
+    li.vendor_name.ng-star-inserted {
+      list-style: none;
+      font-size: 14px;
+      padding: 3px 0px 3px 15px;
+      cursor: pointer;
+    }
+    .input2 {
+        @media (max-width: 575px) {
+            margin: 1.5rem 0;
+        }
+    }
+
+    // .dateRange {
+    //     position: relative;
+
+    //     @media (max-width: 575px) {
+    //         margin: 1.5rem 0;
+    //     }
+    //     i {
+    //         top: 0.5rem !important;
+    //     }
+    //     .form-control {
+    //         width: 100% !important;
+    //         margin: 0;
+    //         @media (max-width: 1199px) {
+    //             width: 100% !important;
+    //         }
+    //     }
+    // }
+}
+
+.tableOuter {
+    .table {
+        thead {
+            th:first-child {
+                padding-left: 1.5rem !important;
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    .title2 {
+                        @include tableData(1.3rem, $tdTitle3Color, 500);
+                    }
+
+                    .title3 {
+                        @include tableData(1.3rem, $tdTitle1Color, 700);
+                    }
+                    &:first-child {
+                        padding-left: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .bigCell {
+        width: 21rem;
+    }
+
+    @media (max-width: 1677px) {
+        th,
+        td {
+            width: 14.7rem;
+        }
+    }
+
+    td {
+        padding-top: 2.2rem !important;
+        padding-bottom: 2.2rem !important;
+    }
+}

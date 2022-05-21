@@ -1,0 +1,62 @@
+<div class="userTabNav">
+    <div class="mainOuterUpper">
+        <div class="fornav d-flex">
+            <a routerLink="all-tabs" class="allTabs" routerLinkActive="active">
+                <div class="nav-item ">
+                    <P class="formargin">All</P>
+                </div>
+            </a>
+            <a routerLink="marketing-tabs" routerLinkActive="active">
+                <div class="nav-item">
+                    <P class="formargin">Marketing</P>
+                </div>
+            </a>
+            <a routerLink="subscription-tabs" routerLinkActive="active">
+                <div class="nav-item">
+                    <P class="formargin">Subscription</P>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="mainOuter border">
+        <!-- Top Header Starts..... -->
+        <div class="topHeader">
+            <div class="outer">
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="All countries"
+                                    optionLabel="name" [showClear]="false">
+                                </p-dropdown>
+                            </div>
+                            <div class="col-md-6 drropdown2">
+                                <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" placeholder="All cities"
+                                    optionLabel="name" [showClear]="false">
+                                </p-dropdown>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <div class="seacrchAndImg">
+                            <div class="searchOuter">
+                                <div class="search">
+                                    <i class="pi pi-search" [ngClass]="searchInput?'searchColor':'searchColor2'"></i>
+                                    <input type="text" pInputText [(ngModel)]="searchInput">
+                                </div>
+                            </div>
+                            <img src="../../../../../assets/categoryStatistics/Download_Icon.svg" alt=""
+                                (click)="downloadTable()">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Top Header Ends..... -->
+        <router-outlet></router-outlet>
+    </div>
+</div>

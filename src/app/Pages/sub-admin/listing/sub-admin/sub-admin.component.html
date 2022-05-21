@@ -1,0 +1,251 @@
+<div class="mainOuter border">
+
+
+    <div class="upperButtonsAndDownload">
+        <div class="downloadSection">
+            <img src="../../../../assets/categoryStatistics/Download_Icon.svg" alt="">
+        </div>
+        <div class="buttonSection">
+
+
+
+
+            <button pButton pRipple type="button" label="Add Sub-admin" class="p-button-success addNew"
+                *ngIf="emptySelection" routerLink="add-sub-admin"></button>
+
+
+
+
+            <ng-container  *ngIf="!emptySelection">
+
+
+                <button pButton pRipple type="button" label="Edit" class="p-button-warning edit"
+                    routerLink="edit-sub-admin"></button>
+                <button pButton pRipple type="button" label="Suspend" class="p-button-warning suspend"
+                    *ngIf="isSuspended" (click)="openSuspendModal()"></button>
+                <button pButton pRipple type="button" label="Re-instate" class="p-button-success reInstate"
+                    *ngIf="!isSuspended"></button>
+                <button pButton pRipple type="button" label="Remove" class="p-button-danger remove" (click)="openRemoveModal()"></button>
+
+            </ng-container>
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+    <!-- Table Starts..... -->
+    <div class="tableOuter border-top table-responsive text-nowrap">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr>
+                    <th scope="col" class="noCol">
+                        No.
+                    </th>
+                    <th scope="col">
+                        Name
+                    </th>
+                    <th scope="col">
+                        Email
+                    </th>
+                    <th scope="col">
+                        Notes
+                    </th>
+                    <th scope="col">
+                        Created
+                    </th>
+                    <th scope="col">
+                        Status
+                    </th>
+                    <th scope="col" class="forRadio"></th>
+                </tr>
+            </thead>
+            <tbody class="border-top" #tableView>
+                <tr class="border-bottom">
+                    <td scope="row" class="noCol">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                Trinity
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                abc@mail.com
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2 text-wrap">
+                            <p>
+                                This guy is careful and doesn’t rush.
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021
+                                <br>
+                                15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="forRadio">
+
+
+
+                        <div class="radio-item" #selectedRadioAction>
+                            <input type="radio" id="region1" name="region" value="region"
+                                [(ngModel)]="radioChecked"
+                                (click)="changeSelection(true)">
+                            <label for="region1"></label>
+                        </div>
+
+
+
+
+
+
+
+
+                    </td>
+                </tr>
+
+
+                <tr class="border-bottom">
+                    <td scope="row" class="noCol">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title1">
+                            <p>
+                                Trinity
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                abc@mail.com
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2 text-wrap">
+                            <p>
+                                This guy is careful and doesn’t rush.
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                23 Mar 2021
+                                <br>
+                                15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter" >
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="forRadio">
+
+
+
+                        <div class="radio-item" #selectedRadioAction>
+                            <input type="radio" id="region2" name="region" value="region"
+                                (click)="changeSelection(false)">
+                            <label for="region2"></label>
+                        </div>
+
+
+
+
+
+
+
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Ends...... -->
+
+
+    <!-- Pagination Starts...... -->
+
+    <div class="paginationOuter">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="rowsOuter">
+                    <p>Rows per page:</p>
+                    <div class="selectNoOfRow select">
+
+                        <select class="form-control select__field" aria-label="Default select example">
+                            <option selected value="1">10</option>
+                            <option value="2">20</option>
+                            <option value="3">30</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="pagesOuter">
+                    <p>1 of 6</p>
+                    <div class="iconPrevious">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector1.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="iconNext">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector2.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pagination Ends...... -->
+</div>

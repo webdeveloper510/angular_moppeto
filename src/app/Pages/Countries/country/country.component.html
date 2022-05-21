@@ -1,0 +1,217 @@
+<div class="mainOuter border">
+
+
+    <!-- !-- Add Cuppon Starts..... -->
+
+    <div class="addCuppon">
+        <button pButton pRipple type="button" label="New country" class="p-button-success"
+            [hidden]="isEditFrom || isAddCity || isDelete" (click)="addCountry()"></button>
+    </div>
+
+    <!-- !-- Add Cuppon Ends..... -->
+
+
+    <!-- Menu Section Starts -->
+    <div class="tabs border-bottom">
+        <div class="tabLinks">
+            <a routerLink="/country" routerLinkActive="activeRouter">Country/Cities </a>
+        </div>
+        <div class="tabLinks">
+            <a routerLink="/country/region" routerLinkActive="activeRouter"
+                [routerLinkActiveOptions]="{exact:true}">Regions/Areas</a>
+        </div>
+    </div>
+    <!-- Menu Section Ends -->
+    <!-- Table Starts..... -->
+    <div class="tableOuter mt-3 table-responsive">
+        <form [formGroup]="countryForm">
+            <table class="table table-borderless text-center">
+                <thead class="forBG">
+                    <tr>
+                        <th scope="col" class="forNo">
+                            <br>
+                            No.
+                        </th>
+                        <th scope="col" class="category">
+                            Country
+                        </th>
+                        <th scope="col" class="subCategory">
+                            Cities
+                        </th>
+                        <th scope="col" class="subCategory">
+                            Currency
+                            <br>
+                            Currency symbol
+                        </th>
+                        <th scope="col" class="ellipsisTH">
+                        </th>
+                        <th class="forEdit">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="countryList?.length > 0 else noDataView">
+                    <tr class="border-bottom forNoTR"
+                        *ngFor="let item of countryList; trackBy: trackByService.trackByFn; let i = index">
+                        <td scope="row" class="forNo">
+                            <div class="title1">
+                                <p>
+                                    {{i+1}}
+                                </p>
+                            </div>
+                        </td>
+                        <td scope="row" class="category">
+                            <div class="title2 text-center"
+                                [hidden]="(isEditFrom || isDelete) && selectedCountryId == item?.id">
+                                <p> {{item?.name | blankValue}}</p>
+                            </div>
+                            <div class="forEditTD" *ngIf="(isEditFrom || isDelete) && selectedCountryId == item?.id">
+                                <div class="inputCheckOuter">
+                                    <div class="inputCheckOuter"
+                                        *ngIf="isEditFrom || isDelete && selectedCountryId == item?.id">
+                                        <div class="inputBox">
+                                            <input type="text" maxlength="30" formControlName="name" pInputText
+                                                appOnlyAlpha [readOnly]="isDelete">
+                                        </div>
+                                        <div class="check" *ngIf="isDelete">
+                                            <div class="pretty p-default p-bigger p-fill change-cursor"
+                                                *ngIf="selectedCountry?.cities?.length > 0 else formCheckBox">
+                                                <input type="checkbox" class="change-cursor" checked disabled>
+                                                <div class="state p-success-o">
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                            <ng-template #formCheckBox>
+                                                <div class="pretty p-default p-bigger p-thick">
+                                                    <input type="checkbox" formControlName="countryNameCheckbox">
+                                                    <div class="state p-success-o">
+                                                        <label></label>
+                                                    </div>
+                                                </div>
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td scope="row" class="subCategory">
+                            <div class="title1"
+                                [hidden]="(isEditFrom || isDelete || isAddCity) && selectedCountryId == item?.id">
+                                <ng-container *ngFor="let city of item?.cities; trackBy: trackByService.trackByFn">
+                                    <p>{{city?.name}}</p>
+                                </ng-container>
+                            </div>
+
+                            <div class="forEditTD" formArrayName="cities">
+                                <ng-container
+                                    *ngIf="(isEditFrom || isDelete || isAddCity) && selectedCountryId == item?.id">
+                                    <div class="inputCheckOuter" [ngClass]="isAddCity?'decreaseInputWidth':''"
+                                        *ngFor="let city of cityFormList.controls; let cityIndex=index"
+                                        [formGroupName]="cityIndex">
+                                        <div class="inputBox">
+                                            <input type="text" formControlName="name" pInputText value="A city"
+                                                (keyup)="changeValue(city)" appOnlyAlpha
+                                                [ngClass]="city?.value?.id && isAddCity ? 'disable-input':''"
+                                                minlength="3" maxlength="30" [disabled]="city?.value?.id && isAddCity"
+                                                [readOnly]="isDelete || (isAddCity && city?.value?.id)">
+                                        </div>
+                                        <div class="check" *ngIf="isDelete">
+                                            <div class="pretty p-default p-bigger p-fill change-cursor"
+                                                *ngIf="city.controls?.regions?.value?.length > 0 else cityformCheckBox">
+                                                <input type="checkbox" class="change-cursor" checked disabled>
+                                                <div class="state p-success-o">
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                            <ng-template #cityformCheckBox>
+                                                <div class="pretty p-default p-bigger p-thick">
+                                                    <input type="checkbox" formControlName="nameCheckbox">
+                                                    <div class="state p-success-o">
+                                                        <label></label>
+                                                    </div>
+                                                </div>
+                                            </ng-template>
+                                        </div>
+
+                                        <div [hidden]="countryForm.controls.cities?.value?.length == 1 || (countryForm.controls.cities?.value?.length == selectedCountry.cities.length+1)"
+                                            class="closeIcon" *ngIf="isAddCity && !city?.value?.id" (click)="removeCityControl(cityIndex)">
+                                            <i class="pi pi-times"></i>
+                                        </div>
+
+                                    </div>
+                                    <button class="addIcon-button" (click)="addCityControl()"
+                                        [ngClass]="countryForm.controls.cities.status === formStatus.Invalid ? 'p-button-text p-button-plain change-cursor' : 'addIcon'"
+                                        [disabled]="countryForm.controls.cities.status === formStatus.Invalid"
+                                        *ngIf="isAddCity && selectedCountryId == item?.id">
+                                        <i class="pi pi-plus"></i>
+                                    </button>
+                                </ng-container>
+                            </div>
+
+                        </td>
+                        <td scope="row" class="subCategory">
+                            <div class="title1" [hidden]="(isEditFrom || isDelete) && selectedCountryId == item?.id">
+                                <p>{{item?.currency?.name}}</p>
+                                <p>{{item?.currency?.display_character}}</p>
+                            </div>
+                            <div class="forEditTD" *ngIf="(isEditFrom || isDelete) && selectedCountryId == item?.id">
+                                <div class="inputCheckOuter">
+                                    <div class="inputBox">
+                                        <input type="text" maxlength="3" formControlName="currencyName" uppercase
+                                            appOnlyAlpha pInputText [readOnly]="isDelete">
+                                    </div>
+                                </div>
+                                <div class="inputCheckOuter">
+                                    <div class="inputBox">
+                                        <input type="text" maxlength="3" formControlName="currencySymb" pInputText
+                                            [readOnly]="isDelete">
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="ellipsisTD">
+                            <div class="ellipsisOuter2" [hidden]="isEditFrom || isAddCity || isDelete">
+                                <div class="dropleft">
+                                    <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span><i class="pi pi-ellipsis-v"></i></span>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item item1" (click)="openEditOption(item)">Edit</a>
+                                        <a class="dropdown-item" (click)="openAddOption(item)">Add
+                                            city</a>
+                                        <a class="dropdown-item item4" (click)="openDeleteOption(item)">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="forEdit">
+                            <div class="forButton" *ngIf="isEditFrom || isAddCity || isDelete">
+                                <button pButton pRipple type="button" label="Update"
+                                    [ngClass]="!countryForm.valid || disableBtn() ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+                                    [disabled]="!countryForm.valid || disableBtn()" class="normalButton"
+                                    (click)="update()" *ngIf="isEditFrom && selectedCountryId == item?.id"></button>
+                                <button pButton pRipple type="button" label="Add" class="p-button-help"
+                                    [ngClass]="countryForm.controls.cities.status === formStatus.Invalid ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+                                    [disabled]="countryForm.controls.cities.status === formStatus.Invalid"
+                                    (click)="addCityAPI()" *ngIf="isAddCity && selectedCountryId == item?.id"></button>
+                                <button pButton pRipple type="button" label="Delete"
+                                    [ngClass]="{'p-button-plain change-cursor': disableDelete()}"
+                                    [disabled]="disableDelete()" class="whiteButton p-button-danger p-button-text"
+                                    *ngIf="isDelete && selectedCountryId == item?.id"
+                                    (click)="confirmCityCountryDelete()"></button>
+                                <button pButton pRipple type="button" label="Cancel"
+                                    [ngClass]="isDelete?'whiteButtonDelete p-button-warning  p-button-text':'whiteButton p-button-danger p-button-text'"
+                                    *ngIf="(isEditFrom || isAddCity || isDelete) && selectedCountryId == item?.id"
+                                    (click)="cancelMode()"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <ng-template #noDataView>
+                    <app-no-table-data-view></app-no-table-data-view>
+                </ng-template>
+            </table>
+        </form>
+    </div>
+    <!-- Table Ends...... -->
+</div>

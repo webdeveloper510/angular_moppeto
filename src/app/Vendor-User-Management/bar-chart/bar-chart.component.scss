@@ -1,0 +1,113 @@
+$mainColor: #6fcf97;
+$borderColor: #e7e7e7;
+$gridBorderColor: #aaa;
+$numberingColor: rgb(75, 75, 75);
+.chart-wrap {
+  width: 98%;
+  height: 12rem;
+
+  .title {
+    text-align: center;
+  }
+}
+
+.mainOuter {
+  display: flex;
+  margin-bottom: 0.5rem;
+  p {
+    margin: 0;
+    margin-right: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $numberingColor;
+  }
+  i {
+    margin-top: 0.2rem;
+    margin-right: 0.5rem;
+    font-size: 1.3rem;
+    color: $mainColor;
+  }
+  .rateOuter {
+    width: calc(100% - 8rem);
+    height: 1.5rem;
+    padding: 0;
+    border-radius: 0 0.3rem 0.3rem 0;
+    border-color: $borderColor !important;
+  }
+  a {
+    width: 5rem;
+    text-decoration: underline;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-left: 3rem;
+    margin-top: -0.2rem;
+    cursor: pointer;
+  }
+}
+
+.star-cursor {
+  cursor: default;
+}
+
+.grid {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: 0.2rem solid $gridBorderColor;
+  background: repeating-linear-gradient(0deg, transparent, transparent 19.5%, fadeout($gridBorderColor, 30%) 20%);
+
+  .bar {
+    background-color: $mainColor;
+    width: 4.5rem;
+    height: var(--bar-value);
+    align-self: flex-end;
+    margin: 0 auto;
+    position: relative;
+
+    &.bar:hover {
+      opacity: 0.7;
+    }
+
+    &::after {
+      content: attr(data-name);
+      top: -3em;
+      padding: 10rem;
+      display: inline-block;
+      white-space: nowrap;
+      position: absolute;
+      transform: rotate(-45deg);
+    }
+  }
+
+  a.disabled {
+    color: #e0e0e0;
+    cursor: not-allowed;
+    text-decoration: none;
+  }
+
+  .change-color {
+    color: #e0e0e0;
+  }
+
+  &.horizontal {
+    flex-direction: column;
+    border-bottom: none;
+    background: repeating-linear-gradient(90deg, transparent, transparent 19.5%, fadeout($gridBorderColor, 30%) 20%);
+    .bar {
+      height: 1.35rem;
+      width: var(--bar-value);
+      align-self: flex-start;
+      margin: auto 0 auto 0;
+      border-radius: 0 0.3rem 0.3rem 0;
+      cursor: pointer;
+    }
+  }
+}
+
+.refresh-icon {
+  font-size: 20px;
+  color: #6fcf97;
+  margin-right: -11px;
+}

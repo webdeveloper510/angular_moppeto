@@ -1,0 +1,83 @@
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../SCSS/CustomRadioButton/customRadioButtonDesign";
+
+$greyColor: #bdbdbd;
+$whiteColor: #fff;
+$labelColor: #4e4e4e;
+$scrollbarThumbColor: #e7e7e7;
+
+.upperRadioDivOuter {
+    p {
+        @include forParaTag($labelColor, 1.5rem, 500);
+        padding-left: 0.25rem;
+    }
+    .radioInner {
+        margin-top: 0.5rem;
+        box-shadow: 0 0 0.5rem $greyColor;
+        border-radius: 1rem;
+        height: 11.17rem;
+        @media (max-width: 1199px) {
+            height: 11.27rem;
+        }
+        @media (max-width: 991px) {
+            height: 12.2rem;
+        }
+        @media (max-width: 767px) {
+            height: 12.7rem;
+        }
+        @media (max-width: 575px) {
+            height: 13.7rem;
+        }
+        @include scrollBar(hidden, auto, 0.5rem, 0.5rem, 0.8rem, 0, 5rem, $whiteColor, $scrollbarThumbColor, 1rem);
+        .colOuter {
+            margin: 1rem 2rem;
+            padding: 0;
+            .forRadio {
+                padding: 0.25rem 0;
+            }
+            .radio-item label:before {
+                margin: 0 15px 0 0;
+                align-items: center;
+                top: 4px;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+            }
+
+            .radio-item input[type="radio"]:checked + label:after {
+                width: 10px;
+                height: 10px;
+                top: 8px;
+                left: 4px;
+            }
+            label {
+                font-size: 1.4rem !important;
+            }
+        }
+    }
+}
+
+.radioOuter1 {
+    width: 17rem;
+    .col-6 {
+        @include displayFlex(center, center);
+    }
+    .radio-item {
+        top: 50%;
+        transform: translateY(50%);
+        display: block !important;
+        label {
+            margin: 0;
+            text-align: center;
+        }
+
+        label:before {
+            display: block;
+            margin: 0 auto 7px auto !important;
+        }
+    }
+    .radio-item input[type="radio"]:checked + label:after {
+        left: 50% !important;
+        transform: translateX(-50%);
+    }
+}

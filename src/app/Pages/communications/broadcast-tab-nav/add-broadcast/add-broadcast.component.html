@@ -1,0 +1,427 @@
+<div class="headText">
+    <p class="m-0">New broadcast</p>
+</div>
+<div class="mainOuter border">
+    <div class="mainSection">
+
+        <div class="section1 dropdownSection sections">
+            <div class="headerText">
+                <p class="m-0">Select broadcast coverage</p>
+            </div>
+
+            <div class="rounderSection ">
+                <div class="row">
+                    <div class="col-sm-6 dropDowns">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedCity" [disabled]="testingBoolean"
+                            placeholder="&nbsp;" optionLabel="name" [showClear]="false">
+                        </p-dropdown>
+                    </div>
+                    <div class="col-sm-6 dropDowns">
+                        <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" placeholder="&nbsp;"
+                            optionLabel="name" [showClear]="false">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section2 iconSection sections">
+            <div class="arrowIconOuter" [ngClass]="testingBoolean? 'arrowIconOuterDisabled':'arrowIconOuterGreenBG'">
+                <img src="../../../../../assets/broadcast/Vector.svg" alt="">
+            </div>
+        </div>
+
+
+        <div class="section3 radioSection radioSection1 sections">
+            <div class="rounderSection">
+                <div class="radioOuter d-flex align-items-center"
+                    [ngClass]="whenFourRadioShow? 'justify-content-between':'justify-content-around'">
+                    <div class="radioInner">
+                        <div class="radio-item">
+                            <input type="radio" id="users1" name="users" [disabled]="testingBoolean">
+                            <label for="users1">All users</label>
+                        </div>
+                    </div>
+                    <div class="radioInner" *ngIf="whenFourRadioShow">
+                        <div class="radio-item">
+                            <input type="radio" id="users2" name="users" checked [disabled]="testingBoolean">
+                            <label for="users2">Specific users</label>
+                        </div>
+                    </div>
+                    <div class="radioInner" *ngIf="whenFourRadioShow">
+                        <div class="radio-item">
+                            <input type="radio" id="users3" name="users" [disabled]="testingBoolean">
+                            <label for="users3">Vendor-specific users</label>
+                        </div>
+                    </div>
+                    <div class="radioInner">
+                        <div class="radio-item">
+                            <input type="radio" id="users4" name="users" [disabled]="testingBoolean">
+                            <label for="users4">All vendors</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="section4 radioSection radioSection2 sections">
+            <div class="rounderSection">
+                <div class="radioOuter  d-flex align-items-center justify-content-around">
+                    <div class="radioInner">
+                        <div class="radio-item">
+                            <input type="radio" id="emailOrWeb1" name="emailOrWeb" [disabled]="testingBoolean">
+                            <label for="emailOrWeb1">Email</label>
+                        </div>
+                    </div>
+                    <div class="radioInner">
+                        <div class="radio-item">
+                            <input type="radio" id="emailOrWeb2" name="emailOrWeb" checked [disabled]="testingBoolean">
+                            <label for="emailOrWeb2">App/web broadcast</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="section5 iconSection sections">
+            <div class="arrowIconOuter" [ngClass]="testingBoolean? 'arrowIconOuterDisabled':'arrowIconOuterGreenBG'">
+                <img src="../../../../../assets/broadcast/Vector.svg" alt="">
+            </div>
+        </div>
+
+
+
+        <div class="section6 sections">
+            <div class="innerSection usersORvendorSectionOuter">
+
+
+
+                <div class="usersORvendorSection" [ngClass]="userOnlyViewMode? 'usersORvendorViewOnlyMode' : ''">
+
+
+                    <div class="detailsHead">
+                        <div class="idSection">
+                            <div class="upperText">
+                                <p class="m-0 text-center">User ID</p>
+                            </div>
+                        </div>
+                        <div class="nameSection">
+                            <div class="upperText">
+                                <p class="m-0">User name</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="usersORvendorSectionInner">
+
+
+                        <div class="titleText">
+                            <p class="m-0">User(s):</p>
+                        </div>
+
+                        <div class="detailsInputSection">
+
+                            <div class="detailsInputSectionInner">
+                                <div class="idSection">
+                                    <div class="inputSection" *ngIf="userEditMode">
+                                        <input type="text" pInputText>
+                                    </div>
+                                    <div class="viewTextSection" *ngIf="userOnlyViewMode">
+                                        <p class="m-0 text-center">1234567A</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="nameSection">
+                                    <div class="inputSection">
+                                        <div class="inputOuter">
+                                            <input type="text" value="Darren Leow" pInputText
+                                                [disabled]="userOnlyViewMode">
+                                        </div>
+                                        <div class="deleteIcon" *ngIf="userEditMode">
+                                            <img src="../../../../../assets/broadcast/closeIcon.svg" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="detailsInputSectionInner">
+                                <div class="idSection">
+                                    <div class="inputSection" *ngIf="userEditMode">
+                                        <input type="text" pInputText>
+                                    </div>
+                                    <div class="viewTextSection" *ngIf="userOnlyViewMode">
+                                        <p class="m-0 text-center">1234567A</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="nameSection">
+                                    <div class="inputSection">
+                                        <div class="inputOuter">
+                                            <input type="text" value="Darren Leow" pInputText
+                                                [disabled]="userOnlyViewMode">
+                                        </div>
+                                        <div class="deleteIcon" *ngIf="userEditMode">
+                                            <img src="../../../../../assets/broadcast/closeIcon.svg" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="detailsInputSectionInner">
+                                <div class="idSection">
+                                    <div class="inputSection" *ngIf="userEditMode">
+                                        <input type="text" pInputText>
+                                    </div>
+                                    <div class="viewTextSection" *ngIf="userOnlyViewMode">
+                                        <p class="m-0 text-center">1234567A</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="nameSection">
+                                    <div class="inputSection">
+                                        <div class="inputOuter">
+                                            <input type="text" value="Darren Leow" pInputText
+                                                [disabled]="userOnlyViewMode">
+                                        </div>
+                                        <div class="deleteIcon" *ngIf="userEditMode">
+                                            <img src="../../../../../assets/broadcast/closeIcon.svg" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="plusIcon" *ngIf="userEditMode">
+                        <img src="../../../../../assets/broadcast/plusIcon.svg" class="mx-auto d-block" alt="">
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="section7 sections">
+            <div class="innerSection usersORvendorSectionOuter usersORvendorSectionOuter2">
+
+                <div class="usersORvendorSection">
+
+
+                    <div class="detailsHead">
+                        <div class="idSection">
+                            <div class="upperText">
+                                <p class="m-0 text-center">Vendor code</p>
+                            </div>
+                        </div>
+                        <div class="nameSection">
+                            <div class="upperText">
+                                <p class="m-0">Vendor name</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="usersORvendorSectionInner">
+
+
+                        <div class="titleText">
+                            <p class="m-0">Vendor:</p>
+                        </div>
+
+                        <div class="detailsInputSection">
+
+                            <div class="detailsInputSectionInner">
+                                <div class="idSection">
+                                    <div class="inputSection">
+                                        <input type="text" pInputText>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="nameSection">
+                                    <div class="inputSection">
+                                        <div class="inputOuter">
+                                            <p-dropdown [options]="cities3" [(ngModel)]="selectedCity3"
+                                                placeholder="&nbsp;" optionLabel="name" [showClear]="false">
+                                            </p-dropdown>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="section8 iconSection sections">
+            <div class="arrowIconOuter" [ngClass]="testingBoolean? 'arrowIconOuterDisabled':'arrowIconOuterGreenBG'">
+                <img src="../../../../../assets/broadcast/Vector.svg" alt="">
+            </div>
+        </div>
+
+
+
+        <div class="section9 radioSection radioSection3 sections">
+            <div class="rounderSection">
+                <div class="radioOuter  d-flex align-items-center justify-content-around">
+                    <div class="radioInner">
+                        <div class="radio-item">
+                            <input type="radio" id="activityType1" name="activityType">
+                            <label for="activityType1">All users under Vendor</label>
+                        </div>
+                    </div>
+                    <div class="radioInner">
+                        <div class="radio-item">
+                            <input type="radio" id="activityType2" name="activityType">
+                            <label for="activityType2">Users under a specific activity</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="section10 iconSection sections">
+            <div class="arrowIconOuter" [ngClass]="testingBoolean? 'arrowIconOuterDisabled':'arrowIconOuterGreenBG'">
+                <img src="../../../../../assets/broadcast/Vector.svg" alt="">
+            </div>
+        </div>
+
+
+
+        <div class="section11 radioSection radioSection4 sections">
+            <div class="rounderSection">
+                <div class="radioOuter  d-flex align-items-center justify-content-around">
+                    <div class="radioInner">
+                        <div class="radio-item">
+                            <input type="radio" id="participants1" name="participants">
+                            <label for="participants1">Present & future paricipants</label>
+                        </div>
+                    </div>
+                    <div class="radioInner">
+                        <div class="radio-item">
+                            <input type="radio" id="participants2" name="participants">
+                            <label for="participants2">Past participants</label>
+                        </div>
+                    </div>
+                    <div class="radioInner">
+                        <div class="radio-item">
+                            <input type="radio" id="participants3" name="participants">
+                            <label for="participants3">All participants (present/past)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="section12 sections forMessageAndSubject">
+            <div class="rounderSection">
+
+                <div class="subjectAndHTMLsection">
+                    <div class="forSubject">
+                        <p>Subject</p>
+                        <input type="text" pInputText>
+                    </div>
+                    <div class="forHTML">
+                        <div class="head">
+                            <p class="m-0 text-center">HTML functionality here</p>
+                        </div>
+                        <div class="forTextArea">
+                            <textarea pInputTextarea></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="messageSection">
+                    <p>Message</p>
+                    <textarea pInputTextarea></textarea>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="section13 radioSection radioSection5 sections">
+            <div class="rounderSection">
+                <div class="radioOuter  d-flex align-items-center justify-content-around">
+                    <div class="radioInner">
+                        <div class="radio-item">
+                            <input type="radio" id="send1" name="send">
+                            <label for="send1">Send immediately</label>
+                        </div>
+                    </div>
+                    <div class="radioInner forDatePicker">
+                        <div class="radio-item">
+                            <input type="radio" id="send2" name="send">
+                            <label for="send2">Schedule send</label>
+                        </div>
+                        <div class="dateRangeNormal">
+                            <input pInputText type="text" class="form-control" bsDatepicker
+                                [bsConfig]="{ isAnimated: true }">
+                            <i class="pi pi-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="section14 sections bottomButtons">
+            <button pButton pRipple type="button" label="Cancel" class="p-button-warning"></button>
+            <button pButton pRipple type="button" label="Send" class="p-button-success"></button>
+            <button pButton pRipple type="button" label="Confirm"
+                [ngClass]="whiteConfirmButton? 'whiteButton p-button-secondary  p-button-text':'p-button-success'"></button>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,52 @@
+$boxShadowLightColor: #bdbdbd;
+
+.innerBody2Outer {
+    @media (max-width: 1199px) {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+    @media (max-width: 991px) {
+        margin-right: 3rem;
+    }
+
+    .radioOuter2 {
+        border-radius: 0.8rem;
+        border: solid .1rem $boxShadowLightColor;
+        height: 8.5rem;
+        max-width: calc(25% + 27rem);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 1199px) {
+            max-width: calc(15% + 27rem);
+            margin: auto;
+            height: 5.5rem;
+        }
+
+        @media (max-width: 677px) {
+            max-width: calc(25% + 27rem);
+        }
+
+        @media (max-width: 575px) {
+            height: 10.5rem;
+        }
+        
+
+        .col-sm-6 {
+            @media (max-width: 575px) {
+                padding-left: 4.5rem !important;
+            }
+        }
+
+        label {
+            font-size: 1.4rem;
+            white-space: nowrap;
+            font-weight: 500;
+            cursor: pointer;
+            @media (max-width: 1519px) {
+                font-size: 1.2rem;
+            }
+            color: $boxShadowLightColor;
+        }
+    }
+}

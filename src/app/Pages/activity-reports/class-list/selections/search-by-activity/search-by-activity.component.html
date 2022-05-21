@@ -1,0 +1,1113 @@
+<div class="mainBodyOuter">
+    <div class="upperBackBody border-bottom">
+        <button pButton pRipple type="button" label="Back" class="p-button-warning" routerLink="../class-list"></button>
+        <p>Select below to generate reports</p>
+    </div>
+
+    <div class="innerBody">
+
+
+        <div class="mainSection">
+
+
+
+
+
+
+            <div class="leftSection">
+                <div class="innerSection innersection1 border">
+                    <div class="row">
+                        <div class="col-sm-6 sections">
+                            <div class="headText">
+                                <p class="m-0">Country</p>
+                            </div>
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="&nbsp;"
+                                optionLabel="name" [showClear]="false">
+                            </p-dropdown>
+                        </div>
+                        <div class="col-sm-6 sections">
+                            <div class="headText">
+                                <p class="m-0">Vendor ID</p>
+                            </div>
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="&nbsp;"
+                                optionLabel="name" [showClear]="false">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="col-12 sections">
+                            <div class="headText">
+                                <p class="m-0">Vendor name</p>
+                            </div>
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="&nbsp;"
+                                optionLabel="name" [showClear]="false">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="col-12 sections">
+                            <div class="headText">
+                                <p class="m-0">Activity title</p>
+                            </div>
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="&nbsp;"
+                                optionLabel="name" [showClear]="false">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="col-sm-6 sections">
+                            <div class="headText">
+                                <p class="m-0">Activity Code</p>
+                            </div>
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="&nbsp;"
+                                optionLabel="name" [showClear]="false">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="col-sm-6 sections">
+                            <div class="headText">
+                                <p class="m-0">Class ID</p>
+                            </div>
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="&nbsp;"
+                                optionLabel="name" [showClear]="false">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="col-sm-6 sections">
+                            <div class="headText">
+                                <p class="m-0">Session ID</p>
+                            </div>
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="&nbsp;"
+                                optionLabel="name" [showClear]="false">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="col-sm-6 sections">
+                            <button pButton pRipple type="button" label="Search"
+                                class="p-button-success w-100"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="innerSection selectedSections">
+                    <p class="locationName">Suntec City Convention Centre</p>
+                </div>
+
+                <div class="innerSection innersection2 border">
+                    <p-listbox [options]="listbox" [(ngModel)]="selectedListbox" optionLabel="name" [multiple]="true"
+                        [metaKeySelection]="false"></p-listbox>
+                </div>
+
+                <div class="innerSection innersection3 border">
+                    <div class="upperHead">
+                        <p class="m-0 text-center"><u>View settings</u></p>
+                    </div>
+                    <div class="timeRange">
+                        <div class="text1">
+                            <p class="m-0">Time range</p>
+                        </div>
+                        <div class="inputs"><input type="text" pInputText placeholder="HH:MM" /></div>
+                        <div class="text2">
+                            <p class="m-0 text-center">to</p>
+                        </div>
+                        <div class="inputs"><input type="text" pInputText placeholder="HH:MM" /></div>
+                    </div>
+                    <div class="buttonSectionOuter">
+                        <hr>
+                        <div class="buttonInner">
+                            <button pButton pRipple type="button" label="Clear"
+                                class="p-button-outlined p-button-warning"></button>
+                            <button pButton pRipple type="button" label="Apply"
+                                class="p-button-outlined p-button-success"></button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="rightSection">
+                <div class="innerSection border">
+
+
+
+
+
+                    <!-- Main Section Starts --- Add Class d-none for hiding -->
+                    <div class="participantsListOuter">
+                        <div class="upperSection">
+                            <div class="blankDiv"></div>
+                            <div class="headerSection">
+                                <p class="m-0 text-center text-uppercase text-nowrap">participant's list</p>
+                            </div>
+                            <div class="downloadIcon">
+                                <img src="../../../../../../assets/categoryStatistics/Download_Icon.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="forDate">
+                            <p class="m-0 text-center">25 September 2021</p>
+                        </div>
+
+
+                        <div class="detailsSection">
+
+                            <div class="info">
+                                <div class="leftSideInfo">
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Location:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forBoldText"><u>Suntec City Convention Center</u></p>
+                                        </div>
+                                    </div>
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Activity title:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forBoldText">Swimming for kids</p>
+                                        </div>
+                                    </div>
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Time:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forNormalText">Whole day access</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rightSideInfo">
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Activity code:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forNormalText">AS7</p>
+                                        </div>
+                                    </div>
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Session ID:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forNormalText">8YT3A</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="infoTable">
+
+                                <div class="tableOuter table-responsive text-nowrap">
+                                    <table class="table table-borderless text-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="noCol">
+                                                    No.
+                                                </th>
+                                                <th scope="col" class="text-left bigCell">
+                                                    Name
+                                                </th>
+                                                <th scope="col">
+                                                    User ID
+                                                </th>
+                                                <th scope="col" class="bigCell">
+                                                    Booking reference no.
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- <div class="locationBox">
+                            <p class="m-0 text-center">Suntec City Convention Centre</p>
+                            <hr>
+                            <p class="m-0 text-center">Suntec City Convention Centre</p>
+                        </div> -->
+
+
+                        <div class="detailsSection">
+
+                            <div class="info">
+                                <div class="leftSideInfo">
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Location:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forBoldText"><u>Suntec City Convention Center</u></p>
+                                        </div>
+                                    </div>
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Activity title:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forBoldText">Swimming for kids</p>
+                                        </div>
+                                    </div>
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Time:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forNormalText">Whole day access</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rightSideInfo">
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Activity code:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forNormalText">AS7</p>
+                                        </div>
+                                    </div>
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Session ID:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forNormalText">8YT3A</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="infoTable">
+
+                                <div class="tableOuter table-responsive text-nowrap">
+                                    <table class="table table-borderless text-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="noCol">
+                                                    No.
+                                                </th>
+                                                <th scope="col" class="text-left bigCell">
+                                                    Name
+                                                </th>
+                                                <th scope="col">
+                                                    User ID
+                                                </th>
+                                                <th scope="col" class="bigCell">
+                                                    Booking reference no.
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="detailsSection">
+
+                            <div class="info">
+                                <div class="leftSideInfo">
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Location:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forBoldText"><u>Suntec City Convention Center</u></p>
+                                        </div>
+                                    </div>
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Activity title:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forBoldText">Swimming for kids</p>
+                                        </div>
+                                    </div>
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Time:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forNormalText">Whole day access</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rightSideInfo">
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Activity code:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forNormalText">AS7</p>
+                                        </div>
+                                    </div>
+                                    <div class="infos">
+                                        <div class="forTitle">
+                                            <p class="m-0">Session ID:</p>
+                                        </div>
+                                        <div class="forData">
+                                            <p class="m-0 forNormalText">8YT3A</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="infoTable2">
+
+                                <div class="tableOuter table-responsive text-nowrap">
+
+
+                                    <table class="text-uppercase text-center">
+                                        <tr class="thead">
+                                            <th class="smallCell"></th>
+                                            <th class="smallCell"></th>
+                                            <th class="smallCell"></th>
+                                            <th class="bigcell">Time</th>
+                                            <th class="bigcell">Session ID</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="smallCell">2020</td>
+                                            <td class="smallCell">Dec</td>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="11" class="smallCell">2020</td>
+                                            <td rowspan="11" class="smallCell">Jan</td>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="smallCell">1</td>
+                                            <td class="bigCell">1400 - 1530hrs</td>
+                                            <td class="bigCell">4TYRG</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+
+
+                            <!-- <div class="locationBox">
+                                <hr>
+                                <p class="m-0 text-center">Class details</p>
+                            </div> -->
+
+
+
+                            <div class="infoTable">
+
+                                <div class="tableOuter table-responsive text-nowrap">
+                                    <table class="table table-borderless text-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="noCol">
+                                                    No.
+                                                </th>
+                                                <th scope="col" class="text-left bigCell">
+                                                    Name
+                                                </th>
+                                                <th scope="col">
+                                                    User ID
+                                                </th>
+                                                <th scope="col" class="bigCell">
+                                                    Booking reference no.
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row" class="noCol">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="text-left bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            Berries world of learning
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567D
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td scope="row" class="bigCell">
+                                                    <div class="title1">
+                                                        <p>
+                                                            1234567890123445X
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- Main Section Ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="calendarOuterSection">
+
+
+                        <!-- Main Section Starts --- Add Class d-none for hiding -->
+                        <calendar></calendar>
+                        <!-- Main Section Ends -->
+
+
+                        <!-- Main Section Starts --- Add Class d-none for hiding -->
+                        <hour-calendar></hour-calendar>
+                        <!-- Main Section Ends -->
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>

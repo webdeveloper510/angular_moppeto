@@ -1,0 +1,126 @@
+<form class="mainFormOuter">
+
+  <div class="textAndSelectOuter">
+
+    <div class="textSection">
+      <p class="m-0">
+        click on numbers for details on registrants
+      </p>
+    </div>
+
+    <div class="selectSection">
+
+      <div class="monthSelect">
+        <select class="form-control select__field">
+          <option class="optionCustomClass" *ngFor="let month of months" value="{{month.value}}">{{month.name}}</option>
+        </select>
+      </div>
+
+      <div class="yearSelect">
+        <select class="form-control select__field">
+          <option class="optionCustomClass" *ngFor="let year of years" value="{{year.value}}">{{year.name}}</option>
+        </select>
+      </div>
+
+      <div class="previousNextIcon">
+        <i class="fa fa-caret-left" pTooltip="Previous Month" tooltipPosition="top"></i>
+        <i class="fa fa-caret-right" pTooltip="Next Month" tooltipPosition="top"></i>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- Calendar View Starts -->
+
+
+  <div class="calendarOuterForScroll">
+
+
+    <div class="mainCalendarSectionOuter" *ngIf="isCalendar">
+      <div class="calendarWeekName">
+        <div class="forHourView"></div>
+        <div class="dateWeekOuter">
+
+          <div class="dateWeekInner" *ngFor="let week of weeks">
+            <div class="forWeeek">{{week.name}}</div>
+            <div class="forDates">{{week.meta.date}}</div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+
+
+      <div class="calendarWeekName">
+        <div class="forHourView viewText">
+          <p class="m-0">View</p>
+        </div>
+        <div class="dateWeekOuter">
+
+          <div class="eyeIcon" *ngFor="let week of weeks">
+            <img src="../../../../../../../assets/activityReports/EyeIcon.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="mainCalendarOuter">
+
+        <ng-container *ngFor="let hour of dayView">
+          <div class="forHourView hourText">
+            <div class="hours">
+              <p>{{hour.hour}}</p>
+            </div>
+            <div class="hourDividers">
+              <div class="divider">
+                <hr>
+              </div>
+              <div class="divider">
+                <hr class="smallHR">
+              </div>
+              <div class="divider">
+                <hr class="smallHR">
+              </div>
+              <div class="divider">
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="mainCalendarOuterStart">
+            <div class="mainCalendarInner" *ngFor="let day of hour.days">
+
+              <div class="innerDividers">
+                <div class="enrollDetails" *ngIf="day.meta.data">
+                  <p class="m-0"><u>{{day.meta.data}}</u></p>
+                </div>
+              </div>
+
+              <div class="innerDividers"></div>
+              <div class="innerDividers"></div>
+              <div class="innerDividers"></div>
+
+            </div>
+          </div>
+        </ng-container>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+  <!-- Calendar View Ends -->
+
+
+  <div class="previousNextIconForWeek">
+    <i class="fa fa-caret-left" pTooltip="Previous Week" tooltipPosition="top"></i>
+    <p class="m-0">48<sup>th</sup> Week</p>
+    <i class="fa fa-caret-right" pTooltip="Next Week" tooltipPosition="top"></i>
+  </div>
+
+
+</form>

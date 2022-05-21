@@ -1,0 +1,79 @@
+@import "../../../../SCSS/SubAdmin/listing/addAndEditSubAdminDesign";
+
+$disabledBGColor: #828282;
+$activeStatusBG: #deffec;
+$activeCircleAndText: #4dc5af;
+$suspendCircleAndText: #bdbdbd;
+$suspendStatusBGcolorAndScrollbarThumb: #e7e7e7;
+
+@mixin mainStatus($bgColor, $bgColorCircle, $color, $minWidth) {
+    background-color: $bgColor;
+    .circleDiv {
+        background-color: $bgColorCircle;
+    }
+    .ActualStatus {
+        p {
+            color: $color;
+            min-width: $minWidth;
+        }
+    }
+}
+
+.formContentOuter {
+    .col-sm-6 {
+        &:first-child {
+            @media (max-width: 575px) {
+                margin-bottom: 5rem;
+            }
+        }
+    }
+}
+
+.disabledInput {
+    background-color: lighten($disabledBGColor, 27%);
+}
+
+.forStatus {
+    margin: 0 auto 4rem auto;
+
+    .statusOuter {
+        margin: 0 auto;
+        width: fit-content;
+    }
+
+    .status {
+        display: flex;
+        margin-top: 0.4rem;
+        padding: 0 1.2rem 0 1rem;
+        border-radius: 4rem;
+        align-items: center;
+        height: 2.7rem;
+
+        .circleDiv {
+            height: 0.8rem;
+            width: 0.8rem;
+            border-radius: 50%;
+            margin-right: 0;
+        }
+        .ActualStatus {
+            p {
+                margin: 0;
+                margin-left: -0.1rem;
+                font-size: 1.3rem;
+                text-align: right !important;
+            }
+        }
+    }
+
+    .ActiveStatus {
+        @include mainStatus($activeStatusBG, $activeCircleAndText, $activeCircleAndText, 4.5rem);
+    }
+    .SuspendStatus {
+        @include mainStatus(
+            $suspendStatusBGcolorAndScrollbarThumb,
+            $suspendCircleAndText,
+            $suspendCircleAndText,
+            7.3rem
+        );
+    }
+}

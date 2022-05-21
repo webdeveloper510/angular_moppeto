@@ -1,0 +1,154 @@
+<div class="mainContainer">
+    <div class="tableOuter mt-3 table-responsive">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr>
+                    <th scope="col" class="forNo">
+                        <br>
+                        No.
+                    </th>
+                    <th scope="col" class="text-left forCategory">
+                        Attribute group
+                    </th>
+                    <th scope="col" class="forIcon">
+                        <div class="forIconTH">Icon</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-bottom">
+                    <td scope="row" class="forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left forCategory">
+                        <div class="title1">
+                            <p>
+                                Language
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="forIcon">
+                        <div class="imgOuter">
+                            <div class="custom-dropzone border" ngx-dropzone [accept]="'image/*'" [multiple]="false"
+                                (change)="onSelect($event)">
+                                <ngx-dropzone-label>
+                                    <div class="label">
+                                        <i class="pi pi-image"></i>
+                                        <p>Click or drag file here to upload</p>
+                                        <p>(svg only)</p>
+                                    </div>
+                                </ngx-dropzone-label>
+                                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
+                                    [file]="f" [removable]="true" (removed)="onRemove(f)">
+                                </ngx-dropzone-image-preview>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="forNo">
+                        <div class="title1">
+                            <p>
+                                2
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left forCategory">
+                        <div class="title1">
+                            <p>
+                                Cognition
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="forIcon">
+                        <div class="imgOuter">
+                            <div class="custom-dropzone border" ngx-dropzone [accept]="'image/*'" [multiple]="false"
+                                (change)="onSelect($event)">
+                                <ngx-dropzone-label>
+                                    <div class="label">
+                                        <i class="pi pi-image"></i>
+                                        <p>Click or drag file here to upload</p>
+                                        <p>(svg only)</p>
+                                    </div>
+                                </ngx-dropzone-label>
+                                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
+                                    [file]="f" [removable]="true" (removed)="onRemove(f)">
+                                </ngx-dropzone-image-preview>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="forNo">
+                        <div class="title1">
+                            <p>
+                                3
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left forCategory">
+                        <div class="title1">
+                            <p>
+                                Character
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="forIcon">
+                        <div class="imgOuter">
+                            <div class="custom-dropzone border" ngx-dropzone [accept]="'image/*'" [multiple]="false"
+                                (change)="onSelect($event)">
+                                <ngx-dropzone-label>
+                                    <div class="label">
+                                        <i class="pi pi-image"></i>
+                                        <p>Click or drag file here to upload</p>
+                                        <p>(svg only)</p>
+                                    </div>
+                                </ngx-dropzone-label>
+                                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
+                                    [file]="f" [removable]="true" (removed)="onRemove(f)">
+                                </ngx-dropzone-image-preview>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="forNo">
+                        <div class="title1">
+                            <p>
+                                4
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left forCategory">
+                        <div class="title1">
+                            <p>
+                                Strength
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="forIcon">
+                        <div class="imgOuter">
+                            <div class="custom-dropzone border" ngx-dropzone [accept]="'image/*'" [multiple]="false"
+                                (change)="onSelect($event)">
+                                <ngx-dropzone-label>
+                                    <div class="label">
+                                        <i class="pi pi-image"></i>
+                                        <p>Click or drag file here to upload</p>
+                                        <p>(svg only)</p>
+                                    </div>
+                                </ngx-dropzone-label>
+                                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
+                                    [file]="f" [removable]="true" (removed)="onRemove(f)">
+                                </ngx-dropzone-image-preview>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

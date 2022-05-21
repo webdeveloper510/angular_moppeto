@@ -1,0 +1,42 @@
+$buttonAllColor: #6fcf97;
+
+@mixin paraTag($color, $fontSize, $fontWeight) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    cursor: pointer;
+}
+
+@mixin button {
+    border-width: 0.2rem;
+    border-radius: 0.7rem;
+    @include paraTag($buttonAllColor, 1.4rem, 500);
+    padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+    &:focus {
+        outline: $buttonAllColor;
+        box-shadow: none;
+    }
+}
+
+.mainOuter {
+    .inner3,
+    .addCuppon {
+        .icon {
+            margin-right: 1rem;
+            i {
+                @include paraTag($buttonAllColor, 4.25rem, 500);
+            }
+        }
+        .button {
+            margin-left: 1rem;
+            margin-top: 0.6rem;
+            .p-button-success {
+                border-color: $buttonAllColor;
+                @include button();
+            }
+            .p-button-warning {
+                @include button();
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+@import "../../../SCSS/Dashboard/chartsCommonDesigns";
+@import "../../../SCSS/Dashboard/leftSideChartCommonDesigns";
+@import "../../../SCSS/CustomRadioButton/customRadioButtonDesign";
+
+$disabledColor: #bdbdbd;
+$violetColor: #cb89ff;
+
+.radio-item label:before {
+    border: solid 1px $disabledColor;
+    margin-right: 10px;
+}
+
+.radio-item input[type="radio"]:checked ~ label {
+    color: $violetColor !important;
+}
+
+.radio-item input[type="radio"]:checked + label:before {
+    border-color: $violetColor;
+}
+
+.radio-item input[type="radio"]:checked + label:after {
+    background: $violetColor;
+}
+
+.radio-item {
+    label {
+        white-space: nowrap;
+        @include forParaTag($blackColor, 1.3rem !important, 500);
+    }
+}
+
+.radioScrollerOuter {
+    margin: 1.5rem 4rem 0.5rem 4rem;
+    @media (max-width: 575px) {
+        margin: 1.5rem 2rem 0.5rem 2rem;
+    }
+    background-color: $whiteColor;
+    border-radius: 1rem;
+    .radioScrollerInerMain {
+        @include scrollBar(auto, auto, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.5rem);
+        margin: 1.2rem 3.5rem 0.2rem 3.5rem;
+        max-height: 8rem;
+        @media (max-width: 575px) {
+            margin: 1.2rem 1.5rem 0.2rem 1.5rem;
+            max-height: 10rem;
+        }
+        .radioScrollerIner {
+            min-width: 87rem;
+            @include displayFlex(flex-start, center);
+            flex-wrap: wrap;
+            .radioOuter {
+                padding: 0.5rem 0;
+                width: 17rem;
+            }
+        }
+    }
+}

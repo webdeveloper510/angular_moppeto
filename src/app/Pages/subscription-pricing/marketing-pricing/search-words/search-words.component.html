@@ -1,0 +1,211 @@
+<div [ngClass]="isEdit?'overlayBodyTrue':''">
+
+
+    <div class="upperAddButton border-top">
+        <button pButton type="button" label="Add" class="p-button-warning"></button>
+    </div>
+
+    <!-- Table Starts..... -->
+    <div class="tableOuter border-top table-responsive text-nowrap">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr class="headRow2">
+                    <th scope="col" class="noOfWords">
+                        Number of words
+                    </th>
+                    <th scope="col" class="smallCol">
+                        1 day
+                    </th>
+                    <th scope="col" class="smallCol">
+                        2 days
+                    </th>
+                    <th scope="col" class="smallCol">
+                        3 days
+                    </th>
+                    <th scope="col" class="smallCol">
+                        4 days
+                    </th>
+                    <th scope="col" class="smallCol">
+                        5 days
+                    </th>
+                    <th scope="col" class="smallCol">
+                        Subsequent
+                        <br>
+                        days
+                    </th>
+                    <th scope="col" class="editCol text-right">
+                        INR
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="border-top">
+                <tr class="border-bottom" [ngClass]="!demoTable[i].editMode?'overlayBodyFalse':''"
+                    *ngFor="let data of demoTable; let i = index">
+                    <td scope="row" class="noOfWords">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title1">
+                                <p>
+                                    7
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText value="4">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title1">
+                                <p>
+                                    4
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText value="4">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title1">
+                                <p>
+                                    4
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText value="4">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title1">
+                                <p>
+                                    4
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText value="4">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title1">
+                                <p>
+                                    4
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText value="4">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title1">
+                                <p>
+                                    4
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText value="4">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title1">
+                                <p>
+                                    4
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText value="4">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="editCol">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="ellipsisOuter2">
+                                <div class="dropleft">
+                                    <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span><i class="pi pi-ellipsis-v"></i></span>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                        [ngClass]="data.inrButton.delete?'':'dropdown_menu_one_item'">
+                                        <a class="dropdown-item" [ngClass]="data.inrButton.delete?'item1':''"
+                                            href="javascript:;" (click)="editPricing(i)"
+                                            *ngIf="data.inrButton.edit">Edit</a>
+                                        <a class="dropdown-item item4" [ngClass]="data.inrButton.delete?'item4':''"
+                                            href="javascript:;" *ngIf="data.inrButton.delete" (click)="deleteSearchWords()">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="nextCancelButtonOuter">
+                                <button pButton type="button" label="Ok" class="p-button-success"></button>
+                                <button pButton type="button" label="Cancel" class="p-button-danger"
+                                    (click)="cancelEditPricing(i)"></button>
+                            </div>
+                        </ng-container>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Ends...... -->
+
+    <!-- Pagination Starts...... -->
+
+    <div class="paginationOuter">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="rowsOuter">
+                    <p>Rows per page:</p>
+                    <div class="selectNoOfRow select">
+
+                        <select class="form-control select__field" aria-label="Default select example">
+                            <option selected value="1">10</option>
+                            <option value="2">20</option>
+                            <option value="3">30</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="pagesOuter">
+                    <p>1 of 6</p>
+                    <div class="iconPrevious">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector1.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="iconNext">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector2.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pagination Ends...... -->
+</div>

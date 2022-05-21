@@ -1,0 +1,63 @@
+@import "../../../SCSS/MediaAndGroupings/attributesAndCategoryOrSubCategoryDesign.scss";
+@import "../../../SCSS/MediaAndGroupings/tabNavDesign";
+
+$orangeColor: #faa559;
+$whiteColor: #fff;
+
+.addCuppon {
+    padding-left: 5.5rem;
+    button {
+        width: 15rem;
+    }
+}
+
+.tabs {
+    margin-top: 5rem;
+    padding: 0 0 0 7rem;
+    @media (max-width: 575px) {
+        padding: 0 0 0 2rem;
+        .tabLinks {
+            margin-right: 2rem;
+        }
+    }
+    .tabLinks {
+        width: 10rem;
+        margin-right: 5rem;
+    }
+}
+
+.tableOuter {
+    margin-top: 0 !important;
+}
+
+.forNo {
+    padding-right: 0rem !important;
+    padding-left: 7rem !important;
+}
+
+.whiteButtonDelete {
+    @include classWisebuttonDesign(
+        auto !important,
+        $orangeColor !important,
+        $orangeColor !important,
+        $orangeColor !important
+    );
+}
+
+.inputBox {
+    input {
+        font-weight: 400 !important;
+    }
+}
+
+.addIcon-button {
+    border: 0;
+    background-color: white;
+    margin-right: 3%;
+}
+
+.disable-chackbox {
+    background-color: #E0E0E0;
+    border: 1px solid #E0E0E0;
+    box-sizing: border-box;
+}

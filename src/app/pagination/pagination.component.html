@@ -1,0 +1,38 @@
+<!-- Pagination Starts...... -->
+<div class="paginationOuter">
+  <div class="row">
+      <div class="col-sm-6">
+          <div class="rowsOuter">
+              <p>Rows per page:</p>
+              <div class="selectNoOfRow select">
+                  <select class="form-control select__field" aria-label="Default select example" name="perPage"
+                      [(ngModel)]="paginationService.pageSize"
+                      (change)='pageChangeEvent(paginationEvent.OptionChange)'>
+                      <ng-container *ngFor="let option of paginationService.pageOptions">
+                          <option [value]="option">{{option}}</option>
+                      </ng-container>
+                  </select>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-6">
+          <div class="pagesOuter">
+              <p>{{paginationService.currentPage}} of {{paginationService.totalpage}}</p>
+              <div class="iconPrevious"
+                  (click)="paginationService.previousPageURL ? pageChangeEvent(paginationEvent.PreviousPage) : ''"
+                  [ngClass]="!paginationService.previousPageURL ? 'diabled-class' : ''">
+                  <a>
+                      <img src="../../../assets/Pagination/Vector1.svg" alt="">
+                  </a>
+              </div>
+              <div class="iconNext"
+                  (click)="paginationService.nextPageURL ? pageChangeEvent(paginationEvent.NextPage) : ''"
+                  [ngClass]="!paginationService.nextPageURL ? 'diabled-class' : ''">
+                  <a>
+                      <img src="../../../assets/Pagination/Vector2.svg" alt="">
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,220 @@
+@import "../../../SCSS/SubscriptionAndPricing/subscriptionAndVendorPricing";
+
+.upperBodyOuter {
+    @include displayFlex(center, stretch);
+    flex-wrap: wrap;
+    padding: 2.5rem 3.5rem 2.5rem 2.5rem;
+    @media (max-width: 991px) {
+        justify-content: flex-start;
+    }
+    .upOuter {
+        &:not(:last-child) {
+            margin-bottom: 3.5rem;
+            margin-right: 2rem;
+        }
+        @media (max-width: 477px) {
+            margin-right: 0 !important;
+        }
+    }
+    .countryRadioOuter {
+        width: 35rem;
+        @media (max-width: 477px) {
+            width: 100%;
+        }
+    }
+    .subscriptionRadioOuter,
+    .statusRadioOuter {
+        width: 18rem;
+        @media (max-width: 477px) {
+            width: 100%;
+        }
+    }
+    .vendorNameCodeButtonOuter {
+        width: 25rem;
+        @media (max-width: 477px) {
+            width: 100%;
+        }
+        padding-top: 3.5rem;
+        .nameInput,
+        .codeInput {
+            input {
+                border-radius: 0.5rem;
+                &::placeholder {
+                    text-align: left !important;
+                }
+            }
+        }
+        .orText {
+            margin: 0.25rem 0;
+            p {
+                padding-top: 0.25rem;
+                @include forParaTag($blackColor, 1.3rem, 500);
+            }
+        }
+        .inner3 {
+            margin-top: 0.75rem;
+            .button {
+                .p-button-warning {
+                    color: $orangeColor;
+                    border-color: $orangeColor;
+                }
+            }
+        }
+    }
+}
+
+.tableOuter {
+    .table {
+        thead {
+            .blueTH {
+                color: $blueColor;
+            }
+            .headRow1 {
+                .termCol,
+                .openCol1 {
+                    width: 30rem;
+                }
+                .fixedTimingCol,
+                .dayAccessCol,
+                .subscriptionPeriodCol {
+                    width: 20rem;
+                }
+                .innerHead {
+                    margin: -0.25rem 1.25rem -1.15rem 1.25rem;
+                    border-bottom-width: 0.225rem;
+                    border-bottom-style: solid;
+                    font-weight: 700;
+                }
+                .termCol,
+                .openCol1,
+                .fixedTimingCol,
+                .dayAccessCol {
+                    color: $blackColor;
+                    border-bottom-color: $blackColor;
+                }
+                .subscriptionPeriodCol {
+                    border-bottom-color: $blueColor;
+                }
+            }
+        }
+        tbody {
+            .title1 {
+                @include tableData(1.3rem, $tdTitle1Color, 600);
+            }
+            .title2 {
+                @include tableData(1.3rem, $tdTitle2Color, 500);
+            }
+            .title3 {
+                @include tableData(1.3rem, $tdTitle1Color, 500);
+            }
+            .titleBlue {
+                @include tableData(1.3rem, $blueColor, 500);
+            }
+            .statusColInner {
+                position: relative;
+                .sentStatusTime {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    margin-top: 0.15rem;
+                    p {
+                        text-align: center;
+                    }
+                }
+            }
+            .editInput {
+                position: relative;
+                input {
+                    text-align: center;
+                    @include tableData(1.3rem, $tdTitle1Color, 500);
+                    border-radius: 0;
+                    border-color: $blackColor;
+                    box-shadow: none;
+                    &:disabled {
+                        background-color: $greyBG;
+                        color: $tdTitle1Color;
+                        opacity: 1;
+                    }
+                }
+                .errorText {
+                    position: absolute;
+                    bottom: -2rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    p {
+                        @include forParaTag($redColor, 1.2rem, 500);
+                    }
+                }
+            }
+            tr {
+                td {
+                    padding-top: 1.2rem;
+                    padding-bottom: 1.2rem;
+                }
+            }
+        }
+        .bigCol1 {
+            padding-left: 1.75rem;
+            width: 20rem;
+        }
+        .bigCol2 {
+            width: 14rem;
+            padding-left: 1.75rem;
+        }
+        .smallCol1 {
+            width: 10rem;
+        }
+        .smallCol2 {
+            width: 12rem;
+        }
+        .subsTypeCol {
+            padding-left: 2.25rem;
+            width: 14rem;
+        }
+        .editCol {
+            width: 19rem;
+            .editPenButton,
+            .cancelSubscriptionButton {
+                margin: 0 auto;
+                @include displayFlex(center, center);
+                border-radius: 0.75rem;
+                cursor: pointer;
+            }
+            .editPenButton {
+                width: 6.5rem;
+                background-color: $orangeColor;
+                padding: 0.75rem 0;
+                box-shadow: 0 0.25rem 0.5rem lighten($orangeColor, 17%);
+                i {
+                    @include forParaTag($whiteColor, 1.5rem, 500);
+                }
+            }
+            .cancelSubscriptionButton {
+                width: 13rem;
+                background-color: $redColor;
+                padding: 0.6rem 1rem;
+                box-shadow: 0 0.25rem 0.5rem lighten($redColor, 17%);
+                p {
+                    @include forParaTag($whiteColor, 1.4rem, 500);
+                    line-height: 1.6rem;
+                }
+            }
+            .nextCancelButtonOuter {
+                @include displayFlex(center, center);
+                @include buttonDesign(1.35rem, 500, 00.375rem, 0rem, 0.2rem, 0.75rem);
+                button {
+                    width: 7rem;
+                    &:not(:last-child) {
+                        margin-right: 1.25rem;
+                    }
+                }
+                .p-button-success {
+                    @include classWisebuttonDesign($greenColor, $greenColor, $whiteColor, $greenColor);
+                }
+                .p-button-danger {
+                    @include classWisebuttonDesign($redColor, $redColor, $whiteColor, $redColor);
+                }
+            }
+        }
+    }
+}

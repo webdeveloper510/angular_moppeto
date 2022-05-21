@@ -1,0 +1,50 @@
+::ng-deep .bsNormalCalendar_Activity {
+    margin: 1rem 0 0 0 !important;
+    @media (max-width: 600px) {
+        margin-left: -27rem !important;
+    }
+    @media (max-width: 387px) {
+        margin-left: -20rem !important;
+    }
+    @media (max-width: 357px) {
+        margin-left: -19rem !important;
+        .bs-datepicker-container {
+            padding: 0 !important;
+        }
+    }
+}
+
+::ng-deep .bsRangeCalendar_Activity {
+    margin: 1rem 0 0 30rem !important;
+    @media (max-width: 991px) {
+        margin-left: 17rem !important;
+    }
+    @media (max-width: 487px) {
+        margin-left: 0rem !important;
+    }
+    @media (max-width: 409px) {
+        margin-left: 5rem !important;
+    }
+    @media (max-width: 367px) {
+        margin-left: 7rem !important;
+        .bs-datepicker-container {
+            padding: 0 !important;
+        }
+    }
+}
+
+::ng-deep .bsRangeCalendar_REPORTS {
+    margin: 1rem 0 0 0 !important;
+    @media (max-width: 1199px) {
+        margin-left: -20rem !important;
+    }
+    @media (max-width: 457px) {
+        margin-left: -7rem !important;
+    }
+    @media (max-width: 377px) {
+        margin-left: -4rem !important;
+        .bs-datepicker-container {
+            padding: 0 !important;
+        }
+    }
+}

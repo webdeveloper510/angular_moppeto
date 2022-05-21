@@ -1,0 +1,88 @@
+@import "../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../SCSS/MediaAndGroupings/radioButtonSectionDesign";
+@import "../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../SCSS/PlayAndResetButtons/playAndResetButtons";
+@import "../../../SCSS/Table/tableDesign";
+@import "../../../SCSS/Pagination/paginationDesign";
+@import "../../../SCSS/SubscriptionAndPricing/overlayBody";
+
+$blackColor: #333333;
+$whiteColor: #fff;
+$greenColor: #6fcf97;
+$disabledColor: #bdbdbd;
+
+.upperBodyOuter {
+    .radio-item label:before {
+        border-color: $disabledColor;
+    }
+    .radio-item input[type="radio"]:checked ~ label::before {
+        border-color: $greenColor;
+    }
+}
+
+.upperBodyOuter {
+    @include displayFlex(center, stretch);
+    flex-wrap: wrap;
+    padding: 2.5rem 3.5rem 0 2.5rem;
+    @media (max-width: 991px) {
+        justify-content: flex-start;
+    }
+    .upOuter {
+        &:not(:last-child) {
+            margin-bottom: 3.5rem;
+            margin-right: 2rem;
+        }
+        @media (max-width: 477px) {
+            margin-right: 0 !important;
+        }
+    }
+    .countryRadioOuter,
+    .cityRadioOuter {
+        width: 35rem;
+        @media (max-width: 477px) {
+            width: 100%;
+        }
+    }
+    .pricingRadioOuter {
+        width: 22rem;
+        @media (max-width: 477px) {
+            width: 100%;
+        }
+    }
+}
+
+.tabs {
+    padding-top: 2rem;
+    margin: 0 2.5rem;
+    @include displayFlex(flex-start, center);
+    @media (max-width: 400px) {
+        margin: 0 1.25rem;
+        justify-content: center;
+    }
+    .tabLinks {
+        &:not(:last-child) {
+            margin-right: 2.5rem;
+            @media (max-width: 400px) {
+                margin-right: 1rem;
+            }
+        }
+        a {
+            text-align: center;
+            display: block;
+            @include forParaTag($disabledColor, 1.5rem, 500);
+            text-decoration: none;
+            @media (max-width: 400px) {
+                font-size: 1.3rem;
+            }
+        }
+        .activeRouter {
+            @include forParaTag($blackColor, 1.5rem, 600);
+            border-bottom: solid $blackColor 0.25rem;
+
+            @media (max-width: 400px) {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}

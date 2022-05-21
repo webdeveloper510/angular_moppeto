@@ -1,0 +1,23 @@
+@import "../../SCSS/PrimeNG/primeNGDesign";
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$disabledColor: #bdbdbd;
+$blackColor: #333333;
+
+.search {
+    position: relative;
+    i {
+        position: absolute;
+        top: 1rem;
+        left: 1.7rem;
+        @include forParaTag($disabledColor, 1.5rem, 500);
+    }
+    .searchColor {
+        color: $blackColor !important;
+    }
+    input {
+        border-radius: 0.5rem;
+        padding-left: 4rem;
+        color: $blackColor;
+    }
+}

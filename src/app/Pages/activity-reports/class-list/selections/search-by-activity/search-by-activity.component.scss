@@ -1,0 +1,384 @@
+@import "../../../../../SCSS/ActivityReports/searchingBodyUpperSectionDesign";
+@import "../../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../../../SCSS/Table/tableDesign";
+
+$orangeColor: #faa559;
+$blackColor: #333333;
+$whiteColor: #fff;
+$greenColor: #6fcf97;
+$darkGreyColor: #9a9a9a;
+$borderColor: #e7e7e7;
+$lightGreenColor: #deffec;
+
+@mixin whiteButtonHoverEffect($bgColor) {
+    transition: background-color ease 0.5s;
+    &:hover {
+        background-color: lighten($bgColor, 32%);
+    }
+}
+
+.mainSection {
+    @include displayFlex(space-between, stretch);
+    margin-top: 3rem;
+    @media (max-width: 991px) {
+        display: block;
+    }
+    .leftSection {
+        width: 37rem;
+        @media (max-width: 991px) {
+            margin: 0 auto;
+        }
+        @media (max-width: 447px) {
+            width: 100%;
+        }
+        .innerSection {
+            border-radius: 1.5rem;
+        }
+
+        .innersection1 {
+            padding: 1.3rem;
+            .sections {
+                &:not(:last-child, :nth-child(7)) {
+                    margin-bottom: 1.5rem;
+                }
+                @media (max-width: 575px) {
+                    &:nth-child(7) {
+                        margin-bottom: 1.5rem;
+                    }
+                }
+                .headText {
+                    p {
+                        @include forParaTag($darkGreyColor, 1.3rem, 500);
+                    }
+                }
+
+                @include buttonDesign(1.4rem, 400, 00.25rem, 0, 0.2rem, 0.7rem);
+                .p-button-success {
+                    @media (min-width: 576px) {
+                        margin-top: 2.1rem;
+                    }
+                    @include classWisebuttonDesign($greenColor, $greenColor, $whiteColor, $greenColor);
+                }
+            }
+        }
+        .innersection2 {
+            margin-top: 2rem;
+        }
+
+        .selectedSections {
+            margin-top: 2rem;
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            background-color: $greenColor;
+            .locationName {
+                @include forParaTag($whiteColor, 1.4rem, 500);
+                &::not(::last-child) {
+                    margin-bottom: 1.3rem;
+                }
+            }
+        }
+
+        .innersection3 {
+            padding: 1.3rem;
+            margin-top: 2rem;
+            .upperHead {
+                margin-bottom: 1.7rem;
+                p {
+                    @include forParaTag($blackColor, 1.3rem, 600);
+                }
+            }
+            .timeRange {
+                @include displayFlex(space-between, center);
+                @media (min-width: 448px) {
+                    padding: 0 1.5rem;
+                }
+                @media (max-width: 447px) and (min-width: 400px) {
+                    padding: 0 3rem;
+                }
+                p {
+                    @include forParaTag($blackColor, 1.25rem, 500);
+                }
+                .text1 {
+                    width: 8.5rem;
+                    @media (max-width: 377px) {
+                        width: 8rem;
+                    }
+                }
+                .inputs {
+                    width: 9.5rem;
+                    @media (max-width: 377px) {
+                        width: calc((100% - 11rem) / 2);
+                    }
+                    input {
+                        text-align: center;
+                        border-radius: 1rem;
+                    }
+                }
+                .text2 {
+                    width: calc(100% - 27.5rem);
+                    @media (max-width: 377px) {
+                        width: 3rem;
+                    }
+                }
+            }
+            .buttonSectionOuter {
+                margin: 2rem auto 1rem auto;
+                width: 20rem;
+                hr {
+                    width: 70%;
+                    background-color: $borderColor;
+                    margin: 3rem auto 1rem auto;
+                }
+                .buttonInner {
+                    @include displayFlex(space-between, center);
+                    padding-top: 2.2rem;
+                    button {
+                        width: 8rem;
+                    }
+
+                    @include buttonDesign(1.3rem, 400, 00.25rem, 0, 0.2rem, 0.7rem);
+                    .p-button-warning {
+                        @include classWisebuttonDesign(transparent, $orangeColor, $orangeColor, $orangeColor);
+                        @include whiteButtonHoverEffect($orangeColor);
+                    }
+                    .p-button-success {
+                        @include classWisebuttonDesign(transparent, $greenColor, $greenColor, $greenColor);
+                        @include whiteButtonHoverEffect($greenColor);
+                    }
+                }
+            }
+        }
+    }
+
+    .rightSection {
+        width: calc(100% - 40rem);
+        @media (max-width: 991px) {
+            width: 100%;
+            margin: 5rem auto 0 auto;
+        }
+        .innerSection {
+            border-radius: 1.5rem;
+            min-height: 60rem;
+            padding-bottom: 5rem;
+        }
+    }
+}
+
+:host ::ng-deep p-listbox {
+    .p-listbox {
+        border-radius: 1.5rem;
+        border: none;
+        max-height: 24rem;
+        @include scrollBar(hidden, auto, 0.3rem, 0.4rem, 0.8rem, 0, 5rem, transparent, $borderColor, 1rem);
+    }
+
+    .p-listbox .p-listbox-list .p-listbox-item {
+        @include forParaTag($blackColor, 1.3rem, 400);
+        padding: 1rem 2rem;
+    }
+    .p-listbox .p-listbox-list .p-listbox-item.p-highlight {
+        background-color: $lightGreenColor;
+        box-shadow: none;
+    }
+}
+
+.participantsListOuter {
+    .upperSection {
+        padding: 2rem 3rem 3rem 3rem;
+        @media (max-width: 377px) {
+            padding: 2rem 2rem 3rem 2rem;
+        }
+        @include displayFlex(space-between, center);
+        div {
+            width: 100%;
+        }
+        .headerSection {
+            p {
+                @include forParaTag($blackColor, 1.5rem, 500);
+            }
+        }
+        .downloadIcon {
+            @include displayFlex(flex-end, center);
+            img {
+                width: 2rem;
+                cursor: pointer;
+            }
+        }
+    }
+    .forDate {
+        p {
+            @include forParaTag($blackColor, 1.6rem, 700);
+        }
+    }
+}
+
+.detailsSection {
+    margin: 4rem 3.5rem 2rem 3.5rem;
+    @media (max-width: 767px) {
+        margin: 4rem 2rem 1rem 2rem;
+    }
+
+    .info {
+        @include displayFlex(space-between, flex-end);
+        margin-bottom: 4rem;
+        @media (max-width: 1500px) and (min-width: 1200px) {
+            display: block;
+        }
+        @media (max-width: 767px) {
+            display: block;
+        }
+        .leftSideInfo {
+            width: 60%;
+            @media (max-width: 1500px) and (min-width: 1200px) {
+                margin-bottom: 2rem;
+                width: 100%;
+            }
+            @media (max-width: 767px) {
+                margin-bottom: 2rem;
+                width: 100%;
+            }
+        }
+        .rightSideInfo {
+            width: 40%;
+            @media (max-width: 767px) {
+                width: 100%;
+            }
+        }
+
+        .infos {
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+            @include displayFlex(space-between, stretch);
+            .forTitle {
+                width: 12rem;
+                @media (max-width: 575px) {
+                    width: 10rem;
+                }
+                p {
+                    @include forParaTag($darkGreyColor, 1.4rem, 500);
+                }
+            }
+            .forData {
+                width: calc(100% - 12rem);
+                @media (max-width: 575px) {
+                    width: calc(100% - 10rem);
+                }
+                .forBoldText {
+                    @include forParaTag($blackColor, 1.4rem, 700);
+                }
+                .forNormalText {
+                    @include forParaTag($blackColor, 1.4rem, 500);
+                }
+            }
+        }
+    }
+
+    .infoTable {
+        .tableOuter {
+            background-color: transparent;
+            .table {
+                thead {
+                    th {
+                        padding: 1.2rem !important;
+                        color: $greenColor;
+                    }
+                }
+                tbody {
+                    border-top: solid $borderColor 0.1rem;
+                    border-bottom: solid $borderColor 0.1rem;
+                    height: auto;
+                    max-height: 22rem;
+                    tr {
+                        &:first-child {
+                            td {
+                                border-top: none;
+                            }
+                        }
+                        td {
+                            padding: 1.2rem !important;
+                            border: solid $borderColor 0.1rem;
+                            border-bottom: none;
+                            &:last-child {
+                                border-right: none;
+                            }
+                            .title1 {
+                                @include tableData(1.3rem, $blackColor, 600);
+                            }
+                        }
+                    }
+                }
+            }
+            .noCol {
+                width: 5rem;
+            }
+            .bigCell {
+                width: 19rem;
+                @media (min-width: 1921px) {
+                    width: 22rem;
+                }
+            }
+
+            @media (max-width: 1677px) {
+                th,
+                td {
+                    width: 14.7rem;
+                }
+            }
+        }
+    }
+}
+
+// .locationBox {
+//     width: 33rem;
+//     @media (max-width: 1300px) and (min-width: 1200px) {
+//         width: 29rem;
+//     }
+//     @media (max-width: 575px) {
+//         width: calc(100% - 5rem);
+//     }
+//     margin: 5rem auto 3rem auto;
+//     p {
+//         @include forParaTag($darkGreyColor, 1.4rem, 500);
+//     }
+//     hr {
+//         margin: 1rem auto;
+//         background-color: $borderColor;
+//     }
+// }
+
+.infoTable2 {
+    margin: 2rem auto 3rem auto;
+    .tableOuter {
+        background-color: transparent;
+    }
+    table {
+        margin: 0 auto;
+        th,
+        td {
+            background-color: $lightGreenColor;
+            padding: 1.2rem !important;
+            border: solid $darkGreyColor 0.1rem;
+            @include forParaTag($blackColor, 1.3rem, 500);
+            vertical-align: middle !important;
+            border: solid $darkGreyColor 0.1rem;
+        }
+        .thead {
+            .smallCell {
+                background-color: $whiteColor;
+                border: none;
+            }
+        }
+    }
+    .smallCell {
+        width: 4rem;
+    }
+    .bigcell {
+        width: 10rem;
+    }
+}
+
+.calendarOuterSection {
+    padding: 2rem 1.5rem;
+}

@@ -1,0 +1,14 @@
+<div class="mainContainer shadow border">
+    <div class="upperHeadAndButtons">
+        <div class="headings text-uppercase">
+            <p class="m-0 mainHead mainHeadOrange">total vendors</p>
+            <p class="m-0 subHead">123,456</p>
+        </div>
+    </div>
+
+    <div class="mainChartOuter">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
+            [responsive]="chartOptions.responsive" [legend]="chartOptions.legend" [fill]="chartOptions.fill"
+            [dataLabels]="chartOptions.dataLabels"></apx-chart>
+    </div>
+</div>

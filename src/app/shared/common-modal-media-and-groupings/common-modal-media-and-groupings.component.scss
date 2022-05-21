@@ -1,0 +1,164 @@
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../SCSS/PrimeNG/primeNGDesign";
+
+$normalTextColor: #5e6260;
+$blackColor: #333333;
+$titleBGcolor: #deffec;
+$lightenGreen: #6fcf97;
+$orangeColor: #faa559;
+$greyColor: #bdbdbd;
+$whiteColor: #fff;
+$redColor: #e95656;
+$greenButtonColor: #4dc5af;
+
+@mixin customDialogClass($height) {
+    mat-dialog-container {
+        padding: 0;
+        margin: 0;
+        border-radius: 0.5rem;
+        @media screen and (min-height: 1081px) {
+            position: absolute;
+            left: calc(50% - 18.5rem);
+            top: 40rem;
+            width: 35rem;
+            height: $height;
+            overflow: hidden;
+        }
+    }
+}
+
+.actualOuter {
+    width: 35rem;
+    padding-bottom: 1rem;
+    .upperTitle {
+        height: 4.7rem;
+        @include displayFlex(center, center);
+        background-color: $titleBGcolor;
+
+        .titleBox {
+            padding-left: 2.25rem;
+            width: calc(100% - 5rem);
+            p {
+                @include forParaTag($normalTextColor, 1.4rem, 600);
+                margin: 0;
+            }
+        }
+        .close {
+            width: 5rem;
+            p {
+                cursor: pointer;
+                @include forParaTag($normalTextColor, 2rem, 700);
+            }
+        }
+    }
+    .bodySection {
+        padding: 3.5rem 4rem;
+
+        .textSection {
+            .forReinstateAndSuspendDelete {
+                padding: 1rem 0;
+                p {
+                    text-align: center;
+                    line-height: 1.2rem;
+                }
+                .normalDialogHead1 {
+                    @include forParaTag($blackColor, 1.6rem, 600);
+                }
+                .normalDialogHead2 {
+                    @include forParaTag(darken($normalTextColor, 5%), 1.35rem, 500);
+                }
+            }
+        }
+
+        .inputDropdownOuter {
+            .inputSection {
+                p {
+                    @include forParaTag(darken($blackColor, 15%), 1.37rem, 600);
+                    margin-bottom: 0.25rem;
+                }
+                input {
+                    border-radius: 0.5rem;
+                    color: $blackColor;
+                }
+            }
+
+            .totalChar {
+                margin-top: 0.2rem;
+                p {
+                    margin: 0;
+                    @include forParaTag($greyColor, 1.2rem, 500);
+                }
+                .maxlengthColor {
+                    @include forParaTag(darken($lightenGreen, 25%), 1.2rem, 600);
+                }
+                .maxlengthTypingColor {
+                    color: $blackColor;
+                }
+            }
+
+            .dropdownbSectionOuter {
+                padding: 1.5rem 0;
+                .dropdownSection2 {
+                    margin: 3rem 0 1.5rem 0;
+                }
+            }
+        }
+
+        .buttonSection {
+            @include displayFlex(center, flex-start);
+            padding: 2.5rem 0 0 0;
+            button {
+                width: 8.7rem;
+            }
+            @include buttonDesign(1.4rem, 500, 0.5rem, 0rem, 0.2rem, 0.5rem);
+            .p-button-success {
+                @include classWisebuttonDesign($greenButtonColor, $greenButtonColor, $whiteColor, $greenButtonColor);
+            }
+            .p-button-warning {
+                @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+            }
+        }
+    }
+}
+
+::ng-deep .customDialogClassOnlyInput {
+    @include customDialogClass(25rem);
+}
+
+::ng-deep .customDialogClassAddNewCountry {
+    @include customDialogClass(42rem);
+    .input1 {
+        display: none;
+    }
+
+    .dropdownSection{
+        margin-bottom: 2.2rem;
+    }
+}
+
+::ng-deep .customDialogClassInputAndDropdown {
+    @include customDialogClass(43rem);
+}
+
+::ng-deep .customDialogClassState {
+    @include customDialogClass(22rem);
+}
+
+::ng-deep .customDialogClassOrangeHeader {
+    .upperTitle {
+        background-color: $orangeColor !important;
+        p {
+            color: $whiteColor !important;
+        }
+    }
+}
+
+::ng-deep .passwordChanged {
+    .titleBox {
+        padding-left: 0 !important;
+        width: 100% !important;
+    }
+    .close {
+        display: none;
+    }
+}

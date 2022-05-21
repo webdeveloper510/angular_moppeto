@@ -1,0 +1,121 @@
+<div class="mainOuter border">
+
+
+    <div class="mainContent">
+        <div class="colsOuter">
+            <div class="row p-0 m-0">
+
+
+
+                <div class="col">
+                    <div class="upperSection text-center">
+                        <p class="mb-4"><u>App icon</u></p>
+                        <p>Used for app</p>
+                    </div>
+                    <div class="bottomSection">
+                        <div class="custom-dropzone border" ngx-dropzone [accept]="'image/*'" [multiple]="false"
+                            (change)="onSelect($event)">
+                            <ngx-dropzone-label>
+                                <div class="label">
+                                    <i class="pi pi-image"></i>
+                                    <p class="fatText">Click or drag file here to upload (jpg/png only)
+                                    </p>
+                                    <p class="thinText">(Aspect ratio to be 1 x 1, or xx px (ht) by xx px (width)</p>
+                                </div>
+                            </ngx-dropzone-label>
+                            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
+                                [file]="f" [removable]="true" (removed)="onRemove(f)">
+                            </ngx-dropzone-image-preview>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col">
+                    <div class="upperSection text-center">
+                        <p class="mb-4"><u>Official logo 1</u></p>
+                        <p>Splash screen Vendor/Admin panel Receipt</p>
+                    </div>
+                    <div class="bottomSection">
+                        <div class="custom-dropzone border" ngx-dropzone [accept]="'image/*'" [multiple]="false"
+                            (change)="onSelect($event)">
+                            <ngx-dropzone-label>
+                                <div class="label">
+                                    <i class="pi pi-image"></i>
+                                    <p class="fatText">Click or drag file here to upload (jpg/png only)
+                                    </p>
+                                    <p class="thinText">(Aspect ratio to be 1 x 1, or xx px (ht) by xx px (width)</p>
+                                </div>
+                            </ngx-dropzone-label>
+                            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
+                                [file]="f" [removable]="true" (removed)="onRemove(f)">
+                            </ngx-dropzone-image-preview>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="col">
+                    <div class="upperSection text-center">
+                        <p class="mb-4"><u>Official logo 2</u></p>
+                        <p>Website top panel</p>
+                    </div>
+                    <div class="bottomSection">
+                        <div class="custom-dropzone border" ngx-dropzone [accept]="'image/*'" [multiple]="false"
+                            (change)="onSelect($event)">
+                            <ngx-dropzone-label>
+                                <div class="label">
+                                    <i class="pi pi-image"></i>
+                                    <p class="fatText">Click or drag file here to upload (jpg/png only)
+                                    </p>
+                                    <p class="thinText">(Aspect ratio to be 1 x 1, or xx px (ht) by xx px (width)</p>
+                                </div>
+                            </ngx-dropzone-label>
+                            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
+                                [file]="f" [removable]="true" (removed)="onRemove(f)">
+                            </ngx-dropzone-image-preview>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col">
+                    <div class="upperSection text-center">
+                        <p class="mb-4"><u>Favicon</u></p>
+                    </div>
+                    <div class="bottomSection">
+                        <div class="custom-dropzone border" ngx-dropzone [accept]="'image/*'" [multiple]="false"
+                            (change)="onSelect($event)">
+                            <ngx-dropzone-label>
+                                <div class="label">
+                                    <i class="pi pi-image"></i>
+                                    <p class="fatText">Click or drag file here to upload (jpg/png only)
+                                    </p>
+                                    <p class="thinText">(Aspect ratio to be 1 x 1, or xx px (ht) by xx px (width)</p>
+                                </div>
+                            </ngx-dropzone-label>
+                            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
+                                [file]="f" [removable]="true" (removed)="onRemove(f)">
+                            </ngx-dropzone-image-preview>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,42 @@
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../SCSS/ngxDropZone/ngxDropZoneCustomDesign";
+
+$blackColor: #333333;
+
+.mainContent {
+    @media (min-width: 1789px) {
+        padding: 3rem 2.5rem 10rem 2.5rem;
+    }
+    @media (max-width: 1788px) {
+        padding: 3rem 11rem 10rem 11rem;
+    }
+    @media (max-width: 1547px) {
+        padding: 3rem 2.5rem 10rem 2.5rem;
+    }
+    .colsOuter {
+        .row {
+            justify-content: center;
+            .col {
+                height: 20rem;
+                min-width: 13rem;
+                max-width: 13rem;
+                padding: 0;
+                margin-bottom: 4.5rem;
+                .upperSection {
+                    height: 50%;
+                    border: solid lighten($blackColor, 22%) 0.07rem;
+                    outline: solid lighten($blackColor, 22%) 0.05rem;
+                    @include displayFlex(center, center);
+                    p {
+                        @include forParaTag($blackColor, 1.4rem, 500);
+                    }
+                }
+                .bottomSection {
+                    border: solid lighten($blackColor, 22%) 0.07rem;
+                    outline: solid lighten($blackColor, 22%) 0.05rem;
+                    height: 50%;
+                }
+            }
+        }
+    }
+}

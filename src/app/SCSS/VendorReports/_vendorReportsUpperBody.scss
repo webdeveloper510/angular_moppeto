@@ -1,0 +1,39 @@
+@import "../../SCSS/Revenue/revenueUpperBody";
+
+.upperBody {
+    .inner4 {
+        margin-top: 1.5rem;
+        @media (max-width: 1199px) and (min-width: 576px) {
+            margin: 2rem 0;
+        }
+        @media (max-width: 575px) {
+            margin-top: 0.5rem;
+        }
+        input {
+            width: 100% !important;
+            border-radius: 0.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .input1 {
+            @media (max-width: 575px) {
+                margin-top: 1.7rem;
+                margin-bottom: 2.5rem;
+            }
+            input {
+                &::placeholder {
+                    text-align: left !important;
+                }
+            }
+        }
+        .input2 {
+            padding-left: 0;
+            @media (max-width: 575px) {
+                padding-left: 2rem;
+            }
+            input {
+                text-align: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,573 @@
+.maindiv{
+    background-color: #F6F6F6;
+    border-top: solid 1px #dfdfdf;
+    // margin-right: 270px;
+    padding: 17px;
+}
+
+
+
+.countrytext{
+    font-size: 16px;
+    @media(max-width: 1504px){
+        font-size: 16px !important;
+    }
+    font-weight: 600;
+    color: black;
+
+}  
+
+.download-name{
+    i{
+        font-size: 16px
+    }
+}
+
+.icon1{
+    padding-left: 2px;
+}
+
+
+.icon{
+    @media(max-width: 578px)
+        {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+        }
+
+}
+
+.download{
+    @media(max-width: 578px)
+        {
+            margin-left: -8%;
+        }
+    @media(max-width: 467px)
+        {
+            margin-left: -10%;
+        }
+}
+
+
+
+
+
+.maininner{
+    // width: 80% !important;
+    width: 100% !important;
+
+    .col-4{
+        padding: 0;
+    }
+}
+
+.outermaintable{
+
+.web{
+    // min-width: 50%;
+}
+
+.normaltitle{
+    // width: 10%;
+    // min-width: 170px;
+    margin-right: 14px !important;
+
+    .forINR{
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        margin-bottom: -5px !important;
+        margin-top: 49px;
+        font-size: 18px;
+        font-weight: 700;
+        color: rgb(33, 33, 245);
+    }
+
+.fortable{
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    // margin-right: 22px;
+
+    .forno{
+        min-width: 70px;
+    }
+
+    
+
+    .forcategory{
+        // width: 50% !important;
+        // width: 50px;
+        min-width: 137px !important;
+    }
+    
+    .fortitle{
+        min-width: 85%;
+        margin-top: 3px;
+    }
+    // .fortitle2{
+    //     min-width: 90% !important;
+    // }
+
+    // .foricon2{
+    //     min-height: 10% !important;
+    // }
+
+    .foricon{
+        min-width: 15%;
+        .icon1, .icon2{
+            i{
+                font-size: 9px;
+                font-weight: 700;
+                color: black;
+                outline: black;
+                cursor: pointer;
+            }
+            }
+            
+            .icon1{
+                margin-top: -1px;
+            }
+            .icon2{
+                margin-top: -12px;
+            }
+
+
+        .icon2{
+            margin-left: 2px;
+        }
+    }
+    
+
+
+
+table{
+    background: white;
+    // min-width: 100%;
+
+}
+
+table, th, td {
+    border: solid 1px rgb(109, 109, 109);
+
+  }
+
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+
+
+  th{
+      height: 125px;
+      font-weight: 600;
+      font-size: 14px;
+    //   min-width: 77px;
+    // min-width: 100%;
+      text-align: center;
+    //   padding-bottom: 12px;
+
+  }
+
+  td{
+        height: 47px;
+        font-size: 13px;
+        // min-width: 77px;
+        text-align: center;
+
+        input{
+            // width: 77px;
+            height: 30px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-control{
+            text-align: center;
+            font-size: 15px;
+        }
+  }
+
+.forbg{
+    background-color: #E9E9E9;
+}
+
+
+
+
+}
+
+}
+
+
+
+.web{
+    // width: 40%;
+}
+
+
+
+
+.app, .web, .appAndWeb{
+    padding-bottom: 47px;
+    // min-width: 30%;
+
+    .forButtons{
+        padding: 10px 0 5px 0;
+
+        .customcolor{
+            background-color: #689F38;
+            border-color: #689F38;
+            i{
+                color: white;
+            }
+        }
+    }
+
+    .forEdit{
+        min-width: 22%;
+        button{
+            border-radius: 50%;
+            margin: auto !important;
+            display: block;
+
+        }
+    }
+
+    
+    .forDlt{
+        min-width: 23%;
+        i{
+            color: #E9414A;
+        font-size: 27px;
+            font-weight: 700;
+            text-align: center;
+            padding-top: 4px;
+            margin: auto;
+            display: block;
+            cursor: pointer;
+        }
+    }
+
+    .forAdd{
+        min-width: 55%;
+        button{
+            // margin: auto !important;
+            // display: block;
+            float: right;
+            height: 34px;
+            padding-top: 5px !important;
+
+        }
+    }
+
+
+
+
+
+    .title{
+        border: 1px solid rgb(109, 109, 109);
+        background-color: #FFEBEB;
+        min-height: 30px;
+        padding-top: 4px;
+        p{
+            text-align: center;
+            font-weight: 800;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+
+
+
+    .blank{
+        border-left: 1px solid rgb(109, 109, 109);
+        background-color: white;
+        min-height: 30px;
+        padding-top: 4px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    .apptable{
+        // border: solid 1px rgb(109, 109, 109);
+        .numbertable{
+            margin: 0 !important;
+
+            // min-width: 75%;
+            overflow-y: auto;
+
+
+
+            &::-webkit-scrollbar {
+            height: 10px;
+            padding-left: -2px;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background: #bebaba;
+            border-radius: 2px;
+        }
+    
+        &::-webkit-scrollbar-track {
+            margin-left: 3px;
+            margin-right: 2px;
+        }
+
+
+
+
+
+
+
+
+            
+            table{
+            margin: 0 !important;
+
+                .forbg{
+                    background-color: rgb(226, 226, 226) !important;
+                // padding-right: 12% !important;
+
+                }
+
+                
+                td{
+                    background-color: white;
+
+                    text-align: center;
+                    height: 47px;
+                    // max-width: fit-content;
+                    width: 200px !important;
+                    min-width: 57px;
+                    // min-width: 100px;
+                    border: solid 1px rgb(109, 109, 109);
+
+                    input{
+                        // margin: auto !important;
+                        // margin-left: 4px !important;
+                        margin-left: auto !important;
+                        margin-right: auto !important;
+                        margin-top: -5px !important;
+
+                    }
+
+                }
+                .removeborder{
+                    border-bottom: transparent 1px solid !important;
+                }
+            }
+        }
+
+
+        .fortitle{
+            min-width: 55%;
+            text-align: right;
+            font-size: 15px;
+            font-weight: 600;
+            padding-top: 8px;
+        }
+
+        .foricon{
+            min-width: 45%;
+            padding-right: 10px;
+
+            .icon1{
+                margin: 0;
+                margin-top: 5px !important;
+                padding: 0 !important;
+                i{
+                    font-size: 9px;
+                    font-weight: 600;
+                    padding-left: 3px !important;
+                }
+            }
+            .icon2{
+                margin: 0;
+                margin-top: -13px !important;
+                padding: 0 !important;
+                i{
+                    font-size: 9px;
+                    font-weight: 600;
+                    padding-left: 3px !important;
+                }
+            }
+        }
+
+
+
+
+        .forsubsequent{
+            // min-width: 100%;
+            margin: 0 !important;
+            margin-left: -2px !important;
+
+            .forbg{
+                background-color: rgb(226, 226, 226) !important;
+            }
+
+
+            table{
+            margin: 0 !important;
+
+
+                // min-width: 100%;
+
+
+                .fortitle{
+                    min-width: 80%;
+                    text-align: center;
+                    font-size: 13px;
+                    font-weight: 600 !important;
+                    padding-top: 8px;
+                    padding-left: 3px;
+                    padding-right: 3px;
+                    line-height: 15px;
+                }
+        
+                .foricon{
+                    min-width: 30%;
+                    padding-right: 10px;
+        
+                    .icon1{
+                        margin: 0;
+                        margin-top: 5px !important;
+                        padding: 0 !important;
+                        i{
+                            font-size: 9px;
+                            font-weight: 600;
+                            padding-left: 3px !important;
+                        }
+                    }
+                    .icon2{
+                        margin: 0;
+                        margin-top: -13px !important;
+                        padding: 0 !important;
+                        i{
+                            font-size: 9px;
+                            font-weight: 600;
+                            padding-left: 3px !important;
+                        }
+                    }
+                }
+
+
+                
+                td{
+                    text-align: center;
+                    background-color: white;
+
+                    height: 47px;
+                    // max-width: fit-content;
+                    // min-width: 77px;
+                    // min-width: 100px;
+                    border: solid 1px rgb(109, 109, 109);
+                    width: 170px !important;
+                    min-width: 57px;
+
+                    input{
+                        // margin: auto !important;
+                        // margin-left: 30% !important;
+                        margin-top: -8px !important;
+
+                    }
+
+                }
+                .removeborder{
+                    border-bottom: transparent 1px solid !important;
+                }
+            }
+        }
+
+
+        
+    }
+    }
+
+
+
+
+
+}
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+.web, .appAndWeb{
+    .title{
+        background-color: #E9FFEB !important;
+    }
+}
+
+.app{
+    .blank{
+        @media screen and (max-width: 1107px) {
+            margin-right: -50px;
+            background-color: white;
+        }
+
+        // height: 35px;
+
+    }
+}
+
+.web{
+    .blank{
+        @media screen and (max-width: 1107px) {
+            background-color: white;
+
+            margin-left: -50px;
+            margin-right: -50px;
+        }
+        // width: 200% !important;
+        // height: 35px;
+        border-color: white !important;
+        p{
+            font-size: 15px;
+            font-weight: 600;
+        }
+    }
+}
+
+.appAndWeb{
+    .blank{
+        @media screen and (max-width: 1107px) {
+            background-color: white;
+
+            margin-left: 100px;
+        }
+        // height: 35px;
+
+        // width: 10% !important;
+        border-left: 1px solid white !important;
+        border-right: 1px solid rgb(109, 109, 109) !important;
+    }
+}
+
+.maininner{
+    margin-right: 0px !important;
+}

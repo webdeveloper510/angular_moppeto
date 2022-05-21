@@ -1,0 +1,72 @@
+@import "../../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../SCSS/CustomRadioButton/customRadioButtonDesign";
+
+$blackColor: #333333;
+$disabledColor: #828282;
+
+.mainOuter {
+    border-radius: 0;
+    @media (min-width: 768px) {
+        min-height: 67rem;
+    }
+    @media (max-width: 767px) {
+        min-height: 70vh;
+    }
+}
+
+.radioMainOuter {
+    width: 45rem;
+    margin: 17rem auto 0 auto;
+    @media (max-width: 575px) {
+        width: 100%;
+        margin: 7rem auto 0 auto;
+    }
+    .headText {
+        padding-bottom: 1rem;
+        p {
+            @include forParaTag($blackColor, 1.5rem, 600);
+        }
+    }
+    .mainSection {
+        padding: 3rem 0 0 0;
+
+        .col-sm-4 {
+            @media (max-width: 575px) {
+                &:not(:last-child) {
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+
+        .radioOuter {
+            margin: 0 auto;
+            @include displayFlex(center, center);
+            .radio-item {
+                display: block !important;
+
+                label {
+                    margin: 0 !important;
+                    text-align: center;
+                    @include forParaTag($blackColor, 1.2rem, 600);
+                }
+
+                label:before {
+                    display: block;
+                    margin: 0 auto 17px auto !important;
+                }
+            }
+            .radio-item input[type="radio"]:checked + label:after {
+                left: 50% !important;
+                top: 9px !important;
+                transform: translate(-50%);
+            }
+        }
+
+        .searchInfo {
+            p {
+                @include forParaTag($disabledColor, 1rem, 500);
+            }
+        }
+    }
+}

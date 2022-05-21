@@ -1,0 +1,45 @@
+@import "../../SCSS/MediaAndGroupings/homepageHeaderDesign";
+@import "../../SCSS/ngxDropZone/ngxDropZoneCustomDesign";
+@import "../../SCSS/MediaAndGroupings/tabNavDesign";
+@import "../../SCSS/MediaAndGroupings/radioButtonSectionDesign";
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$customDropzoneBGcolor: #f2f2f2;
+$greyColor: #bdbdbd;
+$whiteColor: #fff;
+$labelColor: #4e4e4e;
+$scrollbarThumbColor: #e7e7e7;
+
+.tabs {
+    padding: 0 0 0 7rem;
+    @media (max-width: 575px) {
+        padding: 0 0 0 2rem;
+        .tabLinks {
+            margin-right: 2rem;
+        }
+    }
+    .tabLinks {
+        width: 10rem;
+        margin-right: 3rem;
+    }
+}
+
+.imgMainBody {
+    @include displayFlex(center, center);
+    margin: 0 0.5rem;
+    height: 10rem;
+}
+
+.custom-dropzone {
+    background-color: $customDropzoneBGcolor;
+}
+
+:host ::ng-deep ngx-dropzone-remove-badge {
+    top: 0rem !important;
+    @media (max-width: 1199px) {
+        top: 1.5rem !important;
+    }
+    @media (max-width: 575px) {
+        top: 2.5rem !important;
+    }
+}

@@ -1,0 +1,107 @@
+@import "../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../SCSS/Pagination/paginationDesign";
+@import "../../../SCSS/Table/tableDesign";
+@import "../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../SCSS/PlayAndResetButtons/playAndResetButtons";
+@import "../../../SCSS/CustomRadioButton/customRadioButtonDesign";
+@import "../../../SCSS/iconInsideDateRangeInput/iconInsideDateRangeInput";
+
+$tdTitle1Color: #333;
+$tdTitle2Color: #afafaf;
+$tableHeadPaginationBG: #f5f6fa;
+
+.upperLocDropdown {
+    width: 25rem;
+    margin: 3rem 1.5rem -1.5rem 1.5rem;
+}
+
+.downloadCSV {
+    img {
+        width: 1.9rem;
+        display: block;
+        margin: 0 3rem 2rem auto;
+        cursor: pointer;
+    }
+}
+
+.upperBodyOuter {
+    @include displayFlex(center, center);
+    flex-wrap: wrap;
+    padding: 2rem 2rem 0 2rem;
+    @media (max-width: 767px) {
+        display: block;
+        margin: 0 auto;
+        width: max-content;
+    }
+    .radioWithInputOuter {
+        width: 28rem;
+        margin-bottom: 2rem;
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+        @media (max-width: 767px) {
+            &:not(:last-child) {
+                margin: 0 0 2rem 0;
+            }
+        }
+        @media (max-width: 377px) {
+            width: 100%;
+        }
+        @include displayFlex(space-between, center);
+        .radioPart {
+            width: 3.5rem;
+        }
+        .rightInputPart {
+            width: calc(100% - 3.5rem);
+            .forDateRange {
+                margin-top: 1.5rem;
+            }
+        }
+    }
+}
+
+.tableOuter,
+.forBG,
+.paginationOuter {
+    background-color: $tableHeadPaginationBG !important;
+    .custom-select,
+    .form-control {
+        background-color: $tableHeadPaginationBG !important;
+    }
+}
+
+.tableOuter {
+    .table {
+        tbody {
+            .title1 {
+                @include tableData(1.3rem, $tdTitle1Color, 500);
+            }
+            .title2 {
+                @include tableData(1.3rem, $tdTitle2Color, 500);
+                padding-left: 1rem;
+            }
+        }
+        .descCol {
+            padding-left: 1.75rem;
+        }
+        .dateTimeCol {
+            width: 22rem;
+        }
+        @media (max-width: 1677px) {
+            th,
+            td {
+                width: 17rem;
+            }
+        }
+        @media (min-width: 1921px) {
+            th,
+            td {
+                width: 17rem;
+            }
+        }
+        .statusOuter {
+            margin-left: 0 !important;
+        }
+    }
+}

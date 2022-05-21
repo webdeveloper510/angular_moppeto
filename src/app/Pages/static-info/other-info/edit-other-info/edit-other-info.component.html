@@ -1,0 +1,91 @@
+<form [formGroup]="staticInfoForm" (ngSubmit)="onSubmit()">
+    <div class="mainOuter">
+        <div>
+            <button pButton pRipple type="button" (click)="back()" label="Back" class="p-button-danger back"></button>
+        </div>
+        <div class="headerText">
+            <p class="text-center text-uppercase"><u>{{typeText}}</u></p>
+        </div>
+        <div class="upperSection">
+            <div class="upperSectionInner">
+                <div class="radioOuter3">
+                    <div class="upperRadioDivOuter">
+                        <p>Select country</p>
+                        <div class="radioInner" [ngClass]="!isAdd ? 'disabled-div disabledRadio' : ''">
+                            <div class="row colOuter">
+                                <ng-container
+                                    *ngFor="let item of countryList; trackBy: trackByService.trackByFn; let i = index">
+                                    <div class="col-sm-6">
+                                        <div class="leftRadio">
+                                            <div class="forRadio">
+                                                <div class="radio-item">
+                                                    <input type="radio" [disabled]="!isAdd" [id]="item.id"
+                                                        [(ngModel)]="selectedCountry" formControlName="country"
+                                                        name="country" [value]="item?.name">
+                                                    <label for="{{item.id}}"> {{item?.name}}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rightSection" *ngIf="contents?.length > 0">
+                    <div class="languageSection">
+                        <div class="upperText">
+                            <p class="m-0">Other languages (if any)</p>
+                        </div>
+                        <div class="languageInner">
+                            <div class="languages row">
+                                <ng-container *ngFor="let item of contents">
+                                    <div class="col-6">
+                                        <button pButton pRipple type="button" label="{{item?.language}}"
+                                            [ngClass]="item?.id === staticInfoDetail?.id ? 'p-button-success' : 'p-button-primary'"
+                                            (click)="!isAdd ? onLangClick(item) : ''"></button>
+                                        <div class="copyLinktext text-nowrap"
+                                            [hidden]="item?.language?.toLowerCase() == main.toLowerCase()"
+                                            [cdkCopyToClipboard]="baseUrl+item?.link">
+                                            <p class="m-0">Tap to copy link</p>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="middleSection">
+                    <div class="addVersionTitle"
+                        [hidden]="staticInfoDetail?.language?.toLowerCase() == main.toLowerCase()">
+                        <ng-container>
+                            <p class="m-0 title">Version title</p>
+                            <input type="text" formControlName="contentLanguage" pInputText />
+                        </ng-container>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="editSection">
+            <quill-editor formControlName="contentData" [modules]="tools" (onEditorChanged)="changedEditor($event)">
+            </quill-editor>
+        </div>
+
+        <div class="bottomButtons">
+            <button *ngIf="!isAdd" pButton pRipple type="submit" label="Confirm"
+                class="p-button-warning confirmEdit"></button>
+            <button *ngIf="isAdd" [disabled]="!staticInfoForm.valid"
+                [ngClass]="!staticInfoForm.valid ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+                pButton pRipple type="submit" label="Add" class="p-button-success"></button>
+            <button pButton pRipple type="button" label="Cancel" (click)="back()"
+                class="p-button-danger p-button-outlined cancelButton"></button>
+            <button *ngIf="!isAdd" pButton pRipple type="button" (click)="confirmDelete()" label="Delete"
+                class="p-button-danger deleteButton button"></button>
+
+        </div>
+    </div>
+</form>

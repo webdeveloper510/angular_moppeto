@@ -1,0 +1,57 @@
+<div class="mainContainer shadow border" *ngIf="lineChartData?.chart">
+    <div class="upperHeadAndButtons">
+        <div class="headings text-uppercase">
+            <p class="m-0 mainHead" [ngClass]="lineChartData.header.color">{{lineChartData.header.text}}</p>
+            <p class="m-0 subHead" *ngIf="lineChartData.header?.subheading">{{lineChartData.header.subheading}}</p>
+        </div>
+        <div class="buttonsOuter">
+            <div class="withOrWithOutGST" *ngIf="lineChartData.header?.gstButtons">
+                <ng-container *ngFor="let gst of withOrWithOutGST">
+                    <button (click)="selectedGST = gst" class="btn border text-nowrap shadow-none"
+                        [ngClass]="gst===selectedGST?'activatedGSTBlue':'btn-light'">{{gst}}</button>
+                </ng-container>
+            </div>
+            <div class="dayWeekOrMonth">
+                <ng-container *ngFor="let dwm of dayWeekMonth">
+                    <button (click)="selecteDdayWeekMonth = dwm" class="btn border text-nowrap shadow-none"
+                        [ngClass]="dwm===selecteDdayWeekMonth?lineChartData.header.dwmColor:'btn-light'">{{dwm}}</button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="mainChartOuter">
+        <div class="chartInner">
+            <apx-chart #chart [series]="chartOptions.series" [chart]="chartOptions.chart" [yaxis]="chartOptions.yaxis"
+                [xaxis]="chartOptions.xaxis" [labels]="chartOptions.labels" [stroke]="chartOptions.stroke"
+                [title]="chartOptions.title" [dataLabels]="chartOptions.dataLabels" [fill]="chartOptions.fill"
+                [tooltip]="chartOptions.tooltip" [markers]="chartOptions.markers" [legend]="chartOptions.legend"
+                [responsive]="chartOptions.responsive">
+            </apx-chart>
+        </div>
+    </div>
+
+
+
+
+    <div class="radioScrollerOuter border" *ngIf="lineChartData.header?.radioSection">
+        <div class="radioScrollerInerMain">
+            <div class="radioScrollerIner">
+                <div class="radioOuter" *ngFor="let radios of bannerPageRadioValues">
+                    <div class="radio-item">
+                        <input type="radio" id="{{radios.id}}" name="bannerPage" value="{{radios.id}}">
+                        <label for="{{radios.id}}">{{radios.value}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</div>

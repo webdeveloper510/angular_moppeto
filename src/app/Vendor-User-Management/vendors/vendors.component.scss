@@ -1,0 +1,19 @@
+@import "../../SCSS/MainOuter/mainOuterDesign";
+@import "../../SCSS/TabNavBar/tabNavDesign";
+@import "../../SCSS/CustomRadioButton/customRadioButtonDesign";
+@import "../../SCSS/Revenue/_revenueRightSideBody";
+.radioBtnOuter {
+    padding-left: 16px;
+}
+.mainOuter {
+    margin: 3rem 1.5rem 0 1.5rem;
+}
+
+.total-display {
+    float: right;
+    margin-right: 22px;
+    span {
+        color: red;
+        margin: 0 15px 0 15px;
+    }
+}

@@ -1,0 +1,208 @@
+@import "../../SCSS/Pagination/paginationDesign";
+@import "../../SCSS/Table/tableDesign";
+@import "../../SCSS/PrimeNG/primeNGDesign";
+@import "../../SCSS/UserManagement/userManagementTopHeaderTabDesign";
+@import "../../SCSS/Revenue/revenueUpperBody";
+@import "../../SCSS/MainOuter/mainOuterDesign";
+@import "../../SCSS/PlayAndResetButtons/playAndResetButtons";
+
+$whiteColor: #fff;
+$discountColor: #396aff;
+$redeemedColor: #6fcf97;
+$tdTitle1Color: #4e4e4e;
+$tdTitle2Color: #4f4f4f;
+$tdTitle3Color: #828282;
+
+.mainOuter {
+    .topHeader {
+        border-width: 0.2rem !important;
+        padding-bottom: 0.07rem;
+        margin-bottom: 2rem;
+        .outer {
+            .tabs {
+                @media (max-width: 575px) {
+                    padding: 0 3.5rem;
+                }
+
+                .inner {
+                    @media (min-width: 1600px) {
+                        margin-right: 10rem;
+                    }
+                }
+
+                .colsOuter {
+                    display: flex;
+                    overflow-y: hidden;
+                    overflow-x: auto;
+                    scrollbar-width: thin;
+
+                    &::-webkit-scrollbar {
+                        height: 0.5rem;
+                        width: 0.5rem;
+                    }
+
+                    /* Track */
+                    &::-webkit-scrollbar-track {
+                        margin: 0.2rem 0;
+                        background: $whiteColor;
+                    }
+
+                    /* Handle */
+                    &::-webkit-scrollbar-thumb {
+                        background: $suspendStatusBGcolorAndScrollbarThumb;
+                    }
+                }
+
+                .actTab {
+                    a {
+                        border-bottom-width: 0.2rem !important;
+                    }
+                }
+
+                .cols {
+                    display: flex;
+                    justify-content: center;
+                    padding: 0 1rem !important;
+                }
+            }
+
+            .searchOuter {
+                @media (max-width: 1199px) {
+                    margin-top: 2rem;
+                }
+                @media (max-width: 991px) {
+                    padding-left: 2rem;
+                    margin-bottom: 2rem;
+                }
+                @media (max-width: 574px) {
+                    padding-left: 5rem !important;
+                }
+                .search {
+                    @media (max-width: 1036px) {
+                        margin-right: 2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .upperBody {
+        @media (min-width: 1401px) {
+            padding-left: 20rem;
+        }
+        @media (min-width: 1199px) {
+            padding-left: 10rem;
+        }
+        .outer {
+            margin-top: -1.5rem;
+        }
+    }
+
+    .addCuppon {
+        margin: 0 0 1rem 3rem;
+        button {
+            background-color: $buttonAllColor;
+            color: $whiteColor !important;
+            font-weight: 500 !important;
+            padding: 0.5rem 1.7rem !important;
+            &:focus {
+                outline: darken($buttonAllColor, 25%) !important;
+                box-shadow: 0 0 0.3rem darken($buttonAllColor, 15%) !important;
+            }
+        }
+    }
+
+    .tableOuter {
+        .table {
+            .forSort {
+                display: flex;
+                cursor: pointer;
+                i {
+                    color: $tdTitle2Color;
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    padding-left: 1.2rem;
+                    margin-top: 1.6rem;
+                }
+                .fa-sort-down {
+                    margin-top: 1rem;
+                }
+            }
+            .icoMargin {
+                .fa-sort-up {
+                    margin-top: 2.5rem;
+                }
+                .fa-sort-down {
+                    margin-top: 1.85rem;
+                }
+            }
+            thead {
+                tr {
+                    border-width: 0.2rem !important;
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        .title1 {
+                            @include tableData(1.35rem, $tdTitle1Color, 600);
+                        }
+                        .title2 {
+                            @include tableData(1.3rem, $tdTitle2Color, 500);
+                        }
+                        .title3 {
+                            @include tableData(1.25rem, $tdTitle2Color, 500);
+                        }
+                        .discount {
+                            p {
+                                color: $discountColor;
+                            }
+                        }
+
+                        .redeemed {
+                            p {
+                                color: $redeemedColor;
+                            }
+                        }
+
+                        .statusOuter {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .forNo {
+            width: 7.7rem;
+            padding-left: 2rem;
+        }
+
+        .cursorPointer {
+            cursor: pointer;
+        }
+
+        th,
+        td {
+            @media (max-width: 1677px) {
+                width: 18rem;
+            }
+            @media (min-width: 1921px) {
+                width: 18rem;
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    border-top: none !important;
+                    border-bottom: none !important;
+                    padding-top: 1.3rem;
+                    padding-bottom: 1.3rem;
+                }
+            }
+        }
+
+        //   Table Ends........
+    }
+}

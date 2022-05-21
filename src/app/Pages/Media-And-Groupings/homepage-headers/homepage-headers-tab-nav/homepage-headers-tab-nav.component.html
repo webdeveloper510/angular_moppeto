@@ -1,0 +1,87 @@
+<div class="mainOuter border">
+
+
+
+
+    <div class="mainRadioInner">
+        <div class="radioOuter1">
+            <div class="upperRadioDivOuter">
+                <p>Select platform</p>
+                <div class="radioInner">
+                    <div class="row colOuter">
+                        <ng-container *ngFor="let type of platformTypeList">
+                            <div class="col-6 p-0">
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{type.text}}" name="platform" value="{{type.value}}"
+                                            (change)="onChangePlatForm(type.value)">
+                                        <label for="{{type.text}}">{{type.text}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="radioOuter2">
+            <div class="upperRadioDivOuter">
+                <p>Select Country</p>
+                <div class="radioInner">
+                    <div class="row colOuter">
+                        <ng-container *ngFor="let item of countryList; trackBy: trackByService.trackByFn; let i = index">
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="leftRadio">
+                                    <div class="forRadio">
+                                        <div class="radio-item">
+                                            <input type="radio" [id]="item.id" name="country"
+                                                [value]="item" (change)="changeCountry(item)">
+                                            <label for="{{item.id}}"> {{item?.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+    <div class="radioOuter2" *ngIf="cityList?.length > 0">
+        <div class="upperRadioDivOuter">
+            <p>Select City</p>
+            <div class="radioInner">
+                <div class="row colOuter">
+                    <ng-container *ngFor="let item of cityList; trackBy: trackByService.trackByFn; let i = index">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="leftRadio">
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="city+{{item.id}}" name="city"
+                                            [value]="item" (change)="changeCity(item?.name)">
+                                        <label for="city+{{item.id}}"> {{item?.name}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tabs border-bottom">
+        <div class="tabLinks">
+            <a routerLink="vendor" routerLinkActive="activeRouter">Vendor</a>
+        </div>
+        <div class="tabLinks">
+            <a routerLink="super-admin" routerLinkActive="activeRouter">Super Admin</a>
+        </div>
+    </div>
+    <div class="mainInner">
+        <router-outlet></router-outlet>
+    </div>
+</div>

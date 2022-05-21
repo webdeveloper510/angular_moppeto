@@ -1,0 +1,64 @@
+@import "../../../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../../../SCSS/ActivityReports/normalCalendarAndHourCalendarCommonDesign";
+
+$whiteColor: #fff;
+$greenColor: #6fcf97;
+$blackColor: #000;
+$disabledColor: #bdbdbd;
+$offWhiteColor: #dbdbdb;
+$mainCalendarBackGroundColor: #f1fff7;
+$scrollThumbColor: #e7e7e7;
+
+.textAndSelectOuter {
+  .textSection {
+    p {
+      @include forParaTag($blackColor, 1.4rem, 600);
+    }
+  }
+}
+
+// Calendar View Starts
+
+.mainCalendarSectionOuter {
+  .calendarWeekName {
+    span {
+      @include displayFlex(flex-start, center);
+      padding-left: 0.6rem;
+      width: 100%;
+      font-size: 1.2rem;
+      font-family: Nunito;
+    }
+  }
+
+  .mainCalendarOuter {
+    .mainCalendarInner {
+      height: 10.25rem;
+      border: 1px solid $offWhiteColor;
+      margin: 0.27rem;
+      background-color: $mainCalendarBackGroundColor;
+      .calendarDates {
+        position: absolute;
+        padding: 2px 0 0 7px;
+        @include forParaTag($blackColor, 1.4rem, 600);
+      }
+    }
+  }
+}
+
+.calendarOuterForScroll {
+  @include scrollBar(auto, hidden, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.5rem);
+}
+
+.enrollDetails {
+  background-color: $greenColor;
+  width: 4rem;
+  height: 4rem;
+  @include displayFlex(center, center);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  p {
+      @include forParaTag($whiteColor, 1.5rem, 400);
+  }
+}

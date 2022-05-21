@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 5.2916665 5.2916665"
+   height="5.2916665mm"
+   width="5.2916665mm">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-26.292668,-112.12637)"
+     id="layer1">
+    <g
+       id="g899">
+      <g
+         style="fill:none"
+         id="g865"
+         transform="matrix(0.26458333,0,0,0.26458333,26.292668,112.12637)">
+        <rect
+           id="rect854"
+           rx="5.5"
+           height="19"
+           width="19"
+           y="0.5"
+           x="0.5"
+           style="fill:#ffffff;stroke:#e95555" />
+      </g>
+      <g
+         style="fill:none"
+         id="g878"
+         transform="matrix(0.26458333,0,0,0.26458333,27.33709,113.17127)">
+        <path
+           id="path867"
+           d="M 1.81836,1.81653 10.2868,10.285"
+           style="stroke:#e95555;stroke-width:2;stroke-linecap:round" />
+      </g>
+      <g
+         style="fill:none"
+         id="g891"
+         transform="matrix(0.26458333,0,0,0.26458333,27.336492,113.17127)">
+        <path
+           id="path880"
+           d="M 10.2891,1.81653 1.82058,10.285"
+           style="stroke:#e95555;stroke-width:2;stroke-linecap:round" />
+      </g>
+    </g>
+  </g>
+</svg>

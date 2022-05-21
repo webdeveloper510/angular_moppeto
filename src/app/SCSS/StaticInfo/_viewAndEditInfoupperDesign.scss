@@ -1,0 +1,167 @@
+@import "../../SCSS/MainOuter/mainOuterDesign";
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../SCSS/MediaAndGroupings/radioButtonSectionDesign";
+@import "../../SCSS/CustomEllipseDesign/customEllipseDesign.scss";
+
+$blackColor: #333333;
+$whiteColor: #fff;
+$languageButtonColor: #396aff;
+$greenButtonColor: #6fcf97;
+$orangeColor: #faa559;
+$termsTextBG: #e7e7e7;
+
+.headerText {
+    p {
+        @include forParaTag($blackColor, 2rem, 600);
+        margin: 0;
+        @media (max-width: 1597px) {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.upperSection {
+    position: relative;
+    .upperSectionInner {
+        @include displayFlex(space-between, center);
+        @media (max-width: 767px) {
+            display: block;
+        }
+        .radioOuter3 {
+            width: 35rem;
+            @media (max-width: 1277px) {
+                width: 30rem;
+            }
+            @media (max-width: 767px) {
+                margin: 0 auto 2rem auto;
+            }
+            @media (max-width: 575px) {
+                width: 100%;
+            }
+            .radioInner {
+                height: 11.17rem !important;
+            }
+        }
+
+        .rightSection {
+            width: 42rem;
+            @media (max-width: 1597px) {
+                width: 35rem;
+            }
+            @media (max-width: 1277px) {
+                width: 30rem;
+            }
+            @media (max-width: 767px) {
+                margin: 0 auto 2rem auto;
+            }
+            @media (max-width: 575px) {
+                width: 100%;
+            }
+            position: relative;
+            .languageSection {
+                width: 35rem;
+                @media (max-width: 1277px) {
+                    width: 100%;
+                }
+                .upperText {
+                    p {
+                        @include forParaTag($labelColor, 1.5rem, 500);
+                        padding-left: 0.25rem;
+                    }
+                }
+                .languageInner {
+                    margin-top: 0.5rem;
+                    box-shadow: 0 0 0.5rem $greyColor;
+                    border-radius: 1rem;
+                    height: 11.17rem !important;
+                    @include scrollBar(
+                        hidden,
+                        auto,
+                        0.5rem,
+                        0.5rem,
+                        0.8rem,
+                        0,
+                        5rem,
+                        $whiteColor,
+                        $scrollbarThumbColor,
+                        1rem
+                    );
+                    .languages {
+                        padding: 1.5rem 3.2rem;
+                        @media (max-width: 575px) {
+                            padding: 1.5rem;
+                        }
+                        @include buttonDesign(1.4rem, 400, 0rem, 0, 0.2rem, 0.7rem);
+                        button {
+                            width: 100%;
+                            margin: 0 auto 1.4rem auto;
+                        }
+                        .p-button-primary {
+                            @include classWisebuttonDesign(
+                                $languageButtonColor,
+                                $languageButtonColor,
+                                $whiteColor,
+                                $languageButtonColor
+                            );
+                        }
+                        .p-button-success {
+                            @include classWisebuttonDesign(
+                                $greenButtonColor,
+                                $greenButtonColor,
+                                $whiteColor,
+                                $greenButtonColor
+                            );
+                        }
+                    }
+                }
+            }
+            .ellipSection {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                @media (max-width: 1597px) {
+                    bottom: -4rem;
+                }
+                @media (max-width: 767px) {
+                    position: static;
+                    margin: 2rem auto 0 auto;
+                }
+                @include customEllipse();
+
+                .customRightsAlignDropdown {
+                    .btn {
+                        @media (max-width: 767px) {
+                            margin: 0 auto;
+                        }
+                        height: 2.2rem;
+                        width: 5rem;
+                        @include displayFlex(center, center);
+                        border: solid $orangeColor 0.1rem;
+                        border-radius: 0.7rem;
+                        &:hover {
+                            border: solid $orangeColor 0.1rem;
+                            background-color: lighten($orangeColor, 27%);
+                        }
+                        &:focus {
+                            border: solid $orangeColor 0.1rem;
+                        }
+                        position: relative;
+                        @include forParaTag($orangeColor, 3rem, 600);
+                    }
+                }
+            }
+        }
+    }
+
+    .middleSection {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        @media (max-width: 1597px) {
+            top: auto;
+            bottom: -3rem;
+            transform: translateY(auto);
+        }
+    }
+}

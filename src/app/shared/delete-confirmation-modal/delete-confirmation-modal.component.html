@@ -1,0 +1,20 @@
+<div class="actualOuter">
+    <div class="upperTitle">
+        <div class="titleBox">
+            <p class="text-center m-0" mat-dialog-title>{{data.title}}</p>
+        </div>
+    </div>
+
+    <div class="bodySection">
+        <div class="textSection">
+            <p class="text-center m-0">
+                {{data.bodyText}}
+            </p>
+        </div>
+
+        <div class="buttonSection">
+            <button pButton pRipple type="button" label="Yes" class="p-button-success"></button>
+            <button pButton pRipple type="button" label="No" class="p-button-black" (click)="onDismiss()"></button>
+        </div>
+    </div>
+</div>

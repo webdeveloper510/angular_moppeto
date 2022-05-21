@@ -1,0 +1,50 @@
+@import "../../SCSS/Pagination/paginationDesign";
+@import "../../SCSS/Table/tableDesign";
+@import "../../SCSS/VendorReports/vendorReportsTabDesign";
+@import "../../SCSS/VendorReports/vendorReportsRightSideSearchDesign";
+@import "../../SCSS/VendorReports/vendorReportsUpperBody";
+@import "../../SCSS/PrimeNG/primeNGDesign";
+@import "../../SCSS/MainOuter/mainOuterDesign";
+@import "../../SCSS/PlayAndResetButtons/playAndResetButtons";
+@import "../../SCSS/CustomRadioButton/customRadioButtonDesign";
+
+$tdTitle1Color: #4f4f4f;
+$tdTitle3Color: #828282;
+
+.mainOuter {
+    .tabs {
+        margin-top: 6.2rem;
+    }
+    .tableOuter {
+        .table {
+            tbody {
+                tr {
+                    td {
+                        .title1 {
+                            @include tableData(1.3rem, $tdTitle1Color, 500);
+                        }
+                        .title2 {
+                            @include tableData(1.3rem, $tdTitle3Color, 500);
+                        }
+                    }
+                }
+            }
+        }
+
+        .noCol {
+            width: 13rem;
+        }
+
+        @media (max-width: 767px) {
+            th,
+            td {
+                width: 13rem;
+            }
+        }
+
+        td {
+            padding-top: 2.2rem !important;
+            padding-bottom: 2.2rem !important;
+        }
+    }
+}

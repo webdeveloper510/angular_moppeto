@@ -1,0 +1,64 @@
+@import "../../SCSS/MainOuter/mainOuterDesign2";
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../SCSS/PrimeNG/primeNGDesign";
+
+$blackColor: #333333;
+$buttonAllColor: #4dc5af;
+
+.mainOuter {
+    .mainBodyOuter {
+        @include displayFlex(center, center);
+        width: 50rem;
+        @media (max-width: 575px) {
+            width: 100%;
+        }
+        .mainBodyInner {
+            width: 100%;
+            padding: 3rem 4rem;
+            @media (max-width: 575px) {
+                padding: 3rem 2rem;
+            }
+            .head {
+                margin-bottom: 5rem;
+                p {
+                    @include forParaTag($blackColor, 1.7rem, 600);
+                }
+            }
+            .actualBody {
+                .formDiv {
+                    margin-bottom: 3rem;
+                    .forLabel {
+                        margin-bottom: 0.5rem;
+                        p {
+                            @include forParaTag(lighten($blackColor, 40%), 1.4rem, 500);
+                        }
+                    }
+                    .forInput {
+                        input {
+                            border-radius: 0.7rem;
+                        }
+                    }
+                    .disabledInput {
+                        background-color: lighten($blackColor, 60%) !important;
+                    }
+                }
+                .updateButton {
+                    margin: 0 0 5rem 0;
+                    @include displayFlex(center, center);
+                    @include buttonDesign(1.4rem, 500, 00.5rem, 1.7rem, 0.2rem, 0.7rem);
+                    .p-button-success {
+                        @include classWisebuttonDesign($buttonAllColor, $buttonAllColor, $whiteColor, $buttonAllColor);
+                    }
+                    .p-button-secondary {
+                        @include classWisebuttonDesign(
+                            lighten($blackColor, 60%),
+                            lighten($blackColor, 60%),
+                            $whiteColor,
+                            lighten($blackColor, 60%)
+                        );
+                    }
+                }
+            }
+        }
+    }
+}

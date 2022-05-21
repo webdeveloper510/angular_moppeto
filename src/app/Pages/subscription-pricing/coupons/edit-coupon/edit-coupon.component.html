@@ -1,0 +1,125 @@
+<div class="OuterMain">
+    <div class="button">
+        <p>Edit Coupon</p>
+    </div>
+</div>
+
+
+<div class="mainOuter border">
+
+    <div class="forDropdown validationError">
+        <p>Select country</p>
+        <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="All Countries" optionLabel="name"
+            [showClear]="false">
+        </p-dropdown>
+    </div>
+
+    <div class="forHR">
+        <hr>
+    </div>
+
+
+    <div class="forCheckBox">
+        <p>Subscription types for coupon application</p>
+        <div class="row">
+            <div class="col innerCheckBox">
+                <div class="pretty p-default p-bigger">
+                    <input type="checkbox" />
+                    <div class="state p-success">
+                        <label>Advanced</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col innerCheckBox">
+                <div class="pretty p-default p-bigger">
+                    <input type="checkbox" />
+                    <div class="state p-success">
+                        <label>Premium</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col innerCheckBox">
+                <div class="pretty p-default p-bigger">
+                    <input type="checkbox" />
+                    <div class="state p-success">
+                        <label>Enterprise</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bottomDataOuter validationError">
+        <div class="bottomDataInner1">
+            <div class="row">
+                <div class="col-md-6 coupunSideOuter">
+                    <div class="coupunSide">
+                        <div class="totalCoupon">
+                            <p>Total number of coupons on offer</p>
+                            <input type="text" pInputText />
+                        </div>
+                        <div class="discountSide">
+                            <p>Coupon code <span> (up to 8 alphanumeric)</span></p>
+                            <input type="text" pInputText />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 discountOuter">
+                    <div class="discountType">
+                        <div class="discountTypeInner">
+                            <p>Discount type</p>
+                            <div class="row">
+                                <div class="col-6 innerRadio">
+                                    <div class="pretty p-default p-round p-bigger">
+                                        <input type="radio" name="discountType">
+                                        <div class="state p-success">
+                                            <label>%</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 innerRadio">
+                                    <div class="pretty p-default p-round p-bigger">
+                                        <input type="radio" name="discountType">
+                                        <div class="state p-success">
+                                            <label>Value (INR)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="discountValue">
+                            <p>Discount value</p>
+                            <input type="text" pInputText />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomDataInner2">
+            <div class="row justify-content-center">
+                <div class="col-sm-6 dateRange">
+                    <p>Coupon offer period</p>
+                    <!-- <input pInputText type="text" name="daterange" ngxDaterangepickerMd [(ngModel)]="selected"
+                        class="form-control" placeholder="Date range" /> -->
+                    <input pInputText type="text" class="form-control" bsDaterangepicker
+                        [bsConfig]="{ isAnimated: true }" placeholder="Date range" for="dateRange3">
+                    <i class="pi pi-calendar"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="forButtons">
+        <div class="buttons">
+            <button pButton pRipple type="button" label="Confirm" class="p-button-text p-button-plain"></button>
+            <button pButton pRipple type="button" label="Cancel" class="p-button-warning"></button>
+        </div>
+    </div>
+
+
+</div>

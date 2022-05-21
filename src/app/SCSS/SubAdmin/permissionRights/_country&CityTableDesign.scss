@@ -1,0 +1,90 @@
+@import "../../../SCSS/SubAdmin/permissionRights/commonTableForPermissionRights";
+
+.mainBodyOuter {
+    padding: 0 2.3rem 0 2.4rem;
+}
+
+.mainTableOuter {
+    @media (min-width: 768px) {
+        &::-webkit-scrollbar-track {
+            margin-left: 28rem !important;
+        }
+    }
+}
+
+.categoryDataOuter {
+    .categoryDataInner {
+        width: 30rem;
+    }
+}
+
+table {
+    tr {
+        &:first-child {
+            border-top: none;
+        }
+        &:last-child {
+            td {
+                border-bottom: none;
+            }
+        }
+        th {
+            border-top: none;
+            border-left: none;
+            border-bottom: none;
+            &:first-child {
+                border: none;
+            }
+        }
+        td {
+            padding-top: 2.2rem;
+            padding-bottom: 2.2rem;
+            &:first-child {
+                border-top: none;
+                border-left: none;
+                border-right: none;
+            }
+            &:nth-child(2) {
+                border-left: none;
+            }
+        }
+        th,
+        td {
+            &:first-child {
+                @media (min-width: 768px) {
+                    position: -webkit-sticky;
+                    position: sticky;
+                    left: 0;
+                    z-index: 2;
+                }
+                background-color: $BGcolor;
+            }
+        }
+    }
+}
+
+.radioTH {
+    margin: 0 auto;
+    @include displayFlex(center, center);
+    width: 150px;
+    height: 70px;
+    .radio-item {
+        display: block !important;
+
+        label {
+            margin: 0 !important;
+            text-align: center;
+            @include forParaTag($blackColor, 1.6rem, 700);
+        }
+
+        label:before {
+            display: block;
+            margin: 0 auto 10px auto !important;
+        }
+    }
+    .radio-item input[type="radio"]:checked + label:after {
+        left: 50% !important;
+        top: 9px !important;
+        transform: translate(-50%);
+    }
+}

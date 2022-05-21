@@ -1,0 +1,14 @@
+@import "../../../SCSS/Dashboard/chartsCommonDesigns";
+@import "../../../SCSS/Dashboard/rightSideChartCommonDesigns";
+
+$purpleColor: #cb89ff;
+
+.headings {
+    .mainHead {
+        color: $purpleColor;
+    }
+}
+
+.mainChartOuter{
+    margin-top: 5.3rem;
+}

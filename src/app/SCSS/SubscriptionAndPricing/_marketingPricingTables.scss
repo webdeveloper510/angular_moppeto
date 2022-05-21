@@ -1,0 +1,114 @@
+@import "../CommonDesigns/commonDesigns.scss";
+@import "../PrimeNG/primeNGDesign";
+@import "../Table/tableDesign";
+@import "../Pagination/paginationDesign";
+@import "./overlayBody";
+
+$blackColor: #333333;
+$whiteColor: #fff;
+$tealColor: #05cfab;
+$disabledColor: #bdbdbd;
+$orangeColor: #faa559;
+$tdTitle1Color: #333;
+$tdTitle2Color: #4f4f4f;
+$redColor: #e95656;
+
+.overlayBodyTrue {
+    background-color: transparent !important;
+    .ellipsisOuter2 {
+        .dropleft {
+            button {
+                background-color: $overlayColor !important;
+            }
+        }
+    }
+}
+
+.tableOuter {
+    .table {
+        thead {
+            th {
+                span {
+                    @include forParaTag($tdTitle2Color, 1.3rem, 500);
+                }
+            }
+        }
+        tbody {
+            .title1 {
+                @include tableData(1.4rem, $tdTitle1Color, 600);
+            }
+            .editInput {
+                input {
+                    max-width: 10rem;
+                    text-align: center;
+                    @include tableData(1.3rem, $tdTitle1Color, 500);
+                    border-radius: 0;
+                    border-color: $blackColor;
+                    box-shadow: none;
+                }
+            }
+            tr {
+                td {
+                    padding-top: 2.2rem;
+                    padding-bottom: 2.2rem;
+                }
+            }
+        }
+        .set_noCol {
+            padding-left: 1.75rem;
+            width: 11rem;
+        }
+        .set_categoryCol {
+            width: 17rem;
+        }
+        .set_smallCol {
+            width: 13rem;
+        }
+        .set_editCol {
+            width: 19rem;
+            .ellipsisOuter2 {
+                .dropdown_menu_one_item {
+                    top: 1.5rem !important;
+                }
+            }
+        }
+        .noCol {
+            padding-left: 1.75rem;
+            width: 9rem;
+        }
+        .categoryCol {
+            width: 15rem;
+        }
+        .smallCol {
+            width: 11rem;
+        }
+        .editCol {
+            width: 19rem;
+            padding-right: 1.75rem;
+            .ellipsisOuter2 {
+                @include displayFlex(flex-end, center);
+                .dropdown_menu_one_item {
+                    top: 1.5rem !important;
+                }
+            }
+            .nextCancelButtonOuter {
+                @include displayFlex(flex-end, center);
+            }
+        }
+        .nextCancelButtonOuter {
+            @include buttonDesign(1.35rem, 500, 00.375rem, 0rem, 0.2rem, 0.75rem);
+            button {
+                width: 7rem;
+                &:not(:last-child) {
+                    margin-right: 1.25rem;
+                }
+            }
+            .p-button-success {
+                @include classWisebuttonDesign($tealColor, $tealColor, $whiteColor, $tealColor);
+            }
+            .p-button-danger {
+                @include classWisebuttonDesign($whiteColor, $redColor, $redColor, $redColor);
+            }
+        }
+    }
+}

@@ -1,0 +1,127 @@
+<div class="mainOuter border">
+
+    <div class="BoysOuter">
+
+        <div class="boysInner">
+            <div class="text">
+                <p>Boys</p>
+            </div>
+            <div class="colsOuter">
+
+                <div class="cols" *ngFor="let boy of defaultSet; index as i;">
+                    <div class="outer">
+                        <div class="imgOuter border"
+                            *ngIf="boysAvatars.length > 0 && boysAvatars[i] && boysAvatars[i].media">
+                            <div class="imgView">
+                                <img [src]="avatarMedia(boysAvatars[i].media)" alt="" class="border">
+                            </div>
+                            <div class="closeIcon">
+                                <i *ngIf="closeIconBoys1" class="pi pi-times"
+                                    (click)="deleteConfirmation(boysAvatars[i].id, i, 'b')"></i>
+                            </div>
+                            </div>
+
+                            <div *ngIf="!boysAvatars[i]" class="custom-dropzone" ngx-dropzone
+                                accept="image/jpeg,image/jpg,image/png" [maxFileSize]="maxFZ"
+                                [disableClick]="fileObject && fileObject[i]" (change)="onSelect($event, i, 'b')"
+                                multiple="false">
+                                <ngx-dropzone-label *ngIf="files?.length===0">
+                                    <div class="label">
+                                        <i class="pi pi-image"></i>
+                                        <p class="forBold">Click or drag file here to upload (jpg/png only)</p>
+                                        <p class="text-muted">(Minimum size of image: 300 px by 168 px)
+                                        </p>
+                                    </div>
+                                </ngx-dropzone-label>
+                                <img *ngIf="files?.length>0" class="img-fluid" data-toggle="modal"
+                                    data-target="#zoomImgModal" />
+                                <!-- <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngIf="fileObject &&fileObject[i]"
+                                [file]="fileObject[i]" [removable]="true" (removed)="onRemove(i)">
+                                
+                            </ngx-dropzone-image-preview> -->
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="GirlsOuter">
+        <div class="girlsInner">
+            <div class="text">
+                <p>Girls</p>
+            </div>
+            <div class="colsOuter">
+
+                <div class="cols" *ngFor="let boy of defaultSet; index as i;">
+                    <div class="outer">
+                        <div class="imgOuter border"
+                            *ngIf="girlsAvatars.length > 0 && girlsAvatars[i] && girlsAvatars[i].media">
+                            <div class="imgView">
+                                <img [src]="avatarMedia(girlsAvatars[i].media)" alt="" class="border">
+                            </div>
+                            <div class="closeIcon">
+                                <i *ngIf="closeIconGirls1" class="pi pi-times"
+                                    (click)="deleteConfirmation(girlsAvatars[i].id, i, 'g')"></i>
+                            </div>
+                        </div>
+
+                        <div *ngIf="!girlsAvatars[i]" class="custom-dropzone" ngx-dropzone
+                            accept="image/jpeg,image/jpg,image/png" [maxFileSize]="maxFZ"
+                            [disableClick]="fileObjectG && fileObjectG[i]" (change)="onSelect($event, i, 'g')"
+                            multiple="false">
+                            <ngx-dropzone-label *ngIf="files?.length===0">
+                                <div class="label">
+                                    <i class="pi pi-image"></i>
+                                    <p class="forBold">Click or drag file here to upload (jpg/png only)</p>
+                                    <p class="text-muted">(Minimum size of image: 300 px by 168 px)
+                                    </p>
+                                </div>
+                            </ngx-dropzone-label>
+                            <img *ngIf="files?.length>0" class="img-fluid" data-toggle="modal"
+                                data-target="#zoomImgModal" />
+                            <!-- <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngIf="fileObjectG &&fileObjectG[i]"
+                                [file]="fileObjectG[i]" [removable]="true" (removed)="onRemove(i)">
+                                
+                            </ngx-dropzone-image-preview> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- This Code is for Toast -->
+    <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+</div>
+
+
+<div [style.display]="triggerCropper ? 'block' : 'none'" class="modal cropModal" id="exampleModal" tabindex="-1"
+    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content border-0">
+            <div class="headSection">
+                <div class="text">
+                    <p>Crop Image</p>
+                </div>
+                <div class="close" data-dismiss="modal" (click)="closeCropImage()">
+                    <p>X</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                    [aspectRatio]="1 / 1" [resizeToWidth]="500" [resizeToHeight]="500" [onlyScaleDown]="false"
+                    [roundCropper]="true" format="png" (imageCropped)="imageCropped($event)"
+                    (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()" alignimage="center">
+                </image-cropper>
+            </div>
+            <div class="buttonSection">
+                <button pButton pRipple type="button" label="Crop" class="p-button-success"
+                    (click)="cropImage()"></button>
+                <button pButton pRipple type="button" label="Cancel" class="p-button-warning" data-dismiss="modal"
+                    (click)="closeCropImage()"></button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+@import "../../../../SCSS/Pagination/paginationDesign";
+@import "../../../../SCSS/Table/tableDesign";
+@import "../../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../../SCSS/Revenue/revenueUpperBody";
+@import "../../../../SCSS/MainOuter/mainOuterDesign2";
+@import "../../../../SCSS/PlayAndResetButtons/playAndResetButtons";
+@import "../../../../SCSS/upperCommonDesigns/upperSearchWithIconDesign";
+@import "../../../../SCSS/upperCommonDesigns/sortingTabDesigns";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../SCSS/iconInsideDateRangeInput/iconInsideDateRangeInput";
+
+$whiteColor: #fff;
+$blueColor: #396aff;
+$tdTitle1Color: #4e4e4e;
+$orangeColor: #faa559;
+
+.sortingTab {
+    .links {
+        font-size: 1.6rem;
+    }
+}
+
+.broadcastButton {
+    @include buttonDesign(1.4rem, 500, 00.5rem, 0rem, 0.2rem, 0.7rem);
+    margin: 0 0 1rem 3rem;
+    .p-button-success {
+        width: 12rem;
+        @include classWisebuttonDesign($buttonAllColor, $buttonAllColor, $whiteColor, $buttonAllColor);
+    }
+}
+
+.inner3 {
+    .button {
+        button {
+            @include classWisebuttonDesign(transparent, $orangeColor, $orangeColor !important, $orangeColor);
+        }
+    }
+}
+
+.mainOuter {
+    .topHeader {
+        .outer {
+            margin: 2rem 4rem 0 4rem;
+            @media (max-width: 767px) {
+                margin: 2rem 1.5rem 0 1.5rem;
+            }
+            .row {
+                align-items: flex-end;
+            }
+            .sortingTab {
+                width: 27rem;
+                @media (max-width: 767px) {
+                    margin: 1rem auto 0 auto;
+                }
+                @media (max-width: 575px) {
+                    padding-bottom: 1.5rem;
+                }
+                @media (max-width: 387px) {
+                    width: calc(100% - 2rem);
+                }
+            }
+            .searchOuter {
+                padding-bottom: 1rem;
+                @media (min-width: 576px) {
+                    padding-left: 2.7rem;
+                }
+            }
+        }
+    }
+
+    .upperBody {
+        @media (min-width: 1401px) {
+            padding-left: 20rem;
+        }
+        @media (min-width: 1199px) {
+            padding-left: 10rem;
+        }
+    }
+
+    .tableOuter {
+        .table {
+            thead {
+                tr {
+                    border-width: 0.2rem !important;
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        .title1 {
+                            @include tableData(1.35rem, $tdTitle1Color, 600);
+                        }
+                        .title4 {
+                            @include tableData(1.35rem, $tdTitle1Color, 400);
+                        }
+                        .anchorTitle {
+                            a {
+                                @include forParaTag($blueColor, 1.3rem, 500);
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .forNo {
+            width: 7.7rem;
+            padding-left: 2rem;
+        }
+
+        .statusCol {
+            width: 16.5rem;
+        }
+        .bigCell {
+            width: 22rem;
+        }
+
+        th,
+        td {
+            @media (max-width: 1867px) {
+                width: 15rem;
+            }
+            @media (min-width: 1921px) {
+                width: 15rem;
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    border-top: none !important;
+                    border-bottom: none !important;
+                    padding-top: 1.3rem;
+                    padding-bottom: 1.3rem;
+                }
+            }
+        }
+
+        //   Table Ends........
+    }
+}

@@ -1,0 +1,57 @@
+@import "../../../SCSS/Pagination/paginationDesign";
+@import "../../../SCSS/Table/tableDesign";
+@import "../../../SCSS/MainOuter/mainOuterDesign2";
+@import "../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../SCSS/UserManagement/userManagementTopHeaderTabDesign";
+
+
+$tdTitle1Color: #4f4f4f;
+$tdTitle3Color: #828282;
+
+.mainOuter {
+    .tableOuter {
+        .table {
+            .forSort {
+                display: flex;
+                cursor: pointer;
+                i {
+                    color: $tdTitle1Color;
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    padding-left: 1.2rem;
+                    margin-top: 1.6rem;
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        .title1 {
+                            @include tableData(1.4rem, $tdTitle1Color, 600);
+                        }
+                        .title2 {
+                            @include tableData(1.3rem, $tdTitle3Color, 500);
+                        }
+                        .title3 {
+                            @include tableData(1.35rem, $tdTitle3Color, 500);
+                        }
+                        .title4 {
+                            @include tableData(1.3rem, $tdTitle1Color, 400);
+                        }
+
+                        .ellipsisOuter {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+
+        th,
+        td {
+            @media (max-width: 1500px) {
+                width: 17.7rem;
+            }
+        }
+        //   Table Ends........
+    }
+}

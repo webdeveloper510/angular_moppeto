@@ -1,0 +1,71 @@
+<div class="mainBodyOuter">
+    <div class="upperDropdownAndEditButton">
+        <div class="upperLocDropdown">
+            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="All countries" optionLabel="name"
+                [showClear]="false">
+            </p-dropdown>
+        </div>
+        <div class="topEditButton">
+            <button pButton type="button" label="Go to Payment Gateway" class="p-button-success w-100"></button>
+        </div>
+    </div>
+    <div class="nameEmailOuter">
+        <div class="namePart">
+            <div class="labelText">
+                <p class="m-0">Owner name</p>
+            </div>
+            <div class="dataText">
+                <p class="m-0">Display name</p>
+            </div>
+        </div>
+        <div class="emailPart">
+            <div class="labelText">
+                <p class="m-0">Email address</p>
+            </div>
+            <div class="dataText">
+                <p class="m-0">owner@mail.com</p>
+            </div>
+        </div>
+    </div>
+    <div class="paymentMethodsOuter">
+        <div class="paymentMethodsInner">
+            <div class="paymentTypeText">
+                <p class="m-0">Local QR payment</p>
+            </div>
+            <div class="paymentMethods">
+                <img src="assets/payment_gateways/PayNow.svg" alt="">
+            </div>
+        </div>
+        <div class="paymentMethodsInner">
+            <div class="paymentTypeText">
+                <p class="m-0">Cards payment</p>
+            </div>
+            <div class="paymentMethods">
+                <img src="assets/payment_gateways/Visa.svg" alt="">
+                <img src="assets/payment_gateways/MasterCard.svg" alt="">
+                <img src="assets/payment_gateways/UnionPay.svg" alt="">
+                <img src="assets/payment_gateways/AmericanExpress.svg" alt="">
+            </div>
+        </div>
+        <div class="paymentMethodsInner">
+            <div class="paymentTypeText">
+                <p class="m-0">Others</p>
+            </div>
+            <div class="paymentMethods">
+                <img src="assets/payment_gateways/ApplePay.svg" alt="">
+                <img src="assets/payment_gateways/GPay.svg" alt="">
+                <img src="assets/payment_gateways/Alipay.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="bottomSection">
+        <div class="leftText">
+            <p class="m-0">Payment processing is powered by</p>
+            <img src="assets/payment_gateways/HitPay.svg" alt="">
+        </div>
+        <div class="rightText">
+            <p class="m-0">For details on rates please visit Hitpay’s site <span class="cursor-pointer"
+                    routerLink="/">here</span></p>
+        </div>
+    </div>
+</div>

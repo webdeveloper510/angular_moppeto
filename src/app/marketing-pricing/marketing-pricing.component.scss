@@ -1,0 +1,160 @@
+select {
+    font-family: 'FontAwesome', 'Second Font name'
+  }
+
+.container-fluid{
+    font-family:'Lato',sans-serif;
+}  
+ 
+.primarydiv{
+    padding: 0!important;
+    margin-left: 0px !important;
+    margin-right: -30px !important;
+    border-color: rgba(153, 150, 150, 0.986) !important;
+    background: rgb(223, 223, 223);
+
+    @media(max-width: 575px)
+        {
+            margin-right: -57px !important;
+            
+        }
+
+}
+
+.countrytext{
+    font-size: 16px;
+    @media(max-width: 1504px){
+        font-size: 14px !important;
+    }
+    font-weight: 600;
+    color: black;
+
+}  
+
+.countrybar{
+    height: 107px;
+    overflow: auto;
+    border-color: rgba(153, 150, 150, 0.986) !important;
+    background-color: white;
+
+    font-size: 16px;
+    @media(max-width: 1504px){
+        font-size: 14px !important;
+        height: 103px !important;
+    }
+
+
+    &::-webkit-scrollbar {
+        width: 7px;
+        padding-top: -5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #bebaba;
+        border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+        margin-top: 3px;
+    }
+
+    @media(max-width: 767px)
+        {
+                width: 70%;
+        }
+
+}
+
+
+.subright{
+    padding-right: 0 !important;
+
+    margin-right: -10px !important;
+
+    @media(max-width: 906px) and (min-width: 896px){
+        text-align: left !important;
+        padding: 0!important;
+        font-size: 13px;
+        padding-top: 7px !important;
+    }
+    @media(max-width: 767px){
+        text-align: center !important;
+    margin-right: 0px !important;
+
+    }
+
+}
+
+.subleft{
+    @media(max-width: 767px){
+        text-align: center !important;
+    }
+}
+
+.forcity{
+    font-size: 14px !important;
+
+    @media(max-width: 1504px){
+        font-size: 13px !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mainmarketing{
+    margin: 37px 15px 22px 15px;
+    // border: 1px solid black;
+}
+
+
+.fornav{
+    a{
+        text-decoration: none;
+        font-weight: normal;
+        margin-right: 10px;
+    }
+
+    .active{
+        p{
+            color: black;
+        }
+        div{
+            background-color: #F6F6F6;
+        }
+    }
+}
+
+.nav-item{
+    background-color: #BBBBBB;
+    width: 87px;
+    height: 40px;
+    padding: 2px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+        p{
+            text-align: center;
+            color: white;
+            line-height: 15px;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .formargin{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .formargin1{
+            margin-top: 3px;
+        }
+}

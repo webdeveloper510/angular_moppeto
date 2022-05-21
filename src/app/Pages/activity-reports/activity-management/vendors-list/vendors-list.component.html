@@ -1,0 +1,1728 @@
+<div class="mainOuter border">
+
+    <!-- UpperBody Starts..... -->
+
+    <div class="upperBody">
+        <div class="outer container">
+            <div class="row">
+                <div class="col-xl-6 body1">
+                    <form #vendorForm="ngForm" (ngSubmit)="onSubmit(vendorForm.value)">
+                    <div class="innerBody1Outer">
+                        <div class="inner1">
+                            <div class="row">
+                                <div class="col-sm-6 input1">
+                                    <input
+                                    type="text"
+                                     (input)="onVendorNameSuggestion($event)"
+                                     ngModel
+                                     name="vendor_name"
+                                     pInputText
+                                     value="{{selectvendorSugg?selectvendorSugg:''}}"
+                                      placeholder="Vendor name">
+                                    <ul (click)="onVendorSelect($event)" *ngIf='vendorSugg.length > 0'>
+                                      <li class="vendor_name" *ngFor="let data of vendorSugg; let i = index" [value]="i">{{data?.vendor_name}}</li>
+                              </ul>
+                                </div>
+                                <div class="col-sm-6 input2">
+                                    <input type="text" ngModel name="vendor_code" pInputText placeholder="Vendor code">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inner4">
+
+                            <div class="row">
+
+                                <div class="col-sm-6 dropdown1">
+                                    <p-dropdown [options]="activity_type" [(ngModel)]="selectedActivity"
+                                        placeholder="Activity type " name="activity_type" optionLabel="name" [showClear]="false">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="col-sm-6 dateRangeNormal">
+                                    <input ngModel name="dateRange" pInputText type="text" class="form-control" bsDaterangepicker
+                                        [bsConfig]="{ isAnimated: true }"  placeholder="Date range" for="dateRange3">
+                                    <i class="pi pi-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inner2">
+                            <div class="row">
+                                <div class="col-sm-6 dropdown2">
+                                    <!-- <p-dropdown [options]="cities" [(ngModel)]="selectedCountry" -->
+
+                                    <p-dropdown [options]="country" ngModel
+                                        placeholder="All countries" name="country" optionLabel="name" [showClear]="false">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inner3 d-flex justify-content-center">
+                            <div class="icon">
+                                <i class="pi pi-youtube"></i>
+                            </div>
+                            <div class="button">
+                                <!-- <button pButton pRipple type="button" label="Reset"
+                                    class="p-button-outlined p-button-success"></button> -->
+                                <!-- <button pButton pRipple type="button" label="Search"
+                                    class="p-button-outlined p-button-success"></button> -->
+                                    <button pButton label="Search" pRipple class="p-button-outlined p-button-success" type = "submit" value = "submit">
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+                <div class="col-xl-6 body2">
+                    <div class="innerBody2Outer">
+                        <div class="search">
+                            <i class="pi pi-search" [ngClass]="searchInput?'searchColor':'searchColor2'"></i>
+                            <input
+                                type="text"
+                                (input)="onSearchChange($event)"
+                                pInputText
+                                [(ngModel)]="searchInput"
+                            >
+
+                        <ul (click)="singleSearchData($event)" *ngIf='vendorSearchData.length > 0'>
+                          <li class="test" *ngFor="let data of vendorSearchData; let i = index" [value]="i">{{data?.vendor_name}}</li>
+                  </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UpperBody Ends..... -->
+
+    <div class="sortingTab">
+        <div class="links activeTab">
+            <!-- <p class="m-0 text-center">All</p>  -->
+            <p class="m-0 text-center anc" routerLink="/activity-management">All</p>
+
+        </div>
+        <div class="links ">
+          <p class="m-0 text-center anc" routerLink="/active-vendor-list">Active</p>
+        </div>
+        <div class="links">
+            <p class="m-0 text-center anc" routerLink="/suspend-vendor-list">Suspend</p>
+
+        </div>
+    </div>
+
+
+
+    <!-- Table Starts..... -->
+    <div class="tableOuter border-top table-responsive text-nowrap">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr>
+                    <th scope="col" class="text-left bigCell">
+                        Vendor name
+                        <br>
+                        Vendor code
+                    </th>
+                    <th scope="col" class="text-left bigCell">
+                        Activity title
+                        <br>
+                        Activity code
+                    </th>
+                    <th scope="col">
+                        Country
+                    </th>
+                    <th scope="col">
+                        Activity
+                        <br>
+                        type
+                    </th>
+                    <th scope="col">
+                        Scheduled
+                        <br>
+                        no. of classes
+                    </th>
+                    <th scope="col">
+                        Scheduled
+                        <br>
+                        no. of sessions
+                    </th>
+                    <th scope="col">
+                        Status
+                    </th>
+                    <th scope="col" class="ellipsisTH">
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="border-top">
+                <tr  *ngFor='let vendor of vendorData' class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                {{vendor.vendor_name}}
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                {{vendor.vendor_code}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                {{vendor.activity_title}}
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                {{vendor.activity_code}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                {{vendor.country}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                              {{vendor.activity_type}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                              {{vendor.scheduled_classes}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                              {{vendor.scheduled_session}}
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                              <!-- <div class="{{vendor.status == 'ACTIVE' ? 'status ActiveStatus':'status SuspendStatus'}}"> -->
+                              <div class="{{vendor.status?vendor.status =='ACTIVE'? 'status ActiveStatus':'status SuspendStatus':''}}">
+                                <div class="circleDiv"></div>
+                                <div class="ActualStatus">
+                                  <p> {{vendor.status?vendor.status =='ACTIVE'?'Active':'Suspend':'' }}</p>
+                                  <!-- <p> {{vendor.status == 'ACTIVE'? 'Active':'Suspend'}}</p> -->
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr  *ngFor='let searchData of selectSearchData' class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                {{searchData.vendor_name}}
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                {{searchData.vendor_code}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                {{searchData.activity_title}}
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                {{searchData.activity_code}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                {{searchData.country}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                1,437
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                              <div class="{{searchData.status == 1 ? 'status ActiveStatus':'status SuspendStatus'}}">
+                                <div class="circleDiv"></div>
+                                <div class="ActualStatus">
+                                  <p> {{searchData.status == 1 ? 'Active':'Suspend'}}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Re-Instate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                1,437
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Re-Instate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                1,437
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Re-Instate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                1,437
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Re-Instate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                1,437
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Re-Instate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                1,437
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Re-Instate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                1,437
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Re-Instate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                1,437
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Re-Instate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                1,437
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ActiveStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title3">
+                            <p>
+                                Berries world of learning
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="title2">
+                            <p>
+                                Swimming for toddlers
+                            </p>
+                        </div>
+                        <div class="title2">
+                            <p>
+                                SG-A7C
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title3">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                Fixed timing
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title2">
+                            <p>
+                                4,561
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Re-Instate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr> -->
+
+
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Ends...... -->
+
+
+    <!-- Pagination Starts...... -->
+    <div class="paginationOuter">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="rowsOuter">
+                    <p>Rows per page:</p>
+                    <div class="selectNoOfRow select">
+
+                        <select class="form-control select__field" aria-label="Default select example">
+                            <option selected value="1">10</option>
+                            <option value="2">20</option>
+                            <option value="3">30</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="pagesOuter">
+                    <p>1 of 6</p>
+                    <div class="iconPrevious">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector1.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="iconNext">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector2.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pagination Ends...... -->
+</div>

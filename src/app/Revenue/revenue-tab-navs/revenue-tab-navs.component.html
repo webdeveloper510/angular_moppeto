@@ -1,0 +1,24 @@
+<div class="userTabNav">
+    <div class="mainOuter">
+        <div class="fornav d-flex">
+            <a routerLink="summary" routerLinkActive='active'>
+                <div class="nav-item">
+                    <P class="formargin">Summary</P>
+                </div>
+            </a>
+            <a routerLink="banners" routerLinkActive='active'>
+                <div class="nav-item">
+                    <P class="formargin">Banners</P>
+                </div>
+            </a>
+            <a routerLink="search-words" routerLinkActive='active'>
+                <div class="nav-item srcWrd">
+                    <P class="formargin">Search words</P>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="fornavmenus">
+        <router-outlet></router-outlet>
+    </div>
+</div>

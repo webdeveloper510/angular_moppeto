@@ -1,0 +1,196 @@
+@import "../../SCSS/Pagination/paginationDesign";
+@import "../../SCSS/Table/tableDesign";
+@import "../../SCSS/PrimeNG/primeNGDesign";
+@import "../../SCSS/UserManagement/userManagementTopHeaderTabDesign";
+@import "../../SCSS/MainOuter/mainOuterDesign";
+@import "../../SCSS/PlayAndResetButtons/playAndResetButtons";
+@import "../../SCSS/ngxCalendar/ngxCalendarDesign";
+
+$tdTitle1Color: #4e4e4e;
+$tdTitle2Color: #4f4f4f;
+$tdTitle3Color: #828282;
+$normalText: #474747;
+$rateBorderColor: #facd44;
+$rateTextColor: #faa559;
+
+.mainOuterTop {
+    margin: 3rem 1.5rem 0 1.5rem;
+    .topHeader {
+        .outer {
+            margin: 1rem 1.5rem 0 1rem;
+        }
+    }
+}
+
+.mainOuter {
+    margin-top: 0;
+    .upperBody {
+        .container {
+            padding: 0 1.5rem;
+            @media screen and (min-width: 1177px) {
+                min-width: 93%;
+            }
+            @media (max-width: 991px) {
+                min-width: 70%;
+                padding-right: 0;
+            }
+        }
+        .outer {
+            margin-top: 1.5rem;
+            .innerBody1Outer {
+                margin-right: 1.5rem;
+                .vendorCodeOuter {
+                    input {
+                        text-align: center;
+                    }
+                    @media (max-width: 575px) {
+                        margin-top: 1.3rem;
+                    }
+                }
+                .inner2 {
+                    margin-top: 1.5rem;
+                    .dateRange {
+                        .form-control {
+                            width: 100% !important;
+                            margin: auto !important;
+                        }
+                        @media (max-width: 575px) {
+                            margin-top: 1.3rem;
+                            padding-left: 2rem !important;
+                        }
+                        input {
+                            height: 3.3rem;
+                        }
+                        i {
+                            top: 0.7rem;
+                        }
+                    }
+                }
+                .inner3 {
+                    margin-top: 1rem;
+                    @media (max-width: 575px) {
+                        margin-top: 1.7rem;
+                    }
+                }
+            }
+            .innerBody2Outer {
+                margin-left: 1.5rem;
+                @media (max-width: 991px) {
+                    margin: 1.5rem 1.5rem 1.5rem 0.75rem;
+                }
+                .rateOuter {
+                    @media (max-width: 575px) {
+                        margin-bottom: 1.2rem;
+                    }
+                }
+                .rate {
+                    margin: 0 1rem;
+                    padding: 3rem;
+                    @include tableData(2rem, $rateTextColor, 700);
+                    @media screen and (min-width: 1677px) {
+                        padding: 3.5rem 2.5rem;
+                    }
+                    @media (max-width: 575px) {
+                        width: 18rem;
+                        margin-left: calc(50% - 9rem);
+                    }
+                    border-radius: 1rem;
+                    border-width: 0.1rem !important;
+                    border-color: $rateBorderColor !important;
+                }
+
+                .text {
+                    margin-top: 1rem;
+                    @include tableData(1.5rem, $normalText, 700);
+                }
+            }
+        }
+    }
+
+    .tableOuter {
+        .table {
+            thead {
+                tr {
+                    border-width: 0.2rem !important;
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        .title1,
+                        .title3WithColor {
+                            @include tableData(1.3rem, $tdTitle1Color, 600);
+                        }
+                        .title3WithColor {
+                            p {
+                                color: #6fcf97;
+                            }
+                        }
+                        .title2 {
+                            @include tableData(1.4rem, $tdTitle2Color, 500);
+                        }
+                        .title3 {
+                            @include tableData(1.4rem, $tdTitle3Color, 500);
+                        }
+                        .title4 {
+                            @include tableData(1.4rem, $tdTitle2Color, 400);
+                        }
+
+                        .title5 {
+                            @include tableData(1.3rem, $tdTitle2Color, 400);
+                        }
+
+                        .title6 {
+                            p {
+                                display: inline;
+                                text-align: justify;
+                            }
+                            @include tableData(1.2rem, $tdTitle2Color, 400);
+
+                            a {
+                                color: #6fcf97;
+                                font-weight: 500;
+                                p {
+                                    text-transform: none !important;
+                                }
+                            }
+                        }
+
+                        .titleStar {
+                            i {
+                                margin: 0 0.3rem;
+                                color: #6fcf97;
+                                font-size: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        th,
+        td {
+            @media (max-width: 1777px) {
+                width: 21rem;
+            }
+            @media (min-width: 1921px) {
+                width: 21rem;
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    border-top: none !important;
+                    border-bottom: none !important;
+                }
+            }
+        }
+
+        //   Table Ends........
+    }
+}
+
+.text-color {
+    color: #E95555 !important;
+}

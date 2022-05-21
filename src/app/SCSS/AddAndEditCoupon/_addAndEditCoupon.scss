@@ -1,0 +1,211 @@
+@import "../../SCSS/PrimeNG/primeNGDesign";
+@import "../../SCSS/MainOuter/mainOuterDesign";
+@import "../../SCSS/ngxCalendar/ngxCalendarDesign";
+@import "~pretty-checkbox/src/pretty-checkbox.scss";
+
+$whiteColor: #fff;
+$paragraphColor: #4f4f4f;
+$backButtonBG: #faa559;
+$titleColor: #4dc5af;
+$boxShadowLightColor: #bdbdbd;
+$blackColor: #333333;
+
+@mixin paragraphTag($fontSize, $color, $fontWeight) {
+    margin: 0;
+    font-size: $fontSize;
+    color: $color;
+    font-weight: $fontWeight;
+}
+
+.pretty {
+    label {
+        @include paragraphTag(1.2rem, $paragraphColor, 500);
+        padding-left: 0.7rem;
+        padding-top: 0.035rem !important;
+        @media (max-width: 1199px) {
+            padding-top: 0.05rem !important;
+        }
+        @media (max-width: 767px) {
+            padding-top: 0.07rem !important;
+        }
+        @media (max-width: 575px) {
+            padding-top: 0.125rem !important;
+        }
+    }
+}
+
+// :host ::ng-deep .validationError {
+//     .p-dropdown {
+//         border: solid 0.157rem #e95555 !important;
+//     }
+//     .p-inputtext:not(.p-dropdown .p-inputtext) {
+//         border: solid 0.157rem #e95555 !important;
+//     }
+// }
+
+:host ::ng-deep .p-dropdown,
+.p-inputtext {
+    border-radius: 0.7rem !important;
+}
+
+.OuterMain {
+    margin-left: 1.5rem;
+    padding-top: 1.5rem;
+    .button {
+        display: flex;
+        align-items: center;
+        p {
+            @include paragraphTag(2rem, $titleColor, 600);
+        }
+    }
+}
+.mainOuter {
+    .forDropdown {
+        margin: 3rem auto 5rem auto;
+        width: 27rem;
+        p {
+            @include paragraphTag(1.4rem, $paragraphColor, 700);
+            margin: 0;
+            margin-bottom: 0.4rem;
+        }
+        @media (max-width: 347px) {
+            width: 25rem;
+        }
+    }
+
+    .forHR {
+        margin: 0rem auto 5rem auto;
+        width: 23rem;
+        @media (max-width: 347px) {
+            width: 21rem;
+        }
+    }
+
+    .forCheckBox {
+        margin: 0rem auto 5rem auto;
+        width: 35rem;
+        @media (max-width: 397px) {
+            width: 90%;
+            padding: 0 1rem;
+            .col {
+                margin-bottom: 0 1rem;
+                padding: 1rem !important;
+            }
+        }
+        p {
+            @include paragraphTag(1.4rem, $paragraphColor, 700);
+            margin: 0;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .innerCheckBox {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+    }
+
+    .bottomDataOuter {
+        margin: 0rem auto 5rem auto;
+        padding: 2rem 2.7rem;
+        border-radius: 1.7rem;
+        width: 90%;
+        @media (min-width: 768px) {
+            width: 57rem;
+            .coupunSideOuter {
+                padding-right: 4rem;
+                border-right: solid $boxShadowLightColor 0.07rem;
+            }
+            .discountOuter {
+                padding-left: 4rem;
+            }
+        }
+        box-shadow: 0 0 0.5rem $boxShadowLightColor;
+        .bottomDataInner1 {
+            .coupunSide,
+            .discountSide {
+                p {
+                    @include paragraphTag(1.2rem, $paragraphColor, 700);
+                    span {
+                        @include paragraphTag(0.9rem, $boxShadowLightColor, 600);
+                    }
+                }
+            }
+
+            .discountSide {
+                margin-top: 1rem;
+                @media (max-width: 767px) {
+                    margin-bottom: 2rem;
+                }
+            }
+
+            .discountOuter {
+                .discountType {
+                    .discountTypeInner {
+                        p {
+                            @include paragraphTag(1.2rem, $paragraphColor, 700);
+                            margin-bottom: 0.7rem;
+                        }
+                    }
+                    .discountValue {
+                        margin-top: 2.05rem;
+                        p {
+                            @include paragraphTag(1.2rem, $paragraphColor, 700);
+                        }
+                    }
+                }
+            }
+        }
+        .bottomDataInner2 {
+            margin-top: 2rem;
+
+            .dateRange {
+                p {
+                    @include paragraphTag(1.2rem, $paragraphColor, 700);
+                }
+                input {
+                    margin: 0rem 0 0 0 !important;
+                    width: 100% !important;
+                    &::placeholder {
+                        font-size: 1.3rem !important;
+                    }
+                }
+
+                i {
+                    top: 2.3rem;
+                    margin-right: 3rem;
+                }
+            }
+        }
+    }
+
+    .forButtons {
+        margin: 0rem auto 5rem auto;
+        width: 27rem;
+        @media (max-width: 347px) {
+            width: 25rem;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            button {
+                font-size: 1.3rem;
+                font-weight: 500;
+                border-radius: 0.7rem;
+                width: 8rem;
+            }
+            .p-button-warning {
+                background-color: $backButtonBG;
+                color: $whiteColor;
+            }
+            .p-button-text {
+                border-color: $boxShadowLightColor;
+                color: $boxShadowLightColor;
+            }
+        }
+    }
+}
+
+.pretty input[type="radio"]:checked ~ .state label {
+    color: $blackColor !important;
+}

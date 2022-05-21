@@ -1,0 +1,23 @@
+@import "../../../../SCSS/MediaAndGroupings/tabNavDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$blackColor: #333333;
+$BGcolor: #f7f7f7;
+$whiteColor: #fff;
+$buttonAllColor: #4dc5af;
+
+.tabs {
+    margin: 2rem 0 0 1rem;
+    padding: 0 0 0 2rem;
+
+    .tabLinks {
+        width: fit-content;
+        margin-right: 3.5rem;
+        @media (max-width: 575px) {
+            margin-right: 2rem;
+        }
+        &:last-child {
+            margin-right: 0 !important;
+        }
+    }
+}

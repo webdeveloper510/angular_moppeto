@@ -1,0 +1,825 @@
+<div class="mainOuter border">
+    <!-- Top Header Starts..... -->
+    <div class="topHeader border-bottom">
+        <div class="outer">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="sortingTab">
+                        <div class="links activeTab">
+                            <p class="m-0 text-center">All</p>
+                        </div>
+                        <div class="links">
+                            <p class="m-0 text-center">Scheduled</p>
+                        </div>
+                        <div class="links">
+                            <p class="m-0 text-center">Sent</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 searchOuter">
+                    <div class="search">
+                        <i class="pi pi-search" [ngClass]="searchInput?'searchColor':'searchColor2'"></i>
+                        <input type="text" pInputText [(ngModel)]="searchInput">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Top Header Ends..... -->
+
+
+
+    <!-- !-- Upper Body Starts..... -->
+
+    <div class="upperBody">
+        <div class="outer container">
+            <div class="row">
+                <div class="col-xl-6 body1">
+                    <div class="innerBody1Outer">
+                        <div class="inner2">
+                            <div class="row">
+                                <div class="col-sm-6 dropdown1">
+                                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity"
+                                        placeholder="All Countries" optionLabel="name" [showClear]="false">
+                                    </p-dropdown>
+                                </div>
+                                <div class="col-sm-6 dateRangeNormal">
+                                    <input pInputText type="text" class="form-control" bsDatepicker
+                                        [bsConfig]="{ isAnimated: true }" placeholder="Date sent">
+                                    <i class="pi pi-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inner3 d-flex justify-content-center">
+                            <div class="icon">
+                                <i class="pi pi-youtube" (click)="openEmailMessage()"></i>
+                            </div>
+                            <div class="button">
+                                <button pButton pRipple type="button" label="Reset"
+                                    class="p-button-outlined p-button-warning" (click)="openAppWebMessage()"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- !-- Upper Body Ends..... -->
+
+
+    <!-- !-- Add Cuppon Starts..... -->
+
+    <div class="broadcastButton">
+        <!-- <div class="button"> -->
+        <button pButton pRipple type="button" label="Broadcast" class="p-button-success"
+            routerLink="../../add-broadcast"></button>
+        <!-- </div> -->
+    </div>
+
+    <!-- !-- Add Cuppon Ends..... -->
+
+
+    <!-- Table Starts..... -->
+    <div class="tableOuter mt-3 table-responsive border-top">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr class="border-bottom">
+                    <th scope="col" class="text-left forNo">
+                        No.
+                    </th>
+                    <th scope="col" class="text-left bigCell">
+                        Message content
+                    </th>
+                    <th scope="col">
+                        Country
+                    </th>
+                    <th scope="col">
+                        City
+                    </th>
+                    <th scope="col">
+                        Broadcast
+                        <br>
+                        platform
+                    </th>
+                    <th scope="col">
+                        Recipient
+                        <br>
+                        group
+                    </th>
+                    <th scope="col">
+                        Participant
+                        <br>
+                        type
+                    </th>
+                    <th scope="col" class="statusCol">
+                        Send date
+                    </th>
+                    <th scope="col" class="bigCell">
+                        Sent by
+                    </th>
+                    <th scope="col" class="ellipsisTH">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="anchorTitle">
+                            <a href="javascript:;">
+                                Hi everyone! Glad all of you enjoyed the activity at AMC hold...
+                            </a>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                App/Web
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                All users
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="statusCol">
+                        <div class="title4">
+                            <p>
+                                27/03/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ScheduledStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Scheduled</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="bigCell">
+                        <div class="title4">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title4">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" routerLink="/edit-coupon">Edit</a>
+                                    <a class="dropdown-item item4" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="anchorTitle">
+                            <a href="javascript:;">
+                                Hi everyone! Glad all of you enjoyed the activity at AMC hold...
+                            </a>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                App/Web
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                All users
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="statusCol">
+                        <div class="title4">
+                            <p>
+                                27/03/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status ScheduledStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Scheduled</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="bigCell">
+                        <div class="title4">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title4">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" routerLink="/edit-coupon">Edit</a>
+                                    <a class="dropdown-item item4" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="anchorTitle">
+                            <a href="javascript:;">
+                                Hi everyone! Glad all of you enjoyed the activity at AMC hold...
+                            </a>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                App/Web
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                All users
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="statusCol">
+                        <div class="title4">
+                            <p>
+                                27/03/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SentStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Sent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="bigCell">
+                        <div class="title4">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title4">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" routerLink="/edit-coupon">Edit</a>
+                                    <a class="dropdown-item item4" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="anchorTitle">
+                            <a href="javascript:;">
+                                Hi everyone! Glad all of you enjoyed the activity at AMC hold...
+                            </a>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                App/Web
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                All users
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="statusCol">
+                        <div class="title4">
+                            <p>
+                                27/03/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SuspendStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Suspended</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="bigCell">
+                        <div class="title4">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title4">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" routerLink="/edit-coupon">Edit</a>
+                                    <a class="dropdown-item item4" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="anchorTitle">
+                            <a href="javascript:;">
+                                Hi everyone! Glad all of you enjoyed the activity at AMC hold...
+                            </a>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                App/Web
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                All users
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="statusCol">
+                        <div class="title4">
+                            <p>
+                                27/03/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SentStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Sent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="bigCell">
+                        <div class="title4">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title4">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" routerLink="/edit-coupon">Edit</a>
+                                    <a class="dropdown-item item4" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="anchorTitle">
+                            <a href="javascript:;">
+                                Hi everyone! Glad all of you enjoyed the activity at AMC hold...
+                            </a>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                App/Web
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                All users
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="statusCol">
+                        <div class="title4">
+                            <p>
+                                27/03/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SentStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Sent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="bigCell">
+                        <div class="title4">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title4">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" routerLink="/edit-coupon">Edit</a>
+                                    <a class="dropdown-item item4" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="border-bottom">
+                    <td scope="row" class="text-left forNo">
+                        <div class="title1">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="text-left bigCell">
+                        <div class="anchorTitle">
+                            <a href="javascript:;">
+                                Hi everyone! Glad all of you enjoyed the activity at AMC hold...
+                            </a>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                Singapore
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                App/Web
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                All users
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="title4">
+                            <p>
+                                -
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="statusCol">
+                        <div class="title4">
+                            <p>
+                                27/03/21
+                            </p>
+                        </div>
+                        <div class="ellipsisOuter">
+                            <div class="statusOuter">
+                                <div class="status SentStatus">
+                                    <div class="circleDiv"></div>
+                                    <div class="ActualStatus">
+                                        <p>Sent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="bigCell">
+                        <div class="title4">
+                            <p>
+                                First name Last name
+                            </p>
+                        </div>
+                        <div class="title4">
+                            <p>
+                                23 Mar 2021 / 15:01 hrs
+                            </p>
+                        </div>
+                    </td>
+                    <td class="ellipsisTD">
+                        <div class="ellipsisOuter2">
+                            <div class="dropleft">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="pi pi-ellipsis-v"></i></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item1" routerLink="/edit-coupon">Edit</a>
+                                    <a class="dropdown-item item4" href="#">Suspend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Ends...... -->
+
+
+    <!-- Pagination Starts...... -->
+
+    <div class="paginationOuter">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="rowsOuter">
+                    <p>Rows per page:</p>
+                    <div class="selectNoOfRow select">
+
+                        <select class="form-control select__field" aria-label="Default select example">
+                            <option selected value="1">10</option>
+                            <option value="2">20</option>
+                            <option value="3">30</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="pagesOuter">
+                    <p>1 of 6</p>
+                    <div class="iconPrevious">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector1.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="iconNext">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector2.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pagination Ends...... -->
+</div>

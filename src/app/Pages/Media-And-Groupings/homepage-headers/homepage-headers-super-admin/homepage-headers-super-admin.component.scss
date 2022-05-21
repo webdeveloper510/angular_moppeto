@@ -1,0 +1,83 @@
+@import "../../../../SCSS/MediaAndGroupings/homepageHeaderDesign";
+
+$tickIconBG: #4dc5af;
+
+.tableOuter {
+    margin-bottom: 7rem;
+}
+
+tbody {
+    height: auto !important;
+}
+
+.mainDataTDWhite {
+    background-color: $whiteColor !important;
+}
+
+.mainDataTD {
+    padding: 0.7 !important;
+    .colBody {
+        height: 15.25rem;
+    }
+    .colBodyTextarea {
+        padding: 0.2rem 0 0rem 0;
+        height: 15.25rem;
+        textarea {
+            @include forParaTag($blackColor, 1.35rem, 500);
+            @include scrollBar(hidden, auto, 0.3rem, 0.3rem, 0.8rem, 0, 5rem, $colBGColor, $scrollbarThumbColor, 1rem);
+            padding: 0 0.75rem;
+            resize: none;
+            height: 100%;
+            width: 100%;
+            border: none;
+            text-align: justify;
+            line-height: 1.7rem;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .forEllipse {
+        height: 2.5rem;
+        justify-content: flex-end !important;
+        .itemEdit {
+            border-bottom-left-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+        }
+        .itemDelete {
+            background-color: $whiteColor !important;
+        }
+    }
+
+    .editSection {
+        height: 2.5rem;
+        padding: 0.99rem 2rem 0.7rem 2rem;
+        @include displayFlex(space-between, center);
+        i {
+            @include displayFlex(flex-end, center);
+            border-radius: 100%;
+            cursor: pointer;
+            padding: 0.3rem;
+            @include forParaTag($whiteColor, 1.2rem, 500);
+        }
+        .closeIcon {
+            i {
+                background-color: $redColor;
+            }
+        }
+        .tickIcon {
+            i {
+                background-color: $tickIconBG;
+            }
+        }
+    }
+}
+
+textarea {
+    width: 221px;
+    height: 134px;
+}
+
+.tickIconbtn {
+    border: 0px;
+}

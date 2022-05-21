@@ -1,0 +1,34 @@
+@import "../../SCSS/upperCommonDesigns/upperSearchWithIconDesign";
+
+$searchIconNormalColor: #bdbdbd;
+$searchIconAndInputChangeColor: #333333;
+
+.innerBody2Outer {
+    @media (max-width: 1199px) {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+    @media (max-width: 991px) {
+        margin-right: 3rem;
+    }
+    // .search {
+    //     i {
+    //         position: absolute;
+    //         margin-top: 1rem;
+    //         margin-left: 1.7rem;
+    //         font-size: 1.5rem;
+    //         color: $searchIconNormalColor;
+    //         font-weight: 500;
+    //         cursor: pointer;
+    //     }
+    //     input {
+    //         width: 100%;
+    //         border-radius: 0.5rem;
+    //         padding-left: 4rem;
+    //         color: $searchIconAndInputChangeColor;
+    //     }
+    // }
+    // .searchColor {
+    //     color: $searchIconAndInputChangeColor !important;
+    // }
+}

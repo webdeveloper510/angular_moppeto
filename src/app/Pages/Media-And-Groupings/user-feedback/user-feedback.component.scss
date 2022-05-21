@@ -1,0 +1,91 @@
+@import "../../../SCSS/Pagination/paginationDesign";
+@import "../../../SCSS/Table/tableDesign";
+@import "../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../SCSS/Revenue/revenueUpperBody";
+@import "../../../SCSS/UserManagement/userManagementTopHeaderTabDesign";
+@import "../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../SCSS/PlayAndResetButtons/playAndResetButtons";
+
+$tdTitle1Color: #4e4e4e;
+$tdTitle2Color: #4f4f4f;
+
+.mainOuterTop {
+    margin: 3rem 1.5rem 0 1.5rem;
+    .topHeader {
+        .outer {
+            margin: 1rem 1.5rem 0 1rem;
+        }
+    }
+}
+
+.mainOuter {
+    margin-top: 0;
+    .tableOuter {
+        .table {
+            .feedback {
+                border-right: none !important;
+                width: 50rem;
+                @media (min-width: 1921px) {
+                    width: 40rem;
+                }
+            }
+            .extraPadding {
+                padding-top: 0.7rem !important;
+                padding-bottom: 0.7rem !important;
+            }
+            thead {
+                tr {
+                    border-width: 0.2rem !important;
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        vertical-align: top;
+                        padding-top: 1.5rem;
+                        padding-bottom: 1.5rem;
+                        .title1 {
+                            @include tableData(1.4rem, $tdTitle1Color, 600);
+                        }
+                        .title2 {
+                            @include tableData(1.3rem, $tdTitle2Color, 500);
+                        }
+                        .title5 {
+                            @include tableData(1.3rem, $tdTitle2Color, 400);
+                        }
+
+                        .title6 {
+                            @include tableData(1.2rem, $tdTitle2Color, 400);
+                            p {
+                                text-align: justify;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        th,
+        td {
+            @media (max-width: 1677px) {
+                width: 19rem;
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    border-top: none !important;
+                    border-bottom: none !important;
+                }
+            }
+        }
+
+        //   Table Ends........
+    }
+}
+
+.icon-button {
+    border: 0px;
+    background-color: white;
+}

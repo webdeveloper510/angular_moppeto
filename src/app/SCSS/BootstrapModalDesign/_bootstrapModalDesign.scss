@@ -1,0 +1,75 @@
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$normalTextColor: #5e6260;
+$titleBGcolor: #deffec;
+$orangeColor: #faa559;
+$whiteColor: #fff;
+$greenButtonColor: #4dc5af;
+
+.modal {
+    z-index: 1899 !important;
+    .modal-content {
+        img {
+            @media (max-height: 1080px) {
+                max-height: 95vh;
+            }
+        }
+    }
+    @media (min-height: 1081px) {
+        .modal-dialog {
+            position: fixed !important;
+            width: 100% !important;
+            height: 100% !important;
+            top: 56rem !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+        }
+    }
+}
+
+.cropModal {
+    .modal-body {
+        image-cropper {
+            max-height: 60vh;
+        }
+    }
+    .headSection {
+        background-color: $titleBGcolor;
+        @include displayFlex(center, center);
+        height: 5rem;
+        .text {
+            width: calc(100% - 3rem);
+            p {
+                text-align: center;
+                @include forParaTag($normalTextColor, 1.7rem, 600);
+                margin: 0;
+            }
+        }
+
+        .close {
+            width: 3rem;
+            p {
+                cursor: pointer;
+                @include forParaTag($normalTextColor, 2rem, 600);
+                margin: 0;
+            }
+        }
+    }
+
+    .buttonSection {
+        padding-bottom: 1.7rem;
+        @include displayFlex(space-between, center);
+        margin: 0 auto;
+        width: 22rem;
+        button {
+            width: 8.7rem;
+        }
+        @include buttonDesign(1.4rem, 500, 0.5rem, 0rem, 0.2rem, 0.5rem);
+        .p-button-success {
+            @include classWisebuttonDesign($greenButtonColor, $greenButtonColor, $whiteColor, $greenButtonColor);
+        }
+        .p-button-warning {
+            @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+        }
+    }
+}

@@ -1,0 +1,166 @@
+<div class="mainOuter border">
+    <!-- !-- Add Cuppon Starts..... -->
+    <div class="addCuppon">
+        <button pButton pRipple type="button" label="New attribute group" class="p-button-success"
+            (click)="addNewAttribute()"></button>
+    </div>
+    <!-- !-- Add Cuppon Ends..... -->
+
+
+    <!-- Table Starts..... -->
+    <div class="tableOuter mt-3 table-responsive" *ngIf="isAPIReponseCome">
+        <form [formGroup]="attributeForm">
+            <table class="table table-borderless text-center">
+                <thead class="forBG">
+                    <tr>
+                        <th scope="col" class="forNo">
+                            <br>
+                            No.
+                        </th>
+                        <th scope="col" class="text-left category">
+                            Attribute group
+                        </th>
+                        <th scope="col" class="subCategory">
+                            Attribute
+                        </th>
+                        <th scope="col" class="ellipsisTH">
+                        </th>
+                        <th class="forEdit" *ngIf="isEditFrom || isAdd || isDelete">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="attributeList?.length > 0 else noDataView">
+                    <tr class="border-bottom forNoTR"
+                        *ngFor="let item of attributeList; trackBy: trackByService.trackByFn; let i = index">
+                        <td scope="row" class="forNo">
+                            <div class="title1">
+                                <p>
+                                    {{i+1}}
+                                </p>
+                            </div>
+                        </td>
+                        <td scope="row" class="category">
+                            <div class="title2 text-left"
+                                [hidden]="(isEditFrom || isDelete) && selectedAttribute?.id == item?.id">
+                                <p>{{item?.name | blankValue}}</p>
+                            </div>
+                            <div class="forEditTD"
+                                *ngIf="(isEditFrom || isDelete) && selectedAttribute?.id == item?.id">
+                                <div class="inputCheckOuter">
+                                    <div class="inputBox">
+                                        <input type="text" maxlength="20" formControlName="name" pInputText
+                                            [readOnly]="isDelete">
+                                    </div>
+                                    <div class="check" *ngIf="isDelete">
+                                        <div class="pretty p-default p-bigger p-fill change-cursor"
+                                            *ngIf="selectedAttribute?.subAttribute?.length > 0 else formCheckBox">
+                                            <input type="checkbox" class="change-cursor" checked disabled>
+                                            <div class="state p-success-o">
+                                                <label></label>
+                                            </div>
+                                        </div>
+                                        <ng-template #formCheckBox>
+                                            <div class="pretty p-default p-bigger p-thick">
+                                                <input type="checkbox" formControlName="attributeNameCheckbox">
+                                                <div class="state p-success-o">
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td scope="row" class="subCategory">
+                            <div class="title1"
+                                [hidden]="(isEditFrom || isDelete || isAdd) && selectedAttribute?.id == item?.id">
+                                <ng-container
+                                    *ngFor="let subatrr of item?.subAttribute; trackBy: trackByService.trackByFn">
+                                    <p>{{subatrr?.name}}</p>
+                                </ng-container>
+                            </div>
+                            <div class="forEditTD" formArrayName="subAttribute">
+                                <ng-container
+                                    *ngIf="(isEditFrom || isDelete || isAdd) && selectedAttribute?.id == item?.id">
+                                    <div class="inputCheckOuter"
+                                        *ngFor="let subatrrFrm of subAttributeFormList.controls; let subAttributeIndex=index"
+                                        [formGroupName]="subAttributeIndex" [ngClass]="isAdd?'decreaseInputWidth':''">
+                                        <div class="inputBox">
+                                            <input type="text" formControlName="name" pInputText appOnlyAlpha
+                                                [ngClass]="subatrrFrm?.value?.id && isAdd ? 'disable-input':''"
+                                                (keyup)="changeValue(subatrrFrm)" [disabled]="subatrrFrm?.value?.id"
+                                                [readOnly]="isDelete || (isAdd && subatrrFrm?.value?.id)" maxlength="20">
+                                        </div>
+                                        <div class="check" *ngIf="isDelete">
+                                            <div class="pretty p-default p-bigger p-thick">
+                                                <input type="checkbox" formControlName="nameCheckbox">
+                                                <div class="state p-success-o">
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div [hidden]="attributeForm.controls.subAttribute?.value?.length == 1 || (attributeForm.controls.subAttribute?.value?.length == selectedAttribute.subAttribute.length+1)"
+                                            class="closeIcon" *ngIf="isAdd && !subatrrFrm?.value?.id"
+                                            (click)="removeSubAttributeControl(subAttributeIndex)">
+                                            <i class="pi pi-times"></i>
+                                        </div>
+                                    </div>
+                                    <button class="addIcon-button" (click)="addSubAttributeControl()"
+                                        [ngClass]="attributeForm.controls.subAttribute.status === formStatus.Invalid ? 'p-button-text p-button-plain change-cursor' : 'addIcon'"
+                                        [disabled]="attributeForm.controls.subAttribute.status === formStatus.Invalid"
+                                        *ngIf="isAdd && selectedAttribute?.id == item?.id">
+                                        <i class="pi pi-plus"></i>
+                                    </button>
+                                </ng-container>
+                            </div>
+
+                        </td>
+                        <td class="ellipsisTD">
+                            <div class="ellipsisOuter2" [hidden]="isEditFrom || isAdd || isDelete">
+                                <div class="dropleft">
+                                    <button class="btn btn-secondary" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span><i class="pi pi-ellipsis-v"></i></span>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item item1" (click)="openEditOption(item)">Edit
+                                            name</a>
+                                        <a class="dropdown-item" (click)="openAddOption(item)">Add
+                                            attribute</a>
+                                        <a class="dropdown-item item4" (click)="openDeleteOption(item)">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="forEdit" *ngIf="isEditFrom || isAdd || isDelete">
+                            <div class="forButton" *ngIf="isEditFrom || isAdd || isDelete">
+                                <button pButton pRipple type="button" label="Update"
+                                    [ngClass]="!attributeForm.valid || disableBtn() ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+                                    [disabled]="!attributeForm.valid || disableBtn()" class="normalButton"
+                                    (click)="update()" *ngIf="isEditFrom && selectedAttribute?.id == item?.id"></button>
+                                <button pButton pRipple type="button" label="Add" class="p-button-help"
+                                    [ngClass]="attributeForm.controls.subAttribute.status === formStatus.Invalid ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+                                    [disabled]="attributeForm.controls.subAttribute.status === formStatus.Invalid"
+                                    (click)="addSubAttributeAPI()"
+                                    *ngIf="isAdd && selectedAttribute?.id == item?.id"></button>
+                                <button pButton pRipple type="button" label="Delete"
+                                    [ngClass]="{'p-button-plain change-cursor': disableDelete()}"
+                                    [disabled]="disableDelete()" class="whiteButton p-button-danger p-button-text"
+                                    *ngIf="isDelete && selectedAttribute?.id == item?.id"
+                                    (click)="confirmDelete()"></button>
+                                <button pButton pRipple type="button" label="Cancel"
+                                    [ngClass]="isDelete?'whiteButtonDelete p-button-warning  p-button-text':'whiteButton p-button-danger p-button-text'"
+                                    *ngIf="(isEditFrom || isAdd || isDelete) && selectedAttribute?.id == item?.id"
+                                    (click)="cancelMode()"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <ng-template #noDataView>
+                    <app-no-table-data-view></app-no-table-data-view>
+                </ng-template>
+            </table>
+        </form>
+    </div>
+    <!-- Table Ends...... -->
+</div>

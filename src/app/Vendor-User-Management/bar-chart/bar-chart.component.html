@@ -1,0 +1,24 @@
+<div class="chart-wrap">
+    <div class="grid horizontal">
+        <ng-container *ngFor="let item of ratingList;">
+            <div class="mainOuter">
+                <p>{{item?.key}}</p>
+                <i class="pi pi-star star-cursor" 
+                    [ngClass]="{'change-color': _isSearchResult && isReviewSelected && selectedReview.key !== item?.key}"></i>
+                <div class="rateOuter">
+                    <div class="bar" [ngClass]="{'change-color': isReviewSelected && selectedReview.key !== item?.key}"
+                        style="--bar-value:{{item?.ratingCount}}%"></div>
+                </div>
+                <span>
+                    <a [class.disabled]="_isSearchResult && isReviewSelected && selectedReview.key != item?.key"
+                        (click)="(_isSearchResult && isReviewSelected && selectedReview.key != item?.key) ? '' : selectReviewCount(item)">{{item?.ratingCount}}</a>
+                </span>
+
+                <span>
+                    <mat-icon class="refresh-icon" (click)="refreshClick()" *ngIf="_isSearchResult && isReviewSelected && selectedReview.key === item?.key">refresh
+                    </mat-icon>
+                </span>
+            </div>
+        </ng-container>
+    </div>
+</div>

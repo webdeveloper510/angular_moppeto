@@ -1,0 +1,13 @@
+@import "../../../../SCSS/SubscriptionAndPricing/marketingPricingTables";
+
+.upperAddButton {
+    padding: 2rem;
+    border-width: 0.2rem !important;
+    @include buttonDesign(1.35rem, 500, 00.375rem, 0rem, 0.2rem, 0.75rem);
+    button {
+        width: 9rem;
+    }
+    .p-button-warning {
+        @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+    }
+}

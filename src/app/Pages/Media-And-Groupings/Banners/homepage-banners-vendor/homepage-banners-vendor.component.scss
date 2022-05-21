@@ -1,0 +1,67 @@
+@import "../../../../SCSS/MediaAndGroupings/bennersDesign";
+@import "../../../../SCSS/BootstrapModalDesign/bootstrapModalDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+
+.imgMainBody {
+    overflow-y: hidden;
+    img {
+        width: 100%;
+        margin: 0.2rem auto 0 auto;
+        cursor: pointer;
+    }
+}
+.moreThanOneDayImg {
+    opacity: 0.5;
+    img {
+        display: none;
+    }
+    p {
+        @include forParaTag($blackColor, 1.4rem, 600);
+        white-space: pre-wrap;
+        padding: 0 2rem;
+    }
+}
+
+.mainRadioInner {
+    @include displayFlex(center, center);
+    flex-wrap: wrap;
+    margin: 2rem 3rem;
+    @media (max-width: 767px) {
+        display: block;
+        .radioOuter3 {
+            padding-left: 0;
+            margin: 2rem auto;
+            width: 90%;
+        }
+        .radioOuter2 {
+            margin: 0 auto;
+            width: 90%;
+        }
+        .radioOuter1 {
+            margin: 0 auto;
+        }
+    }
+    @media (max-width: 1497px) {
+        .upperRadioDivOuter {
+            p {
+                text-align: center;
+            }
+        }
+        .radioOuter3 {
+            padding-right: 0;
+        }
+        .radioOuter2 {
+            flex-basis: 70rem;
+            margin-top: 2rem;
+        }
+    }
+}
+
+.radioOuter2 {
+    width: calc(100% - 52rem);
+}
+
+.radioOuter3 {
+    width: 35rem;
+    padding: 0 2rem;
+}

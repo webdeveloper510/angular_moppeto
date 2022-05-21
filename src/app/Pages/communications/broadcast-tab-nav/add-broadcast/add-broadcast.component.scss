@@ -1,0 +1,369 @@
+@import "../../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../../SCSS/CustomRadioButton/customRadioButtonDesign";
+@import "../../../../SCSS/iconInsideDateRangeInput/iconInsideDateRangeInput";
+
+$greenTextColor: #4dc5af;
+$disabledColor: #bdbdbd;
+$blackColor: #333333;
+$greenColor: #6fcf97;
+$greenHeaderColor: #f1fff7;
+$messageSectinBG: #f6f6f6;
+$scrollThumbColor: #e7e7e7;
+$orangeColor: #faa559;
+$whiteColor: #fff;
+
+%rounderSectionWithBoxShadow {
+    border-radius: 1.5rem;
+    box-shadow: 0 0 0.5rem grey;
+}
+
+:host ::ng-deep p-dropdown {
+    .p-disabled {
+        background-color: $disabledColor;
+    }
+}
+
+@mixin mediaForRadio($mediaScreen, $radioInnerWidth) {
+    @media (max-width: $mediaScreen) {
+        display: block !important;
+        .radioInner {
+            width: $radioInnerWidth;
+            margin: 0 auto;
+            &:not(:last-child) {
+                padding-bottom: 1.5rem;
+            }
+        }
+    }
+}
+
+.headText {
+    margin: 2rem 0 1rem 1.5rem;
+    p {
+        @include forParaTag($greenTextColor, 1.7rem, 700);
+    }
+}
+
+.mainOuter {
+    margin-top: 0;
+    @media (min-height: 1081px) {
+        max-height: 85rem;
+        @include scrollBar(auto, auto, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.5rem);
+    }
+}
+
+.mainSection {
+    min-height: 60rem;
+    padding: 1.5rem 2rem 3rem 2rem;
+}
+
+.sections {
+    margin: 0 auto;
+    width: 60rem;
+    @media (max-width: 767px) {
+        width: 100% !important;
+    }
+    &:not(:last-child) {
+        margin-bottom: 2.5rem;
+    }
+}
+
+.dropdownSection {
+    .headerText {
+        p {
+            @include forParaTag($blackColor, 1.3rem, 500);
+        }
+        margin-bottom: 0.5rem;
+        padding-left: 0.5rem;
+    }
+    .rounderSection {
+        @extend %rounderSectionWithBoxShadow;
+        padding: 1.5rem 5rem;
+        @media (max-width: 387px) {
+            padding: 1.5rem 3rem;
+        }
+    }
+    .dropDowns {
+        @media (max-width: 575px) {
+            &:not(:last-child) {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+}
+
+.iconSection {
+    .arrowIconOuter {
+        width: 4.7rem;
+        height: 3.2rem;
+        margin: 0 auto;
+        border-radius: 1.7rem;
+        @include displayFlex(center, center);
+        img {
+            height: 2rem;
+        }
+    }
+    .arrowIconOuterDisabled {
+        background-color: $disabledColor;
+    }
+    .arrowIconOuterGreenBG {
+        background-color: $greenColor;
+    }
+}
+
+.radioSection {
+    .radio-item input[type="radio"]:disabled ~ label {
+        &::before {
+            border-color: $disabledColor;
+        }
+        &::after {
+            background-color: $disabledColor;
+        }
+    }
+    label {
+        font-size: 1.3rem;
+    }
+    .rounderSection {
+        @extend %rounderSectionWithBoxShadow;
+        padding: 2.2rem 3.5rem;
+        @media (max-width: 575px) {
+            padding: 2.2rem 2rem;
+        }
+    }
+}
+
+.radioSection1 {
+    .radioOuter {
+        @include mediaForRadio(677px, 17rem);
+    }
+}
+
+.radioSection2 {
+    .radioOuter {
+        @include mediaForRadio(407px, 17rem);
+    }
+}
+
+.radioSection3 {
+    .radioOuter {
+        @include mediaForRadio(575px, 21rem);
+    }
+}
+
+.radioSection4 {
+    .radioOuter {
+        @include mediaForRadio(707px, 21rem);
+    }
+    .rounderSection {
+        @media (min-width: 576px) {
+            padding: 2.2rem 1.4rem;
+        }
+    }
+}
+
+.radioSection5 {
+    .radioOuter {
+        @include mediaForRadio(617px, 23rem);
+    }
+    .forDatePicker {
+        @include displayFlex(center, center);
+        @media (max-width: 617px) {
+            display: block;
+        }
+        .dateRangeNormal {
+            width: 17rem;
+            padding-left: 2rem;
+            @media (max-width: 617px) {
+                padding-left: 3.2rem;
+                width: 19rem;
+            }
+        }
+    }
+}
+
+.forMessageAndSubject {
+    width: 85rem;
+    @media (max-width: 1350px) and (min-width: 1200px) {
+        width: 70rem;
+    }
+    @media (max-width: 991px) {
+        width: 67rem;
+    }
+    @extend %rounderSectionWithBoxShadow;
+    padding: 3rem 5rem 3.5rem 5rem;
+    @media (max-width: 575px) {
+        padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+    }
+    background-color: $messageSectinBG;
+    p {
+        @include forParaTag(darken($disabledColor, 30%), 1.2rem, 500);
+        margin: 0 0 0.3rem 0;
+    }
+    textarea {
+        border-radius: 0.3rem;
+        resize: none;
+        height: 17rem;
+        @include scrollBar(auto, auto, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.5rem);
+        border-color: lighten($disabledColor, 13%);
+        box-shadow: none;
+        padding: 1rem 1.5rem;
+    }
+    .subjectAndHTMLsection {
+        .forSubject {
+            margin-bottom: 2.7rem;
+        }
+        .forHTML {
+            .head {
+                padding: 0.9rem 0;
+                background-color: $greenHeaderColor;
+                border-radius: 0.3rem;
+                border: solid lighten($disabledColor, 13%) 0.1rem;
+                p {
+                    @include forParaTag($blackColor, 1.35rem, 600);
+                }
+            }
+        }
+    }
+}
+
+.usersORvendorSectionOuter {
+    @media (max-width: 767px) {
+        @include scrollBar(auto, hidden, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.5rem);
+    }
+
+    .usersORvendorSection {
+        @media (max-width: 767px) {
+            width: 70rem;
+            padding-bottom: 0.5rem;
+        }
+        .usersORvendorSectionInner {
+            @include displayFlex(space-between, stretch);
+        }
+        .detailsHead {
+            @include displayFlex(space-between, center);
+            padding-left: 14rem;
+        }
+        .upperText {
+            margin-bottom: 0.5rem;
+            p {
+                @include forParaTag($disabledColor, 1.2rem, 500);
+            }
+        }
+        .titleText {
+            padding-top: 0.7rem;
+            width: 14rem;
+            p {
+                @include forParaTag($blackColor, 1.3rem, 600);
+            }
+        }
+
+        .idSection {
+            width: 15rem;
+            .inputSection {
+                input {
+                    text-align: center;
+                    border-radius: 0;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    box-shadow: none;
+                }
+            }
+            .viewTextSection {
+                p {
+                    @include forParaTag($blackColor, 1.3rem, 500);
+                }
+            }
+        }
+        .nameSection {
+            width: calc(100% - 17rem);
+            .inputSection {
+                @include displayFlex(space-between, center);
+                .inputOuter {
+                    width: calc(100% - 3rem);
+                }
+                .deleteIcon {
+                    width: 3rem;
+                    img {
+                        height: 2.2rem;
+                        margin: 0 0 0 auto;
+                        display: block;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .detailsInputSection {
+            width: calc(100% - 14rem);
+            max-height: 9rem;
+            padding-right: 0.15rem;
+            @include scrollBar(hidden, auto, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.5rem);
+            .detailsInputSectionInner {
+                @include displayFlex(space-between, center);
+                &:not(:last-child) {
+                    margin-bottom: 1.7rem;
+                }
+            }
+        }
+        .plusIcon {
+            width: 29rem;
+            padding: 1.5rem 0 0 14rem;
+            img {
+                height: 2.2rem;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .usersORvendorViewOnlyMode {
+        .nameSection {
+            .inputSection {
+                .inputOuter {
+                    width: 100% !important;
+                    input {
+                        background-color: darken($disabledColor, 7%);
+                        color: $whiteColor !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.usersORvendorSectionOuter2 {
+    .detailsInputSection {
+        max-height: auto !important;
+        overflow: visible !important;
+    }
+
+    .inputOuter {
+        width: 100% !important;
+    }
+}
+
+.bottomButtons {
+    @include displayFlex(center, center);
+    margin-bottom: 3rem;
+    button {
+        width: 8rem;
+        &:not(:first-child) {
+            margin-left: 2rem;
+        }
+    }
+    @include buttonDesign(1.3rem, 500, 00.5rem, 0rem, 0.2rem, 0.7rem);
+    .p-button-success {
+        @include classWisebuttonDesign($greenColor, $greenColor, $whiteColor, $greenColor);
+    }
+    .p-button-warning {
+        @include classWisebuttonDesign($orangeColor, $orangeColor, $whiteColor, $orangeColor);
+    }
+    .whiteButton {
+        @include classWisebuttonDesign(
+            $whiteColor,
+            $disabledColor !important,
+            $disabledColor !important,
+            $disabledColor
+        );
+    }
+}

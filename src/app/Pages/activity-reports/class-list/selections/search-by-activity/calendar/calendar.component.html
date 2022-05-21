@@ -1,0 +1,61 @@
+<form class="mainFormOuter">
+
+  <div class="textAndSelectOuter">
+
+    <div class="textSection">
+      <p class="m-0">
+        click on numbers for details on registrants
+      </p>
+    </div>
+
+    <div class="selectSection">
+
+      <div class="monthSelect">
+        <select class="form-control select__field">
+          <option class="optionCustomClass" *ngFor="let month of months" value="{{month.value}}">{{month.name}}</option>
+        </select>
+      </div>
+
+
+      <div class="yearSelect">
+        <select class="form-control select__field">
+          <option class="optionCustomClass" *ngFor="let year of years" value="{{year.value}}">{{year.name}}</option>
+        </select>
+      </div>
+
+      <div class="previousNextIcon">
+        <i class="fa fa-caret-left" pTooltip="Previous Month" tooltipPosition="top"></i>
+        <i class="fa fa-caret-right" pTooltip="Next Month" tooltipPosition="top"></i>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Calendar View Starts -->
+
+
+  <div class="calendarOuterForScroll">
+    <div class="mainCalendarSectionOuter" *ngIf="isCalendar">
+      <div class="calendarWeekName">
+        <span *ngFor="let week of weeks" class="text-center">{{week.name}}</span>
+      </div>
+      <hr>
+      <div class="mainCalendarOuter">
+        <div *ngFor="let value of completearray" class="mainCalendarInner">
+          <p class="m-0 calendarDates">
+            {{ value
+            | number}}
+          </p>
+          <div class="enrollDetails">
+            <p class="m-0"><u>20</u></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- Calendar View Ends -->
+
+</form>

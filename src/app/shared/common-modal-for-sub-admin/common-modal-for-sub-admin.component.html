@@ -1,0 +1,33 @@
+<div class="actualOuter">
+
+
+
+    <div class="upperTitle">
+        <div class="titleBox">
+            <p class="text-center m-0" mat-dialog-title>{{data.title}}</p>
+        </div>
+        <div class="close">
+            <p (click)="onDismiss()" class="close m-0 text-center">X</p>
+        </div>
+    </div>
+
+
+
+
+    <div class="bodySection">
+        <div class="textSection" *ngIf="data.textSection">
+
+            <p class="text-center m-0">
+                {{data.suspendOrReInstateBodyText}}
+            </p>
+            <p class="text-center m-0">{{data.suspendOrReInstateBodyText2}}</p>
+        </div>
+
+        <div class="buttonSection">
+            <button pButton pRipple type="button" label="Confirm" class="p-button-warning"
+                *ngIf="data.isSuspended"></button>
+            <button pButton pRipple type="button" label="Confirm" class="p-button-danger"
+                *ngIf="data.isReInstated"></button>
+        </div>
+    </div>
+</div>

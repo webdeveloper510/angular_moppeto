@@ -1,0 +1,13 @@
+@import "../../SCSS/MainOuter/mainOuterDesign";
+@import "../../SCSS/TabNavBar/tabNavDesign";
+
+.mainOuter {
+    margin: 3rem 1.5rem 0 1.5rem;
+}
+
+.nav-item {
+    width: 16rem !important;
+    @media (max-width: 367px) {
+        width: 13.5rem !important;
+    }
+}

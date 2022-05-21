@@ -1,0 +1,597 @@
+<div class="upperBody">
+    <div class="outer">
+        <div class="innerBody1Outer">
+            <div class="inner2">
+                <div class="row">
+                    <div class="col-sm-6 dropdown1">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="All countries"
+                            optionLabel="name" [showClear]="false">
+                        </p-dropdown>
+                    </div>
+                    <div class="col-sm-6 dropdown2">
+                        <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" placeholder="All cities"
+                            optionLabel="name" [showClear]="false">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mainOuter border">
+
+    <div class="upperSearch border-bottom">
+        <div class="inboxTextAndNewMessage">
+            <p>Inbox</p>
+            <img src="../../../assets/chat/Group 3.svg" alt="">
+        </div>
+        <div class="searchOuter">
+            <div class="search">
+                <i class="pi pi-search" [ngClass]="searchInput?'searchColor':'searchColor2'"></i>
+                <input type="text" pInputText [(ngModel)]="searchInput">
+            </div>
+        </div>
+    </div>
+
+    <div class="mainBody">
+
+
+
+        <!-- Contact Section Starts -->
+        <div class="contactSectionOuter border-right" *ngIf="isContactSectionVisible">
+
+            <div class="upperdiv">
+                <div class="roundDiv"></div>
+                <div class="roundDiv"></div>
+                <div class="roundDiv"></div>
+            </div>
+
+            <div class="contactInner">
+
+
+                <div class="mainMessageOuter border" (click)="toggleChatSectionForSmallerScreen()">
+                    <div class="profileOuter">
+                        <div class="forImg">
+                            <img src="../../../assets/chat/User.svg" alt="">
+                        </div>
+                        <div class="profileDetails">
+                            <div class="name">
+                                <p>Darren Leow</p>
+                            </div>
+                            <div class="idAndLocation">
+                                <p class="ID">1234567A</p>
+                                <a href="#">Singapore</a>
+                            </div>
+                        </div>
+                        <div class="noOfMessageAndTime">
+                            <div class="noOfMessage">
+                                <span>2</span>
+                            </div>
+                            <div class="time">
+                                <p>11.05AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messagingOuter">
+                        <div class="message">
+                            <p class="mainMessage">Hi, may I know what is the type of lectures that your
+                                school is giving? It is something my child may be ....
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mainMessageOuter border">
+                    <div class="profileOuter">
+                        <div class="forImg">
+                            <img src="../../../assets/demo/images/avatar/xuxuefeng.png" alt="">
+                        </div>
+                        <div class="profileDetails">
+                            <div class="name">
+                                <p>Darren Leow</p>
+                            </div>
+                            <div class="idAndLocation">
+                                <p class="ID">1234567A</p>
+                                <a href="#">Singapore</a>
+                            </div>
+                        </div>
+                        <div class="noOfMessageAndTime">
+                            <div class="noOfMessage">
+                                <p>2</p>
+                            </div>
+                            <div class="time">
+                                <p>11.05AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messagingOuter">
+                        <div class="message">
+                            <p class="mainMessage">Hi, may I know what is the type of lectures that your
+                                school is giving? It is something my child may be ....
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mainMessageOuter border">
+                    <div class="profileOuter">
+                        <div class="forImg">
+                            <img src="../../../assets/demo/images/avatar/xuxuefeng.png" alt="">
+                        </div>
+                        <div class="profileDetails">
+                            <div class="name">
+                                <p>Darren Leow</p>
+                            </div>
+                            <div class="idAndLocation">
+                                <p class="ID">1234567A</p>
+                                <a href="#">Singapore</a>
+                            </div>
+                        </div>
+                        <div class="noOfMessageAndTime">
+                            <div class="noOfMessage">
+                                <p>2</p>
+                            </div>
+                            <div class="time">
+                                <p>11.05AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messagingOuter">
+                        <div class="message">
+                            <p class="mainMessage">Hi, may I know what is the type of lectures that your
+                                school is giving? It is something my child may be ....
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mainMessageOuter border">
+                    <div class="profileOuter">
+                        <div class="forImg">
+                            <img src="../../../assets/demo/images/avatar/xuxuefeng.png" alt="">
+                        </div>
+                        <div class="profileDetails">
+                            <div class="name">
+                                <p>Darren Leow</p>
+                            </div>
+                            <div class="idAndLocation">
+                                <p class="ID">1234567A</p>
+                                <a href="#">Singapore</a>
+                            </div>
+                        </div>
+                        <div class="noOfMessageAndTime">
+                            <div class="noOfMessage">
+                                <p>2</p>
+                            </div>
+                            <div class="time">
+                                <p>11.05AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messagingOuter">
+                        <div class="message">
+                            <p class="mainMessage">Hi, may I know what is the type of lectures that your
+                                school is giving? It is something my child may be ....
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mainMessageOuter border">
+                    <div class="profileOuter">
+                        <div class="forImg">
+                            <img src="../../../assets/demo/images/avatar/xuxuefeng.png" alt="">
+                        </div>
+                        <div class="profileDetails">
+                            <div class="name">
+                                <p>Darren Leow</p>
+                            </div>
+                            <div class="idAndLocation">
+                                <p class="ID">1234567A</p>
+                                <a href="#">Singapore</a>
+                            </div>
+                        </div>
+                        <div class="noOfMessageAndTime">
+                            <div class="noOfMessage">
+                                <p>2</p>
+                            </div>
+                            <div class="time">
+                                <p>11.05AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messagingOuter">
+                        <div class="message">
+                            <p class="mainMessage">Hi, may I know what is the type of lectures that your
+                                school is giving? It is something my child may be ....
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mainMessageOuter border">
+                    <div class="profileOuter">
+                        <div class="forImg">
+                            <img src="../../../assets/demo/images/avatar/xuxuefeng.png" alt="">
+                        </div>
+                        <div class="profileDetails">
+                            <div class="name">
+                                <p>Darren Leow</p>
+                            </div>
+                            <div class="idAndLocation">
+                                <p class="ID">1234567A</p>
+                                <a href="#">Singapore</a>
+                            </div>
+                        </div>
+                        <div class="noOfMessageAndTime">
+                            <div class="noOfMessage">
+                                <p>2</p>
+                            </div>
+                            <div class="time">
+                                <p>11.05AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messagingOuter">
+                        <div class="message">
+                            <p class="mainMessage">Hi, may I know what is the type of lectures that your
+                                school is giving? It is something my child may be ....
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mainMessageOuter border">
+                    <div class="profileOuter">
+                        <div class="forImg">
+                            <img src="../../../assets/demo/images/avatar/xuxuefeng.png" alt="">
+                        </div>
+                        <div class="profileDetails">
+                            <div class="name">
+                                <p>Darren Leow</p>
+                            </div>
+                            <div class="idAndLocation">
+                                <p class="ID">1234567A</p>
+                                <a href="#">Singapore</a>
+                            </div>
+                        </div>
+                        <div class="noOfMessageAndTime">
+                            <div class="noOfMessage">
+                                <p>2</p>
+                            </div>
+                            <div class="time">
+                                <p>11.05AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messagingOuter">
+                        <div class="message">
+                            <p class="mainMessage">Hi, may I know what is the type of lectures that your
+                                school is giving? It is something my child may be ....
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mainMessageOuter border">
+                    <div class="profileOuter">
+                        <div class="forImg">
+                            <img src="../../../assets/demo/images/avatar/xuxuefeng.png" alt="">
+                        </div>
+                        <div class="profileDetails">
+                            <div class="name">
+                                <p>Darren Leow</p>
+                            </div>
+                            <div class="idAndLocation">
+                                <p class="ID">1234567A</p>
+                                <a href="#">Singapore</a>
+                            </div>
+                        </div>
+                        <div class="noOfMessageAndTime">
+                            <div class="noOfMessage">
+                                <p>2</p>
+                            </div>
+                            <div class="time">
+                                <p>11.05AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messagingOuter">
+                        <div class="message">
+                            <p class="mainMessage">Hi, may I know what is the type of lectures that your
+                                school is giving? It is something my child may be ....
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mainMessageOuter border">
+                    <div class="profileOuter">
+                        <div class="forImg">
+                            <img src="../../../assets/demo/images/avatar/xuxuefeng.png" alt="">
+                        </div>
+                        <div class="profileDetails">
+                            <div class="name">
+                                <p>Darren Leow</p>
+                            </div>
+                            <div class="idAndLocation">
+                                <p class="ID">1234567A</p>
+                                <a href="#">Singapore</a>
+                            </div>
+                        </div>
+                        <div class="noOfMessageAndTime">
+                            <div class="noOfMessage">
+                                <p>2</p>
+                            </div>
+                            <div class="time">
+                                <p>11.05AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messagingOuter">
+                        <div class="message">
+                            <p class="mainMessage">Hi, may I know what is the type of lectures that your
+                                school is giving? It is something my child may be ....
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mainMessageOuter border">
+                    <div class="profileOuter">
+                        <div class="forImg">
+                            <img src="../../../assets/demo/images/avatar/xuxuefeng.png" alt="">
+                        </div>
+                        <div class="profileDetails">
+                            <div class="name">
+                                <p>Darren Leow</p>
+                            </div>
+                            <div class="idAndLocation">
+                                <p class="ID">1234567A</p>
+                                <a href="#">Singapore</a>
+                            </div>
+                        </div>
+                        <div class="noOfMessageAndTime">
+                            <div class="noOfMessage">
+                                <p>2</p>
+                            </div>
+                            <div class="time">
+                                <p>11.05AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messagingOuter">
+                        <div class="message">
+                            <p class="mainMessage">Hi, may I know what is the type of lectures that your
+                                school is giving? It is something my child may be ....
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mainMessageOuter border">
+                    <div class="profileOuter">
+                        <div class="forImg">
+                            <img src="../../../assets/demo/images/avatar/xuxuefeng.png" alt="">
+                        </div>
+                        <div class="profileDetails">
+                            <div class="name">
+                                <p>Darren Leow</p>
+                            </div>
+                            <div class="idAndLocation">
+                                <p class="ID">1234567A</p>
+                                <a href="#">Singapore</a>
+                            </div>
+                        </div>
+                        <div class="noOfMessageAndTime">
+                            <div class="noOfMessage">
+                                <p>2</p>
+                            </div>
+                            <div class="time">
+                                <p>11.05AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messagingOuter">
+                        <div class="message">
+                            <p class="mainMessage">Hi, may I know what is the type of lectures that your
+                                school is giving? It is something my child may be ....
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <!-- Contact Section Ends -->
+
+
+
+        <!-- Chat Section Starts -->
+        <div class="messageSectionOuter" *ngIf="isChatSectionVisible">
+
+            <div class="chatProfileOuter">
+                <div class="profileNameAndID">
+                    <div class="backIcon">
+                        <i class="pi pi-arrow-left" (click)="toggleChatSectionForSmallerScreen()"></i>
+                    </div>
+                    <div class="text">
+                        <p class="proName">Darren Leow</p>
+                        <p class="proID">user ID</p>
+                    </div>
+                </div>
+                <div class="cityName">
+                    <p class="city">City</p>
+                    <br>
+                </div>
+            </div>
+
+
+
+
+            <div class="mainChatOuter" id="chatBox">
+                <div class="chatInner">
+                    <div class="chatStart">
+                        <div class="date">
+                            <p>13 July 2021</p>
+                            <hr>
+                        </div>
+                        <div class="receiverOuter">
+                            <div class="receiverMessage message">
+                                <p>
+                                    I’ve misplaced my schedule
+                                </p>
+                            </div>
+                            <div class="imgAndTime">
+                                <img src="../../../assets/chat/Frame.svg" alt="">
+                                <p>13:01 hrs</p>
+                            </div>
+                        </div>
+                        <div class="senderMainOuter">
+                            <div class="senderOuter">
+                                <div class="imgAndTime">
+                                    <p>13:01 hrs</p>
+                                </div>
+                                <div class="senderMessage message">
+                                    <p>
+                                        I’ve misplaced my schedule, could you remind me where my next patient is?
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="receiverOuter">
+                            <div class="receiverMessage message">
+                                <p>
+                                    I’ve misplaced my schedule, could you remind me where my next patient is?
+                                </p>
+                            </div>
+                            <div class="imgAndTime">
+                                <img src="../../../assets/chat/Frame.svg" alt="">
+                                <p>13:01 hrs</p>
+                            </div>
+                        </div>
+                        <div class="senderMainOuter">
+                            <div class="senderOuter">
+                                <div class="imgAndTime">
+                                    <p>13:01 hrs</p>
+                                </div>
+                                <div class="senderMessage message">
+                                    <p>
+                                        I’ve misplaced my sch
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="receiverOuter">
+                            <div class="receiverMessage message">
+                                <p>
+                                    I’ve misplaced my schedule
+                                </p>
+                            </div>
+                            <div class="imgAndTime">
+                                <img src="../../../assets/chat/Frame.svg" alt="">
+                                <p>13:01 hrs</p>
+                            </div>
+                        </div>
+                        <div class="senderMainOuter">
+                            <div class="senderOuter">
+                                <div class="imgAndTime">
+                                    <p>13:01 hrs</p>
+                                </div>
+                                <div class="senderMessage message">
+                                    <p>
+                                        I’ve misplaced my schedule, could you remind me where my next patient is?
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="receiverOuter">
+                            <div class="receiverMessage message">
+                                <p>
+                                    I’ve misplaced my schedule, could you remind me where my next patient is?
+                                </p>
+                            </div>
+                            <div class="imgAndTime">
+                                <img src="../../../assets/chat/Frame.svg" alt="">
+                                <p>13:01 hrs</p>
+                            </div>
+                        </div>
+                        <div class="senderMainOuter">
+                            <div class="senderOuter">
+                                <div class="imgAndTime">
+                                    <p>13:01 hrs</p>
+                                </div>
+                                <div class="senderMessage message">
+                                    <p>
+                                        I’ve misplaced my sch
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dynamic Sender Messages -->
+                        <div class="senderMainOuter" *ngFor="let mssg of inbox">
+                            <div class="senderOuter">
+                                <div class="imgAndTime">
+                                    <p>{{mssg.time}} hrs</p>
+                                </div>
+                                <div class="senderMessage message">
+                                    <p>
+                                        {{mssg.message}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="inputOuter">
+                <div class="forInput">
+
+                    <input type="text" pInputText [(ngModel)]="chatInput" (keyup.enter)="sendMe()" maxlength="100"
+                        #mssgInput placeholder="Type a message">
+                    <div class="charLength">
+                        <p
+                            [ngClass]="[mssgInput.value.length == 100 ? 'maxlengthColor' : '' || chatInput?'maxlengthTypingColor':'']">
+                            {{mssgInput.value.length}} / 100</p>
+                    </div>
+                </div>
+                <div class="sendButton">
+
+                    <img (click)="sendMe()" src="../../../assets/chat/play.svg" alt=""
+                        [ngClass]="chatInput?'':'sendButtonDisbled'">
+
+                </div>
+            </div>
+
+        </div>
+        <!-- Chat Section Ends -->
+
+    </div>
+</div>

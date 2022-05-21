@@ -1,0 +1,93 @@
+$dropdownAndInputTextSelectedColor: #333333;
+$dropdownAndInputTextLightColor: #bdbdbd;
+$radioButtonNormalColor: #6fcf97;
+$whiteColor: white;
+
+:host ::ng-deep .md-drppicker {
+    margin-top: 1rem !important;
+    left: 0 !important;
+    z-index: 1 !important;
+    @media (min-width: 992px) {
+        display: flex;
+        padding-right: 1.2rem !important;
+    }
+    @media (max-width: 991px) {
+        max-width: 35rem !important;
+    }
+    @media (max-width: 1199px) and (min-width: 992px) {
+        left: -15rem !important;
+    }
+    @media (max-width: 700px) and(min-width: 576px) {
+        margin-left: -7rem !important;
+    }
+    @media (max-width: 575px) {
+        max-width: 41rem !important;
+    }
+    @media (max-width: 417px) {
+        left: -5rem !important;
+    }
+    @media (max-width: 347px) {
+        padding: 0;
+        margin: 0;
+        left: -8.5rem !important;
+    }
+    .buttons {
+        padding-bottom: 0.8rem !important;
+        @media (min-width: 992px) {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .calendar-table {
+        margin-bottom: 0.8rem;
+        @media (min-width: 992px) {
+            margin-bottom: 4.5rem;
+        }
+    }
+
+    .active {
+        background-color: $radioButtonNormalColor !important;
+    }
+    .btn-default {
+        display: none !important;
+    }
+    .btn {
+        background-color: darken($radioButtonNormalColor, 15%) !important;
+        padding: 0rem 2rem;
+    }
+}
+
+.dateRange {
+    i {
+        right: 0;
+        position: absolute;
+        top: 0.5rem;
+        margin-right: 2.7rem;
+        font-size: 2rem;
+        color: $dropdownAndInputTextLightColor;
+        font-weight: 500;
+        cursor: pointer;
+        @media (max-width: 1199px) {
+            top: 0.9rem;
+        }
+        @media (max-width: 767px) {
+            top: 1.3rem;
+        }
+    }
+    .form-control {
+        width: calc(100% - 2.5rem) !important;
+        margin: -3rem 0 0 2.5rem;
+        @media (max-width: 1199px) {
+            width: calc(100% - 3.5rem) !important;
+            margin-left: 3.5rem;
+        }
+        border-radius: 0.5rem;
+        color: $dropdownAndInputTextSelectedColor;
+        padding-right: 4rem;
+    }
+}

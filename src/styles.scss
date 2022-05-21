@@ -1,0 +1,118 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeflex/primeflex.scss";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/prismjs/themes/prism-coy.css";
+@import "../node_modules/@fullcalendar/core/main.min.css";
+@import "../node_modules/@fullcalendar/daygrid/main.min.css";
+@import "../node_modules/@fullcalendar/timegrid/main.min.css";
+@import "../node_modules/font-awesome/scss/font-awesome.scss";
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+// @import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+$calendarColor: #6fcf97;
+$whiteColor: #fff;
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    // font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: "Nunito", sans-serif !important;
+    background-color: #e5e5e5 !important;
+}
+
+.poppinsFont {
+    font-family: "Poppins", sans-serif;
+    p {
+        font-family: "Poppins", sans-serif;
+    }
+}
+
+.customToast {
+    font-size: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.7rem;
+    text-align: center;
+    position: fixed !important;
+    top: auto !important;
+    left: auto !important;
+    right: 2rem !important;
+    margin-top: 7rem;
+    @media (min-width: 1920px) {
+        right: calc(50% - 17rem) !important;
+    }
+}
+
+.forextraMarginTop {
+    margin-top: 14rem;
+}
+
+.bs-datepicker-body table td.week span {
+    color: $calendarColor !important;
+}
+
+.bs-datepicker-body table td span.selected,
+.bs-datepicker-head,
+.bs-datepicker-head,
+.bs-datepicker button:active,
+.bs-datepicker-body table td.selected span,
+.bs-datepicker-body table td span[class*="select-"]:after,
+.bs-datepicker-body table td[class*="select-"] span:after,
+.bs-datepicker-body table td.active-week span:hover {
+    background-color: $calendarColor !important;
+}
+
+.bs-datepicker-head .current {
+    font-size: 1.5rem !important;
+}
+
+.bs-datepicker {
+    margin-top: 1rem !important;
+    .bs-datepicker-container {
+        @media (max-width: 991px) {
+            position: absolute !important;
+            background-color: $whiteColor !important;
+            overflow: hidden !important;
+            right: -10rem !important;
+        }
+        @media (max-width: 817px) {
+            right: -15rem !important;
+        }
+        @media (max-width: 421px) {
+            right: -20rem !important;
+        }
+        @media (max-width: 367px) {
+            right: -17rem !important;
+            padding: 0 !important;
+        }
+    }
+}
+
+.cdk-overlay-container {
+    z-index: 9999 !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+html {
+    font-size: 67%;
+    @media (max-width: 1199px) {
+        font-size: 57.5%;
+    }
+    @media (max-width: 991px) {
+        font-size: 55.5%;
+    }
+    @media (max-width: 767px) {
+        font-size: 52.5%;
+    }
+    @media (max-width: 575px) {
+        font-size: 45.5%;
+    }
+}

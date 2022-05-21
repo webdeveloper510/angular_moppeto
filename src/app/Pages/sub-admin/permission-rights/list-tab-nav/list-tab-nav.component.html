@@ -1,0 +1,21 @@
+<div class="mainContainer">
+
+    <!-- Menu Section Starts -->
+    <div class="tabs">
+        <div class="tabLinks">
+            <a routerLink="global-list" routerLinkActive="activeRouter">Global</a>
+        </div>
+        <div class="tabLinks">
+            <a routerLink="country-list" routerLinkActive="activeRouter">Country-based</a>
+        </div>
+        <div class="tabLinks">
+            <a routerLink="city-list" routerLinkActive="activeRouter">City-based</a>
+        </div>
+    </div>
+    <!-- Menu Section Ends -->
+
+    <div class="listBody">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

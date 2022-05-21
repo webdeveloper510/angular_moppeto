@@ -1,0 +1,257 @@
+<div class="mainOuterTop">
+
+  <!-- Top Header Starts..... -->
+  <div class="topHeader">
+    <div class="outer">
+      <div class="row">
+        <div class="col-sm-6 blank">
+        </div>
+        <div class="col-sm-6 searchOuter p-0">
+          <div class="search ml-5">
+            <i class="pi pi-search" [ngClass]="searchInput?'searchColor':'searchColor2'"></i>
+            <input type="text" pInputText [(ngModel)]="searchInput">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top Header Ends..... -->
+</div>
+
+
+
+<div class="mainOuter border">
+
+  <!-- UpperBody Starts..... -->
+  <div class="upperBody">
+    <div class="outer container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="innerBody1Outer">
+            <div class="inner1">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p-dropdown [options]="vendorList" [(ngModel)]="selectedVendor" placeholder="Vendor name"
+                    optionLabel="name" [showClear]="false">
+                  </p-dropdown>
+                </div>
+                <div class="col-sm-6 vendorCodeOuter">
+                  <input type="text" pInputText placeholder="Vendor code" [value]="selectedVendor?.vendor?.code">
+                </div>
+              </div>
+            </div>
+            <div class="inner2">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" placeholder="Country"
+                    optionLabel="name" [showClear]="false" (onChange)="onChange()">
+                  </p-dropdown>
+                </div>
+                <div class="col-sm-6 dateRange">
+                  <!-- <input pInputText type="text" name="daterange" ngxDaterangepickerMd [(ngModel)]="selected"
+                    class="form-control" placeholder="Date range" /> -->
+                  <input pInputText type="text" class="form-control" bsDaterangepicker [bsConfig]="{ isAnimated: true }"
+                    placeholder="Date range" for="dateRange3" [(ngModel)]="searchDate">
+                  <i class="pi pi-calendar"></i>
+                </div>
+              </div>
+            </div>
+            <div class="inner3 d-flex justify-content-center">
+              <div class="icon" (click)="filterReview()">
+                <i class="pi pi-youtube"></i>
+              </div>
+              <div class="button">
+                <button pButton pRipple type="button" (click)="reset()" label="Reset"
+                  class="p-button-outlined p-button-success"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" *ngIf="stars?.over_all">
+          <div class="innerBody2Outer">
+            <div class="row">
+              <div class="col-sm-4 p-0 rateOuter">
+                <div class="rate border">
+                  <p class="text-center">{{stars?.over_all}}</p>
+                </div>
+                <div class="text">
+                  <p class="text-center">Overall</p>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <app-bar-chart [isSearchResult]="_isSearchResult" [ratingList]="ratingList"
+                  (onRateClickEvent)="onRateClick($event)" (onRefreshEvent)="reset()"></app-bar-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UpperBody Ends..... -->
+
+  <!-- Table Starts..... -->
+  <div class="tableOuter mt-3 table-responsive" *ngIf="isAPIResponseCome">
+    <table class="table table-borderless text-center">
+      <thead class="forBG">
+        <tr class="border-bottom">
+          <th scope="col" class="text-left first3Col">
+            Vendor name / Vendor code
+            <br>
+            Country
+          </th>
+          <th scope="col" class="text-left first3Col">
+            Activity title
+            <br>
+            Activity code
+          </th>
+          <th scope="col" class="text-left first3Col">
+            User name / User ID
+            <br>
+            Review date
+          </th>
+          <th scope="col" class="titleStarTR">
+            Star
+            <br>
+            rating
+          </th>
+          <th scope="col">
+            &nbsp;
+            <br>
+            Review
+          </th>
+          <th scope="col">
+            &nbsp;
+            <br>
+            Response
+          </th>
+          <th scope="col" class="ellipsisTH">
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngIf="results?.length > 0 else noDataView">
+        <tr class="border-bottom" *ngFor="let item of results; trackBy: trackByService.trackByFn; let i = index">
+          <td scope="row" class="text-left first3Col">
+            <div class="title1">
+              <p>
+                {{item?.vendor_name | blankValue}}
+              </p>
+            </div>
+            <div class="title3">
+              <p>
+                {{item?.vendor_code | blankValue}}
+              </p>
+            </div>
+            <div class="title3WithColor">
+              <p>
+                {{item?.country | blankValue}}
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left first3Col">
+            <div class="title2">
+              <p>
+                {{item?.activity_title | blankValue}}
+              </p>
+            </div>
+            <div class="title2">
+              <p>
+                {{item?.activity_code | blankValue}}
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="text-left first3Col">
+            <div class="title1">
+              <p>
+                {{item?.user_name | blankValue}}
+              </p>
+            </div>
+            <div class="title5">
+              <p>
+                {{item?.user_id | blankValue}}
+              </p>
+            </div>
+            <div class="title2">
+              <p>
+                {{item.review_date | date: 'dd MMM yyyy / h:mm' }} hrs
+              </p>
+            </div>
+          </td>
+          <td scope="row" class="titleStarTR">
+            <div class="titleStar">
+              <ng-container *ngFor="let item of item.reviewCount;">
+                <i class="pi pi-star"></i>
+              </ng-container>
+            </div>
+          </td>
+          <td scope="row" class="text-left first3Col border">
+            <div class="title6">
+              <p *ngIf="item?.review else noReview" [ngClass]="{'text-color': item?.status === reviewStatusEnum.HIDE}">
+                <span>{{item?.review?.slice(0,item?.reviewTextLimit)}}</span>&nbsp;
+                <a href="javascript:;" *ngIf="item?.review?.length > reviewLength"
+                  (click)="viewMoreReview(item)">{{item?.reviewDisplayText}}
+                </a>
+              </p>
+              <ng-template #noReview>
+                --
+              </ng-template>
+            </div>
+          </td>
+          <td scope="row" class="text-left first3Col border">
+            <div class="title6">
+              <p *ngIf="item?.response else noResponse"
+                [ngClass]="{'text-color': item?.status === reviewStatusEnum.HIDE || item?.status === reviewStatusEnum.HIDE_VENDOR_RESPONSE}">
+                <span>{{item?.response?.slice(0,item?.responseTextLimit)}}</span>&nbsp;
+                <a href="javascript:;" *ngIf="item?.response?.length > reviewLength"
+                  (click)="viewMoreResponse(item)">{{item?.responseDisplayText}}
+                </a>
+              </p>
+              <ng-template #noResponse>
+                --
+              </ng-template>
+            </div>
+          </td>
+          <td class="ellipsisTD">
+            <div class="ellipsisOuter2">
+              <div class="dropleft">
+                <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <span><i class="pi pi-ellipsis-v"></i></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item item1"
+                    (click)="onChangeStatus(item?.id, reviewStatusEnum.HIDE_VENDOR_RESPONSE)"
+                    *ngIf="(item?.response && item?.status !== reviewStatusEnum.HIDE && item?.status !== reviewStatusEnum.HIDE_VENDOR_RESPONSE)">
+                    Hide vendor Response</a>
+                  <a class="dropdown-item item2" (click)="onChangeStatus(item?.id, reviewStatusEnum.HIDE)" *ngIf="(item?.response && item?.status === reviewStatusEnum.HIDE_VENDOR_RESPONSE) || 
+                    (item?.response && item?.status !== reviewStatusEnum.HIDE && item?.status !== reviewStatusEnum.HIDE_VENDOR_RESPONSE) ||
+                    (!item?.response && item?.status !== reviewStatusEnum.HIDE)">
+                    Hide all</a>
+                  <a class="dropdown-item item3"
+                    (click)="onChangeStatus(item?.id, reviewStatusEnum.REINSTATE_VENDOR_RESPONSE)"
+                    *ngIf="(item?.response && item?.status === reviewStatusEnum.HIDE_VENDOR_RESPONSE)">Reinstate
+                    vendor Response</a>
+                  <a class="dropdown-item item4" (click)="onChangeStatus(item?.id, reviewStatusEnum.ACTIVE)" *ngIf="(item?.response && item?.status === reviewStatusEnum.HIDE) || 
+                    (!item?.response && item?.status === reviewStatusEnum.HIDE)">
+                    Reinstate all</a>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <ng-template #noDataView>
+        <app-no-table-data-view></app-no-table-data-view>
+      </ng-template>
+    </table>
+  </div>
+  <!-- Table Ends...... -->
+
+  <!-- Pagination Starts...... -->
+  <div *ngIf="results?.length > 0">
+    <app-pagination (onPagechanged)="pageChangeEvent()" [paginationService]="paginationService">
+    </app-pagination>
+  </div>
+  <!-- Pagination Ends...... -->
+</div>

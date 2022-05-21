@@ -1,0 +1,690 @@
+<div class="mainOuter border" [ngClass]="!isEdit?'overlayBodyTrue':''">
+
+    <div class="upperBodyOuter">
+
+        <div class="countryRadioOuter upOuter">
+            <div class="upperRadioDivOuter">
+                <p>Select country</p>
+                <div class="radioInner">
+                    <div class="row colOuter align-items-start">
+                        <div class="col-sm-6">
+                            <div class="leftRadio">
+                                <div class="forRadio"
+                                    *ngFor="let country of country | slice:0:country.length/2; index as i">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{country+i}}" name="country" value="{{country+i}}"
+                                            (change)="changeFilter(country, 'country')">
+                                        <label for="{{country+i}}">{{country}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="rightRadio">
+                                <div class="forRadio"
+                                    *ngFor="let country of country | slice:(country.length/2):country.length; index as i">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{country+i}}" name="country" value="{{country+i}}"
+                                            (change)="changeFilter(country, 'country')">
+                                            <!-- vendorName.value='';vendorCode.value='' -->
+                                        <label for="{{country+i}}">{{country}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="subscriptionRadioOuter upOuter">
+            <div class="upperRadioDivOuter">
+                <p>Subscription type</p>
+                <div class="radioInner">
+                    <div class="row colOuter">
+                        <div class="col">
+                            <div class="rightRadio">
+                                <div class="forRadio" *ngFor="let subscription of subscription; index as i">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{subscription+i}}" name="subscription"
+                                            value="{{subscription+i}}"
+                                            (change)="changeFilter(subscription, 'type')">
+                                            <!-- vendorName.value='';vendorCode.value='' -->
+                                        <label for="{{subscription+i}}">{{subscription}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="statusRadioOuter upOuter">
+            <div class="upperRadioDivOuter">
+                <p>Status</p>
+                <div class="radioInner">
+                    <div class="row colOuter">
+                        <div class="col">
+                            <div class="rightRadio">
+                                <div class="forRadio" *ngFor="let status of status; index as i">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{status+i+1}}" name="status" value="{{status+i+1}}"
+                                            (change)="changeFilter(status, 'status')">
+                                            <!-- vendorName.value='';vendorCode.value='' -->
+                                        <label for="{{status+i+1}}">{{status}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vendorNameCodeButtonOuter upOuter">
+            <div class="nameInput">
+                <input type="text" (keyup)="onVendorNameOrCodeChange()" pInputText placeholder="Vendor name"
+                    #vendorName>
+            </div>
+            <div class="orText">
+                <p class="m-0 text-uppercase text-center">or</p>
+            </div>
+            <div class="codeInput">
+                <input type="text" (keyup)="onVendorNameOrCodeChange()" pInputText placeholder="Vendor code"
+                    #vendorCode>
+            </div>
+            <div class="inner3 d-flex justify-content-center">
+                <div class="icon">
+                    <i (click)="search()" class="pi pi-youtube"></i>
+                </div>
+                <div class="button">
+                    <button pButton pRipple type="button" label="Reset"
+                        class="p-button-outlined p-button-warning"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Table Starts..... -->
+    <div class="tableOuter border-top table-responsive text-nowrap">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr class="headRow1">
+                    <th scope="col" class="bigCol1 text-left">
+                    </th>
+                    <th scope="col" class="subsTypeCol text-left">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1 border-right">
+                    </th>
+                    <th scope="col" class="termCol" colspan="3">
+                        <div class="innerHead">
+                            Term
+                        </div>
+                    </th>
+                    <th scope="col" class="openCol1" colspan="3">
+                        <div class="innerHead">
+                            Open
+                        </div>
+                    </th>
+                    <th scope="col" class="fixedTimingCol" colspan="2">
+                        <div class="innerHead">
+                            Fixed Timing
+                        </div>
+                    </th>
+                    <th scope="col" class="dayAccessCol" colspan="2">
+                        <div class="innerHead">
+                            Day Access
+                        </div>
+                    </th>
+                    <th scope="col" class="subscriptionPeriodCol blueTH" colspan="2">
+                        <div class="innerHead">
+                            From
+                        </div>
+                    </th>
+                    <th scope="col" class="smallCol2 blueTH">
+                    </th>
+                    <th scope="col" class="smallCol2 blueTH">
+                    </th>
+                    <th scope="col" class="bigCol2 blueTH" *ngIf="isEdit">
+                    </th>
+                    <th scope="col" class="smallCol2 blueTH" *ngIf="!isEdit">
+                    </th>
+                    <th scope="col" class="editCol border-left">
+                    </th>
+                </tr>
+                <tr class="headRow2">
+                    <th scope="col" class="bigCol1 text-left">
+                        Vendor name
+                        <br>
+                        Vendor code
+                    </th>
+                    <th scope="col" class="subsTypeCol text-left">
+                        Subscription
+                        <br>
+                        type
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Locations
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Sub-admin
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Trial
+                        <br>
+                        Class
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Promotions
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Term
+                        <br>
+                        renewal
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Dashboard
+                    </th>
+                    <th scope="col" class="smallCol1 border-right">
+                        Reports
+                        <br>
+                        (Revenue)
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of
+                        <br>
+                        activities
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of slots
+                        <br>
+                        per Term
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Sessions
+                        <br>
+                        per Term
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of
+                        <br>
+                        activities
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of slots
+                        <br>
+                        per Term
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Sessions
+                        <br>
+                        per Term
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of
+                        <br>
+                        activities
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Slots per
+                        <br>
+                        Session
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of
+                        <br>
+                        activities
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Slots per
+                        <br>
+                        Session
+                    </th>
+                    <th scope="col" class="smallCol1 blueTH">
+                        From
+                    </th>
+                    <th scope="col" class="smallCol1 blueTH">
+                        To
+                    </th>
+                    <th scope="col" class="smallCol2 blueTH">
+                        Subscription left
+                        <br>
+                        S$
+                    </th>
+                    <th scope="col" class="smallCol2 blueTH">
+                        Price/mth
+                        <br>
+                        S$
+                    </th>
+                    <th scope="col" class="bigCol2 blueTH" *ngIf="isEdit">
+                        Status
+                    </th>
+                    <th scope="col" class="smallCol2 blueTH" *ngIf="!isEdit">
+                        Additional
+                        <br>
+                        subscription
+                        <br>
+                        payable S$
+                    </th>
+                    <th scope="col" class="editCol border-left">
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="border-top">
+                <tr class="border-bottom" [ngClass]="!demoTable[i].editMode?'overlayBodyFalse':''"
+                    *ngFor="let data of demoTable; let i= index">
+                    <td scope="row" class="bigCol1 text-left">
+                        <div class="title1 text-wrap">
+                            <p>
+                                {{data.vendor ? data.vendor : "-"}}
+                            </p>
+                        </div>
+                        <div class="titleBlue">
+                            <p>
+                                {{data.vendor_code ? data.vendor_code : "-"}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="subsTypeCol text-left">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title2">
+                                <p>
+                                    {{ setSubType(data, 'subscription', 'subscription_type') }}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText value="Custom" disabled>
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{ setSubType(data, 'subscription', 'no_of_locations') }}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [value]="setSubType(data, 'subscription', 'no_of_locations')">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{setSubType(data, 'subscription', 'no_of_subadmins')}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [(ngModel)]="data.subscription.no_of_subadmins" [value]="setSubType(data, 'subscription', 'no_of_subadmins')">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{setSubType(data, 'subscription', 'has_trial_class') ? "Yes" : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <p-checkbox name="groupname" [value]="setSubType(data, 'subscription', 'has_trial_class')" [(ngModel)]="data.subscription.has_trial_class" binary="true">
+                            </p-checkbox>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{setSubType(data, 'subscription', 'has_promotions') ? "Yes": "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <p-checkbox name="groupname" [value]="setSubType(data, 'subscription', 'has_promotions')" [(ngModel)]="data.subscription.has_promotions" binary="true">
+                            </p-checkbox>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{setSubType(data, 'subscription', 'has_term_renewal') ? "Yes" : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <p-checkbox name="groupname" [value]="setSubType(data, 'subscription', 'has_term_renewal')" [(ngModel)]="data.subscription.has_term_renewal" binary="true">
+                            </p-checkbox>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{setSubType(data, 'subscription', 'has_dashboard') ? "Yes": "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <p-checkbox name="groupname" [value]="setSubType(data, 'subscription', 'has_dashboard')" [(ngModel)]="data.subscription.has_dashboard" binary="true">
+                            </p-checkbox>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1 border-right">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{setSubType(data, 'subscription', 'has_reports') ? "Yes": "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <p-checkbox name="groupname" [value]="setSubType(data, 'subscription', 'has_reports')" [(ngModel)]="data.subscription.has_reports" binary="true">
+                            </p-checkbox>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.term_no_of_activities ? data.term_no_of_activities : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [(ngModel)]="data.term_no_of_activities" [value]="data.term_no_of_activities ? data.term_no_of_activities : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.term_slots_per_session ? data.term_slots_per_session : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [(ngModel)]="data.term_slots_per_session" [value]="data.term_slots_per_session ? data.term_slots_per_session : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.term_sessions_per_term ? data.term_sessions_per_term :"-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [(ngModel)]="data.term_sessions_per_term" [value]="data.term_sessions_per_term ? data.term_sessions_per_term : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.open_no_of_activities ? data.open_no_of_activities : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [(ngModel)]="data.open_no_of_activities" [value]="data.open_no_of_activities ? data.open_no_of_activities : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.open_slots_per_session ? data.open_slots_per_session : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [(ngModel)]="data.open_slots_per_session" [value]="data.open_slots_per_session ? data.open_slots_per_session : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.open_sessions_per_term ? data.open_sessions_per_term : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [(ngModel)]="data.open_sessions_per_term" [value]="data.open_sessions_per_term ? data.open_sessions_per_term : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.fixed_no_of_activities ? data.fixed_no_of_activities : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [(ngModel)]="data.fixed_no_of_activities" [value]="data.fixed_no_of_activities ? data.fixed_no_of_activities : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.fixed_slots_per_session ? data.fixed_slots_per_session : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [(ngModel)]="data.fixed_slots_per_session" [value]="data.fixed_slots_per_session ? data.fixed_slots_per_session : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.day_access_no_of_activities ? data.day_access_no_of_activities : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [(ngModel)]="data.day_access_no_of_activities" [value]="data.day_access_no_of_activities ? data.day_access_no_of_activities : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.day_access_sessions_per_term ? data.day_access_sessions_per_term : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" [(ngModel)]="data.day_access_sessions_per_term" pInputText [value]="data.day_access_sessions_per_term ? data.day_access_sessions_per_term : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <div class="title3">
+                            <p>
+                                <!-- 27/02/22 -->
+                                {{setSubType(data, 'subscription_period', 'from')}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <div class="title3">
+                            <p>
+                                <!-- 26/02/23 -->
+                                {{setSubType(data, 'subscription_period', 'to')}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="smallCol2">
+                        <div class="title3">
+                            <p>
+                                {{data.total_subscription_remaining ? data.total_subscription_remaining : "-"}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="smallCol2">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title1">
+                                <p>
+                                    {{setSubType(data, 'subscription', 'price_per_month')}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText [(ngModel)]="data.subscription.price_per_month" [value]="data.subscription.price_per_month ? data.subscription.price_per_month : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="bigCol2" *ngIf="isEdit">
+                        <div class="statusColInner">
+                            <div class="ellipsisOuter">
+                                <div class="statusOuter">
+                                    <div class="status"
+                                        [ngClass]="{'ActiveStatus':data.status=='CURRENT', 'expiredStatus': data.status=='EXPIRED', 'SentStatus': data.status=='SENT'}">
+                                        <div class="circleDiv"></div>
+                                        <div class="ActualStatus">
+                                            <p>{{data.status==='CURRENT'?'Active':(data.status==='EXPIRED'?'Expired': data.status==='SENT' ? 'Sent': '')}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sentStatusTime titleBlue" *ngIf="data.status=='SENT' && data.subscription.subscription_type=='CUSTOM'" >
+                                <!-- && setCustomTimer(i) -->
+                                <p *ngIf="!error[data.id].active" class="m-0">
+                                    
+                                    {{data.hours == 0 && data.minutes == 0 && data.seconds == 0 ? 'Please wait...' : realTimeGet(data) }}
+                                    
+                                </p>
+                                <p *ngIf="error[data.id].active" class="m-0">{{error[data.id]['msg']}}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td scope="row" class="smallCol2" *ngIf="!isEdit">
+                        <div class="editInput" *ngIf="!data.editMode">
+                            <input type="text" pInputText [value]="data.total_subscription_payable ? data.total_subscription_payable : '-'" disabled>
+                            <!-- <div class="errorText">
+                                <p class="m-0">Calculation error</p>
+                            </div> -->
+                        </div>
+                    </td>
+                    <td scope="row" class="editCol border-left">
+                        <ng-container *ngIf="data.status!=='SENT'">
+                            <ng-container *ngIf="data.editMode">
+                                <div class="editPenButton" (click)="editPricing(i)">
+                                    <i class="pi pi-pencil"></i>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="!data.editMode">
+                                <div class="nextCancelButtonOuter">
+                                    <button pButton type="button" label="Next" class="p-button-success" (click)="NextEditPricing(i)"></button>
+                                    <button pButton type="button" label="Cancel" class="p-button-danger"
+                                        (click)="cancelEditPricing(i)"></button>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf="data.status=='SENT'">
+                            <div class="cancelSubscriptionButton" *ngIf="data.status=='SENT'">
+                                <p (click)="cancelCustomSub(data.id)" class="m-0 text-wrap">Cancel custom
+                                    subscription</p>
+                            </div>
+                        </ng-container>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Ends...... -->
+
+    <!-- Pagination Starts...... -->
+
+    <div class="paginationOuter">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="rowsOuter">
+                    <p>Rows per page:</p>
+                    <div class="selectNoOfRow select">
+
+                        <select class="form-control select__field" aria-label="Default select example">
+                            <option selected value="1">10</option>
+                            <option value="2">20</option>
+                            <option value="3">30</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="pagesOuter">
+                    <p>1 of 6</p>
+                    <div class="iconPrevious">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector1.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="iconNext">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector2.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div *ngIf="demoTable?.length > 0">
+        <app-pagination (onPagechanged)="pageChangeEvent()" [paginationService]="paginationService">
+        </app-pagination>
+    </div> -->
+    <!-- Pagination Ends...... -->
+
+</div>
+
+
+<!-- <button (click)="callCustomSubscription()">Custom Subscription Modal</button> -->

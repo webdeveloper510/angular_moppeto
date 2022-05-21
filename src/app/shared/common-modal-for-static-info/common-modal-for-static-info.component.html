@@ -1,0 +1,28 @@
+<div class="actualOuter">
+    <form [formGroup]="contactForm">
+        <div class="upperTitle">
+            <div class="titleBox">
+                <p class="text-center m-0" mat-dialog-title>{{data.title}}</p>
+            </div>
+            <div class="close">
+                <p (click)="onDismiss()" class="close m-0 text-center">X</p>
+            </div>
+        </div>
+
+        <div class="bodySection">
+            <div class="textSection" *ngIf="data.textSection">
+
+                <p class="m-0">
+                    {{data.suspendOrReInstateBodyText}}
+                </p>
+                <input type="text"  formControlName="contactemail" pInputText/>
+            </div>
+
+            <div class="buttonSection">
+                <button pButton pRipple
+                    [ngClass]="!contactForm.valid ? 'p-button-text p-button-plain change-cursor' : 'p-button-success'"
+                    [disabled]="contactForm.value.contactemail === data.email || !contactForm.valid" type="button" (click)="onConfirm()" label="Ok"></button>
+            </div>
+        </div>
+    </form>
+</div>

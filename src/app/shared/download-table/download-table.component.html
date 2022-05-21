@@ -1,0 +1,21 @@
+<div class="downloadTable">
+  <p (click)="onDismiss()" class="close">X</p>
+  <div class="headTitle">
+    <p class="h6 text-center" mat-dialog-title>{{data.title}}</p>
+  </div>
+
+  <div class="inner">
+
+    <a (click)="downloadCsv('current')">
+      <div class="message">
+        <p mat-dialog-content class="text-center">{{data.DownloadCurrentPage}}</p>
+      </div>
+    </a>
+
+    <a (click)="downloadCsv('all')">
+      <div class="message extraMargin">
+        <p mat-dialog-content class="text-center">{{data.DownloadAllData}}</p>
+      </div>
+    </a>
+  </div>
+</div>

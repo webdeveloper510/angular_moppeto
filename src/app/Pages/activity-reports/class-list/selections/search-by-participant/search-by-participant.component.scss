@@ -1,0 +1,186 @@
+@import "../../../../../SCSS/ActivityReports/searchingBodyUpperSectionDesign";
+@import "../../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../../SCSS/PrimeNG/primeNGDesign";
+@import "../../../../../SCSS/Table/tableDesign";
+@import "../../../../../SCSS/Pagination/paginationDesign";
+
+$backButtonBG: #faa559;
+$blackColor: #333333;
+$whiteColor: #fff;
+$greenColor: #6fcf97;
+$darkGreyColor: #9a9a9a;
+$borderColor: #e7e7e7;
+
+.searchBodyOuter {
+    border-radius: 1.5rem;
+    // padding: 1.2rem;
+    padding: 5rem;
+    margin: 8rem auto 0 auto;
+    width: 52rem;
+    @include displayFlex(center, flex-end);
+    @media (max-width: 575px) {
+        display: block;
+        width: calc(100% - 1.4rem);
+    }
+    @media (max-width: 575px) {
+        padding: 3rem;
+    }
+    .leftSection {
+        width: calc(100% - 14rem);
+        @media (max-width: 575px) {
+            width: 100%;
+        }
+        // .col-sm-6 {
+        //     &:first-child,
+        //     &:nth-child(2) {
+        //         margin-bottom: 1rem;
+        //     }
+        //     @media (max-width: 575px) {
+        //         &:not(:last-child) {
+        //             margin-bottom: 1.5rem;
+        //         }
+        //     }
+        //     .forText {
+        //         p {
+        //             @include forParaTag($darkGreyColor, 1.4rem, 500);
+        //         }
+        //     }
+        // }
+
+        .forText {
+            padding-bottom: 0.5rem;
+            p {
+                @include forParaTag($darkGreyColor, 1.4rem, 500);
+            }
+        }
+    }
+    .rightSection {
+        width: 14rem;
+        @include displayFlex(flex-end, center);
+        @include buttonDesign(1.4rem, 400, 00.25rem, 2rem, 0.2rem, 0.7rem);
+        @media (max-width: 575px) {
+            width: 100%;
+            padding: 3.7rem 0 0 0;
+            justify-content: center;
+        }
+        .p-button-success {
+            // margin-top: 2.7rem;
+            @include classWisebuttonDesign($greenColor, $greenColor, $whiteColor, $greenColor);
+        }
+    }
+}
+
+.searchTableBodyOuter {
+    border-radius: 1.5rem;
+    margin: 2rem 0 0 0;
+
+    .downloadIcon {
+        padding: 1.2rem 2.77rem 0 0;
+        @include displayFlex(flex-end, center);
+        img {
+            width: 1.5rem;
+            cursor: pointer;
+        }
+    }
+
+    .participantInfo {
+        width: 52rem;
+        margin: 5rem auto 3rem auto;
+        @include displayFlex(space-between, center);
+        @media (max-width: 617px) {
+            margin: 5rem 1.2rem 3rem 1.2rem;
+            width: 100%;
+            display: block;
+            padding-left: 2rem;
+        }
+        .NameSection {
+            width: 47%;
+        }
+        .userIDSection {
+            width: 37%;
+
+            @media (max-width: 617px) {
+                margin-top: 1rem;
+            }
+        }
+
+        .NameSection,
+        .userIDSection {
+            @include displayFlex(space-between, center);
+            @media (max-width: 617px) {
+                width: 100%;
+            }
+            .forTitle {
+                @media (max-width: 617px) {
+                    width: 9rem;
+                }
+                p {
+                    @include forParaTag($darkGreyColor, 1.3rem, 500);
+                }
+            }
+            .forData {
+                @media (max-width: 617px) {
+                    width: calc(100% - 9rem);
+                }
+                p {
+                    @include forParaTag($blackColor, 1.3rem, 500);
+                }
+            }
+        }
+    }
+
+    .infoTable {
+        margin: 0 2.7rem;
+
+        .tableOuter {
+            background-color: transparent;
+            .table {
+                thead {
+                    th {
+                        padding: 4rem 1.2rem 1.2rem 1.2rem !important;
+                        color: $greenColor;
+                    }
+                }
+                tbody {
+                    border-top: solid $borderColor 0.1rem;
+                    border-bottom: solid $borderColor 0.1rem;
+                    tr {
+                        &:first-child {
+                            td {
+                                border-top: none;
+                            }
+                        }
+                        td {
+                            padding: 1.2rem !important;
+                            border: solid $borderColor 0.1rem;
+                            border-bottom: none;
+                            .title1 {
+                                @include tableData(1.3rem, $greenColor, 500);
+                            }
+                            .title2 {
+                                @include tableData(1.3rem, $darkGreyColor, 500);
+                            }
+
+                            .title3 {
+                                @include tableData(1.3rem, $blackColor, 500);
+                            }
+                        }
+                    }
+                }
+            }
+            .noCol {
+                width: 5rem;
+            }
+            .bigCell {
+                width: 19rem;
+            }
+
+            @media (max-width: 1677px) {
+                th,
+                td {
+                    width: 14.7rem;
+                }
+            }
+        }
+    }
+}

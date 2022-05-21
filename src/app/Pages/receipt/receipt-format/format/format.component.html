@@ -1,0 +1,627 @@
+<div class="mainOuter">
+
+    <div class="upperBody">
+
+        <div class="radioOuter3">
+            <div class="upperRadioDivOuter">
+                <p>Cities</p>
+                <div class="radioInner">
+                    <div class="row colOuter">
+                        <div class="col-sm-6">
+                            <div class="leftRadio">
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="country1" name="country" value="country1">
+                                        <label for="country1">A country</label>
+                                    </div>
+                                </div>
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="country2" name="country" value="country2">
+                                        <label for="country2">B country</label>
+                                    </div>
+                                </div>
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="country3" name="country" value="country3">
+                                        <label for="country3">C country</label>
+                                    </div>
+                                </div>
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="country4" name="country" value="country4">
+                                        <label for="country4">D country</label>
+                                    </div>
+                                </div>
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="country5" name="country" value="country5">
+                                        <label for="country5">E country</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="rightRadio">
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="country6" name="country" value="country6">
+                                        <label for="country6">F country</label>
+                                    </div>
+                                </div>
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="country7" name="country" value="country7">
+                                        <label for="country7">G country</label>
+                                    </div>
+                                </div>
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="country8" name="country" value="country8">
+                                        <label for="country8">H country</label>
+                                    </div>
+                                </div>
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="country9" name="country" value="country9">
+                                        <label for="country9">I country</label>
+                                    </div>
+                                </div>
+                                <div class="forRadio">
+                                    <div class="radio-item">
+                                        <input type="radio" id="country10" name="country" value="country10">
+                                        <label for="country10">J country</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttonSection" [ngClass]="isActivePlaceLogo?'smallButton':''">
+
+            <ng-container *ngIf="isActiveEdit">
+                <button pButton pRipple type="button" label="Edit receipt" class="p-button-success"
+                    (click)="activeEditSection()"></button>
+                <button pButton pRipple type="button" label="Place logo" class="p-button-warning"
+                    (click)="activePlaceLogo()"></button>
+            </ng-container>
+
+            <ng-container *ngIf="isActivePlaceLogo">
+                <button pButton pRipple type="button" label="Save" class="p-button-success"></button>
+                <button pButton pRipple type="button" label="Cancel" class="p-button-warning"
+                    (click)="cancelPlacLogo()"></button>
+            </ng-container>
+
+        </div>
+
+    </div>
+
+    <div class="billingBodyOuter" [ngClass]="!previewBill?'removeBoxShadox':'addBoxShadow'">
+
+
+
+        <div class="billingBody" *ngIf="previewBill">
+            <div class="headerContent" [ngClass]="editLogo?'dottedBorder':''">
+                <div class="normalView" *ngIf="normalLogoSection">
+                    <img src="../../../../../assets/Sidepanel Icons/Logo_with_tagline.svg" alt="">
+                </div>
+                <div class="editLogoOuter" *ngIf="editLogo">
+                    <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" [multiple]="false"
+                        [disableClick]="files.length>0" (change)="onSelect($event)">
+                        <ngx-dropzone-label *ngIf="files?.length===0">
+                            <div class="label">
+                                <p class="fatText">Drop your logo here</p>
+                                <p class="thinText">Resize & drag logo to your preferred point</p>
+                            </div>
+                        </ngx-dropzone-label>
+                        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
+                            [file]="f" [removable]="true" (removed)="onRemove(f)">
+                        </ngx-dropzone-image-preview>
+                    </div>
+                </div>
+            </div>
+            <div class="footerContent">
+                <div class="innerContent">
+                    <div class="companyDetails">
+                        <div class="companyName">
+                            <p class="m-0">Name of company Name</p>
+                        </div>
+                        <div class="addresslines">
+                            <p class="m-0">Address line 1</p>
+                            <p class="m-0">Address line 2</p>
+                        </div>
+                    </div>
+                    <div class="businessInfo">
+                        <div class="regNo">
+                            <p class="m-0 text-right">Business registration no. 201815753K</p>
+                        </div>
+                        <div class="gstNo">
+                            <p class="m-0 text-right">GST registration no. 12345567</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainBodyContent">
+                <div class="receipienttDetails">
+                    <div class="vendorDetails">
+                        <div class="name">
+                            <p class="m-0">Vendor name</p>
+                        </div>
+                        <div class="address">
+                            <p class="m-0">Vendor address</p>
+                            <p class="m-0">Vendor address</p>
+                        </div>
+                        <div class="countryPostalCode">
+                            <p class="m-0">Vendor Country</p>
+                            <p class="m-0">Vendor postal code</p>
+                        </div>
+                    </div>
+                    <div class="receiptDetails">
+                        <div class="info">
+                            <div class="leftSide">
+                                <p class="m-0">Receipt no.</p>
+                            </div>
+                            <div class="rightSide">
+                                <p class="m-0">SG-19095601</p>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="leftSide">
+                                <p class="m-0">Date paid</p>
+                            </div>
+                            <div class="rightSide">
+                                <p class="m-0">16 Nov 2020</p>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="leftSide">
+                                <p class="m-0">Payment via</p>
+                            </div>
+                            <div class="rightSide">
+                                <p class="m-0">Stripe</p>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="leftSide">
+                                <p class="m-0">Transaction ID</p>
+                            </div>
+                            <div class="rightSide">
+                                <p class="m-0">123456789</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="priceTable">
+
+
+                    <div class="priceTableInner border">
+                        <table class="table m-0 table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="titleCol">Banner</td>
+                                    <td>Homepage</td>
+                                    <td>1-Oct-19</td>
+                                    <td class="toCol">to</td>
+                                    <td>10-Oct-19</td>
+                                    <td>Web</td>
+                                    <td>NR 180</td>
+                                </tr>
+                                <tr>
+                                    <td class="titleCol">Search words</td>
+                                    <td>3 words</td>
+                                    <td>1-Oct-19</td>
+                                    <td class="toCol">to</td>
+                                    <td>10-Oct-19</td>
+                                    <td>Web</td>
+                                    <td>NR 180</td>
+                                </tr>
+                                <tr>
+                                    <td class="titleCol">Trending activity</td>
+                                    <td>-</td>
+                                    <td>1-Oct-19</td>
+                                    <td class="toCol">to</td>
+                                    <td>10-Oct-19</td>
+                                    <td>Web</td>
+                                    <td>NR 180</td>
+                                </tr>
+                                <tr>
+                                    <td class="titleCol">Homepage header</td>
+                                    <td>-</td>
+                                    <td>1-Oct-19</td>
+                                    <td class="toCol">to</td>
+                                    <td>10-Oct-19</td>
+                                    <td>Web</td>
+                                    <td>NR 180</td>
+                                </tr>
+                                <tr>
+                                    <td class="titleCol">Subscription</td>
+                                    <td>Custom</td>
+                                    <td>1-Oct-19</td>
+                                    <td class="toCol">to</td>
+                                    <td>10-Oct-19</td>
+                                    <td>Web</td>
+                                    <td>NR 180</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="grandTotalInner border">
+                        <table class="table m-0 table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="titleCol">Gross total</td>
+                                    <td>INR</td>
+                                    <td class="priceCol">410</td>
+                                </tr>
+                                <tr>
+                                    <td class="titleCol">Search words</td>
+                                    <td>INR</td>
+                                    <td class="priceCol">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="titleCol">Trending activity</td>
+                                    <td>INR</td>
+                                    <td class="priceCol">417</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+                <div class="thanksText">
+                    <p class="text-center m-0">Thank you for your purchase!</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="editSectionOuter" *ngIf="!previewBill">
+            <div class="receiptDetailsSection">
+                <div class="headText">
+                    <p class="m-0">Receipt details</p>
+                </div>
+                <div class="detailsSection border">
+                    <div class="labels">
+                        <div class="info">
+                            <p class="m-0">City:</p>
+                        </div>
+                        <div class="info">
+                            <p class="m-0">Issue receipt to vendors?</p>
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="info">
+                            <p class="m-0">Singapore</p>
+                        </div>
+                        <div class="info">
+                            <div class="radioSection">
+                                <div class="radio-item">
+                                    <input type="radio" id="dateRange1" (change)="onIssueReceipt($event)"
+                                        name="dateRange" value="yes">
+                                    <label for="dateRange1">Yes</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="dateRange2" (change)="onIssueReceipt($event)"
+                                        name="dateRange" value="no">
+                                    <label for="dateRange2">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <div class="detailsSection2 mt-5 border" *ngIf="isIssueReceiptApplicable">
+
+
+
+
+                    <div class="row">
+                        <div class="col-4 pr-0 leftSection">
+                            <p class="m-0">Your business name on receipt</p>
+                        </div>
+                        <div class="col-8 rightSection">
+                            <input type="text" pInputText />
+                        </div>
+                    </div>
+
+
+                    <div class="row forAlignItem">
+                        <div class="col-4 pr-0 leftSection">
+                            <p class="m-0">Business address on receipt</p>
+                        </div>
+                        <div class="col-8 rightSection">
+                            <textarea pInputTextarea></textarea>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="row">
+                        <div class="col-4 pr-0 leftSection">
+                            <p class="m-0">Zip code</p>
+                        </div>
+                        <div class="col-4 rightSection">
+                            <input type="text" pInputText />
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-4 pr-0 leftSection">
+                            <p class="m-0">Business registration number</p>
+                        </div>
+                        <div class="col-4 rightSection">
+                            <input type="text" pInputText />
+                        </div>
+                        <div class="col-4 rightSection">
+                            <div class="radioSection">
+                                <div class="radio-item">
+                                    <input type="radio" id="regNo1" name="regNo" value="regNo1">
+                                    <label for="regNo1">I don t have any</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="row forAlignItem">
+                        <div class="col-4 pr-0 leftSection1">
+                            <p class="m-0">Receipt numbering</p>
+                        </div>
+                        <div class="col-lg-2 col-3 rightSection">
+                            <p class="m-0 text-center">Prefix</p>
+                            <input type="text" pInputText />
+                            <p class="m-0 text-center bottomText">Max 5<br>alpha-numeric</p>
+                        </div>
+                        <div class="col-lg-3 col-4 rightSection">
+                            <p class="m-0 text-center">Starting number</p>
+                            <input type="text" pInputText />
+                            <p class="m-0 text-center bottomText">Insert a number up to 8 digits</p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="row forCheckBox">
+                        <div class="col-4 pr-0 leftSection">
+                            <label for="tax">Tax?</label>
+                            <p-checkbox name="tax" value="yes" (onChange)="onTaxChange($event)" inputId="tax">
+                            </p-checkbox>
+                        </div>
+                        <ng-container *ngIf="isTaxApplicable">
+                            <div class="col-lg-2 col-3 rightSection">
+                                <p class="m-0 text-center">Tax</p>
+                                <input type="text" placeholder="e.g. VAT" pInputText />
+                                <p class="m-0 text-center bottomText">Max 5<br>alpha-numeric</p>
+                            </div>
+                            <div class="col-lg-3 col-4 rightSection">
+                                <p class="m-0 text-center">Tax rate</p>
+                                <input type="text" pInputText />
+                                <p class="m-0 text-center bottomText">Limited to 2 decimal places</p>
+                            </div>
+                        </ng-container>
+
+                    </div>
+
+
+
+
+
+                    <ng-container *ngIf="isTaxApplicable">
+                        <div class="vatSection">
+
+
+                            <div class="row">
+                                <div class="col-4 pr-0 leftSection">
+                                    <p class="m-0">VAT registration number</p>
+                                </div>
+                                <div class="col-3 rightSection">
+                                    <input type="text" pInputText />
+                                </div>
+                                <div class="col-5 rightSection">
+                                    <div class="radioSection">
+                                        <div class="radio-item">
+                                            <input type="radio" id="vatNo1" name="vatNo" value="vatNo1">
+                                            <label for="vatNo1">I don t have any</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="vatInner border-top border-bottom">
+
+                                <div class="upperText">
+                                    <p class="m-0 text-center">Pricing with VAT - <span>IMPORTANT!</span></p>
+                                </div>
+                                <div class="radioInner mb-4">
+                                    <div class="radio-item">
+                                        <input type="radio" id="vatPricing1" name="vatPricing" value="vatPricing1">
+                                        <label for="vatPricing1">The prices that I put up <u>include</u> VAT</label>
+                                    </div>
+                                    <div class="smallText">
+                                        <p class="m-0">(The final price paid by customers will be the same price as
+                                            what you have put up)</p>
+                                    </div>
+                                </div>
+                                <div class="radioInner">
+                                    <div class="radio-item">
+                                        <input type="radio" id="vatPricing2" name="vatPricing" value="vatPricing2">
+                                        <label for="vatPricing2">The prices that I put up do not <u>include</u>
+                                            VAT</label>
+                                    </div>
+                                    <div class="smallText">
+                                        <p class="m-0">(The final price paid by customers will be marked up by the value
+                                            of
+                                            the VAT rate you have updated)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+                        <div class="row forCheckBox forCheckBox2">
+                            <div class="col-4 pr-0 leftSection">
+                                <label for="changeTax">Change in tax rate</label>
+                                <p-checkbox name="changeTax" value="yes" (onChange)="onTaxRateSelect($event)"
+                                    inputId="changeTax"></p-checkbox>
+                                <p class="bottomCheckText m-0">(Click on checkbox if there is an impending change)</p>
+                            </div>
+                            <ng-container *ngIf="isTaxRateChecked">
+                                <div class="col-2 rightSection">
+                                    <p class="m-0 text-center">New name</p>
+                                    <input type="text" placeholder="e.g. VAT" pInputText />
+                                    <p class="m-0 text-center bottomText">Max 5<br>alpha-numeric</p>
+                                </div>
+                                <div class="col-3 rightSection">
+                                    <p class="m-0 text-center">New tax rate</p>
+                                    <div class="forPercentage">
+                                        <input type="text" pInputText />
+                                        <p class="m-0">%</p>
+                                    </div>
+                                    <p class="m-0 text-left bottomText">Limited to 2 decimal places</p>
+                                </div>
+                                <div class="col-3 rightSection">
+                                    <p class="m-0 text-center">Date of change</p>
+                                    <div class="forDatePicker">
+                                        <input pInputText type="text" bsDatepicker [bsConfig]="{ isAnimated: true }">
+                                        <i class="pi pi-calendar"></i>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ng-container>
+
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="buttonSection">
+                <button pButton pRipple type="button" label="Cancel" class="p-button-warning"
+                    (click)="activePreviewSection()"></button>
+                <button pButton pRipple type="button" label="Save" class="p-button-success"></button>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+</div>

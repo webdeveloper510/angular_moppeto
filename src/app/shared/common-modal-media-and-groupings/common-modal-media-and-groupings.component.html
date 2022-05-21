@@ -1,0 +1,97 @@
+<div class="actualOuter">
+  <div class="upperTitle">
+    <div class="titleBox">
+      <p class="text-center" mat-dialog-title>{{data.title}}</p>
+    </div>
+    <div class="close">
+      <p (click)="onDismiss()" class="close text-center">X</p>
+    </div>
+  </div>
+  <div class="bodySection">
+    <div class="textSection" *ngIf="data.textSection">
+      <div class="forReinstateAndSuspendDelete">
+        <p *ngIf="data.textSectionHeader1" class="normalDialogHead1">{{data.normalDialogHead1}}</p>
+        <p class="normalDialogHead2">{{data.normalDialogHead2}}</p>
+      </div>
+    </div>
+    <div class="inputDropdownOuter" *ngIf="data.inputTextSection">
+
+      <div class="input1">
+        <div class="inputSection">
+          <p>{{data.inputLabel}}</p>
+          <input type="text" pInputText maxlength="20" [(ngModel)]="charLength" #addNewInput>
+        </div>
+
+        <div class="totalChar">
+          <p class="text-right"
+            [ngClass]="[addNewInput.value.length == 20 ? 'maxlengthColor' : '' || charLength?'maxlengthTypingColor':'']">
+            {{addNewInput.value.length}} / 20</p>
+        </div>
+      </div>
+
+      <div class="input2" *ngIf="data.inputAddNewCountry">
+          <div class="dropdownSection inputSection">
+            <p>{{data.dropdownLabel1}}</p>
+            <p-dropdown [options]="age" [(ngModel)]="selectedAge" placeholder="&nbsp;" optionLabel="name"
+              [showClear]="false">
+            </p-dropdown>
+          </div>
+
+      </div>
+
+      <div class="input2" *ngIf="data.inputAddNewCountry">
+
+
+        <div class="inputSection">
+          <p>{{data.inputLabelAddNewCountry}}</p>
+          <input type="text" pInputText maxlength="3" [(ngModel)]="charLengthInput2" #addNewInput2 />
+        </div>
+
+        <div class="totalChar">
+          <p class="text-right"
+            [ngClass]="[addNewInput2.value.length == 3 ? 'maxlengthColor' : '' || charLengthInput2?'maxlengthTypingColor':'']">
+            {{addNewInput2.value.length}} / 3</p>
+        </div>
+
+      </div>
+
+      <div class="input2" *ngIf="data.inputAddNewCountry">
+        <div class="inputSection">
+          <p>{{data.inputLabelAddNewCountry2}}</p>
+          <input type="text" pInputText maxlength="3" [(ngModel)]="charLengthInput3" #addNewInput3 />
+        </div>
+
+        <div class="totalChar">
+          <p class="text-right"
+            [ngClass]="[addNewInput3.value.length == 3 ? 'maxlengthColor' : '' || charLengthInput3?'maxlengthTypingColor':'']">
+            {{addNewInput3.value.length}} / 3</p>
+        </div>
+
+      </div>
+
+      <div class="dropdownbSectionOuter" *ngIf="data.dropdownSection">
+
+        <div class="dropdownSection inputSection">
+          <p>{{data.dropdownLabel1}}</p>
+          <p-dropdown [options]="age" [(ngModel)]="selectedAge" placeholder="&nbsp;" optionLabel="name"
+            [showClear]="false">
+          </p-dropdown>
+        </div>
+        <div class="dropdownSection2 inputSection">
+          <p>{{data.dropdownLabel2}}</p>
+          <p-dropdown [options]="age2" [(ngModel)]="selectedAge2" placeholder="&nbsp;" optionLabel="name"
+            [showClear]="false">
+          </p-dropdown>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="buttonSection">
+      <button pButton pRipple type="button" label="Add" class="p-button-success" *ngIf="data.addButton"></button>
+      <button pButton pRipple type="button" label="Edit" class="p-button-warning" *ngIf="data.editButton"></button>
+      <button pButton pRipple type="button" label="Yes" class="p-button-success" *ngIf="data.yesButton"></button>
+      <button pButton pRipple type="button" label="Ok" class="p-button-success" *ngIf="data.okButton"></button>
+    </div>
+  </div>
+</div>

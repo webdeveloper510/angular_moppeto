@@ -1,0 +1,49 @@
+<label class="country-label">Select Country</label>
+<div class="col-xl-6 body2">
+  <div class="innerBody2Outer">
+    <div class="radioOuter2 radioBtnOuter">
+      <div class="row">
+        <ng-container *ngFor="let country of countries">
+          <div class="col-sm-6">
+            <div class="radio-item">
+              <input type="radio" [id]="country.id" name="radio" [value]="country.name" [(ngModel)]="selectedCountry"
+                (change)="onChangeCountry()">
+              <label [for]="country.id">{{country.name}}</label>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="userTabNav">
+  <div class="total-display">
+    <ng-container *ngIf="vendors?.indCount">
+      <span>Individuals:</span> <span>{{vendors?.indCount}}</span>
+    </ng-container>
+    <ng-container *ngIf="vendors?.entityCount">
+      <span>Entities:</span> <span>{{vendors?.entityCount}}</span>
+    </ng-container>
+    <ng-container *ngIf="vendors?.count">
+      <span>Total Result:</span> <span>{{vendors?.count}}</span>
+    </ng-container>
+  </div>
+  <div class="mainOuter">
+    <div class="fornav d-flex">
+      <a routerLink="main-info" routerLinkActive="active">
+        <div class="nav-item ">
+          <P class="formargin">Main Info</P>
+        </div>
+      </a>
+      <a routerLink="other-info" routerLinkActive="active">
+        <div class="nav-item">
+          <P class="formargin">Other Info</P>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="fornavmenus">
+    <router-outlet></router-outlet>
+  </div>
+</div>

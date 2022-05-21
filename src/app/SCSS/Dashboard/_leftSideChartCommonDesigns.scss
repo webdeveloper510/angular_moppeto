@@ -1,0 +1,94 @@
+@import "../MainOuter/mainOuterDesign";
+@import "../CommonDesigns/commonDesigns.scss";
+
+$blackColor: #333333;
+$whiteColor: #fff;
+$scrollThumbColor: #e7e7e7;
+$blueColor: #6497fb;
+$greenColor: #6fcf97;
+$orangeColor: #faa559;
+$yellowColor: #facd44;
+$greyColor: #c2c2c2;
+$brownColor: #906b33;
+$violetColor: #cb89ff;
+
+.upperHeadAndButtons {
+    @include displayFlex(space-around, flex-start);
+    padding: 0 4rem;
+    @media (max-width: 575px) {
+        display: block;
+        padding: 0;
+    }
+    .headings {
+        width: calc(100% - 17rem);
+        padding-right: 1rem;
+
+        @media (max-width: 575px) {
+            width: 100%;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+    }
+    .buttonsOuter {
+        padding-top: 0.6rem;
+        width: 17rem;
+        @media (max-width: 575px) {
+            margin: 0 auto;
+        }
+        button {
+            padding: 0.35rem 0.7rem;
+            border-radius: 0.5rem;
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+            @include forParaTag($blackColor, 1.2rem, 500);
+        }
+        .btn-light {
+            background-color: $whiteColor;
+        }
+        .activatedGSTBlue {
+            @include activeButton($blueColor);
+        }
+        .btn-blue {
+            @include activeButton($blueColor);
+        }
+        .btn-orange {
+            @include activeButton($orangeColor);
+        }
+        .btn-brown {
+            @include activeButton($brownColor);
+        }
+        .btn-green {
+            @include activeButton($greenColor);
+        }
+        .btn-violet {
+            @include activeButton($violetColor);
+        }
+        .activatedDWMGreen {
+            @include activeButton($greenColor);
+        }
+        .withOrWithOutGST,
+        .dayWeekOrMonth {
+            @include displayFlex(space-around, center);
+        }
+        .withOrWithOutGST {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.mainChartOuter {
+    @include scrollBar(auto, hidden, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.5rem);
+}
+
+.chartInner {
+    margin: 6rem 0 0 0;
+}
+
+:host ::ng-deep .apexcharts-legend-series {
+    padding-top: 2.5rem !important;
+}
+
+:host ::ng-deep .apexcharts-toolbar {
+    right: 4rem !important;
+}

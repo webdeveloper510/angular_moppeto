@@ -1,0 +1,16 @@
+@import "../../../SCSS/Dashboard/chartsCommonDesigns";
+@import "../../../SCSS/Dashboard/rightSideChartCommonDesigns";
+
+.headings {
+    .mainHead {
+        color: $blueColor;
+    }
+}
+
+.mainChartOuter {
+    margin-top: 4rem;
+}
+
+:host ::ng-deep .apexcharts-toolbar {
+    right: 2rem !important;
+}

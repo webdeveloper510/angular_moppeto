@@ -1,0 +1,54 @@
+$tabLinkTextColor: #bdbdbd;
+$activeTabTextAndDownBorderColor: #333333;
+
+.tabs {
+    margin-top: 1.5rem;
+    .tabsInner {
+        @media (max-width: 335px){
+            margin-left: -.7rem;
+        }
+        a {
+            display: inline-block;
+            color: $tabLinkTextColor;
+            font-size: 1.7rem;
+            font-weight: 500;
+            padding: 0.3rem;
+            margin-left: 3.5rem;
+            @media (max-width: 767px) {
+                margin-left: 2.5rem;
+            }
+            @media (max-width: 400px){
+                margin-left: 1rem;
+                font-size: 1.45rem;
+                padding-left: 0.1rem;
+
+            }
+            text-decoration: none;
+        }
+
+        .activeTab {
+            color: $activeTabTextAndDownBorderColor;
+            border-bottom: $activeTabTextAndDownBorderColor solid 0.3rem;
+        }
+    }
+
+    .downloadCSV {
+        img {
+            float: right;
+            width: 1.9rem;
+            cursor: pointer;
+            margin-right: 35%;
+        }
+    }
+}
+
+
+@media (max-width: 575px) {
+    .downloadCSV {
+        margin-top: 1.5rem;
+        img {
+            margin-right: 1.5rem !important;
+            display: block;
+        }
+    }
+}

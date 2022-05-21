@@ -1,0 +1,15 @@
+@import "../../../SCSS/Dashboard/chartsCommonDesigns";
+@import "../../../SCSS/Dashboard/rightSideChartCommonDesigns";
+
+.upperHeadAndButtons,
+.mainChartOuter {
+    @media (min-width: 576px) {
+        margin-left: 4rem;
+    }
+}
+
+.mainChartInner {
+    margin-top: 2.7rem;
+    max-height: 37rem;
+    @include scrollBar(hidden, auto, 0.5rem, 0.5rem, 1rem, 0, 0, transparent, $scrollThumbColor, 00.5rem);
+}

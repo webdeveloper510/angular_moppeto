@@ -1,0 +1,597 @@
+<div class="mainOuter border" [ngClass]="!isEdit?'overlayBodyTrue':''">
+
+    <div class="upperBodyOuter">
+        <div class="countryRadioOuter">
+            <div class="upperRadioDivOuter">
+                <p>Select country</p>
+                <div class="radioInner">
+                    <div class="row colOuter align-items-start">
+                        <div class="col-sm-6">
+                            <div class="leftRadio">
+                                <div class="forRadio"
+                                    *ngFor="let country of countrys | slice:0:countrys.length/2; index as i">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{country+i}}" name="country" value="{{country+i}}" (click)="selectCountry(country)">
+                                        <label for="{{country+i}}">{{country}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="rightRadio">
+                                <div class="forRadio"
+                                    *ngFor="let country of countrys | slice:(countrys.length/2):countrys.length; index as i">
+                                    <div class="radio-item">
+                                        <input type="radio" id="{{country+i}}" name="country" value="{{country+i}}" (click)="selectCountry(country)">
+                                        <label for="{{country+i}}">{{country}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table Starts..... -->
+    <div class="tableOuter border-top table-responsive text-nowrap">
+        <table class="table table-borderless text-center">
+            <thead class="forBG">
+                <tr class="headRow1">
+                    <th scope="col" class="subsTypeCol text-left">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1">
+                    </th>
+                    <th scope="col" class="smallCol1 border-right">
+                    </th>
+                    <th scope="col" class="termCol" colspan="4">
+                        <div class="innerHead">
+                            Term
+                        </div>
+                    </th>
+                    <th scope="col" class="openCol1" colspan="4">
+                        <div class="innerHead">
+                            Open
+                        </div>
+                    </th>
+                    <th scope="col" class="fixedTimingCol" colspan="3">
+                        <div class="innerHead">
+                            Fixed Timing
+                        </div>
+                    </th>
+                    <th scope="col" class="dayAccessCol" colspan="3">
+                        <div class="innerHead">
+                            Day Access
+                        </div>
+                    </th>
+                    <th scope="col" class="editCol border-left">
+                    </th>
+                </tr>
+                <tr class="headRow2">
+                    <th scope="col" class="subsTypeCol text-left">
+                        Subscription
+                        <br>
+                        type
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Locations
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Sub-admin
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Trial
+                        <br>
+                        Class
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Promotions
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Term
+                        <br>
+                        renewal
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Dashboard
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Reports
+                        <br>
+                        (Revenue)
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Homepage
+                        <br>
+                        banner
+                        <br>
+                        credits
+                        <br>
+                        (App/Web)
+                    </th>
+                    <th scope="col" class="smallCol1 border-right">
+                        Homepage
+                        <br>
+                        header
+                        <br>
+                        credits
+                        <br>
+                        (App/Web)
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of
+                        <br>
+                        activities
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of slots
+                        <br>
+                        per Term
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Sessions
+                        <br>
+                        per Term
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Price/mth
+                        <br>
+                        S$
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of
+                        <br>
+                        activities
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of slots
+                        <br>
+                        per Term
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Sessions
+                        <br>
+                        per Term
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Price/mth
+                        <br>
+                        S$
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of
+                        <br>
+                        activities
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Slots per
+                        <br>
+                        Session
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Price/mth
+                        <br>
+                        S$
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        No. of
+                        <br>
+                        activities
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Slots per
+                        <br>
+                        Session
+                    </th>
+                    <th scope="col" class="smallCol1">
+                        Price/mth
+                        <br>
+                        S$
+                    </th>
+                    <th scope="col" class="editCol border-left">
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="border-top">
+                <tr class="border-bottom" [ngClass]="!demoTable[i].editMode?'overlayBodyFalse':''"
+                    *ngFor="let data of demoTable; let i = index">
+                    <td scope="row" class="subsTypeCol text-left">
+                        <div class="title2">
+                            <p>
+                                {{data.subscription_type ? data.subscription_type : "-"}}
+                            </p>
+                        </div>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.no_of_locations ? data.no_of_locations : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" (change)="editDataSet.no_of_locations = $event.target.value" pInputText [value]= "data.no_of_locations ? data.no_of_locations : '-'" >
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.no_of_subadmins ? data.no_of_subadmins : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" (change)="editDataSet.no_of_subadmins = $event.target.value" pInputText [value]="data.no_of_subadmins ? data.no_of_subadmins : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.has_trial_class ? "Yes" : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <p-checkbox name="groupname" [value]="data.has_trial_class" [(ngModel)]="data.has_trial_class"  binary="true">
+                            </p-checkbox>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.has_promotions ? "Yes" : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <p-checkbox name="groupname" [value]="data.has_promotions" [(ngModel)]="data.has_promotions" binary="true">
+                            </p-checkbox>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.has_term_renewal ? "Yes" : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <p-checkbox name="groupname" [value]="data.has_term_renewal" [(ngModel)]="data.has_term_renewal" binary="true">
+                            </p-checkbox>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.has_dashboard ? "Yes" : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <p-checkbox name="groupname" [value]="data.has_dashboard" [(ngModel)]="data.has_dashboard" binary="true">
+                            </p-checkbox>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.has_reports ? "Yes": "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <p-checkbox name="groupname" [value]="data.has_reports" [(ngModel)]="data.has_reports"  binary="true">
+                            </p-checkbox>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.baner_credit ? data.baner_credit : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.baner_credit = $event.target.value" [value]="data.baner_credit ? data.baner_credit : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1 border-right">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.header_credit? data.header_credit : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.header_credit = $event.target.value" [value]="data.header_credit? data.header_credit : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.term_no_of_activities ? data.term_no_of_activities : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.term_no_of_activities = $event.target.value" [value]="data.term_no_of_activities ? data.term_no_of_activities : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.term_slots_per_session ? data.term_slots_per_session : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.term_slots_per_session = $event.target.value" [value]="data.term_slots_per_session ? data.term_slots_per_session : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.term_sessions_per_term? data.term_sessions_per_term : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.term_sessions_per_term = $event.target.value" [value]="data.term_sessions_per_term? data.term_sessions_per_term : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.term_pricing ? data.term_pricing : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.term_pricing = $event.target.value" [value]="data.term_pricing ? data.term_pricing : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.open_no_of_activities ? data.open_no_of_activities : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.open_no_of_activities = $event.target.value" [value]="data.open_no_of_activities ? data.open_no_of_activities : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.open_slots_per_session ? data.open_slots_per_session : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.open_slots_per_session = $event.target.value" [value]="data.open_slots_per_session ? data.open_slots_per_session : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.open_sessions_per_term ? data.open_sessions_per_term : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.open_sessions_per_term = $event.target.value" [value]="data.open_sessions_per_term ? data.open_sessions_per_term : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.price_per_month ? data.price_per_month : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.price_per_month = $event.target.value" [value]="data.price_per_month ? data.price_per_month : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.fixed_no_of_activities ? data.fixed_no_of_activities : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.fixed_no_of_activities = $event.target.value" [value]="data.fixed_no_of_activities ? data.fixed_no_of_activities : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.fixed_sessions_per_term ? data.fixed_sessions_per_term : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.fixed_sessions_per_term = $event.target.value" [value]="data.fixed_sessions_per_term ? data.fixed_sessions_per_term : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.fixed_pricing ? data.fixed_pricing : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.fixed_pricing = $event.target.value" [value]="data.fixed_pricing ? data.fixed_pricing : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.day_access_no_of_activities ? data.day_access_no_of_activities : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.day_access_no_of_activities = $event.target.value" [value]="data.day_access_no_of_activities ? data.day_access_no_of_activities : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.day_access_sessions_per_term ? data.day_access_sessions_per_term : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.day_access_sessions_per_term = $event.target.value" [value]="data.day_access_sessions_per_term ? data.day_access_sessions_per_term : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="smallCol1">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="title3">
+                                <p>
+                                    {{data.day_access_pricing ? data.day_access_pricing : "-"}}
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="editInput">
+                                <input type="text" pInputText (change)="editDataSet.day_access_pricing = $event.target.value" [value]="data.day_access_pricing ? data.day_access_pricing : '-'">
+                            </div>
+                        </ng-container>
+                    </td>
+                    <td scope="row" class="editCol border-left">
+                        <ng-container *ngIf="data.editMode">
+                            <div class="editPenButton" (click)="editPricing(i)">
+                                <i class="pi pi-pencil"></i>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="!data.editMode">
+                            <div class="nextCancelButtonOuter">
+                                <button pButton type="button" label="Ok" class="p-button-success" (click)="oklEditPricing(i)"></button>
+                                <button pButton type="button" label="Cancel" class="p-button-danger"
+                                    (click)="cancelEditPricing(i)"></button>
+                            </div>
+                        </ng-container>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Ends...... -->
+
+    <!-- Pagination Starts...... -->
+    <div *ngIf="demoTable?.length > 0">
+        <app-pagination (onPagechanged)="pageChangeEvent()" [paginationService]="paginationService">
+        </app-pagination>
+    </div>
+
+    <!-- <div class="paginationOuter">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="rowsOuter">
+                    <p>Rows per page:</p>
+                    <div class="selectNoOfRow select">
+
+                        <select class="form-control select__field" aria-label="Default select example">
+                            <option selected value="1">10</option>
+                            <option value="2">20</option>
+                            <option value="3">30</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="pagesOuter">
+                    <p>1 of 6</p>
+                    <div class="iconPrevious">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector1.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="iconNext">
+                        <a href="#">
+                            <img src="../../../assets/Pagination/Vector2.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Pagination Ends...... -->
+
+</div>

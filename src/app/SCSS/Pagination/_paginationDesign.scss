@@ -1,0 +1,149 @@
+$paginationBackgroundColor: #deffec;
+$paginationTextColor: #828282;
+$selectArrowColor: rgb(110, 104, 147);
+
+@mixin paraTag($color, $fontSize, $fontWeight) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
+
+@mixin customSelectAndFormContol($width) {
+    width: $width;
+    border: none !important;
+    background-color: $paginationBackgroundColor;
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+@mixin rowsOuterAndPagesOuter($float, $marginTop) {
+    float: $float;
+    display: flex;
+    @media (max-width: 576px) {
+        float: none;
+        justify-content: center;
+    }
+    @media (max-width: 575px) {
+        align-items: center;
+        p {
+            margin-top: $marginTop !important;
+        }
+    }
+}
+
+.paginationOuter {
+    background-color: $paginationBackgroundColor;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    padding: 1.5rem 0;
+    .rowsOuter {
+        @include rowsOuterAndPagesOuter(right, -0.4rem);
+        margin-right: 5rem;
+        @media (max-width: 847px) {
+            margin-right: 2.5rem;
+        }
+        @media (max-width: 607px) {
+            margin-right: 1rem;
+        }
+        @media (max-width: 587px) {
+            margin-right: 0;
+            padding-right: 0 !important;
+        }
+        @media (max-width: 575px) {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            @include paraTag($paginationTextColor, 1.5rem, 600);
+            margin: 0;
+            margin-top: 0.5rem;
+        }
+
+        .selectNoOfRow {
+            margin-left: 2rem;
+            .custom-select {
+                @include paraTag($paginationTextColor, 1.5rem, 600);
+                @include customSelectAndFormContol(6rem);
+            }
+        }
+    }
+    .pagesOuter {
+        margin-left: 5rem;
+        @include rowsOuterAndPagesOuter(left, 1rem);
+        @media (max-width: 847px) {
+            margin-left: 2.5rem;
+        }
+        @media (max-width: 607px) {
+            margin-left: 1rem;
+        }
+        @media (max-width: 587px) {
+            margin-left: 0;
+            padding-left: 0 !important;
+        }
+
+        p {
+            @include paraTag($paginationTextColor, 1.5rem, 600);
+            margin: 0;
+            margin-top: 0.5rem;
+            margin-right: 7rem;
+        }
+        .iconPrevious,
+        .iconNext {
+            img {
+                margin-top: 0.8rem;
+                height: 1.5rem;
+            }
+        }
+        .iconNext {
+            margin-left: 4.3rem;
+        }
+    }
+
+    .select {
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        margin-top: 0.125rem;
+    }
+
+    .select:after {
+        content: "▼";
+        position: absolute;
+        left: 4.2rem;
+        right: 0;
+        top: 0.6rem;
+        z-index: 1;
+        text-align: center;
+        pointer-events: none;
+        @include paraTag($selectArrowColor, 1.2rem, 500);
+    }
+
+    .select__field {
+        outline: none;
+        -webkit-appearance: none;
+        /* for webkit browsers */
+        -moz-appearance: none;
+        /* for firefox */
+        appearance: none;
+        /* for modern browsers */
+    }
+
+    /* remove default caret for ie */
+
+    .select__field::-ms-expand {
+        display: none;
+    }
+
+    .form-control {
+        cursor: pointer;
+        padding-left: 1.5rem !important;
+        @include paraTag($paginationTextColor, 1.5rem, 600);
+        @include customSelectAndFormContol(5.2rem);
+    }
+
+    .blankDiv {
+        height: 3rem;
+    }
+}

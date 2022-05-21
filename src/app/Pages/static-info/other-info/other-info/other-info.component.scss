@@ -1,0 +1,144 @@
+@import "../../../../SCSS/MainOuter/mainOuterDesign";
+@import "../../../../SCSS/CommonDesigns/commonDesigns.scss";
+@import "../../../../SCSS/MediaAndGroupings/radioButtonSectionDesign";
+@import "../../../../SCSS/Table/tableDesign";
+@import "../../../../SCSS/Table/tableDesignWithoutScroll";
+
+$tdTitle1Color: #414141;
+$whiteColor: #fff;
+$termsTextBG: #e7e7e7;
+$termsTextBorder: #c4c4c4;
+$languageButtonColor: #396aff;
+$greenButtonColor: #6fcf97;
+
+@mixin scrollingTD {
+    @include scrollBar(hidden, auto, 0.7rem, 0.7rem, 0.8rem, 0, 5rem, transparent, $termsTextBG, 1rem);
+    max-height: 13rem;
+}
+.p-button-success {
+    @include classWisebuttonDesign($greenButtonColor, $greenButtonColor, $whiteColor, $greenButtonColor);
+
+    &:hover {
+        border: 2px solid $greenButtonColor !important;
+        background-color: $greenButtonColor !important;
+    }
+}
+.radioOuter3 {
+    width: 35rem;
+    @media (max-width: 575px) {
+        width: 100%;
+    }
+}
+
+.tableOuter {
+    margin-top: 2rem;
+    .table {
+        th {
+            padding-top: 3.5rem !important;
+        }
+        tbody {
+            tr {
+                &:last-child {
+                    border: none !important;
+                }
+                &:first-child {
+                    .dropdown-menu {
+                        margin-top: 0;
+                    }
+                }
+            }
+            td {
+                padding-top: 2.2rem !important;
+                padding-bottom: 2.2rem !important;
+            }
+
+            .title1 {
+                @include tableData(1.5rem, $tdTitle1Color, 600);
+            }
+        }
+        .noCol {
+            width: 7rem;
+        }
+
+        .countrySectionOuter {
+            padding-left: 7rem;
+            padding-right: 2.5rem;
+            @media (max-width: 1600px) {
+                padding-left: 5rem;
+            }
+            @media (max-width: 1377px) {
+                padding-left: 2.5rem;
+                width: 26rem;
+            }
+        }
+
+        .termsSectionOuter {
+            padding: 0;
+            width: 50rem;
+            @media (max-width: 1527px) {
+                width: 40rem;
+            }
+            position: relative;
+            .termsSectionInner {
+                @include scrollingTD();
+                .textBody {
+                    width: calc(100% - 3rem);
+                    border: solid 0.2rem $termsTextBorder;
+                    padding: 1rem;
+                    background-color: $termsTextBG;
+                    p {
+                        text-align: justify;
+                        @include forParaTag($tdTitle1Color, 1.4rem, 500);
+                    }
+                }
+                .mailText {
+                    width: calc(100% - 3rem);
+                }
+            }
+            .ellipsisOuter2 {
+                top: 50%;
+                right: 1rem;
+                transform: translateY(-50%);
+                position: absolute;
+            }
+        }
+        .languagebuttonOter {
+            width: 22rem;
+            padding: 0;
+            .languagebuttonInner {
+                @include scrollingTD();
+                @include buttonDesign(1.4rem, 400, 0rem, 0, 0.2rem, 0.7rem);
+                button {
+                    width: 17rem;
+                    display: block;
+                    margin: 0 auto 1.4rem auto;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+                .p-button-primary {
+                    @include classWisebuttonDesign(
+                        $languageButtonColor,
+                        $languageButtonColor,
+                        $whiteColor,
+                        $languageButtonColor
+                    );
+                }
+            }
+        }
+        @media (max-width: 1257px) {
+            th,
+            td {
+                width: 13.7rem;
+            }
+        }
+        .dropdown-menu {
+            .forEdit {
+                background-color: $termsTextBG;
+                &:hover {
+                    background-color: darken($termsTextBG, 10%);
+                }
+            }
+        }
+    }
+}

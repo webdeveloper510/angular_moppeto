@@ -1,0 +1,147 @@
+@import "../../SCSS/MainOuter/mainOuterDesign";
+@import "../../SCSS/BootstrapModalDesign/bootstrapModalDesign";
+@import "../../SCSS/CommonDesigns/commonDesigns.scss";
+
+$closeIconColor: #fff;
+$closeBackgroundColor: rgb(153, 153, 153);
+$customDropZoneBorderColor: rgb(219, 219, 219);
+$customDropZoneHoverColor: rgb(233, 230, 230);
+$blackColor: #333333;
+
+.BoysOuter,
+.GirlsOuter {
+    margin: 5rem auto 0 auto;
+    width: 90rem;
+    @media (max-width: 1387px) {
+        width: 82rem;
+    }
+    @media (max-width: 1300px) and (min-width: 1200px) {
+        width: 100%;
+        padding: 0 2rem;
+        .colsOuter {
+            justify-content: space-evenly !important;
+        }
+        .cols {
+            margin: 0 2rem 2.5rem 2rem !important;
+        }
+        .text {
+            p {
+                text-align: center;
+            }
+        }
+    }
+    @media (max-width: 991px) {
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    .boysInner,
+    .girlsInner {
+        .text {
+            margin-bottom: 2.5rem;
+            p {
+                margin: 0;
+                @include forParaTag($blackColor, 1.8rem, 600);
+                text-decoration: underline;
+                @media (max-width: 991px) {
+                    text-align: center;
+                }
+            }
+        }
+        .colsOuter {
+            @include displayFlex(space-between, center);
+            flex-wrap: wrap;
+            @media (max-width: 991px) {
+                justify-content: space-evenly;
+            }
+        }
+        .cols {
+            height: 25rem;
+            width: 25rem;
+            margin: 0 0 2.5rem 0;
+            @include displayFlex(center, center);
+            @media (max-width: 991px) {
+                margin: 0 2rem 2.5rem 2rem;
+            }
+        }
+        .imgOuter {
+            position: relative;
+            border-radius: 0.5rem;
+            padding: 1.5rem 0;
+            .imgView {
+                max-height: calc(100% - 3rem);
+                overflow: relative;
+                img {
+                    max-height: 21.7rem;
+                    position: relative;
+                    width: calc(100% - 3rem);
+                    opacity: 0.8;
+                    margin: 0 auto;
+                    display: block;
+                }
+            }
+            .closeIcon {
+                position: absolute;
+                top: 2.2rem;
+                right: 2.2rem;
+                i {
+                    @include forParaTag($closeIconColor, 1.5rem, 600);
+                    padding: 0.5rem;
+                    background-color: $closeBackgroundColor;
+                    border-radius: 1.2rem;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.GirlsOuter {
+    margin: 7rem auto;
+}
+
+.outer {
+    .custom-dropzone {
+        height: 25rem;
+        width: 25rem;
+        overflow: hidden;
+        border: 0.1rem solid $customDropZoneBorderColor;
+        border-radius: 0.5rem;
+        ngx-dropzone-image-preview {
+            margin: 0 auto !important;
+            padding: 0 !important;
+        }
+        ngx-dropzone-label {
+            z-index: 6;
+            .label {
+                padding: 1.5rem 2.5rem;
+                z-index: 100 !important;
+                i {
+                    font-size: 3rem;
+                    margin-bottom: 1.5rem;
+                }
+                p {
+                    font-size: 1.5rem;
+                    margin: 0;
+                }
+                .forBold {
+                    font-weight: 600;
+                    margin-bottom: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .custom-dropzone.ngx-dz-hovered {
+        background-color: $customDropZoneHoverColor;
+    }
+}
+
+:host ::ng-deep ngx-dropzone-image-preview {
+    padding: 0 !important;
+    margin: 0 !important;
+    img {
+        opacity: 1 !important;
+        box-shadow: none !important;
+    }
+}
